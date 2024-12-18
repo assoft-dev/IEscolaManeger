@@ -1,0 +1,54 @@
+﻿using IEscolaDesktop.View.Forms;
+using IEscolaEntity.Controllers.Helps;
+using System;
+using System.Collections;
+using System.IO;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace IEscolaDesktop
+{
+    internal static class Program
+    {
+        [STAThread]
+        static void Main()
+        {
+            //Verificar a base de dados
+            var Db = new DataConnections();
+            Db.InitialMetodos(new DataConnectionConfig());
+            inicializacaoDirectory();
+
+            Application.ThreadException += Application_ThreadException;
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new frmTelaInicial());
+        }
+
+        private static void inicializacaoDirectory()
+        {
+            var caminho = new ArrayList
+            {
+                @"C:\\GYM-System\\Usuarios",
+                @"C:\\GYM-System\\Equipamentos",
+                @"C:\\GYM-System\\Membros",
+                @"C:\\GYM-System\\Produtos",
+                @"C:\\GYM-System\\PersonalTreiner",
+            };
+
+            foreach (string item in caminho)
+            {
+                if (!Directory.Exists(item))
+                    Directory.CreateDirectory(item);
+            }
+        }
+
+        private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            var Db = new DataConnections();
+            Db.InitialMetodos(new DataConnectionConfig());
+
+            MessageBox.Show("Error Global " + e.Exception.Message);
+        }
+    }
+}
