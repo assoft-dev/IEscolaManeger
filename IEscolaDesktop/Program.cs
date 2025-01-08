@@ -30,10 +30,8 @@ namespace IEscolaDesktop
             var caminho = new ArrayList
             {
                 @"C:\\GYM-System\\Usuarios",
-                @"C:\\GYM-System\\Equipamentos",
-                @"C:\\GYM-System\\Membros",
-                @"C:\\GYM-System\\Produtos",
-                @"C:\\GYM-System\\PersonalTreiner",
+                @"C:\\GYM-System\\Professores",
+                @"C:\\GYM-System\\Estudantes",
             };
 
             foreach (string item in caminho)

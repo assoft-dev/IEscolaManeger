@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Interfaces
 {
-    public interface IEstudantes : ITransationRepository, IGeneric<Estudantes>
+    public interface IProfessores: ITransationRepository, IGeneric<Professores>
     {
     }
 }

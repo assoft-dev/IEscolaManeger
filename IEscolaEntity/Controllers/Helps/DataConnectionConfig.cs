@@ -20,6 +20,7 @@ namespace IEscolaEntity.Controllers.Helps
             SqlServerDialect.Provider.RegisterConverter<Sexo>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
             SqlServerDialect.Provider.RegisterConverter<Estado>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
             SqlServerDialect.Provider.RegisterConverter<EstadoTransations>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
+            SqlServerDialect.Provider.RegisterConverter<Escolaridade>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
         }
         private void ConectionStringInitial()
         {

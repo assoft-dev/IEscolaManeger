@@ -50,7 +50,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarControl.EditValue = 0;
             this.progressBarControl.Location = new System.Drawing.Point(32, 286);
-            this.progressBarControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBarControl.Margin = new System.Windows.Forms.Padding(4);
             this.progressBarControl.Name = "progressBarControl";
             this.progressBarControl.Size = new System.Drawing.Size(536, 15);
             this.progressBarControl.TabIndex = 5;
@@ -59,7 +59,7 @@
             // 
             this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.labelCopyright.Location = new System.Drawing.Point(32, 353);
-            this.labelCopyright.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelCopyright.Margin = new System.Windows.Forms.Padding(4);
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(54, 16);
             this.labelCopyright.TabIndex = 6;
@@ -70,16 +70,16 @@
             this.labelStatus.Location = new System.Drawing.Point(32, 265);
             this.labelStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 1);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(57, 16);
+            this.labelStatus.Size = new System.Drawing.Size(45, 16);
             this.labelStatus.TabIndex = 7;
-            this.labelStatus.Text = "Starting...";
+            this.labelStatus.Text = "Inicial...";
             // 
             // peImage
             // 
             this.peImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.peImage.EditValue = ((object)(resources.GetObject("peImage.EditValue")));
             this.peImage.Location = new System.Drawing.Point(1, 1);
-            this.peImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.peImage.Margin = new System.Windows.Forms.Padding(4);
             this.peImage.Name = "peImage";
             this.peImage.Properties.AllowFocused = false;
             this.peImage.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -121,7 +121,7 @@
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.progressBarControl);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmTelaInicial";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "frmTelaInicial";

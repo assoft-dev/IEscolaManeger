@@ -14,6 +14,10 @@ namespace IEscolaEntity.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        [Ignore] public string FullName { 
+            get { return string.Format("{0} {1}", FirstName, LastName); } 
+        }
+
 
         [Index(Unique = true)]
         public string Email { get; set; }
@@ -33,5 +37,6 @@ namespace IEscolaEntity.Models
 
         //Chave de Ligação
         [Reference]  public List<Logs> logs { get; set; }
+
     }
 }

@@ -6,6 +6,8 @@ namespace IEscolaEntity.Models.ViewModels
     {
         public int UsuariosID { get; set; }
         public string FullName { get; set; }
-        public Estado Estado { get; set; }
+
+        public UsuariosRetorno usuariosRetorno{ get; set; }
+        public  Permission Permission { get; set; }
     }
 }

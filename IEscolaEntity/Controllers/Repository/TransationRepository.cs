@@ -96,9 +96,13 @@ namespace IEscolaEntity.Controllers.Repository
             var data = DbConection.Select<TEntity>(DbConection.From<TEntity>().Where(predicate));
             return data.FirstOrDefault();
         }
-        public int DoGetCount<TEntity>() where TEntity : class
+        public long DoGetCount<TEntity>() where TEntity : class
         {
-            return (int)DbConection.Count<TEntity>(DbConection.From<TEntity>());
+            return DbConection.Count<TEntity>(DbConection.From<TEntity>());
+        } 
+        public long DoGetCount<TEntity>(Expression<Func<TEntity, bool>> Filter) where TEntity : class
+        {
+            return DbConection.Count<TEntity>(Filter);
         }
         #endregion
 

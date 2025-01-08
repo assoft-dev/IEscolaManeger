@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Interfaces
 {
-    internal interface IGrupos : IGeneric<Grupos>
+    internal interface IGrupos : ITransationRepository, IGeneric<Grupos>
     {
 
     }

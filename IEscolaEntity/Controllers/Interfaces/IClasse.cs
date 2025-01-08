@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Interfaces
 {
-    public interface IClasse: IGeneric<Classes>
+    public interface IClasse: ITransationRepository, IGeneric<Classes>
     {
+
     }
 }

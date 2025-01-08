@@ -157,6 +157,7 @@ namespace IEscolaEntity.Controllers.Helps
             Db.CreateTableIfNotExists<Periodos>();
             Db.CreateTableIfNotExists<Turmas>();
             Db.CreateTableIfNotExists<Estudantes>();
+            Db.CreateTableIfNotExists<Professores>();
         }
 
         public void UPDATETABLE()
@@ -173,6 +174,7 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<Periodos>.AsyncColuns(Db);
             DataColunsAsync<Estudantes>.AsyncColuns(Db);
             DataColunsAsync<Turmas>.AsyncColuns(Db);
+            DataColunsAsync<Professores>.AsyncColuns(Db);
         }
     }
 }

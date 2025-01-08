@@ -8,10 +8,10 @@ namespace IEscolaEntity.Controllers.Interfaces
     public interface IGeneric<T> where T : class
     {
 
-        #region Guardar - Update
-        Task<int> Guardar(T models);
+        #region Guardar - Update        
         Task<bool> Guardar(List<T> models);
-        Task<bool> Guardar(T models, bool devolver = false);
+        Task<bool> Guardar(T models, bool referencias = false);
+        Task<long> Guardar(T models, Expression<Func<T, bool>> Filter = null);
         #endregion
 
         #region Listagem
@@ -21,8 +21,7 @@ namespace IEscolaEntity.Controllers.Interfaces
         #endregion
 
         #region Excluir
-        Task<bool> Excluir(int filter);
-
+        Task<bool> Excluir(Expression<Func<T, bool>> filter);
         #endregion
     }
 }

@@ -1,13 +1,14 @@
 ﻿using IEscolaEntity.Models;
-using System;
+using IEscolaEntity.Models.Helps;
+using IEscolaEntity.Models.ViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Interfaces
 {
-    internal interface IUsuarios : IGeneric<Usuarios>
+    public interface IUsuarios : ITransationRepository, IGeneric<Usuarios>
     {
+        Task<bool> ChangePassword_Mode1(string EMail, string SenhaAntiga, string SenhaNova);
+        Task<UsuariosViewModels> Login(string Email, string Senha);
     }
 }

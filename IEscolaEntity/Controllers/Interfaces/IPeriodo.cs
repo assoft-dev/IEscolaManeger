@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Interfaces
 {
-    internal interface IPeriodo : IGeneric<Periodos>
+    public interface IPeriodo : ITransationRepository, IGeneric<Periodos>
     {
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Interfaces
 {
-    internal class Ilogs : IGeneric<Logs>
+    public interface Ilogs : ITransationRepository, IGeneric<Logs>
     {
     }
 }

@@ -17,6 +17,8 @@ namespace IEscolaDesktop.View.Forms
             timer1.Tick += Timer1_Tick;
             //GlobalthemeConfig.themeEscolas1 = ThemeEscolas.Claro;
             //GlobalthemeConfig.Theme(this);
+
+            labelCopyright.Text = string.Format("Copyright: {0} ASINFORPREST", DateTime.Now.Year);
         }
 
         #region Overrides
@@ -36,11 +38,23 @@ namespace IEscolaDesktop.View.Forms
         {
             Opacity += 0.05;
             progressBar1.Increment(5);
+
+            switch (progressBar1.Value)
+            {
+                case 0:
+                    labelStatus.Text = "Inicial...";
+                    break;
+                    case 50:
+                    labelStatus.Text = "Leitura dos Modulos";
+                    break;
+                default:
+                    labelStatus.Text = "Concluindo leituras";
+                    break;
+            }
+
             if (progressBar1.Value == 100)
             {
-
                 timer1.Stop();
-
                 var frm = new frmLogin();
                 frm.Show();
                 this.Hide();

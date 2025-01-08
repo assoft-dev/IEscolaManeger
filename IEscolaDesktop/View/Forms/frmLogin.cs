@@ -1,11 +1,10 @@
 ﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using IEscolaDesktop.View.Helps;
+using IEscolaEntity.Controllers.Helps;
+using IEscolaEntity.Controllers.Interfaces;
+using IEscolaEntity.Controllers.Repository;
+using IEscolaEntity.Models;
+using IEscolaEntity.Models.Helps;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,9 +12,250 @@ namespace IEscolaDesktop.View.Forms
 {
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
+        #region Mover
+        private int cX, cY;
+        private bool mover;
+        #endregion
+
+        IUsuarios  UserRepository;
+
+        bool TentativasErros = false;
+
         public frmLogin()
         {
             InitializeComponent();
+
+            //Mover o formulario
+            PainelMover.MouseMove += Panel1_MouseMove;
+            PainelMover.MouseDown += Panel1_MouseDown;
+            PainelMover.MouseUp += Panel1_MouseUp;
+
+            txtSenha.ButtonClick += TxtSenha_ButtonClick;
+
+            /// Chamada dos metodos
+            windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
+            btnPasswordReset.Click += BtnPasswordReset_Click;
+
+             // Instancias das classe referente
+             UserRepository = new UsuariosRepository();
+            UserRepository.DoGetCount<Usuarios>();
         }
+
+        private void BtnPasswordReset_Click(object sender, System.EventArgs e)
+        {
+            var frm = OpenFormsDialog.ShowForm(this, null, new frmUsuarioPasswordChage());
+            if (frm == DialogResult.OK)
+            {
+                Mensagens.Display("As alteração foram feitas no entanto resta apenas", "");
+            }
+        }
+
+        private void TxtSenha_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (txtSenha.Properties.UseSystemPasswordChar)
+                txtSenha.Properties.UseSystemPasswordChar = false;
+            else
+                txtSenha.Properties.UseSystemPasswordChar= true;
+        }
+
+        // Login
+
+        private async void WindowsUIButtonPanel1_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+        {
+            if (e is null)
+                await LoginForms();
+            else
+            {
+                // Validacoes
+                if (e.Button.Properties.Tag.Equals("0"))
+                    await LoginForms();
+                else
+                    CloseForms();
+            }     
+        }
+
+        private static void CloseForms()
+        {
+            var result = XtraMessageBox.Show("Queres relamente sair do sistema?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (!item.Visible)
+                        item.Close();
+                }
+                Application.Exit();
+            }
+        }
+
+        private void Limpar()
+        {
+            txtSenha.Text = string.Empty;
+            txtUsuarios.Text = string.Empty;
+            txtUsuarios.Focus();
+        }
+
+        private async  Task LoginForms()
+        {
+            Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                if (Validadacao())
+                {
+                    var result = await UserRepository.Login(txtUsuarios.Text, txtSenha.Text);
+
+                    switch (result.usuariosRetorno)
+                    {
+                        case UsuariosRetorno.Valido:
+
+                            #region Opem Menu
+                            // Entrar no menu
+                            var frm = new frmMenu(result.Permission);
+                            frm.ShowDialog();
+                            frm.FormClosed += delegate
+                            {
+                                foreach (Form item in Application.OpenForms)
+                                {
+                                    if (item.Name == typeof(frmLogin).Name)
+                                    {
+                                        item.Show();
+                                    }
+                                }
+                            };
+                            #endregion
+
+                            break;
+                        case UsuariosRetorno.Invalido:
+                            Mensagens.Display("Usuario ou Senha invalida!",
+                                              "Queira por favor voltar a colocar a senha/Usuario por favor",
+                                              MessageBoxButtons.OK,
+                                              MessageBoxIcon.Error);
+                            
+                            TentativasErros = true;
+
+                            Limpar();
+
+                            break;
+                        case UsuariosRetorno.Desativado:
+                            Mensagens.Display("Usuario: Desativado",
+                                              "Tens que contactar o Admin do sistema por favor",
+                                              MessageBoxIcon.Error);
+                            Limpar();
+                            break;
+                        case UsuariosRetorno.Initial:
+
+                            #region Chamar a alteração de Senhas
+                            var frmUserForm = OpenFormsDialog.ShowForm(this, null,
+                                                    new frmUsuarioPasswordChage());
+                            #endregion
+
+                            break;
+                        case UsuariosRetorno.PrimeiraVez:
+                            break;
+                        case UsuariosRetorno.Permissoes_Invalida:
+                            break;
+                        case UsuariosRetorno.Agrupamento_Invalida:
+                            break;
+                        case UsuariosRetorno.Desativado_Temp:
+                            break;
+                        default:
+                            break;
+                    }
+                };
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            } 
+        }
+
+        private bool Validadacao()
+        {  
+            if (string.IsNullOrWhiteSpace(txtUsuarios.Text))
+            {
+                MessageBox.Show("Coloque o seu Email por favor");
+                txtUsuarios.SelectAll();
+                txtUsuarios.Focus();
+                return false;
+            }
+            if(string.IsNullOrWhiteSpace(txtSenha.Text)) 
+            {
+                MessageBox.Show("Coloque sua senha por favor");
+                txtSenha.SelectAll();
+                txtSenha.Focus();
+                return false;
+            }
+
+            if (EmailValidade.GetIstance().IsValidEmail(txtUsuarios.Text))
+            {
+                MessageBox.Show("Notamos que o seu EMail não esta correncto");
+                txtUsuarios.SelectAll();
+                txtUsuarios.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                CloseForms();
+                bool res = base.ProcessCmdKey(ref msg, keyData);
+                return res;
+            }
+            if (keyData == Keys.F1)
+            {
+                Limpar();
+                bool res = base.ProcessCmdKey(ref msg, keyData);
+                return res;
+            }
+            if (keyData == Keys.Enter)
+            {
+                WindowsUIButtonPanel1_ButtonClick(null, null);
+
+                bool res = base.ProcessCmdKey(ref msg, keyData);
+                return res;
+            }
+            return false;
+        }
+
+        #region Mover formulátios Combinacoes de teclas
+        private void Panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                cX = e.X;
+                cY = e.Y;
+                mover = true;
+            }
+        }
+        private void Panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mover)
+            {
+                this.Left += e.X - (cX - PainelMover.Left);
+                this.Top += e.Y - (cY - PainelMover.Top);
+            }
+        }
+        private void Panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                mover = false;
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                return cp;
+            }
+        }
+        #endregion
     }
 }

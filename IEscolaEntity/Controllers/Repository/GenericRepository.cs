@@ -24,14 +24,9 @@ namespace IEscolaEntity.Controllers.Repository
         #endregion
 
         #region Apagar os dados
-        public async Task<bool> Excluir(int filter)
+        public async Task<bool> Excluir(Expression<Func<T, bool>> filter)
         {
             return await DbConection.DeleteAsync<T>(filter) > 0;
-
-            if (result > 0)
-                return true;
-            else
-                return false;
         }
         #endregion
 
@@ -48,14 +43,8 @@ namespace IEscolaEntity.Controllers.Repository
         }
         #endregion
 
-
         #region Guardar Informação
-        public async Task<long> Guardar(T models)
-        {
-            return await DbConection.InsertAsync<T>(models, true);
-        }
-
-        public async Task<bool> Guardar(T models, bool referencias)
+        public async Task<bool> Guardar(T models, bool referencias = false)
         {
              return await DbConection.SaveAsync<T>(models, referencias);
         }
@@ -67,6 +56,14 @@ namespace IEscolaEntity.Controllers.Repository
             if (result > 0)
                 return true;
             return false;
+        }
+
+        public async Task<long> Guardar(T models, Expression<Func<T, bool>> filter = null)
+        {
+            if (filter == null)
+                return await DbConection.InsertAsync<T>(models, true);
+            else
+                return await DbConection.UpdateAsync<T>(models, filter);
         }
         #endregion
     }

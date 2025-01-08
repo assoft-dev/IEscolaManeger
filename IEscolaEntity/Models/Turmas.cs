@@ -4,7 +4,6 @@ namespace IEscolaEntity.Models
 {
     public class Turmas
     {
-
         [AutoIncrement]
         public int TurmaID { get; set; }
 

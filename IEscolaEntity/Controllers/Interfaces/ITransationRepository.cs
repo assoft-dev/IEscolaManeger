@@ -24,7 +24,8 @@ namespace IEscolaEntity.Controllers.Interfaces
         #region Get
         List<TEntity> DoGet<TEntity>() where TEntity : class;
         List<TEntity> DoGet<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class;
-        int DoGetCount<TEntity>() where TEntity : class;
+        long DoGetCount<TEntity>() where TEntity : class;
+        long DoGetCount<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class;
         #endregion
 
         #region Insert
