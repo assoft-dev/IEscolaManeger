@@ -9,10 +9,11 @@ namespace IEscolaEntity.Models
 {
     public class Classes
     {
-
         [AutoIncrement]
         public int ClasseID { get; set; }
-        public string Referencia { get; set; }
+
+        [Required]
+        public string Descricao { get; set; }
 
 
         //   Turmas

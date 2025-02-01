@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Repository
 {
-    public class PermissionsRepository : GenericRepository<Permission>, IPermissions
+    public class PermissionsRepository : GenericRepository<Permissoes>, IPermissoes
     {
     }
 }

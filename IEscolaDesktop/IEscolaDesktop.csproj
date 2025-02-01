@@ -34,8 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Drawing.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -46,21 +48,37 @@
     <Reference Include="DevExpress.Sparkline.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v24.2.UI, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v24.2.Extensions, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="Guna.UI2">
-      <HintPath>..\..\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 3.5\Guna.UI2.dll</HintPath>
+    <Reference Include="DevExpress.XtraVerticalGrid.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=2cd9edde853ca0a6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="ServiceStack.OrmLite, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587" />
+    <Reference Include="ServiceStack.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OrmActual\ServiceStack.OrmLite\src\ServiceStack.OrmLite\bin\Debug\net472\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OrmActual\ServiceStack.OrmLite\src\ServiceStack.OrmLite\bin\Debug\net472\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +92,120 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\frmPeriodos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPeriodos.Designer.cs">
+      <DependentUpon>frmPeriodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmPeriodosAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPeriodosAdd.Designer.cs">
+      <DependentUpon>frmPeriodosAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmCursos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmCursos.Designer.cs">
+      <DependentUpon>frmCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmCursosAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmCursosAdd.Designer.cs">
+      <DependentUpon>frmCursosAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmClasses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmClasses.Designer.cs">
+      <DependentUpon>frmClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmTurmasAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmTurmasAdd.Designer.cs">
+      <DependentUpon>frmTurmasAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmSalas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmSalas.Designer.cs">
+      <DependentUpon>frmSalas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmClassesAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmClassesAdd.Designer.cs">
+      <DependentUpon>frmClassesAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmSalasAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmSalasAdd.Designer.cs">
+      <DependentUpon>frmSalasAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProvinciasMunicipiosAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProvinciasMunicipiosAdd.Designer.cs">
+      <DependentUpon>frmProvinciasMunicipiosAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProvinciasMunicipios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProvinciasMunicipios.Designer.cs">
+      <DependentUpon>frmProvinciasMunicipios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmMunicipios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmMunicipios.Designer.cs">
+      <DependentUpon>frmMunicipios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmMunicipiosAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmMunicipiosAdd.Designer.cs">
+      <DependentUpon>frmMunicipiosAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProvinciasAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProvinciasAdd.Designer.cs">
+      <DependentUpon>frmProvinciasAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProvincias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProvincias.Designer.cs">
+      <DependentUpon>frmProvincias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmPermissoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPermissoes.Designer.cs">
+      <DependentUpon>frmPermissoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmTurmas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmTurmas.Designer.cs">
+      <DependentUpon>frmTurmas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmUsuariosLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmUsuariosLogs.Designer.cs">
+      <DependentUpon>frmUsuariosLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmPermissoesAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPermissoesAdd.Designer.cs">
+      <DependentUpon>frmPermissoesAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,7 +230,32 @@
     <Compile Include="View\Forms\frmUsuarioPasswordChage.Designer.cs">
       <DependentUpon>frmUsuarioPasswordChage.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmGrupos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmGrupos.Designer.cs">
+      <DependentUpon>frmGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmGruposAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmGruposAdd.Designer.cs">
+      <DependentUpon>frmGruposAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmUsuariosAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmUsuariosAdd.Designer.cs">
+      <DependentUpon>frmUsuariosAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Helps\AutoCompleteExtension.cs" />
+    <Compile Include="View\Helps\GlobalArquivos.cs" />
     <Compile Include="View\Helps\GlobalException.cs" />
     <Compile Include="View\Helps\GlobalOpenUserControl.cs" />
     <Compile Include="View\Helps\GlobalReport.cs" />
@@ -108,6 +265,30 @@
     <Compile Include="View\Helps\Messagens.cs" />
     <Compile Include="View\Helps\OpenFormsDialog.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptCursos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptCursos.Designer.cs">
+      <DependentUpon>rptCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportForms\rptGrupos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptGrupos.Designer.cs">
+      <DependentUpon>rptGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportForms\rptTurmas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptTurmas.Designer.cs">
+      <DependentUpon>rptTurmas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportForms\rptUsuarioLogs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptUsuarioLogs.Designer.cs">
+      <DependentUpon>rptUsuarioLogs.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ReportForms\rptUsuarios.cs">
       <SubType>Component</SubType>
@@ -125,6 +306,63 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\frmPeriodos.resx">
+      <DependentUpon>frmPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmPeriodosAdd.resx">
+      <DependentUpon>frmPeriodosAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmCursos.resx">
+      <DependentUpon>frmCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmCursosAdd.resx">
+      <DependentUpon>frmCursosAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmClasses.resx">
+      <DependentUpon>frmClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmTurmasAdd.resx">
+      <DependentUpon>frmTurmasAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmSalas.resx">
+      <DependentUpon>frmSalas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmClassesAdd.resx">
+      <DependentUpon>frmClassesAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmSalasAdd.resx">
+      <DependentUpon>frmSalasAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProvinciasMunicipiosAdd.resx">
+      <DependentUpon>frmProvinciasMunicipiosAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProvinciasMunicipios.resx">
+      <DependentUpon>frmProvinciasMunicipios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmMunicipios.resx">
+      <DependentUpon>frmMunicipios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmMunicipiosAdd.resx">
+      <DependentUpon>frmMunicipiosAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProvinciasAdd.resx">
+      <DependentUpon>frmProvinciasAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProvincias.resx">
+      <DependentUpon>frmProvincias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmPermissoes.resx">
+      <DependentUpon>frmPermissoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmTurmas.resx">
+      <DependentUpon>frmTurmas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmUsuariosLogs.resx">
+      <DependentUpon>frmUsuariosLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmPermissoesAdd.resx">
+      <DependentUpon>frmPermissoesAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,9 +375,42 @@
     <EmbeddedResource Include="View\Forms\frmUsuarioPasswordChage.resx">
       <DependentUpon>frmUsuarioPasswordChage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmGrupos.resx">
+      <DependentUpon>frmGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmGruposAdd.resx">
+      <DependentUpon>frmGruposAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmUsuariosAdd.resx">
+      <DependentUpon>frmUsuariosAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptCursos.resx">
+      <DependentUpon>rptCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptGrupos.resx">
+      <DependentUpon>rptGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptTurmas.resx">
+      <DependentUpon>rptTurmas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ReportForms\rptUsuarios.resx">
       <DependentUpon>rptUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Classes.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Cursos.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Municipios.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Permissoes.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Provincias.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.ProvinciasMunicipios.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Salas.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Turmas.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Usuarios.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.UsuariosLogs.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

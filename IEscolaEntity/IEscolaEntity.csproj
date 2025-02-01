@@ -40,20 +40,25 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Common">
-      <HintPath>..\..\ServiceStack.OrmLite-6.0.2\src\ServiceStack.OrmLite.SqlServer\bin\Debug\net472\ServiceStack.Common.dll</HintPath>
+    <Reference Include="ServiceStack.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OrmActual\ServiceStack.OrmLite\src\ServiceStack.OrmLite\bin\Debug\net472\ServiceStack.Common.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\..\ServiceStack.OrmLite-6.0.2\src\ServiceStack.OrmLite.SqlServer\bin\Debug\net472\ServiceStack.Interfaces.dll</HintPath>
+    <Reference Include="ServiceStack.Interfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OrmActual\ServiceStack.OrmLite\src\ServiceStack.OrmLite\bin\Debug\net472\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\ServiceStack.OrmLite-6.0.2\src\ServiceStack.OrmLite.SqlServer\bin\Debug\net472\ServiceStack.OrmLite.dll</HintPath>
+    <Reference Include="ServiceStack.OrmLite, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OrmActual\ServiceStack.OrmLite\src\ServiceStack.OrmLite\bin\Debug\net472\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.OrmLite.SqlServer">
-      <HintPath>..\..\ServiceStack.OrmLite-6.0.2\src\ServiceStack.OrmLite.SqlServer\bin\Debug\net472\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+    <Reference Include="ServiceStack.OrmLite.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OrmActual\ServiceStack.OrmLite\src\ServiceStack.OrmLite.SqlServer\bin\Debug\net472\ServiceStack.OrmLite.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\ServiceStack.OrmLite-6.0.2\src\ServiceStack.OrmLite.SqlServer\bin\Debug\net472\ServiceStack.Text.dll</HintPath>
+    <Reference Include="ServiceStack.Text, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OrmActual\ServiceStack.OrmLite\src\ServiceStack.OrmLite\bin\Debug\net472\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -73,41 +78,80 @@
     <Compile Include="Controllers\Helps\EmailValidade.cs" />
     <Compile Include="Controllers\Helps\EstadoTransations.cs" />
     <Compile Include="Controllers\Helps\MD5Create.cs" />
-    <Compile Include="Controllers\Interfaces\IClasse.cs" />
+    <Compile Include="Controllers\Interfaces\Biblioteca\IAutores.cs" />
+    <Compile Include="Controllers\Interfaces\Biblioteca\ICategorias.cs" />
+    <Compile Include="Controllers\Interfaces\Biblioteca\IEditoras.cs" />
+    <Compile Include="Controllers\Interfaces\Biblioteca\ILivros.cs" />
+    <Compile Include="Controllers\Interfaces\Biblioteca\IPedidos.cs" />
+    <Compile Include="Controllers\Interfaces\Biblioteca\IPedidosOrdem.cs" />
+    <Compile Include="Controllers\Interfaces\Biblioteca\IPais.cs" />
+    <Compile Include="Controllers\Interfaces\IClasses.cs" />
+    <Compile Include="Controllers\Interfaces\ICursos.cs" />
     <Compile Include="Controllers\Interfaces\IEstudantes.cs" />
     <Compile Include="Controllers\Interfaces\IGeneric.cs" />
     <Compile Include="Controllers\Interfaces\IGrupos.cs" />
     <Compile Include="Controllers\Interfaces\Ilogs.cs" />
-    <Compile Include="Controllers\Interfaces\IPeriodo.cs" />
+    <Compile Include="Controllers\Interfaces\IMunicipios.cs" />
+    <Compile Include="Controllers\Interfaces\IPeriodos.cs" />
     <Compile Include="Controllers\Interfaces\IPermissions.cs" />
     <Compile Include="Controllers\Interfaces\IProfessores.cs" />
+    <Compile Include="Controllers\Interfaces\IProvincias.cs" />
+    <Compile Include="Controllers\Interfaces\IProvinciasMunicipios.cs" />
+    <Compile Include="Controllers\Interfaces\ISalas.cs" />
     <Compile Include="Controllers\Interfaces\ITransationRepository.cs" />
     <Compile Include="Controllers\Interfaces\ITurmas.cs" />
     <Compile Include="Controllers\Interfaces\IUsuarios.cs" />
-    <Compile Include="Controllers\Repository\ClasseRepository.cs" />
+    <Compile Include="Controllers\Repository\Biblioteca\AutoresRepository.cs" />
+    <Compile Include="Controllers\Repository\Biblioteca\CategoriasRepository.cs" />
+    <Compile Include="Controllers\Repository\Biblioteca\EditorasRepository.cs" />
+    <Compile Include="Controllers\Repository\Biblioteca\LivrosRepository.cs" />
+    <Compile Include="Controllers\Repository\Biblioteca\PaisRepository.cs" />
+    <Compile Include="Controllers\Repository\Biblioteca\PedidosOrdemRepository.cs" />
+    <Compile Include="Controllers\Repository\Biblioteca\PedidosRepository.cs" />
+    <Compile Include="Controllers\Repository\ClassesRepository.cs" />
+    <Compile Include="Controllers\Repository\CursosRepository.cs" />
     <Compile Include="Controllers\Repository\EstudantesRepository.cs" />
     <Compile Include="Controllers\Repository\GenericRepository.cs" />
     <Compile Include="Controllers\Repository\GruposRepository.cs" />
     <Compile Include="Controllers\Repository\LogsRepository.cs" />
+    <Compile Include="Controllers\Repository\MunicipiosRepository.cs" />
     <Compile Include="Controllers\Repository\PeriodosRepository.cs" />
     <Compile Include="Controllers\Repository\PermissionsRepository.cs" />
     <Compile Include="Controllers\Repository\ProfessoresRepository.cs" />
+    <Compile Include="Controllers\Repository\ProvinciasMunicipiosRepository.cs" />
+    <Compile Include="Controllers\Repository\ProvinciasRepository.cs" />
+    <Compile Include="Controllers\Repository\SalasRepository.cs" />
     <Compile Include="Controllers\Repository\TransationRepository.cs" />
     <Compile Include="Controllers\Repository\TurmasRepository.cs" />
     <Compile Include="Controllers\Repository\UsuariosRepository.cs" />
+    <Compile Include="Models\Biblioteca\Autor.cs" />
+    <Compile Include="Models\Biblioteca\Categorias.cs" />
+    <Compile Include="Models\Biblioteca\Editores.cs" />
+    <Compile Include="Models\Biblioteca\Livros.cs" />
+    <Compile Include="Models\Biblioteca\Pais.cs" />
+    <Compile Include="Models\Biblioteca\Pedidos.cs" />
+    <Compile Include="Models\Biblioteca\PedidosOrdems.cs" />
     <Compile Include="Models\Classes.cs" />
+    <Compile Include="Models\Cursos.cs" />
     <Compile Include="Models\Estudantes.cs" />
     <Compile Include="Models\Grupos.cs" />
+    <Compile Include="Models\Helps\Disponibilidade.cs" />
     <Compile Include="Models\Helps\Escolaridade.cs" />
     <Compile Include="Models\Helps\Estado.cs" />
+    <Compile Include="Models\Helps\PedidosEstado.cs" />
+    <Compile Include="Models\Helps\ProvinciasCodigo.cs" />
     <Compile Include="Models\Helps\Sexo.cs" />
     <Compile Include="Models\Helps\UsuariosRetorno.cs" />
-    <Compile Include="Models\Logs.cs" />
+    <Compile Include="Models\Municipios.cs" />
     <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\Professores.cs" />
+    <Compile Include="Models\Provinciamunicipios.cs" />
+    <Compile Include="Models\Provincias.cs" />
+    <Compile Include="Models\Salas.cs" />
     <Compile Include="Models\Turmas.cs" />
     <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="Models\UsuariosLogs.cs" />
     <Compile Include="Models\ViewModels\UsuariosViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

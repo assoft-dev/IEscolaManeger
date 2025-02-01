@@ -15,12 +15,14 @@ namespace IEscolaEntity.Controllers.Interfaces
         #endregion
 
         #region Listagem
-        Task<T>       Get(Expression<Func<T, bool>> Filter, string[] includes = null);
+        Task<bool> Get(Expression<Func<T, bool>> Filter);
+        Task<T> Get(Expression<Func<T, bool>> Filter, string[] includes = null);
         Task<List<T>> GetAll(Expression<Func<T, bool>> Filter = null, string[] includes = null);
 
         #endregion
 
         #region Excluir
+        Task<bool> Excluir(T models);
         Task<bool> Excluir(Expression<Func<T, bool>> filter);
         #endregion
     }

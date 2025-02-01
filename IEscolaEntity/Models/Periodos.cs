@@ -1,17 +1,19 @@
 ﻿using ServiceStack.DataAnnotations;
+using System;
 using System.Collections.Generic;
 
 namespace IEscolaEntity.Models
 {
     public class Periodos
     {
-
         [AutoIncrement]
-        public int PeriodoID { get; set; }
+        public int PeriodosID { get; set; }
 
+        [Index(Unique = true), Required]
+        public string Descricao { get; set; }
 
-        [Index(Unique = true)]
-        public string Referencia { get; set; }
+        public TimeSpan Hora1 { get; set; }
+        public TimeSpan Hora2 { get; set; }
 
         // Turmas
         [Reference] public List<Turmas> Turmas { get; set; }

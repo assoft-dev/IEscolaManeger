@@ -3,7 +3,8 @@ using IEscolaEntity.Models;
 
 namespace IEscolaEntity.Controllers.Repository
 {
-    public class LogsRepository :  GenericRepository<Logs>, Ilogs
+    public class LogsRepository :  GenericRepository<UsuariosLogs>, IUsuariosLogs
     {
+
     }
 }

@@ -38,6 +38,10 @@ namespace IEscolaEntity.Controllers.Interfaces
         #region Update
         TransationRepository DoUpdate<T>(List<T> entity) where T : class;
         TransationRepository DoUpdate<T>(string entity, object vs = null) where T : class;
+        TransationRepository DoUpdate<TEntity>(TEntity entities, int key = 0) where TEntity : class;
+        TransationRepository DoUpdate<TEntity>(TEntity entities) where TEntity : class;
+        void DoUpdate(string sql, object p);
+
         #endregion
 
         #region Saves
@@ -46,6 +50,7 @@ namespace IEscolaEntity.Controllers.Interfaces
 
         bool DoSaveAsync<TEntity>(TEntity entity) where TEntity : class;
         Task TaskExecutes(Func<Task> func);
+       
         #endregion
     }
 }

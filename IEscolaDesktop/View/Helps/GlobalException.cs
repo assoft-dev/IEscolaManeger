@@ -10,20 +10,19 @@ namespace IEscolaDesktop.View.Helps
         {
             var Db = new DataConnections();
 
-            if (exe.Message.Contains("Invalid object name"))
-                Db.UPDATETABLE();
-            else if (exe.Message.Contains("Invalid column name"))
-                Db.UPDATETABLE();
-
-            MessageBox.Show(exe.Message);
+            if (exe.Message.Contains("Cannot open database") ||
+                     exe.Message.Contains("does not exist") ||
+                       exe.Message.Contains("Unable to open the physical file"))
+            {
+                Db.CREATEDATABASE();
+            }
+            else if (exe.Message.Contains("Invalid object name") ||
+                        exe.Message.Contains("Invalid column name"))
+            {
+                Db.UPDATETABLE();       
+            }
         }
-        public static void InitialAsync()
-        {
-            var u = DataConnectionConfig.Conection().OpenDbConnection();
 
-            var Db = new DataConnections();
-            Db.CREATEMIGRATION(u);
-        } 
         public static void CapturarError(Action exe)
         {
             try

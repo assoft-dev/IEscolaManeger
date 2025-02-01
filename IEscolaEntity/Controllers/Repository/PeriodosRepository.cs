@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Repository
 {
-    public class PeriodosRepository : GenericRepository<Periodos>, IPeriodo
+    public class PeriodosRepository : GenericRepository<Periodos>, IPeriodos
     {
     }
 }

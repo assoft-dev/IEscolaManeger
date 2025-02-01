@@ -5,7 +5,6 @@ using IEscolaEntity.Models.Helps;
 using IEscolaEntity.Models.ViewModels;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.Legacy;
-using ServiceStack.Redis;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,7 +24,9 @@ namespace IEscolaEntity.Controllers.Repository
             var senha1 = MD5Create.GetMD5Hash(SenhaAntiga);
             var senha2 = MD5Create.GetMD5Hash(SenhaNova);
 
-            var user = await dbConnection.SingleAsync<Usuarios>(x => x.Email == EmailUser &&
+            var user = await dbConnection.SingleAsync<Usuarios>(x => (x.Email == EmailUser || 
+                                                                      x.FirstName == EmailUser ||
+                                                                      x.LastName == EmailUser) &&
                                                                      x.Senha == senha1);
             if (user == null)
                 return false;
@@ -40,14 +41,26 @@ namespace IEscolaEntity.Controllers.Repository
             }
         }
 
+        public async Task<bool> GuardarUser(Usuarios usuarios)
+        {
+            var md = MD5Create.GetMD5Hash(usuarios.Senha);
+
+            usuarios.Senha = md;
+
+            if (usuarios.UsuariosID == 0)
+                return await dbConnection.SaveAsync<Usuarios>(usuarios);
+            else
+                return await dbConnection.UpdateAsync<Usuarios>(usuarios) > 0;
+        }
+
         public async Task<UsuariosViewModels> Login(string Email, string Senha)
         {
             var usuariosViewModels = new UsuariosViewModels();
 
             var md = MD5Create.GetMD5Hash(Senha);
 
-            var user = await dbConnection.SingleAsync<Usuarios>(x => x.Email == Email && 
-                                                                     x.Senha == md);
+            var user = await dbConnection.SingleAsync<Usuarios>(x => (x.Email == Email || x.FirstName == Email || x.LastName == Email) &&
+                                                                      x.Senha == md);
             if (user != null)
             {
                 usuariosViewModels = new UsuariosViewModels

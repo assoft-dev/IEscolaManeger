@@ -7,16 +7,30 @@ namespace IEscolaEntity.Models
         [AutoIncrement]
         public int TurmaID { get; set; }
 
-        public string Referencias { get; set; }
+        [Required]
+        public string Descricao { get; set; }
+
+        public int Quantidade { get; set; }
+        public int Idades1 { get; set; }
+        public int Idades2 { get; set; }
+
+        [ForeignKey(typeof(Cursos))]
+        public int CursosID { get; set; }
+        [Reference] public Cursos  Cursos { get; set; }
 
 
-        [ForeignKey(typeof(Classes), OnDelete = "CASCADE")]
+        [ForeignKey(typeof(Classes))]
         public int ClassesID { get; set; }
         [Reference] public Classes Classes { get; set; }
 
 
+        [ForeignKey(typeof(Salas))]  
+        public int SalasID { get; set; }
+        [Reference] public Salas  Salas { get; set; }
+
+
         [ForeignKey(typeof(Periodos), OnDelete = "CASCADE")]
-        public int PeriodoID { get; set; }
+        public int PeriodosID { get; set; }
         [Reference] public Periodos Periodos { get; set; }
     }
 }

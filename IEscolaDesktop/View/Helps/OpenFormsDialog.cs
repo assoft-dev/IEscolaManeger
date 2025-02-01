@@ -24,7 +24,7 @@ namespace IEscolaDesktop.View.Helps
         {
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm.Name.Equals("frmMenuERP") || frm.Name.Equals("frmVendasGeral") || frm.Name.Equals("frmVendasGeralSimples"))
+                if (frm.Name.Equals("frmMenu"))
                 {
                     OpenFormsDialog customFlyout = new OpenFormsDialog(frm, actions, UserControleToShow);
                     customFlyout.FormClosing += delegate { UserControleToShow.Dispose(); };

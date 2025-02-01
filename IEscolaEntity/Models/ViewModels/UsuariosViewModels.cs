@@ -8,6 +8,6 @@ namespace IEscolaEntity.Models.ViewModels
         public string FullName { get; set; }
 
         public UsuariosRetorno usuariosRetorno{ get; set; }
-        public  Permission Permission { get; set; }
+        public  Permissoes Permission { get; set; }
     }
 }

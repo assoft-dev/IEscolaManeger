@@ -1,5 +1,7 @@
 ﻿using IEscolaEntity.Controllers.Helps;
 using IEscolaEntity.Controllers.Interfaces;
+using IEscolaEntity.Models;
+using ServiceStack;
 using ServiceStack.OrmLite;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,12 @@ namespace IEscolaEntity.Controllers.Repository
         #endregion
 
         #region Apagar os dados
+
+        public async Task<bool> Excluir(T filter)
+        {
+            return await DbConection.DeleteAsync<T>(filter) > 0;
+        }
+
         public async Task<bool> Excluir(Expression<Func<T, bool>> filter)
         {
             return await DbConection.DeleteAsync<T>(filter) > 0;
@@ -31,6 +39,13 @@ namespace IEscolaEntity.Controllers.Repository
         #endregion
 
         #region Listagem Geral
+
+        public async Task<bool> Get(Expression<Func<T, bool>> Filter)
+        {
+            var result = await DbConection.ExistsAsync<T>(Filter);
+            return result;
+        }
+
         public async Task<T> Get(Expression<Func<T, bool>> Filter, string[] includes = null) 
         {
             var result = await DbConection.LoadSelectAsync<T>(Filter, includes);
@@ -46,7 +61,11 @@ namespace IEscolaEntity.Controllers.Repository
         #region Guardar Informação
         public async Task<bool> Guardar(T models, bool referencias = false)
         {
-             return await DbConection.SaveAsync<T>(models, referencias);
+            return await DbConection.SaveAsync<T>(models, referencias);
+        }
+        public async Task<bool> Guardar(T models, int ID)
+        {
+            return (await DbConection.UpdateAsync<T>(models)) > 0 ? true : false;
         }
 
         public async Task<bool> Guardar(List<T> models)

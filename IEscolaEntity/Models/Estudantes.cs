@@ -1,6 +1,9 @@
-﻿using IEscolaEntity.Models.Helps;
+﻿using IEscolaEntity.Models.Biblioteca;
+using IEscolaEntity.Models.Helps;
 using ServiceStack.DataAnnotations;
+using ServiceStack.Script;
 using System;
+using System.Collections.Generic;
 
 namespace IEscolaEntity.Models
 {
@@ -37,5 +40,8 @@ namespace IEscolaEntity.Models
         [ForeignKey(typeof(Turmas))]
         public int TurmasID { get; set; }
         [Reference] public Turmas Turmas { get; set; }
+
+
+        [Reference] public List<Pedidos> Pedidos { get; set; }
     }
 }

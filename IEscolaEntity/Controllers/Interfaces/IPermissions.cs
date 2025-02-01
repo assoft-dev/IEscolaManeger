@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Interfaces
 {
-    internal interface IPermissions : ITransationRepository,  IGeneric<Permission>
+    public interface IPermissoes : ITransationRepository,  IGeneric<Permissoes>
     {
     }
 }

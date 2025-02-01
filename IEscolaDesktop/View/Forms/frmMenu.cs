@@ -1,12 +1,13 @@
-﻿using IEscolaEntity.Models;
-using System;
+﻿using DevExpress.XtraEditors;
+using IEscolaDesktop.View.Helps;
+using IEscolaEntity.Models;
 using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmMenu : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMenu : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        public frmMenu(Permission permission)
+        public frmMenu(Permissoes permission)
         {
             InitializeComponent();
 
@@ -14,11 +15,114 @@ namespace IEscolaDesktop.View.Forms
 
             //Metodos 
             this.FormClosing += FrmMenu_FormClosing;
+
+            // Usuarios
+            btnUsuarios.Click += delegate { OpenForms(new frmUsuarios()); };
+            btnGrupos.Click += delegate { OpenForms(new frmGrupos()); };
+            btnPermissoes.Click += delegate { OpenForms(new frmPermissoes()); };
+            btnUsuariosLogs.Click += delegate { OpenForms(new frmUsuariosLogs()); };
+
+            // Localizacao
+            btnMunicipios.Click += delegate { OpenForms(new frmMunicipios()); };
+            btnProvincias.Click += delegate { OpenForms(new frmProvincias()); };
+            btnProvinciasMunicipios.Click += delegate { OpenForms(new frmProvinciasMunicipios()); };
+
+            // Escolas
+            btnTurma.Click += delegate { OpenForms(new frmTurmas()); };
+
+            btnPeriodos.Click += delegate { OpenForms(new frmPeriodos()); };
+            btnClasses.Click += delegate { OpenForms(new frmClasses()); };
+            btnSalas.Click += delegate { OpenForms(new frmSalas()); };
+            btnCursos.Click += delegate { OpenForms(new frmCursos()); };
         }
 
-        private void ActivarBotoes(Permission permission)
+        private void OpenForms(XtraUserControl control)
         {
-            
+            if (control != null) 
+            {
+                if (control.Name.Equals(typeof(frmUsuarios).Name))
+                {
+                    this.Text = "Usuários [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                else if (control.Name.Equals(typeof(frmGrupos).Name))
+                {
+                    this.Text = "Grupos [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                else if (control.Name.Equals(typeof(frmPermissoes).Name))
+                {
+                    this.Text = "Permissões [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                else if (control.Name.Equals(typeof(frmUsuariosLogs).Name))
+                {
+                    this.Text = "Usuarios Auditoria - [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+
+                // Provincias
+                else if (control.Name.Equals(typeof(frmProvincias).Name))
+                {
+                    this.Text = "Provincias - [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                // Municipios
+                else if (control.Name.Equals(typeof(frmMunicipios).Name))
+                {
+                    this.Text = "Municipios - [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                // Provincias Municipios
+                else if (control.Name.Equals(typeof(frmProvinciasMunicipios).Name))
+                {
+                    this.Text = "Provincias-Municipios - [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+
+                #region Escolas
+                // Turma
+                else if (control.Name.Equals(typeof(frmTurmas).Name))
+                {
+                    this.Text = "Turmas - [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                // Clase
+                else if (control.Name.Equals(typeof(frmClasses).Name))
+                {
+                    this.Text = "Classe - [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                // Salas
+                else if (control.Name.Equals(typeof(frmSalas).Name))
+                {
+                    this.Text = "Salas - [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                //Periodos
+                else if (control.Name.Equals(typeof(frmPeriodos).Name))
+                {
+                    this.Text = "Periodos - [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                // Cursos
+                else if (control.Name.Equals(typeof(frmCursos).Name))
+                {
+                    this.Text = "Cursos - [Aberto]";
+                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                }
+                #endregion
+
+                else 
+                {
+                    this.Text = "IGest-Escola"; 
+                }
+            }
+        }
+
+        private void ActivarBotoes(Permissoes permission)
+        {
+
         }
 
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -48,6 +152,9 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+        private void accordionControlElement14_Click(object sender, System.EventArgs e)
+        {
 
+        }
     }
 }

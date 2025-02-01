@@ -1,4 +1,5 @@
 ﻿using IEscolaDesktop.View.Forms;
+using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Helps;
 using System;
 using System.Collections;
@@ -43,8 +44,12 @@ namespace IEscolaDesktop
 
         private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
+
+            // Inicializacao dos Dados
             var Db = new DataConnections();
             Db.InitialMetodos(new DataConnectionConfig());
+
+            GlobalException.CapturarError(e.Exception);
 
             MessageBox.Show("Error Global " + e.Exception.Message);
         }

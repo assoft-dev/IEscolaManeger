@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmLogin : DevExpress.XtraEditors.XtraForm
+    public partial class frmLogin : XtraForm
     {
         #region Mover
         private int cX, cY;
@@ -19,11 +19,12 @@ namespace IEscolaDesktop.View.Forms
 
         IUsuarios  UserRepository;
 
-        bool TentativasErros = false;
-
         public frmLogin()
         {
             InitializeComponent();
+
+            btnPasswordReset.Visible = false;
+            windowsUIButtonPanel1.Enabled = false;
 
             //Mover o formulario
             PainelMover.MouseMove += Panel1_MouseMove;
@@ -36,9 +37,85 @@ namespace IEscolaDesktop.View.Forms
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
             btnPasswordReset.Click += BtnPasswordReset_Click;
 
+            // Validar Somente quando estiver tudo OK
+            txtUsuarios.EditValueChanged += delegate { ChangeValudations(txtUsuarios); };
+            txtSenha.EditValueChanged += delegate { ChangeValudations(txtSenha); };
+
              // Instancias das classe referente
              UserRepository = new UsuariosRepository();
             UserRepository.DoGetCount<Usuarios>();
+
+            txtUsuarios.EditValue = "admin";
+            txtSenha.EditValue = "0000";
+        }
+
+        private void ChangeValudations(Control controlValues)
+        {
+            if (controlValues != null)
+            {
+                if (!string.IsNullOrWhiteSpace(controlValues.Text))
+                {
+                    //Usuarios
+                    if (controlValues.Name.Equals(txtUsuarios.Name))
+                    {
+                        if (!string.IsNullOrWhiteSpace(txtUsuarios.Text))
+                        {
+                            if (!(string.IsNullOrWhiteSpace(txtSenha.Text) || txtSenha.Text.Length < 4))
+                            {
+                                if (txtUsuarios.Text.Contains("@"))
+                                {
+                                    if (EmailValidade.GetIstance().IsValidEmail(txtUsuarios.Text))
+                                        windowsUIButtonPanel1.Enabled = true;
+                                    else
+                                        windowsUIButtonPanel1.Enabled = false;
+                                }
+                            }
+                            else
+                            {
+                                windowsUIButtonPanel1.Enabled = false;
+                            }
+                        }
+                        else
+                        {
+                            windowsUIButtonPanel1.Enabled = false;
+                        }
+                    }
+
+                    // Senha
+                    if (!string.IsNullOrWhiteSpace(txtSenha.Text))
+                    {
+                        if (!string.IsNullOrWhiteSpace(txtUsuarios.Text))
+                        {
+                            if (txtSenha.Text.Length > 3)
+                                windowsUIButtonPanel1.Enabled = true;
+                            else
+                                windowsUIButtonPanel1.Enabled = false;
+
+                            if (txtUsuarios.Text.Contains("@"))
+                            {
+                                if (EmailValidade.GetIstance().IsValidEmail(txtUsuarios.Text))
+                                    windowsUIButtonPanel1.Enabled = true;
+                                else
+                                    windowsUIButtonPanel1.Enabled = false;
+                            }
+                        }
+                        else
+                        {
+                            windowsUIButtonPanel1.Enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        windowsUIButtonPanel1.Enabled = false;
+                    }
+                }
+                else
+                    windowsUIButtonPanel1.Enabled = false;
+            }
+            else
+            {
+                windowsUIButtonPanel1.Enabled = false;
+            }
         }
 
         private void BtnPasswordReset_Click(object sender, System.EventArgs e)
@@ -46,7 +123,7 @@ namespace IEscolaDesktop.View.Forms
             var frm = OpenFormsDialog.ShowForm(this, null, new frmUsuarioPasswordChage());
             if (frm == DialogResult.OK)
             {
-                Mensagens.Display("As alteração foram feitas no entanto resta apenas", "");
+                Mensagens.Display("Alteração de senha: ", "As alterações foram feitas no entanto resta apenas");
             }
         }
 
@@ -80,7 +157,6 @@ namespace IEscolaDesktop.View.Forms
 
             if (result == DialogResult.Yes)
             {
-
                 foreach (Form item in Application.OpenForms)
                 {
                     if (!item.Visible)
@@ -114,7 +190,10 @@ namespace IEscolaDesktop.View.Forms
                             #region Opem Menu
                             // Entrar no menu
                             var frm = new frmMenu(result.Permission);
-                            frm.ShowDialog();
+
+                            this.Hide();
+                            frm.ShowDialog();            
+
                             frm.FormClosed += delegate
                             {
                                 foreach (Form item in Application.OpenForms)
@@ -133,8 +212,8 @@ namespace IEscolaDesktop.View.Forms
                                               "Queira por favor voltar a colocar a senha/Usuario por favor",
                                               MessageBoxButtons.OK,
                                               MessageBoxIcon.Error);
-                            
-                            TentativasErros = true;
+
+                            btnPasswordReset.Visible = true;
 
                             Limpar();
 
@@ -169,7 +248,7 @@ namespace IEscolaDesktop.View.Forms
             finally
             {
                 Cursor = Cursors.Default;
-            } 
+            }
         }
 
         private bool Validadacao()
@@ -189,13 +268,16 @@ namespace IEscolaDesktop.View.Forms
                 return false;
             }
 
-            if (EmailValidade.GetIstance().IsValidEmail(txtUsuarios.Text))
+            if (txtUsuarios.Text.Contains("@"))
             {
-                MessageBox.Show("Notamos que o seu EMail não esta correncto");
-                txtUsuarios.SelectAll();
-                txtUsuarios.Focus();
-                return false;
-            }
+                if (!EmailValidade.GetIstance().IsValidEmail(txtUsuarios.Text))
+                {
+                    Mensagens.Display("Email", "Notamos que o seu EMail não esta correncto");
+                    txtUsuarios.SelectAll();
+                    txtUsuarios.Focus();
+                    return false;
+                }
+            }        
             return true;
         }
 
@@ -215,7 +297,8 @@ namespace IEscolaDesktop.View.Forms
             }
             if (keyData == Keys.Enter)
             {
-                WindowsUIButtonPanel1_ButtonClick(null, null);
+                if (windowsUIButtonPanel1.Enabled)
+                    WindowsUIButtonPanel1_ButtonClick(null, null);
 
                 bool res = base.ProcessCmdKey(ref msg, keyData);
                 return res;

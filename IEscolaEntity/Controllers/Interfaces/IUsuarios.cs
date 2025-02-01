@@ -1,7 +1,5 @@
 ﻿using IEscolaEntity.Models;
-using IEscolaEntity.Models.Helps;
 using IEscolaEntity.Models.ViewModels;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Interfaces
@@ -10,5 +8,7 @@ namespace IEscolaEntity.Controllers.Interfaces
     {
         Task<bool> ChangePassword_Mode1(string EMail, string SenhaAntiga, string SenhaNova);
         Task<UsuariosViewModels> Login(string Email, string Senha);
+
+        Task<bool> GuardarUser(Usuarios usuarios);
     }
 }

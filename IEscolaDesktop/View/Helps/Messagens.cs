@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,16 @@ namespace IEscolaDesktop.View.Helps
     {
         public static DialogResult Display(string Titulo, string Texto)
         {
-            return XtraMessageBox.Show(Texto, Titulo, MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            return FlyoutMessageBox.Show(Texto, Titulo, MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
         public static DialogResult Display(string Titulo, string Texto, MessageBoxIcon messageBoxIcon)
         {
-            return  XtraMessageBox.Show(Texto, Titulo, MessageBoxButtons.OKCancel, messageBoxIcon);
+            return FlyoutMessageBox.Show(Texto, Titulo, MessageBoxButtons.OKCancel, messageBoxIcon, MessageBoxDefaultButton.Button1);
         }
         public static DialogResult Display(string Titulo, string Texto, MessageBoxButtons messageBoxButtons, MessageBoxIcon messageBoxIcon)
         {
-            return XtraMessageBox.Show(Texto, Titulo, messageBoxButtons, messageBoxIcon);
+            return FlyoutMessageBox.Show(Texto, Titulo, messageBoxButtons, messageBoxIcon, MessageBoxDefaultButton.Button1);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using IEscolaEntity.Models;
+using IEscolaEntity.Models.Biblioteca;
 using IEscolaEntity.Models.Helps;
 using ServiceStack.OrmLite;
 using System;
@@ -82,7 +83,7 @@ namespace IEscolaEntity.Controllers.Helps
         public async void CREATEMIGRATION(IDbConnection db)
         {
 
-            var permissions = db.Select<Permission>();
+            var permissions = db.Select<Permissoes>();
             var permissoesID = 0L;
             var gruposID = 0L;
 
@@ -90,7 +91,7 @@ namespace IEscolaEntity.Controllers.Helps
             if (permissions == null || permissions.Count == 0)
             {
                 //Permissoes
-                var permissoes = new Permission()
+                var permissoes = new Permissoes()
                 {
                     Update = true,
                     Create = true,
@@ -100,12 +101,12 @@ namespace IEscolaEntity.Controllers.Helps
                     Delete = true,
                     Estudantes = true,
                     Periodos = true,
-                    Grupo = true,
+                    Grupos = true,
                     Logs = true,
                     Permissions = true,
                     Turmas = true,
                 };
-                permissoesID = db.Insert<Permission>(permissoes, true);
+                permissoesID = db.Insert<Permissoes>(permissoes, true);
             }
             #endregion
                 
@@ -116,10 +117,10 @@ namespace IEscolaEntity.Controllers.Helps
             {
                 Grupos r = new Grupos();
 
-                r.Referencias = "Default";
+                r.Descricao = "Default";
 
                 if (permissoesID == 0)
-                    r.PermissionID = permissions.FirstOrDefault().PermissionsID;
+                    r.PermissionID = permissions.FirstOrDefault().PermissoeID;
                 else
                     r.PermissionID = (int)permissoesID;
 
@@ -129,6 +130,9 @@ namespace IEscolaEntity.Controllers.Helps
 
             #region Usuarios
             var user = db.Select<Usuarios>();
+
+            long userID = 0;
+
             if (user.Count == 0)
             {
                 Usuarios usuarios = new Usuarios();
@@ -136,45 +140,90 @@ namespace IEscolaEntity.Controllers.Helps
                 usuarios.LastName = "admin";
                 usuarios.Email = "admin@outlook.pt";
                 usuarios.Senha = MD5Create.GetMD5Hash("0000");
-                usuarios.Pin = MD5Create.GetMD5Hash("1123");
                 usuarios.Data = DateTime.Now;
                 usuarios.Estado = Estado.Activado;
                 usuarios.GruposID = gruposID == 0 ? grupos.FirstOrDefault().PermissionID : (int)gruposID;
-                await db.SaveAsync(usuarios);
+                userID = await db.InsertAsync(usuarios);
             }
+            else
+            {
+                userID = user.FirstOrDefault().UsuariosID;
+            }
+            #endregion
+
+
+            #region UsuariosLogs
+            var logs = new UsuariosLogs
+            {
+                Data = DateTime.Now,
+                Descricao = "Dados Iniciais",
+                Local = "Local",
+                UsuariosID = (int) userID,
+                UsuariosLogsID = 0
+            };
+            await db.SaveAsync(logs);
             #endregion
         }
 
         public void CREATETABLE(IDbConnection Db)
         {
             //Verificacao das tabelas apenas
-            Db.CreateTableIfNotExists<Permission>();
+            Db.CreateTableIfNotExists<Permissoes>();
             Db.CreateTableIfNotExists<Grupos>();
             Db.CreateTableIfNotExists<Usuarios>();
-            Db.CreateTableIfNotExists<Logs>();
+            Db.CreateTableIfNotExists<UsuariosLogs>();
 
+            Db.CreateTableIfNotExists<Provincias>();
+            Db.CreateTableIfNotExists<Municipios>();
+            Db.CreateTableIfNotExists<ProvinciasMunicipios>();
+
+            Db.CreateTableIfNotExists<Professores>();       
+
+            Db.CreateTableIfNotExists<Salas>();
+            Db.CreateTableIfNotExists<Cursos>();
             Db.CreateTableIfNotExists<Classes>();
             Db.CreateTableIfNotExists<Periodos>();
             Db.CreateTableIfNotExists<Turmas>();
+
             Db.CreateTableIfNotExists<Estudantes>();
-            Db.CreateTableIfNotExists<Professores>();
+
+            Db.CreateTableIfNotExists<Pais>();
+            Db.CreateTableIfNotExists<Autores>();
+            Db.CreateTableIfNotExists<Categorias>();
+            Db.CreateTableIfNotExists<Editores>();
+            Db.CreateTableIfNotExists<Livros>();
+            Db.CreateTableIfNotExists<Pedidos>();
+            Db.CreateTableIfNotExists<PedidosOrdems>();
         }
 
         public void UPDATETABLE()
         {
             var Db = DataConnectionConfig.Conection().OpenDbConnection();
 
-            //Ajustar as colunas em Fantas
-            DataColunsAsync<Permission>.AsyncColuns(Db);
+            DataColunsAsync<Permissoes>.AsyncColuns(Db);
             DataColunsAsync<Grupos>.AsyncColuns(Db);
             DataColunsAsync<Usuarios>.AsyncColuns(Db);
-            DataColunsAsync<Logs>.AsyncColuns(Db);
+            DataColunsAsync<UsuariosLogs>.AsyncColuns(Db);
+            DataColunsAsync<Provincias>.AsyncColuns(Db);
+            DataColunsAsync<Municipios>.AsyncColuns(Db);
+            DataColunsAsync<ProvinciasMunicipios>.AsyncColuns(Db);
+            DataColunsAsync<Professores>.AsyncColuns(Db);
 
+            DataColunsAsync<Salas>.AsyncColuns(Db);
+            DataColunsAsync<Cursos>.AsyncColuns(Db);
             DataColunsAsync<Classes>.AsyncColuns(Db);
             DataColunsAsync<Periodos>.AsyncColuns(Db);
-            DataColunsAsync<Estudantes>.AsyncColuns(Db);
             DataColunsAsync<Turmas>.AsyncColuns(Db);
-            DataColunsAsync<Professores>.AsyncColuns(Db);
+
+            DataColunsAsync<Estudantes>.AsyncColuns(Db);
+
+            DataColunsAsync<Pais>.AsyncColuns(Db);
+            DataColunsAsync<Autores>.AsyncColuns(Db);
+            DataColunsAsync<Categorias>.AsyncColuns(Db);
+            DataColunsAsync<Editores>.AsyncColuns(Db);
+            DataColunsAsync<Livros>.AsyncColuns(Db);
+            DataColunsAsync<Pedidos>.AsyncColuns(Db);
+            DataColunsAsync<PedidosOrdems>.AsyncColuns(Db);
         }
     }
 }

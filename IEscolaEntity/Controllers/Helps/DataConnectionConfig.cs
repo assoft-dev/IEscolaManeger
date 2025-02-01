@@ -21,6 +21,8 @@ namespace IEscolaEntity.Controllers.Helps
             SqlServerDialect.Provider.RegisterConverter<Estado>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
             SqlServerDialect.Provider.RegisterConverter<EstadoTransations>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
             SqlServerDialect.Provider.RegisterConverter<Escolaridade>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
+            SqlServerDialect.Provider.RegisterConverter<ProvinciasCodigo>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
+            SqlServerDialect.Provider.RegisterConverter<Disponibilidade>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
         }
         private void ConectionStringInitial()
         {
@@ -30,6 +32,7 @@ namespace IEscolaEntity.Controllers.Helps
             connectionString.Password = Password;
             connectionString.InitialCatalog = DataBase;
             connectionString.ConnectTimeout = TimeOut;
+            connectionString.MaxPoolSize = 100;
             //connectionString.TrustServerCertificate = TruestConection;
         }
 

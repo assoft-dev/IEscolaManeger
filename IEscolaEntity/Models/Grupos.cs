@@ -4,18 +4,19 @@ namespace IEscolaEntity.Models
 {
     public class Grupos
     {
-
         [AutoIncrement]
         public int GruposID { get; set; }
 
         [Index(Unique = true)]
-        public string Referencias { get; set; }
+        public string Descricao { get; set; }
 
+        public string Comentario { get; set; }
+        public string Detalhes { get; set; }
 
         // Permissions
-        [ForeignKey(typeof(Permission), OnDelete = "CASCADE")]
+        [ForeignKey(typeof(Permissoes), OnDelete = "CASCADE")]
         public int PermissionID { get; set; }
 
-        [Reference] public Permission Permissions { get; set; }
+        [Reference] public Permissoes Permissions { get; set; }
     }
 }
