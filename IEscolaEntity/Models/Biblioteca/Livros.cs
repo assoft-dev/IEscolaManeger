@@ -12,20 +12,26 @@ namespace IEscolaEntity.Models.Biblioteca
         [Unique]
         public string Titulo { get; set; }
         public string SubTitulo { get; set; }
+
         public string ISBN { get; set; }
+        public string Edicao { get; set; }
+
         public string Descricao { get; set; }
         public string Comentarios { get; set; }
-        public string Edicao { get; set; }
+
         public string Lancamento { get; set; }
-        public bool IsValidade { get; set; }
+        public string LocalLancamento { get; set; }
+
         public string CodBar { get; set; }
+        public bool IsValidade { get; set; }
+
         public string Pratileira { get; set; }
         public string PratileiraPosicao { get; set; }
+
         public int Rating { get; set; }
-        public int Favoritar { get; set; }
+        public bool Favoritar { get; set; }
 
         public int Ano { get; set; }
-        public string LocalLancamento { get; set; }
 
 
         [ForeignKey(typeof(Editores))]
@@ -44,7 +50,10 @@ namespace IEscolaEntity.Models.Biblioteca
 
         public string ImagemFrente { get; set; }
         public string ImagemVerso { get; set; }
+
+        [Default(0)]
         public Disponibilidade Disponibilidade { get; set; }
+
 
         [Reference] public List<PedidosOrdems> PedidosOrdems { get; set; }
     }

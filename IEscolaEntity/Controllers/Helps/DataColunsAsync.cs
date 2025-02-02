@@ -1,4 +1,5 @@
-﻿using ServiceStack.DataAnnotations;
+﻿using IEscolaEntity.Models.Helps;
+using ServiceStack.DataAnnotations;
 using ServiceStack.OrmLite;
 using System;
 using System.Data;
@@ -70,7 +71,16 @@ namespace IEscolaEntity.Controllers.Helps
                      typeof(DateTime?),
                      typeof(byte[]),
                      typeof(Guid),
+                     typeof(Guid?),
                      typeof(Enum),
+
+                     typeof(Estado),
+                     typeof(ProvinciasCodigo),
+                     typeof(Disponibilidade),
+                     typeof(Escolaridade),
+                     typeof(PedidosEstado),
+                     typeof(Sexo),
+                     typeof(UsuariosRetorno),
                 };
                 return primary.Contains(t);
             }

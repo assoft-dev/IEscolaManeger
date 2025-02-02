@@ -59,9 +59,8 @@
     <Reference Include="DevExpress.XtraReports.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v24.2.Extensions, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="Guna.UI2, Version=2.0.4.4, Culture=neutral, PublicKeyToken=2cd9edde853ca0a6, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Guna.UI2.dll</HintPath>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\..\..\..\..\Repository\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="ServiceStack.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
@@ -169,6 +168,18 @@
     </Compile>
     <Compile Include="View\Forms\frmBiblioteca_PaisAdd.Designer.cs">
       <DependentUpon>frmBiblioteca_PaisAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Livros.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Livros.Designer.cs">
+      <DependentUpon>frmBiblioteca_Livros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_LivrosAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_LivrosAdd.Designer.cs">
+      <DependentUpon>frmBiblioteca_LivrosAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\frmTurmasAdd.cs">
       <SubType>UserControl</SubType>
@@ -326,6 +337,12 @@
     <Compile Include="View\ReportForms\rptGrupos.Designer.cs">
       <DependentUpon>rptGrupos.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ReportForms\rptLivros.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptLivros.Designer.cs">
+      <DependentUpon>rptLivros.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ReportForms\rptTurmas.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -392,6 +409,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmBiblioteca_PaisAdd.resx">
       <DependentUpon>frmBiblioteca_PaisAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_Livros.resx">
+      <DependentUpon>frmBiblioteca_Livros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_LivrosAdd.resx">
+      <DependentUpon>frmBiblioteca_LivrosAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmTurmasAdd.resx">
       <DependentUpon>frmTurmasAdd.cs</DependentUpon>
@@ -465,6 +488,9 @@
     <EmbeddedResource Include="View\ReportForms\rptGrupos.resx">
       <DependentUpon>rptGrupos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptLivros.resx">
+      <DependentUpon>rptLivros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ReportForms\rptTurmas.resx">
       <DependentUpon>rptTurmas.cs</DependentUpon>
     </EmbeddedResource>
@@ -474,6 +500,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Autores.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Categorias.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Editores.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Livros.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Pais.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Classes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Cursos.datasource" />

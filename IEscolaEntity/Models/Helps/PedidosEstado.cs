@@ -5,8 +5,8 @@ namespace IEscolaEntity.Models.Helps
     [EnumAsInt]
     public enum PedidosEstado
     {
-        REQUISITADO,
-        DEVOLVIDO,
-        NORMAL
+        REQUISITADO = 0,
+        DEVOLVIDO = 1,
+        NORMAL = 2,
     }
 }

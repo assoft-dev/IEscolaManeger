@@ -17,12 +17,6 @@ namespace IEscolaEntity.Controllers.Helps
             OrmLiteConfig.DialectProvider.NamingStrategy = new OrmLiteNamingStrategyBase();
             SqlServerDialect.Provider.RegisterConverter<TimeSpan>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerTimeConverter { Precision = 7 });
             SqlServerDialect.Provider.RegisterConverter<decimal>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerDecimalConverter { Precision = 38, Scale = 2 });
-            SqlServerDialect.Provider.RegisterConverter<Sexo>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
-            SqlServerDialect.Provider.RegisterConverter<Estado>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
-            SqlServerDialect.Provider.RegisterConverter<Escolaridade>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
-            SqlServerDialect.Provider.RegisterConverter<ProvinciasCodigo>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
-            SqlServerDialect.Provider.RegisterConverter<Disponibilidade>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
-            SqlServerDialect.Provider.RegisterConverter<Enum>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
         }
         private void ConectionStringInitial()
         {

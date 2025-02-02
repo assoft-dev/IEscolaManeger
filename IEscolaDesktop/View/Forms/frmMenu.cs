@@ -17,10 +17,10 @@ namespace IEscolaDesktop.View.Forms
             this.FormClosing += FrmMenu_FormClosing;
 
             // Usuarios
-            btnUsuarios.Click += delegate { OpenForms(new frmUsuarios()); };
-            btnGrupos.Click += delegate { OpenForms(new frmGrupos()); };
-            btnPermissoes.Click += delegate { OpenForms(new frmPermissoes()); };
-            btnUsuariosLogs.Click += delegate { OpenForms(new frmUsuariosLogs()); };
+            btnUser.Click += delegate { OpenForms(new frmUsuarios()); };
+            btnGroup.Click += delegate { OpenForms(new frmGrupos()); };
+            btnPermis.Click += delegate { OpenForms(new frmPermissoes()); };
+            btnUserLogs.Click += delegate { OpenForms(new frmUsuariosLogs()); };
 
             // Localizacao
             btnMunicipios.Click += delegate { OpenForms(new frmMunicipios()); };
@@ -39,6 +39,7 @@ namespace IEscolaDesktop.View.Forms
             Editoras_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Editoras()); };
             btnPais_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Pais()); };
             Autores_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Autores()); };
+            Livros_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Livros()); };
         }
 
         private void OpenForms(XtraUserControl control)
@@ -117,6 +118,38 @@ namespace IEscolaDesktop.View.Forms
                     else if (control.Name.Equals(typeof(frmCursos).Name))
                     {
                         this.Text = "Cursos - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    #endregion
+
+                    #region Bibliotecas
+                    // Turma
+                    else if (control.Name.Equals(typeof(frmBiblioteca_Categorias).Name))
+                    {
+                        this.Text = "Categorias - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Clase
+                    else if (control.Name.Equals(typeof(frmBiblioteca_Autores).Name))
+                    {
+                        this.Text = "Autores - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Salas
+                    else if (control.Name.Equals(typeof(frmBiblioteca_Editoras).Name))
+                    {
+                        this.Text = "Editoras - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    //Periodos
+                    else if (control.Name.Equals(typeof(frmBiblioteca_Pais).Name))
+                    {
+                        this.Text = "Pais - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmBiblioteca_Livros).Name))
+                    {
+                        this.Text = "Livros - [Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
                     #endregion

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -46,9 +46,12 @@
             this.btnSalas = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnProvinciasMunicipios = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnProvincias = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnMunicipios = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnProvinciasMunicipios = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator5 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator4 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnCategoria_Biblioteca = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -75,6 +78,14 @@
             this.btnGrupos = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnUsuarios = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.btnUsuario = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnGrupo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnUsuariosLog = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnPermissio = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnUser = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnUserLogs = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnPermis = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -84,10 +95,10 @@
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(218, 35);
-            this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(8);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(173, 29);
+            this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(755, 637);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(731, 622);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // accordionControl1
@@ -99,15 +110,15 @@
             this.accordionControlElement1,
             this.accordionControlElement6,
             this.accordionControlElement4});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 35);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(8);
+            this.accordionControl1.Location = new System.Drawing.Point(0, 29);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.accordionControl1.ResizeMode = DevExpress.XtraBars.Navigation.AccordionControlResizeMode.OuterResizeZone;
             this.accordionControl1.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.accordionControl1.Size = new System.Drawing.Size(218, 637);
+            this.accordionControl1.Size = new System.Drawing.Size(173, 622);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -171,7 +182,9 @@
             // accordionControlElement1
             // 
             this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement3});
+            this.accordionControlElement3,
+            this.accordionControlElement10,
+            this.accordionControlSeparator4});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -180,13 +193,21 @@
             // accordionControlElement3
             // 
             this.accordionControlElement3.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.btnProvinciasMunicipios,
             this.btnProvincias,
             this.btnMunicipios,
-            this.btnProvinciasMunicipios});
+            this.accordionControlSeparator5});
             this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement3.ImageOptions.SvgImage")));
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Regiões";
+            // 
+            // btnProvinciasMunicipios
+            // 
+            this.btnProvinciasMunicipios.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnProvinciasMunicipios.ImageOptions.SvgImage")));
+            this.btnProvinciasMunicipios.Name = "btnProvinciasMunicipios";
+            this.btnProvinciasMunicipios.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnProvinciasMunicipios.Text = "Consultar";
             // 
             // btnProvincias
             // 
@@ -202,12 +223,25 @@
             this.btnMunicipios.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnMunicipios.Text = "Municipos";
             // 
-            // btnProvinciasMunicipios
+            // accordionControlSeparator5
             // 
-            this.btnProvinciasMunicipios.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnProvinciasMunicipios.ImageOptions.SvgImage")));
-            this.btnProvinciasMunicipios.Name = "btnProvinciasMunicipios";
-            this.btnProvinciasMunicipios.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnProvinciasMunicipios.Text = "Provincias-Municipios";
+            this.accordionControlSeparator5.Name = "accordionControlSeparator5";
+            // 
+            // accordionControlElement10
+            // 
+            this.accordionControlElement10.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.btnUser,
+            this.btnGroup,
+            this.btnUserLogs,
+            this.btnPermis});
+            this.accordionControlElement10.Expanded = true;
+            this.accordionControlElement10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement10.ImageOptions.SvgImage")));
+            this.accordionControlElement10.Name = "accordionControlElement10";
+            this.accordionControlElement10.Text = "Sistema";
+            // 
+            // accordionControlSeparator4
+            // 
+            this.accordionControlSeparator4.Name = "accordionControlSeparator4";
             // 
             // accordionControlElement6
             // 
@@ -329,10 +363,11 @@
             this.barButtonItem2});
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
+            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
             this.fluentDesignFormControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(973, 35);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(904, 29);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.barButtonItem1);
@@ -407,16 +442,73 @@
             // 
             this.accordionControlSeparator1.Name = "accordionControlSeparator1";
             // 
+            // btnUsuario
+            // 
+            this.btnUsuario.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUsuario.ImageOptions.SvgImage")));
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnUsuario.Text = "Usuarios";
+            // 
+            // btnGrupo
+            // 
+            this.btnGrupo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnGrupo.ImageOptions.SvgImage")));
+            this.btnGrupo.Name = "btnGrupo";
+            this.btnGrupo.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnGrupo.Text = "Grupos";
+            // 
+            // btnUsuariosLog
+            // 
+            this.btnUsuariosLog.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUsuariosLog.ImageOptions.SvgImage")));
+            this.btnUsuariosLog.Name = "btnUsuariosLog";
+            this.btnUsuariosLog.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnUsuariosLog.Text = "Usuarios Logs";
+            // 
+            // btnPermissio
+            // 
+            this.btnPermissio.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPermissio.ImageOptions.SvgImage")));
+            this.btnPermissio.Name = "btnPermissio";
+            this.btnPermissio.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnPermissio.Text = "Permissões";
+            // 
+            // btnUser
+            // 
+            this.btnUser.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUser.ImageOptions.SvgImage")));
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnUser.Text = "Usuarios";
+            // 
+            // btnGroup
+            // 
+            this.btnGroup.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnGroup.ImageOptions.SvgImage")));
+            this.btnGroup.Name = "btnGroup";
+            this.btnGroup.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnGroup.Text = "Grupos";
+            // 
+            // btnUserLogs
+            // 
+            this.btnUserLogs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUserLogs.ImageOptions.SvgImage")));
+            this.btnUserLogs.Name = "btnUserLogs";
+            this.btnUserLogs.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnUserLogs.Text = "Usuarios logs";
+            // 
+            // btnPermis
+            // 
+            this.btnPermis.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPermis.ImageOptions.SvgImage")));
+            this.btnPermis.Name = "btnPermis";
+            this.btnPermis.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnPermis.Text = "Permissões";
+            // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 672);
+            this.ClientSize = new System.Drawing.Size(904, 651);
             this.ControlContainer = this.fluentDesignFormContainer1;
             this.Controls.Add(this.fluentDesignFormContainer1);
             this.Controls.Add(this.accordionControl1);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMenu";
             this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -470,5 +562,16 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnGrupos;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnUsuarios;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement10;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnUsuario;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnGrupo;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnUsuariosLog;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator5;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnPermissio;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator4;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnUser;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnGroup;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnUserLogs;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnPermis;
     }
 }

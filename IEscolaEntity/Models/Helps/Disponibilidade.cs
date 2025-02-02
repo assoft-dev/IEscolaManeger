@@ -10,9 +10,9 @@ namespace IEscolaEntity.Models.Helps
     [EnumAsInt]
     public enum Disponibilidade
     {
-        ONLINE,
-        FISICO,
-        ONLINE_FISICO,
-        NORMAL
+        ONLINE = 0,
+        FISICO = 1,
+        ONLINE_FISICO = 2,
+        NORMAL = 3,
     }
 }
