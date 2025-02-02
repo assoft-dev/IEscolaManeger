@@ -19,6 +19,8 @@ namespace IEscolaDesktop.View.Helps
             else if (exe.Message.Contains("Invalid object name") ||
                         exe.Message.Contains("Invalid column name"))
             {
+                Mensagens.Display("Localixao", "");
+
                 Db.UPDATETABLE();       
             }
         }

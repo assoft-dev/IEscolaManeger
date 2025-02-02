@@ -15,6 +15,8 @@ namespace IEscolaEntity.Models.Biblioteca
         [Unique]
         public string Descricao { get; set; }
 
+        public string Comentarios { get; set; }
+
         [ForeignKey(typeof(Pais))]
         public int PaisID { get; set; }
 

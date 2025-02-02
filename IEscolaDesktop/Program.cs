@@ -17,6 +17,7 @@ namespace IEscolaDesktop
             //Verificar a base de dados
             var Db = new DataConnections();
             Db.InitialMetodos(new DataConnectionConfig());
+            Db.UPDATETABLE();
             inicializacaoDirectory();
 
             Application.ThreadException += Application_ThreadException;
@@ -44,14 +45,12 @@ namespace IEscolaDesktop
 
         private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
-
             // Inicializacao dos Dados
             var Db = new DataConnections();
             Db.InitialMetodos(new DataConnectionConfig());
-
             GlobalException.CapturarError(e.Exception);
 
-            MessageBox.Show("Error Global " + e.Exception.Message);
+            Mensagens.Display("Global Exceptions", e.Exception.Message);
         }
     }
 }

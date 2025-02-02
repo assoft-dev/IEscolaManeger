@@ -19,10 +19,10 @@ namespace IEscolaEntity.Controllers.Helps
             SqlServerDialect.Provider.RegisterConverter<decimal>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerDecimalConverter { Precision = 38, Scale = 2 });
             SqlServerDialect.Provider.RegisterConverter<Sexo>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
             SqlServerDialect.Provider.RegisterConverter<Estado>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
-            SqlServerDialect.Provider.RegisterConverter<EstadoTransations>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
             SqlServerDialect.Provider.RegisterConverter<Escolaridade>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
             SqlServerDialect.Provider.RegisterConverter<ProvinciasCodigo>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
             SqlServerDialect.Provider.RegisterConverter<Disponibilidade>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
+            SqlServerDialect.Provider.RegisterConverter<Enum>(new ServiceStack.OrmLite.SqlServer.Converters.SqlServerUInt32Converter());
         }
         private void ConectionStringInitial()
         {

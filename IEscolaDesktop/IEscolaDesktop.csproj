@@ -92,6 +92,42 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\frmBiblioteca_Categorias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Categorias.Designer.cs">
+      <DependentUpon>frmBiblioteca_Categorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_CategoriasAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_CategoriasAdd.Designer.cs">
+      <DependentUpon>frmBiblioteca_CategoriasAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Autores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Autores.Designer.cs">
+      <DependentUpon>frmBiblioteca_Autores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Editoras.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Editoras.Designer.cs">
+      <DependentUpon>frmBiblioteca_Editoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_AutoresAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_AutoresAdd.Designer.cs">
+      <DependentUpon>frmBiblioteca_AutoresAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_EditorasAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_EditorasAdd.Designer.cs">
+      <DependentUpon>frmBiblioteca_EditorasAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmPeriodos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +157,18 @@
     </Compile>
     <Compile Include="View\Forms\frmClasses.Designer.cs">
       <DependentUpon>frmClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Pais.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Pais.Designer.cs">
+      <DependentUpon>frmBiblioteca_Pais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_PaisAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_PaisAdd.Designer.cs">
+      <DependentUpon>frmBiblioteca_PaisAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\frmTurmasAdd.cs">
       <SubType>UserControl</SubType>
@@ -306,6 +354,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_Categorias.resx">
+      <DependentUpon>frmBiblioteca_Categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_CategoriasAdd.resx">
+      <DependentUpon>frmBiblioteca_CategoriasAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_Autores.resx">
+      <DependentUpon>frmBiblioteca_Autores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_Editoras.resx">
+      <DependentUpon>frmBiblioteca_Editoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_AutoresAdd.resx">
+      <DependentUpon>frmBiblioteca_AutoresAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_EditorasAdd.resx">
+      <DependentUpon>frmBiblioteca_EditorasAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmPeriodos.resx">
       <DependentUpon>frmPeriodos.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +386,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmClasses.resx">
       <DependentUpon>frmClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_Pais.resx">
+      <DependentUpon>frmBiblioteca_Pais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_PaisAdd.resx">
+      <DependentUpon>frmBiblioteca_PaisAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmTurmasAdd.resx">
       <DependentUpon>frmTurmasAdd.cs</DependentUpon>
@@ -399,6 +471,10 @@
     <EmbeddedResource Include="View\ReportForms\rptUsuarios.resx">
       <DependentUpon>rptUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Autores.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Categorias.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Editores.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Pais.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Classes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Cursos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />

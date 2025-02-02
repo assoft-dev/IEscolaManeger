@@ -1,5 +1,8 @@
-﻿namespace IEscolaEntity.Models.Helps
+﻿using ServiceStack.DataAnnotations;
+
+namespace IEscolaEntity.Models.Helps
 {
+    [EnumAsInt]
     public enum PedidosEstado
     {
         REQUISITADO,

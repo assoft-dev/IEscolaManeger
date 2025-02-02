@@ -29,94 +29,111 @@ namespace IEscolaDesktop.View.Forms
 
             // Escolas
             btnTurma.Click += delegate { OpenForms(new frmTurmas()); };
-
             btnPeriodos.Click += delegate { OpenForms(new frmPeriodos()); };
             btnClasses.Click += delegate { OpenForms(new frmClasses()); };
             btnSalas.Click += delegate { OpenForms(new frmSalas()); };
             btnCursos.Click += delegate { OpenForms(new frmCursos()); };
+
+            // Biblioteca
+            btnCategoria_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Categorias()); };
+            Editoras_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Editoras()); };
+            btnPais_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Pais()); };
+            Autores_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Autores()); };
         }
 
         private void OpenForms(XtraUserControl control)
         {
-            if (control != null) 
+            Cursor =  Cursors.WaitCursor;
+            try
             {
-                if (control.Name.Equals(typeof(frmUsuarios).Name))
+                if (control != null)
                 {
-                    this.Text = "Usuários [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                else if (control.Name.Equals(typeof(frmGrupos).Name))
-                {
-                    this.Text = "Grupos [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                else if (control.Name.Equals(typeof(frmPermissoes).Name))
-                {
-                    this.Text = "Permissões [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                else if (control.Name.Equals(typeof(frmUsuariosLogs).Name))
-                {
-                    this.Text = "Usuarios Auditoria - [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
+                    if (control.Name.Equals(typeof(frmUsuarios).Name))
+                    {
+                        this.Text = "Usuários [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmGrupos).Name))
+                    {
+                        this.Text = "Grupos [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmPermissoes).Name))
+                    {
+                        this.Text = "Permissões [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmUsuariosLogs).Name))
+                    {
+                        this.Text = "Usuarios Auditoria - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
 
-                // Provincias
-                else if (control.Name.Equals(typeof(frmProvincias).Name))
-                {
-                    this.Text = "Provincias - [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                // Municipios
-                else if (control.Name.Equals(typeof(frmMunicipios).Name))
-                {
-                    this.Text = "Municipios - [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                // Provincias Municipios
-                else if (control.Name.Equals(typeof(frmProvinciasMunicipios).Name))
-                {
-                    this.Text = "Provincias-Municipios - [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
+                    // Provincias
+                    else if (control.Name.Equals(typeof(frmProvincias).Name))
+                    {
+                        this.Text = "Provincias - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Municipios
+                    else if (control.Name.Equals(typeof(frmMunicipios).Name))
+                    {
+                        this.Text = "Municipios - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Provincias Municipios
+                    else if (control.Name.Equals(typeof(frmProvinciasMunicipios).Name))
+                    {
+                        this.Text = "Provincias-Municipios - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
 
-                #region Escolas
-                // Turma
-                else if (control.Name.Equals(typeof(frmTurmas).Name))
-                {
-                    this.Text = "Turmas - [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                // Clase
-                else if (control.Name.Equals(typeof(frmClasses).Name))
-                {
-                    this.Text = "Classe - [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                // Salas
-                else if (control.Name.Equals(typeof(frmSalas).Name))
-                {
-                    this.Text = "Salas - [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                //Periodos
-                else if (control.Name.Equals(typeof(frmPeriodos).Name))
-                {
-                    this.Text = "Periodos - [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                // Cursos
-                else if (control.Name.Equals(typeof(frmCursos).Name))
-                {
-                    this.Text = "Cursos - [Aberto]";
-                    new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
-                }
-                #endregion
+                    #region Escolas
+                    // Turma
+                    else if (control.Name.Equals(typeof(frmTurmas).Name))
+                    {
+                        this.Text = "Turmas - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Clase
+                    else if (control.Name.Equals(typeof(frmClasses).Name))
+                    {
+                        this.Text = "Classe - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Salas
+                    else if (control.Name.Equals(typeof(frmSalas).Name))
+                    {
+                        this.Text = "Salas - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    //Periodos
+                    else if (control.Name.Equals(typeof(frmPeriodos).Name))
+                    {
+                        this.Text = "Periodos - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Cursos
+                    else if (control.Name.Equals(typeof(frmCursos).Name))
+                    {
+                        this.Text = "Cursos - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    #endregion
 
-                else 
-                {
-                    this.Text = "IGest-Escola"; 
+                    else
+                    {
+                        this.Text = "IGest-Escola";
+                    }
                 }
+            }
+            catch (System.Exception exe)
+            {
+                GlobalException.CapturarError(exe);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
             }
         }
 

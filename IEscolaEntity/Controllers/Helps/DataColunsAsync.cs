@@ -1,10 +1,8 @@
-﻿using ServiceStack.OrmLite;
+﻿using ServiceStack.DataAnnotations;
+using ServiceStack.OrmLite;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Helps
 {
@@ -17,11 +15,16 @@ namespace IEscolaEntity.Controllers.Helps
 
             //Actualizacao de colunas
             var models = typeof(T).GetProperties().Where(x => x.CanWrite && IsPrimitive(x.PropertyType));
+
             foreach (var item in models)
             {
                 if (!db.ColumnExists(item.Name, typeof(T).Name))
                 {
                     db.AddColumn(typeof(T), typeof(T).GetModelMetadata().GetFieldDefinition(item.Name));
+                }
+                else
+                {
+                    var u = item.PropertyType;;
                 }
             }
 
@@ -66,6 +69,8 @@ namespace IEscolaEntity.Controllers.Helps
                      typeof(DateTime),
                      typeof(DateTime?),
                      typeof(byte[]),
+                     typeof(Guid),
+                     typeof(Enum),
                 };
                 return primary.Contains(t);
             }

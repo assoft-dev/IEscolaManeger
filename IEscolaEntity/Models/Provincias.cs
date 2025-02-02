@@ -14,7 +14,7 @@
 
         public string Detalhes { get; set; }
 
-        public ProvinciasCodigo ProvinciasCodigo { get; set; }
+        [Default(0)] public ProvinciasCodigo ProvinciasCodigo { get; set; }
 
         [Reference] public List<ProvinciasMunicipios> ProvinciasMunicipios { get; set; }
     }
