@@ -24,6 +24,7 @@ namespace IEscolaEntity.Models
         public string Email { get; set; }
         public DateTime Data { get; set; }
 
+
         public Estado Estado { get; set; }
 
         public string ImagemURL { get; set; }
