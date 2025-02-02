@@ -409,7 +409,7 @@
             this.btnCategoria.Location = new System.Drawing.Point(344, 3);
             this.btnCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCategoria.Name = "btnCategoria";
-            this.btnCategoria.Size = new System.Drawing.Size(40, 26);
+            this.btnCategoria.Size = new System.Drawing.Size(40, 29);
             this.btnCategoria.TabIndex = 8;
             this.btnCategoria.Text = "Save";
             // 
@@ -432,7 +432,7 @@
             this.txtCAtegoria.Properties.NullText = "[Selecione a Categoria por favor]";
             this.txtCAtegoria.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtCAtegoria.Properties.ValueMember = "CategoriasID";
-            this.txtCAtegoria.Size = new System.Drawing.Size(336, 25);
+            this.txtCAtegoria.Size = new System.Drawing.Size(336, 27);
             this.txtCAtegoria.TabIndex = 8;
             // 
             // panel18
@@ -481,7 +481,7 @@
             this.txtDisponibilidade.Properties.DropDownRows = 10;
             this.txtDisponibilidade.Properties.NullText = "[Selecione sua disponibilidade por favor]";
             this.txtDisponibilidade.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtDisponibilidade.Size = new System.Drawing.Size(378, 25);
+            this.txtDisponibilidade.Size = new System.Drawing.Size(378, 27);
             this.txtDisponibilidade.TabIndex = 8;
             // 
             // panel2
@@ -758,7 +758,7 @@
             this.btnEditoras.Location = new System.Drawing.Point(343, 2);
             this.btnEditoras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditoras.Name = "btnEditoras";
-            this.btnEditoras.Size = new System.Drawing.Size(40, 26);
+            this.btnEditoras.Size = new System.Drawing.Size(40, 28);
             this.btnEditoras.TabIndex = 8;
             this.btnEditoras.Text = "Save";
             // 
@@ -782,7 +782,7 @@
             this.txtEditora.Properties.NullText = "[Selecione a Editora por favor]";
             this.txtEditora.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtEditora.Properties.ValueMember = "EditoresID";
-            this.txtEditora.Size = new System.Drawing.Size(336, 25);
+            this.txtEditora.Size = new System.Drawing.Size(336, 27);
             this.txtEditora.TabIndex = 8;
             // 
             // panel12
@@ -827,7 +827,7 @@
             this.btnAutor.Location = new System.Drawing.Point(342, 2);
             this.btnAutor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAutor.Name = "btnAutor";
-            this.btnAutor.Size = new System.Drawing.Size(40, 26);
+            this.btnAutor.Size = new System.Drawing.Size(40, 28);
             this.btnAutor.TabIndex = 8;
             this.btnAutor.Text = "Save";
             // 
@@ -852,7 +852,7 @@
             this.txtAutor.Properties.NullText = "[Selecione o Autor por favor]";
             this.txtAutor.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtAutor.Properties.ValueMember = "AutoresID";
-            this.txtAutor.Size = new System.Drawing.Size(337, 25);
+            this.txtAutor.Size = new System.Drawing.Size(337, 27);
             this.txtAutor.TabIndex = 8;
             this.txtAutor.EditValueChanged += new System.EventHandler(this.txtSala_EditValueChanged);
             // 
