@@ -26,7 +26,7 @@ namespace IEscolaEntity.Controllers.Helps
             connectionString.Password = Password;
             connectionString.InitialCatalog = DataBase;
             connectionString.ConnectTimeout = TimeOut;
-            connectionString.MaxPoolSize = 100;
+            connectionString.MaxPoolSize = 255;
             //connectionString.TrustServerCertificate = TruestConection;
         }
 

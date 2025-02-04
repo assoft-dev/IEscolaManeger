@@ -25,5 +25,7 @@ namespace IEscolaEntity.Controllers.Interfaces
         Task<bool> Excluir(T models);
         Task<bool> Excluir(Expression<Func<T, bool>> filter);
         #endregion
+
+        void CloseConection();
     }
 }

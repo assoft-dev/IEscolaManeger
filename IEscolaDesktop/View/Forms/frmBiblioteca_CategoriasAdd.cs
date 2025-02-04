@@ -97,8 +97,6 @@ namespace IEscolaDesktop.View.Forms
 
         private async void Guardar()
         {
-
-
             if (!await ValidationDatabase())
             {
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
@@ -200,7 +198,6 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
-       
         #region Teclas
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

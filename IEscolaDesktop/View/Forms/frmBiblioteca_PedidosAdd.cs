@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmBiblioteca_LivrosAdd : XtraUserControl
+    public partial class frmBiblioteca_PedidosAdd : XtraUserControl
     {
         ILivros DataRepository;
         IEditoras EditoresRepository;
@@ -24,7 +24,7 @@ namespace IEscolaDesktop.View.Forms
 
         bool IsValidate = false;
 
-        public frmBiblioteca_LivrosAdd(Livros usuarios = null)
+        public frmBiblioteca_PedidosAdd(Pedidos usuarios = null)
         {
             InitializeComponent();
 
@@ -49,25 +49,25 @@ namespace IEscolaDesktop.View.Forms
                 //Inicializar o Forms
                 txtTitulo.Text = "[Edição]";
 
-                txtTitulos.EditValue = usuarios.Titulo;
-                txtSubtitulos.EditValue = usuarios.SubTitulo;
-                txtSbn.EditValue = usuarios.ISBN;
-                txtEdicoes.EditValue = usuarios.Edicao;
-                txtDescricao.EditValue = usuarios.Descricao;
-                txtComentarios.EditValue = usuarios.Comentarios;
-                txtLancamento.EditValue = usuarios.Lancamento;
-                txtLocalLancamento.EditValue = usuarios.LocalLancamento;            
-                txtCodigoBarra.EditValue = usuarios.CodBar;
-                txtValidade.EditValue = usuarios.IsValidade;
-                txtPratileira.EditValue = usuarios.Pratileira;
-                txtPratileiraPosicao.EditValue = usuarios.PratileiraPosicao;
-                txtRating.EditValue = usuarios.Rating;
-                txtFavoritar.EditValue = usuarios.Favoritar;
-                txtAno.EditValue = usuarios.Ano;
-                txtEdicoes.EditValue = usuarios.EditorasID;
-                txtAutor.EditValue = usuarios.AutoresID;
-                txtCAtegoria.EditValue = usuarios.CategoriasID;
-                txtDisponibilidade.EditValue = usuarios.Disponibilidade;
+                //txtTitulos.EditValue = usuarios.Titulo;
+                //txtSubtitulos.EditValue = usuarios.SubTitulo;
+                //txtSbn.EditValue = usuarios.ISBN;
+                //txtEdicoes.EditValue = usuarios.Edicao;
+                //txtDescricao.EditValue = usuarios.Descricao;
+                //txtComentarios.EditValue = usuarios.Comentarios;
+                //txtLancamento.EditValue = usuarios.Lancamento;
+                //txtLocalLancamento.EditValue = usuarios.LocalLancamento;            
+                //txtCodigoBarra.EditValue = usuarios.CodBar;
+                //txtValidade.EditValue = usuarios.IsValidade;
+                //txtPratileira.EditValue = usuarios.Pratileira;
+                //txtPratileiraPosicao.EditValue = usuarios.PratileiraPosicao;
+                //txtRating.EditValue = usuarios.Rating;
+                //txtFavoritar.EditValue = usuarios.Favoritar;
+                //txtAno.EditValue = usuarios.Ano;
+                //txtEdicoes.EditValue = usuarios.EditorasID;
+                //txtAutor.EditValue = usuarios.AutoresID;
+                //txtCAtegoria.EditValue = usuarios.CategoriasID;
+                //txtDisponibilidade.EditValue = usuarios.Disponibilidade;
                 txtTitulos.Focus();
             }
             else {

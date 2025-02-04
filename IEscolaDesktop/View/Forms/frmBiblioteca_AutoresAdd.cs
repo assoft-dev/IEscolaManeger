@@ -1,13 +1,10 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
 using IEscolaDesktop.View.Helps;
-using IEscolaEntity.Controllers.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Controllers.Repository.Biblioteca;
-using IEscolaEntity.Models;
 using IEscolaEntity.Models.Biblioteca;
-using IEscolaEntity.Models.Helps;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,8 +25,8 @@ namespace IEscolaDesktop.View.Forms
             paisRepository = new PaisRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
-            txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
-            txtPermissioes.EditValueChanged += delegate { ChangeValudations(txtPermissioes); };
+            txtFIrstName.EditValueChanged += delegate { ChangeValudations(txtFIrstName); };
+            txtPais.EditValueChanged += delegate { ChangeValudations(txtPais); };
 
             btnBuscarGrupos.Click += BtnBuscarGrupos_Click;
 
@@ -39,16 +36,13 @@ namespace IEscolaDesktop.View.Forms
                 
                 //Inicializar o Forms
                 txtTitulo.Text = "[Edição]";
-                txtDescricao.EditValue = usuarios.FirstName;
-                txtComentarios.EditValue = usuarios.LastName;
-                txtComentarios.EditValue = usuarios.DataNascimento.Date;
-
-                txtPermissioes.EditValue = usuarios.PaisID;
-
-
+                txtFIrstName.EditValue = usuarios.FirstName;
+                txtLastName.EditValue = usuarios.LastName;
+                txtData.EditValue = usuarios.DataNascimento.Date;
+                txtPais.EditValue = usuarios.PaisID;
                 txtCodigo.EditValue = usuarios.AutoresID;
 
-                txtDescricao.Focus();
+                txtFIrstName.Focus();
             }
             else {
                 txtTitulo.Text = "[Novo]";
@@ -137,9 +131,9 @@ namespace IEscolaDesktop.View.Forms
                 var data = new Autores
                 { 
                     AutoresID = ID,
-                    FirstName = txtDescricao.Text.Trim(),
-                    LastName = txtComentarios.Text,
-                    PaisID = (int) txtPermissioes.EditValue,
+                    FirstName = txtFIrstName.Text.Trim(),
+                    LastName = txtLastName.Text.Trim(),
+                    PaisID = (int) txtPais.EditValue,
                     DataNascimento = txtData.DateTime
                 };
 
@@ -160,8 +154,8 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => (x.FirstName == txtDescricao.Text &&
-                                                           x.LastName == txtComentarios.Text), null);
+            var dataResult = await DataRepository.Get(x => (x.FirstName == txtFIrstName.Text &&
+                                                            x.LastName == txtLastName.Text), null);
 
             if (dataResult != null)
             {
@@ -173,8 +167,8 @@ namespace IEscolaDesktop.View.Forms
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Error);
 
-                        txtDescricao.SelectAll();
-                        txtDescricao.Focus();
+                        txtFIrstName.SelectAll();
+                        txtFIrstName.Focus();
 
                         return true;
                     } 
@@ -189,10 +183,11 @@ namespace IEscolaDesktop.View.Forms
             windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
 
             txtCodigo.Text = string.Empty;
-            txtDescricao.Text = string.Empty;
-            txtComentarios.Text = string.Empty;       
+            txtFIrstName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            txtData.DateTime = DateTime.Now;
             txtTitulo.Text = "[Novo]";
-            txtDescricao.Focus();
+            txtFIrstName.Focus();
         }
 
         private void ChangeValidationCodigo()
@@ -214,12 +209,12 @@ namespace IEscolaDesktop.View.Forms
             if (control != null)
             {
                 #region FirstName
-                if (control.Name.Equals(txtDescricao.Name))
+                if (control.Name.Equals(txtFIrstName.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
+                    if (!string.IsNullOrWhiteSpace(txtFIrstName.Text))
                     {
-                        if (!string.IsNullOrWhiteSpace(txtComentarios.Text) &&
-                            !(string.IsNullOrWhiteSpace(txtPermissioes.Text) || txtPermissioes.Text == "[Selecione a o pais por favor]"))
+                        if (!string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                            !(string.IsNullOrWhiteSpace(txtPais.Text) || txtPais.Text == "[Selecione a o pais por favor]"))
                         { 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -234,11 +229,11 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Grupos
-                if (control.Name.Equals(txtPermissioes.Name))
+                if (control.Name.Equals(txtPais.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtPermissioes.Text))
+                    if (!string.IsNullOrWhiteSpace(txtPais.Text))
                     {
-                        if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
+                        if (!string.IsNullOrWhiteSpace(txtFIrstName.Text))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -260,7 +255,6 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
-       
         #region Teclas
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

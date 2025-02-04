@@ -78,9 +78,10 @@ namespace IEscolaEntity.Controllers.Helps
                      typeof(ProvinciasCodigo),
                      typeof(Disponibilidade),
                      typeof(Escolaridade),
-                     typeof(PedidosEstado),
                      typeof(Sexo),
                      typeof(UsuariosRetorno),
+                     typeof(PedidosEstado),
+                     typeof(PedidosDocuments),
                 };
                 return primary.Contains(t);
             }

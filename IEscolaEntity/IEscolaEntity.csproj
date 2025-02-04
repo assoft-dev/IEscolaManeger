@@ -138,7 +138,9 @@
     <Compile Include="Models\Helps\Disponibilidade.cs" />
     <Compile Include="Models\Helps\Escolaridade.cs" />
     <Compile Include="Models\Helps\Estado.cs" />
+    <Compile Include="Models\Helps\PedidosDocuments.cs" />
     <Compile Include="Models\Helps\PedidosEstado.cs" />
+    <Compile Include="Models\Helps\PedidosPagamentos.cs" />
     <Compile Include="Models\Helps\ProvinciasCodigo.cs" />
     <Compile Include="Models\Helps\Sexo.cs" />
     <Compile Include="Models\Helps\UsuariosRetorno.cs" />

@@ -13,10 +13,13 @@ namespace IEscolaEntity.Models.Biblioteca
         public string DocNumero { get; set; }
         public string DataReserva { get; set; }
         public string DataEntrega { get; set; }
-        public PedidosEstado PedidosEstado { get; set; }
+
 
         public bool IsValid { get; set; }
         public string TotalGeral { get; set; }
+
+        public PedidosEstado PedidosEstado { get; set; }
+        public PedidosDocuments PedidosDocuments { get; set; }
 
         [ForeignKey(typeof(Estudantes))]
         public int EstudantesID { get; set; }

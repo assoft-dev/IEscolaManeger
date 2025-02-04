@@ -23,6 +23,17 @@ namespace IEscolaEntity.Controllers.Repository
         {
             this.DbConection = DataConnectionConfig.Conection().OpenDbConnection();
         }
+
+        ~ GenericRepository()
+        {
+            DbConection.Close();
+        }
+
+        public void CloseConection()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         #region Apagar os dados
@@ -54,7 +65,8 @@ namespace IEscolaEntity.Controllers.Repository
 
         public async Task<List<T>> GetAll(Expression<Func<T, bool>> Filter = null, string[] includes = null)
         {
-            return await DbConection.LoadSelectAsync<T>(Filter, includes);
+             var RESULT = await DbConection.LoadSelectAsync<T>(Filter, includes);
+            return RESULT;
         }
         #endregion
 

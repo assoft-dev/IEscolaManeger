@@ -127,6 +127,18 @@
     <Compile Include="View\Forms\frmBiblioteca_EditorasAdd.Designer.cs">
       <DependentUpon>frmBiblioteca_EditorasAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_PedidosAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_PedidosAdd.Designer.cs">
+      <DependentUpon>frmBiblioteca_PedidosAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Pedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_Pedidos.Designer.cs">
+      <DependentUpon>frmBiblioteca_Pedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmPeriodos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -343,6 +355,18 @@
     <Compile Include="View\ReportForms\rptLivros.Designer.cs">
       <DependentUpon>rptLivros.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ReportForms\rptPedidos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptPedidos.Designer.cs">
+      <DependentUpon>rptPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportForms\rptPedidoInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptPedidoInvoice.Designer.cs">
+      <DependentUpon>rptPedidoInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ReportForms\rptTurmas.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -388,6 +412,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmBiblioteca_EditorasAdd.resx">
       <DependentUpon>frmBiblioteca_EditorasAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_PedidosAdd.resx">
+      <DependentUpon>frmBiblioteca_PedidosAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_Pedidos.resx">
+      <DependentUpon>frmBiblioteca_Pedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmPeriodos.resx">
       <DependentUpon>frmPeriodos.cs</DependentUpon>
@@ -491,6 +521,12 @@
     <EmbeddedResource Include="View\ReportForms\rptLivros.resx">
       <DependentUpon>rptLivros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptPedidos.resx">
+      <DependentUpon>rptPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptPedidoInvoice.resx">
+      <DependentUpon>rptPedidoInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ReportForms\rptTurmas.resx">
       <DependentUpon>rptTurmas.cs</DependentUpon>
     </EmbeddedResource>
@@ -502,6 +538,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Editores.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Livros.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Pais.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Pedidos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Classes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Cursos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />

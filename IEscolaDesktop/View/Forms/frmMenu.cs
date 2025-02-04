@@ -40,6 +40,8 @@ namespace IEscolaDesktop.View.Forms
             btnPais_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Pais()); };
             Autores_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Autores()); };
             Livros_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Livros()); };
+            btnPedidos_Consltas_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Pedidos()); };
+            btnPedidos_Requisicao_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_PedidosAdd()); };
         }
 
         private void OpenForms(XtraUserControl control)
@@ -151,6 +153,17 @@ namespace IEscolaDesktop.View.Forms
                     {
                         this.Text = "Livros - [Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmBiblioteca_Pedidos).Name))
+                    {
+                        this.Text = "Ped. (Consultas) [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmBiblioteca_PedidosAdd).Name))
+                    {
+                        this.Text = "Ped. (Requisição) -[Aberto]";
+
+                        OpenFormsDialog.ShowForm(this, null, control);
                     }
                     #endregion
 
