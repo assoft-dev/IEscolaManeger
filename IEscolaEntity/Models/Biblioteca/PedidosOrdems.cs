@@ -17,6 +17,7 @@ namespace IEscolaEntity.Models.Biblioteca
         public int PedidoID { get; set; }
         [Reference] public Pedidos Pedidos { get; set; }
 
+       
         [ForeignKey(typeof(Livros))]
         public int LivroID { get; set; }
         [Reference] public Livros Livros { get; set; }

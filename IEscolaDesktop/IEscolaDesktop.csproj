@@ -539,8 +539,10 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Livros.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Pais.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Pedidos.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.PedidosOrdems.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Classes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Cursos.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Estudantes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Municipios.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />

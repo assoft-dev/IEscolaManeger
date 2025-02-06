@@ -14,7 +14,6 @@ namespace IEscolaEntity.Models.Biblioteca
         public string DataReserva { get; set; }
         public string DataEntrega { get; set; }
 
-
         public bool IsValid { get; set; }
         public string TotalGeral { get; set; }
 

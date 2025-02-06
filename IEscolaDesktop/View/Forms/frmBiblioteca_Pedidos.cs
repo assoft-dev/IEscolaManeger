@@ -112,7 +112,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmBiblioteca_LivrosAdd(null));
+                   new frmBiblioteca_PedidosAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();
@@ -122,10 +122,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = pedidosBindingSource.Current as Livros;
+                var result = pedidosBindingSource.Current as Pedidos;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmBiblioteca_LivrosAdd(result ?? null));
+                    new frmBiblioteca_PedidosAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -211,7 +211,6 @@ namespace IEscolaDesktop.View.Forms
             else
                 XtraMessageBox.Show("Por favor selecione alguma informação na tela!...");
         }
-
         #endregion
     }
 }
