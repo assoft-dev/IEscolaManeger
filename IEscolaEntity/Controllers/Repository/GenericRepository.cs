@@ -15,7 +15,7 @@ namespace IEscolaEntity.Controllers.Repository
     public class GenericRepository<T> : TransationRepository, IGeneric<T> where T : class
     {
         #region Declaração de Variaveis
-        private readonly IDbConnection DbConection;
+        public readonly IDbConnection DbConection;
         #endregion
 
         #region Contrutores da Classe
@@ -27,11 +27,6 @@ namespace IEscolaEntity.Controllers.Repository
         ~ GenericRepository()
         {
             DbConection.Close();
-        }
-
-        public void CloseConection()
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

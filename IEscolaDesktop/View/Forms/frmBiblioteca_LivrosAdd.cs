@@ -282,7 +282,6 @@ namespace IEscolaDesktop.View.Forms
             txtPratileiraPosicao.EditValue = string.Empty;
             txtRating.EditValue = string.Empty;
             txtFavoritar.EditValue = string.Empty;
-            txtAno.EditValue = string.Empty;
             txtDisponibilidade.EditValue = string.Empty;
             txtTitulos.Focus();
 

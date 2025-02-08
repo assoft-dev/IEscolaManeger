@@ -21,8 +21,7 @@ namespace IEscolaDesktop.View.Forms
         IPedidos PedidosRepository;
         IPedidosOrdem PedidosOrdemRepository;
         IEstudantes EstudantesRespository;
-
-        List<Livros> livrosOriginalList;
+        List<PedidosOrdems> livrosOriginalList;
 
         bool IsValidate = false;
 
@@ -37,7 +36,7 @@ namespace IEscolaDesktop.View.Forms
             PedidosOrdemRepository = new PedidosOrdemRepository();
             EstudantesRespository =  new EstudantesRepository();
 
-            livrosOriginalList = new List<Livros>();
+            livrosOriginalList = new List<PedidosOrdems>();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
 
@@ -45,10 +44,7 @@ namespace IEscolaDesktop.View.Forms
             txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao);};
             txtDocumentos.EditValueChanged += delegate { ChangeValudations(txtDocumentos); };
             txtEstudantes.EditValueChanged += delegate { ChangeValudations(txtEstudantes); };
-
             btnestudantes.Click += BtnBuscarEdicoes_Click;
-            //btnAutor.Click += BtnBuscarAutores_Click;
-            //btnCategoria.Click += BtnBuscarCategoria_Click;
 
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
 
@@ -57,25 +53,26 @@ namespace IEscolaDesktop.View.Forms
                 //Inicializar o Forms
                 txtTitulo.Text = "[Edição]";
 
-                //txtTitulos.EditValue = usuarios.Titulo;
-                //txtSubtitulos.EditValue = usuarios.SubTitulo;
-                //txtSbn.EditValue = usuarios.ISBN;
-                //txtEdicoes.EditValue = usuarios.Edicao;
-                //txtDescricao.EditValue = usuarios.Descricao;
-                //txtComentarios.EditValue = usuarios.Comentarios;
-                //txtLancamento.EditValue = usuarios.Lancamento;
-                //txtLocalLancamento.EditValue = usuarios.LocalLancamento;            
-                //txtCodigoBarra.EditValue = usuarios.CodBar;
-                //txtValidade.EditValue = usuarios.IsValidade;
-                //txtPratileira.EditValue = usuarios.Pratileira;
-                //txtPratileiraPosicao.EditValue = usuarios.PratileiraPosicao;
-                //txtRating.EditValue = usuarios.Rating;
-                //txtFavoritar.EditValue = usuarios.Favoritar;
-                //txtAno.EditValue = usuarios.Ano;
-                //txtEdicoes.EditValue = usuarios.EditorasID;
-                //txtAutor.EditValue = usuarios.AutoresID;
-                //txtCAtegoria.EditValue = usuarios.CategoriasID;
-                //txtDisponibilidade.EditValue = usuarios.Disponibilidade;
+                txtCodigo.EditValue = usuarios.PedidosID;
+                txtDoc_Numero.EditValue = usuarios.DocNumero;
+                txtIsValido.EditValue = usuarios.IsValid;
+                txtDescricao.EditValue = usuarios.Descricao;
+                txtdatEntrega.EditValue = usuarios.DataEntrega;
+                txtDataReserva.EditValue = usuarios.DataReserva;
+                txtDocumentos.EditValue = usuarios.PedidosDocuments;
+                txtEstudantes.EditValue = usuarios.EstudantesID;
+                txtEstado.EditValue = usuarios.PedidosEstado;
+
+                // Preencher estudantes
+                var estuda = estudantesBindingSource.Current as Estudantes;
+                if (estuda != null) {
+                    txtFullName.EditValue = estuda.FullName;
+                    txtTelemovel.EditValue = estuda.Telemovel;
+                }   
+
+                livrosOriginalList = usuarios.PedidosOrdems;
+                pedidosOrdemsBindingSource.DataSource = livrosOriginalList;
+                Calculos();
                 txtDescricao.Focus();
             }
             else {
@@ -89,6 +86,7 @@ namespace IEscolaDesktop.View.Forms
             MenuPrinciapl.Opening += ContextMenuStrip1_Opening;
             gridControl1.ContextMenuStrip = MenuPrinciapl;
             btnBuscarItems.Click += BtnBuscarItems_Click;
+            btnApagar.Click += delegate { RemoverCarrinho(); };
 
             //btnApagar.Click += Apagar_Click;
             //btnAtualizar.Click += Atualizar_Click;
@@ -101,7 +99,6 @@ namespace IEscolaDesktop.View.Forms
 
             txtEstudantes.KeyDown += TxtEstudantes_KeyDown;
 
-            btnApagar.Click += delegate { Apagar(); };
         }
 
         private void TxtEstudantes_KeyDown(object sender, KeyEventArgs e)
@@ -144,16 +141,33 @@ namespace IEscolaDesktop.View.Forms
 
                     if (livrosOriginalList.Count == 0)
                     {
-                        livrosOriginalList.Add(LivrosBuscar);
+                        livrosOriginalList.Add(new PedidosOrdems {  
+                            DocNumero = null, 
+                            PedidoID = 0,
+                            PedidosOrdemID = 0,
+                            Quantidade = (int) LivrosBuscar.Quantidade,
+                            Precounitario = (decimal) LivrosBuscar.PrecoUnitario ,
+                            Total = LivrosBuscar.TotalGeral,
+                            LivrosID = LivrosBuscar.LivrosID,
+                        });
                     }
                     else if (Existe == null)
                     {
-                        livrosOriginalList.Add(LivrosBuscar);
+                        livrosOriginalList.Add(new PedidosOrdems
+                        {
+                            DocNumero = null,
+                            PedidoID = 0,
+                            PedidosOrdemID = 0,
+                            Quantidade = (int)LivrosBuscar.Quantidade,
+                            Precounitario = (decimal)LivrosBuscar.PrecoUnitario,
+                            Total = LivrosBuscar.TotalGeral,
+                            LivrosID = LivrosBuscar.LivrosID,
+                        });
                     }
                 }
 
-                livrosBindingSource.DataSource = livrosOriginalList;
-                livrosBindingSource.ResetBindings(true);
+                pedidosOrdemsBindingSource.DataSource = livrosOriginalList;
+                pedidosOrdemsBindingSource.ResetBindings(true);
 
                 Calculos();
             }
@@ -161,7 +175,7 @@ namespace IEscolaDesktop.View.Forms
 
         private void Calculos()
         {
-            var total = livrosOriginalList.Sum(x => x.TotalGeral);
+            var total = livrosOriginalList.Sum(x => x.Total);
             txtDesconto.Properties.MaxValue = total;
 
             txtSubTotal.Value = total;
@@ -227,9 +241,34 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
-        private void Apagar()
+        private async void Apagar()
         {
-            var existe = livrosBindingSource.Current as Livros;
+            if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
+            {
+                var msg = Mensagens.Display("Apagar Permanentemente",
+                                            "Queres apagar de forma permanente esta informação?", MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+
+                if (msg == DialogResult.Yes)
+                {
+                    var data = int.Parse(txtCodigo.Text);
+                    var apagar = await PedidosRepository.Excluir(x => x.PedidosID == data);
+
+                    if (apagar)
+                    {
+                        Mensagens.Display("Apagar Dados",
+                                          "Dados apagados com exito",
+                                          MessageBoxButtons.OK,
+                                          MessageBoxIcon.Information);
+                        Limpar();
+                    }
+                }
+            }
+        }
+
+        private void RemoverCarrinho()
+        {
+            var existe = pedidosOrdemsBindingSource.Current as PedidosOrdems;
 
             if (existe != null)
             {
@@ -241,8 +280,8 @@ namespace IEscolaDesktop.View.Forms
                 {
                     livrosOriginalList.Remove(existe);
 
-                    livrosBindingSource.DataSource = livrosOriginalList;
-                    livrosBindingSource.ResetBindings(true);
+                    pedidosOrdemsBindingSource.DataSource = livrosOriginalList;
+                    pedidosOrdemsBindingSource.ResetBindings(true);
 
                     Calculos();
                 }
@@ -253,46 +292,47 @@ namespace IEscolaDesktop.View.Forms
         {
             if (!await ValidationDatabase())
             {
-                //var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
+                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
+                var NumeroDoc = await PedidosRepository.GetQR();
 
-                //// save Data
-                //var data = new Pedidos
-                //{
-                //    LivrosID = ID,
-                //    Titulo =  (string) txtTitulos.Text.Trim(),
-                //    SubTitulo = (string) txtSubtitulos.Text.Trim(),
-                //    ISBN = (string) txtSbn.Text.Trim(),
-                //    Edicao = (string) txtEdicoes.Text.Trim(),
-                //    Descricao = (string) txtDescricao.Text.Trim(),
-                //    Comentarios = (string) txtComentarios.Text.Trim(),
-                //    Lancamento = (string) txtDataReserva.Text.Trim(),
-                //    LocalLancamento = (string) txtTelemovel.Text.Trim(),
-                //    CodBar = (string) txtdatEntrega.Text.Trim(),
-                //    IsValidade = (bool) txtValidade.EditValue,
-                //    Pratileira = (string) txtDoc_Numero.Text.Trim(),
-                //    PratileiraPosicao = (string) txtFullName.Text.Trim(),
-                //    Rating = (int) txtRating.EditValue,
-                //    Favoritar = (bool) txtFavoritar.EditValue,
-                //    Ano = Convert.ToInt32(txtAno.EditValue, CultureInfo.CurrentCulture),
+                // save Data
+                var data = new Pedidos
+                {
+                    PedidosID = ID,
+                    Titulo = (string)txtTitulos.Text.Trim(),
+                    SubTitulo = (string)txtSubtitulos.Text.Trim(),
+                    ISBN = (string)txtSbn.Text.Trim(),
+                    Edicao = (string)txtEdicoes.Text.Trim(),
+                    Descricao = (string)txtDescricao.Text.Trim(),
+                    Comentarios = (string)txtComentarios.Text.Trim(),
+                    Lancamento = (string)txtDataReserva.Text.Trim(),
+                    LocalLancamento = (string)txtTelemovel.Text.Trim(),
+                    CodBar = (string)txtdatEntrega.Text.Trim(),
+                    IsValidade = (bool)txtValidade.EditValue,
+                    Pratileira = (string)txtDoc_Numero.Text.Trim(),
+                    PratileiraPosicao = (string)txtFullName.Text.Trim(),
+                    Rating = (int)txtRating.EditValue,
+                    Favoritar = (bool)txtFavoritar.EditValue,
+                    Ano = Convert.ToInt32(txtAno.EditValue, CultureInfo.CurrentCulture),
 
-                //    CategoriasID = (int) txtAno.EditValue,
-                //    EditorasID = (int) txtAno.EditValue,
-                //    AutoresID = (int)txtAno.EditValue,
-                //    Disponibilidade = (Disponibilidade) txtAno.EditValue,
-                //};
+                    CategoriasID = (int)txtAno.EditValue,
+                    EditorasID = (int)txtAno.EditValue,
+                    AutoresID = (int)txtAno.EditValue,
+                    Disponibilidade = (Disponibilidade)txtAno.EditValue,
+                };
 
-                //IsValidate = ID != 0 ? await LivrosRepository.Guardar(data, X => X.AutoresID == ID) > 0 :
-                //                       await LivrosRepository.Guardar(data, true);
+                IsValidate = ID != 0 ? await LivrosRepository.Guardar(data, X => X.AutoresID == ID) > 0 :
+                                       await LivrosRepository.Guardar(data, true);
 
-                //if (IsValidate)
-                //{
-                //    Mensagens.Display("Guardar Dados", "Dados Guardados com muito Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    Limpar();
-                //}
-                //else
-                //    Mensagens.Display("Impossivel Guardar Dados", "Não foi possivel guardar a informação requerida",
-                //                       MessageBoxButtons.OK,
-                //                       MessageBoxIcon.Error);
+                if (IsValidate)
+                {
+                    Mensagens.Display("Guardar Dados", "Dados Guardados com muito Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpar();
+                }
+                else
+                    Mensagens.Display("Impossivel Guardar Dados", "Não foi possivel guardar a informação requerida",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error);
             }      
         }
 
@@ -350,10 +390,10 @@ namespace IEscolaDesktop.View.Forms
             txtTelemovel.EditValue = string.Empty;
             txtDoc_Numero.EditValue = string.Empty;
             txtFullName.EditValue = string.Empty;
-            txtFavoritar.EditValue = string.Empty;
+            txtIsValido.EditValue = string.Empty;
 
             livrosOriginalList.Clear();
-            livrosBindingSource.DataSource = livrosOriginalList;
+            pedidosOrdemsBindingSource.DataSource = livrosOriginalList;
             
             Calculos();
 

@@ -10,6 +10,6 @@ namespace IEscolaEntity.Controllers.Interfaces
 {
     public interface IPedidos: ITransationRepository, IGeneric<Pedidos>
     {
-
+        Task<string> GetQR();
     }
 }

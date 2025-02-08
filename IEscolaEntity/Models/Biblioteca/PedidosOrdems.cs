@@ -19,7 +19,7 @@ namespace IEscolaEntity.Models.Biblioteca
 
        
         [ForeignKey(typeof(Livros))]
-        public int LivroID { get; set; }
+        public int LivrosID { get; set; }
         [Reference] public Livros Livros { get; set; }
     }
 }
