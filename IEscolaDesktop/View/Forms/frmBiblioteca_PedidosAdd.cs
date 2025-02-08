@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
 using IEscolaDesktop.View.Helps;
+using IEscolaDesktop.View.ReportForms;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Controllers.Repository.Biblioteca;
@@ -234,6 +235,10 @@ namespace IEscolaDesktop.View.Forms
                     case 0:
                         Limpar();
                         break;
+
+                    case 1:
+                        Guardar();
+                        break;
                     default:
                         Apagar();
                         break;
@@ -295,44 +300,64 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
                 var NumeroDoc = await PedidosRepository.GetQR();
 
-                // save Data
-                var data = new Pedidos
+                await PedidosRepository.TaskExecutes(async () =>
                 {
-                    PedidosID = ID,
-                    Titulo = (string)txtTitulos.Text.Trim(),
-                    SubTitulo = (string)txtSubtitulos.Text.Trim(),
-                    ISBN = (string)txtSbn.Text.Trim(),
-                    Edicao = (string)txtEdicoes.Text.Trim(),
-                    Descricao = (string)txtDescricao.Text.Trim(),
-                    Comentarios = (string)txtComentarios.Text.Trim(),
-                    Lancamento = (string)txtDataReserva.Text.Trim(),
-                    LocalLancamento = (string)txtTelemovel.Text.Trim(),
-                    CodBar = (string)txtdatEntrega.Text.Trim(),
-                    IsValidade = (bool)txtValidade.EditValue,
-                    Pratileira = (string)txtDoc_Numero.Text.Trim(),
-                    PratileiraPosicao = (string)txtFullName.Text.Trim(),
-                    Rating = (int)txtRating.EditValue,
-                    Favoritar = (bool)txtFavoritar.EditValue,
-                    Ano = Convert.ToInt32(txtAno.EditValue, CultureInfo.CurrentCulture),
+                    // save Data
+                    var pedido = new Pedidos
+                    {
+                        PedidosID = ID,
+                        Descricao = txtDescricao.Text,
+                        DocNumero = NumeroDoc,
+                        DataEntrega = (DateTime)txtdatEntrega.DateTime,
+                        DataReserva = (DateTime)txtDataReserva.DateTime,
+                        IsValid = (bool)txtIsValido.IsOn,
+                        TotalGeral = (decimal)txtTotal.EditValue,
+                        PedidosEstado = (PedidosEstado)txtEstado.EditValue,
+                        PedidosDocuments = (PedidosDocuments)txtDocumentos.EditValue,
+                        EstudantesID = (int)txtEstudantes.EditValue,
+                    };
+                    var IDResult = PedidosRepository.DoInsertReturnAsync(pedido);
 
-                    CategoriasID = (int)txtAno.EditValue,
-                    EditorasID = (int)txtAno.EditValue,
-                    AutoresID = (int)txtAno.EditValue,
-                    Disponibilidade = (Disponibilidade)txtAno.EditValue,
-                };
+                    var ordem = pedidosOrdemsBindingSource.List as IList<PedidosOrdems>;
 
-                IsValidate = ID != 0 ? await LivrosRepository.Guardar(data, X => X.AutoresID == ID) > 0 :
-                                       await LivrosRepository.Guardar(data, true);
+                    foreach (var item in ordem)
+                    {
+                        var pedidoOrdem = new PedidosOrdems
+                        {
+                            DocNumero = NumeroDoc,
+                            LivrosID = item.LivrosID,
+                            PedidoID = IDResult.PedidosID,
+                            Quantidade = item.Quantidade,
+                            Total = item.Total,
+                            Livros = item.Livros,
+                            Precounitario = item.Precounitario,
+                        };
+                        PedidosRepository.DoSaveAsync(pedidoOrdem);
+                    }
+                });
 
-                if (IsValidate)
+                if (PedidosRepository.EndTransaction().Estado)
                 {
                     Mensagens.Display("Guardar Dados", "Dados Guardados com muito Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Imprimir o comprovativo
+
+                    #region Imprimir
+                    var data = new List<Pedidos>
+                    {
+
+                    };
+
+                    GlobalReport.GetReport(new rptPedidoInvoice(data));
+                    #endregion
+
                     Limpar();
                 }
-                else
+                else {
                     Mensagens.Display("Impossivel Guardar Dados", "Não foi possivel guardar a informação requerida",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Error);
+                }
             }      
         }
 
