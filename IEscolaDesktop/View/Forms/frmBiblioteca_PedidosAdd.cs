@@ -4,11 +4,13 @@ using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Controllers.Repository.Biblioteca;
+using IEscolaEntity.Models;
 using IEscolaEntity.Models.Biblioteca;
 using IEscolaEntity.Models.Helps;
-using ServiceStack.Script;
 using System;
-using System.Globalization;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,11 +18,11 @@ namespace IEscolaDesktop.View.Forms
 {
     public partial class frmBiblioteca_PedidosAdd : XtraUserControl
     {
-        ILivros LivrosRepository;
-
         IPedidos PedidosRepository;
         IPedidosOrdem PedidosOrdemRepository;
         IEstudantes EstudantesRespository;
+
+        List<Livros> livrosOriginalList;
 
         bool IsValidate = false;
 
@@ -28,15 +30,21 @@ namespace IEscolaDesktop.View.Forms
         {
             InitializeComponent();
 
-            LivrosRepository = new LivrosRepository ();
+            txtDataReserva.DateTime = DateTime.Now;
+            txtdatEntrega.DateTime = DateTime.Now.AddDays(5);
+
             PedidosRepository = new PedidosRepository();
             PedidosOrdemRepository = new PedidosOrdemRepository();
             EstudantesRespository =  new EstudantesRepository();
 
+            livrosOriginalList = new List<Livros>();
+
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
 
             txtEstado.EditValueChanged += delegate { ChangeValudations(txtEstado); };
+            txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao);};
             txtDocumentos.EditValueChanged += delegate { ChangeValudations(txtDocumentos); };
+            txtEstudantes.EditValueChanged += delegate { ChangeValudations(txtEstudantes); };
 
             btnestudantes.Click += BtnBuscarEdicoes_Click;
             //btnAutor.Click += BtnBuscarAutores_Click;
@@ -76,7 +84,106 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
             }
 
+            // Menu de Contexto
+            #region Menu Populat
+            MenuPrinciapl.Opening += ContextMenuStrip1_Opening;
+            gridControl1.ContextMenuStrip = MenuPrinciapl;
+            btnBuscarItems.Click += BtnBuscarItems_Click;
+
+            //btnApagar.Click += Apagar_Click;
+            //btnAtualizar.Click += Atualizar_Click;
+            btnRelatorios.Click += delegate { gridControl1.ShowRibbonPrintPreview(); };
+            #endregion
+
             this.Load += FrmUsuariosAdd_Load;
+
+            txtDesconto.ValueChanged += TxtDesconto_ValueChanged;
+
+            txtEstudantes.KeyDown += TxtEstudantes_KeyDown;
+
+            btnApagar.Click += delegate { Apagar(); };
+        }
+
+        private void TxtEstudantes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var result = estudantesBindingSource.Current as Estudantes;
+
+                if (result != null)
+                {
+                    txtFullName.EditValue = result.FullName;
+                    txtTelemovel.EditValue = result.Telemovel;
+                    windowsUIButtonPanel1.Focus();
+                }
+            }
+        }
+
+        private void TxtDesconto_ValueChanged(object sender, EventArgs e)
+        {
+            txtTotal.Value = txtSubTotal.Value - txtDesconto.Value;
+        }
+
+        private void BtnBuscarItems_Click(object sender, EventArgs e)
+        {
+            // Buscar Grupos
+
+            var frmBuscar = new frmBiblioteca_PedidosBuscar();
+
+            var forms = new OpenFormsDialog(null, null, frmBuscar);
+
+           var t = forms.ShowDialog();
+
+            if (t == DialogResult.None || t == DialogResult.Cancel)
+            {
+                var LivrosBuscar = frmBuscar.livrosBindingSource.Current as Livros;
+
+                if (LivrosBuscar != null)
+                {
+                    var Existe = livrosOriginalList.Find(x => x.LivrosID == LivrosBuscar.LivrosID);
+
+                    if (livrosOriginalList.Count == 0)
+                    {
+                        livrosOriginalList.Add(LivrosBuscar);
+                    }
+                    else if (Existe == null)
+                    {
+                        livrosOriginalList.Add(LivrosBuscar);
+                    }
+                }
+
+                livrosBindingSource.DataSource = livrosOriginalList;
+                livrosBindingSource.ResetBindings(true);
+
+                Calculos();
+            }
+        }
+
+        private void Calculos()
+        {
+            var total = livrosOriginalList.Sum(x => x.TotalGeral);
+            txtDesconto.Properties.MaxValue = total;
+
+            txtSubTotal.Value = total;
+            txtSubTotal.Value = total - txtDesconto.Value;
+        }
+
+        private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if ((gridView1.SelectedRowsCount > 0) || (gridView1.FocusedRowHandle > 0))
+            {
+                btnApagar.Enabled = true;
+                btnAtualizar.Enabled = true;
+                btnRelatorios.Enabled = true;
+                btnReportdatabase.Enabled = true;
+            }
+            else
+            {
+                btnApagar.Enabled = false;
+                btnAtualizar.Enabled = false;
+                btnRelatorios.Enabled = false;
+                btnReportdatabase.Enabled = false;
+            }
         }
 
         private void BtnBuscarEdicoes_Click(object sender, EventArgs e)
@@ -88,24 +195,6 @@ namespace IEscolaDesktop.View.Forms
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 FrmUsuariosAdd_Load(null, null);
         }
-        //private void BtnBuscarAutores_Click(object sender, EventArgs e)
-        //{
-        //    // Buscar Grupos
-        //    var forms = OpenFormsDialog.ShowForm(null,
-        //          new frmBiblioteca_AutoresAdd());
-
-        //    if (forms == DialogResult.None || forms == DialogResult.Cancel)
-        //        FrmUsuariosAdd_Load(null, null);
-        //}
-        //private void BtnBuscarCategoria_Click(object sender, EventArgs e)
-        //{
-        //    // Buscar Grupos
-        //    var forms = OpenFormsDialog.ShowForm(null,
-        //          new frmBiblioteca_CategoriasAdd());
-
-        //    if (forms == DialogResult.None || forms == DialogResult.Cancel)
-        //        FrmUsuariosAdd_Load(null, null);
-        //}
 
         private async void FrmUsuariosAdd_Load(object sender, EventArgs e)
         {
@@ -113,11 +202,10 @@ namespace IEscolaDesktop.View.Forms
             var dataResult1 = await EstudantesRespository.GetAll();
             estudantesBindingSource.DataSource = dataResult1;
 
-            var dataResult2 = await LivrosRepository.GetAll();
-            livrosBindingSource.DataSource = dataResult2;
-
             txtEstado.Properties.DataSource = Enum.GetValues(typeof(PedidosEstado)); 
-            txtDocumentos.Properties.DataSource = Enum.GetValues(typeof(PedidosDocuments)); 
+            txtDocumentos.Properties.DataSource = Enum.GetValues(typeof(PedidosDocuments));
+
+            gridControl1.ContextMenuStrip = MenuPrinciapl;
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -132,10 +220,6 @@ namespace IEscolaDesktop.View.Forms
                     case 0:
                         Limpar();
                         break;
-
-                    case 1:
-                        Guardar();
-                        break;
                     default:
                         Apagar();
                         break;
@@ -143,29 +227,26 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
-        private async void Apagar()
+        private void Apagar()
         {
-            if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
+            var existe = livrosBindingSource.Current as Livros;
+
+            if (existe != null)
             {
-                var msg = Mensagens.Display("Apagar Permanentemente", 
-                                            "Queres apagar de forma permanente esta informação?", MessageBoxButtons.YesNo,
-                                             MessageBoxIcon.Question);
+                var msg = Mensagens.Display("Apagar Permanentemente",
+                                         "Queres apagar de forma permanente esta informação?", MessageBoxButtons.YesNo,
+                                          MessageBoxIcon.Question);
 
                 if (msg == DialogResult.Yes)
                 {
-                    var data = int.Parse(txtCodigo.Text);
-                    var apagar = await LivrosRepository.Excluir(x => x.AutoresID == data);
+                    livrosOriginalList.Remove(existe);
 
-                    if (apagar)
-                    {
-                        Mensagens.Display("Apagar Dados",
-                                          "Dados apagados com exito",
-                                          MessageBoxButtons.OK,
-                                          MessageBoxIcon.Information);
-                        Limpar();
-                    }
+                    livrosBindingSource.DataSource = livrosOriginalList;
+                    livrosBindingSource.ResetBindings(true);
+
+                    Calculos();
                 }
-            }     
+            }
         }
 
         private async void Guardar()
@@ -265,24 +346,16 @@ namespace IEscolaDesktop.View.Forms
         {
             windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
 
-            //txtTitulos.EditValue = string.Empty;
-            //txtTitulos.EditValue = string.Empty;
-            //txtSubtitulos.EditValue = string.Empty;
-            //txtSbn.EditValue = string.Empty;
-            //txtEdicoes.EditValue = string.Empty;
-            //txtComentarios.EditValue = string.Empty;
-            //txtValidade.EditValue = string.Empty;
-            //txtRating.EditValue = string.Empty;
-            //txtAno.EditValue = string.Empty;
-
             txtDescricao.EditValue = string.Empty;
-            txtDataReserva.EditValue = string.Empty;
             txtTelemovel.EditValue = string.Empty;
-            txtdatEntrega.EditValue = string.Empty; ;
             txtDoc_Numero.EditValue = string.Empty;
             txtFullName.EditValue = string.Empty;
             txtFavoritar.EditValue = string.Empty;
-            txtEstado.EditValue = string.Empty;
+
+            livrosOriginalList.Clear();
+            livrosBindingSource.DataSource = livrosOriginalList;
+            
+            Calculos();
 
             txtCodigo.Text = string.Empty;
             txtTitulo.Text = "[Novo]";
@@ -307,69 +380,73 @@ namespace IEscolaDesktop.View.Forms
         {
             if (control != null)
             {
-                //#region Descricao
-                //if (control.Name.Equals(txtTitulos.Name))
-                //{
-                //    if (!string.IsNullOrWhiteSpace(txtTitulos.Text))
-                //    {
-                //        if (!(string.IsNullOrWhiteSpace(txtDocumentos.Text) || txtDocumentos.Text == "[Selecione o Curso por favor]") &&
-                //             !(string.IsNullOrWhiteSpace(txtEstudantes.Text) || txtEstudantes.Text == "[Selecione a Sala por por favor]") &&
-                //             !(string.IsNullOrWhiteSpace(txtEditora.Text) || txtEditora.Text == "[Selecione o Periodo por favor]") &&
-                //             !(string.IsNullOrWhiteSpace(txtEstado.Text) || txtEstado.Text == "[Selecione a Classe por favor]"))
-                //        {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                //        }
-                //        else
-                //        {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //    }
-                //}
-                //#endregion
+                #region Descricao
+                if (control.Name.Equals(txtDescricao.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtDocumentos.Text) || txtDocumentos.Text == "[Selecione o documento por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstudantes.Text) || txtEstudantes.Text == "[Selecione o estado por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstado.Text) || txtEstado.Text == "[Selecione o estudante por favor]"))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
 
-                //#region Provincias
-                //if (control.Name.Equals(txtEstado.Name))
-                //{
-                //    if (!string.IsNullOrWhiteSpace(txtEstado.Text))
-                //    {
-                //        if (!(string.IsNullOrWhiteSpace(txtDocumentos.Text) || txtDocumentos.Text == "[Selecione o municipio por favor]"))
-                //        { 
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                //        }
-                //        else {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //        }
-                //    }
-                //    else {
-                //        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //    }
-                //}
-                //#endregion
+                #region Documentos
+                if (control.Name.Equals(txtDocumentos.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtDocumentos.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtDescricao.Text)) &&
+                            !(string.IsNullOrWhiteSpace(txtEstudantes.Text) || txtEstudantes.Text == "[Selecione o estudante por favor]") &&
+                            !(string.IsNullOrWhiteSpace(txtEstado.Text) || txtEstado.Text == "[Selecione o estado por favor]"))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
 
-                //#region Municipios
-                //if (control.Name.Equals(btnCategoria.Name))
-                //{
-                //    if (!string.IsNullOrWhiteSpace(btnCategoria.Text))
-                //    {
-                //        if (!(string.IsNullOrWhiteSpace(txtEstado.Text) || txtEstado.Text == "[Selecione a provincia por favor]"))
-                //        {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                //        }
-                //        else
-                //        {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //    }
-                //}
-                //#endregion
+                #region Estudantes
+                if (control.Name.Equals(txtEstudantes.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtEstudantes.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtDescricao.Text)) &&
+                            !(string.IsNullOrWhiteSpace(txtDocumentos.Text) || txtDocumentos.Text == "[Selecione o documento por favor]") &&
+                            !(string.IsNullOrWhiteSpace(txtEstado.Text) || txtEstado.Text == "[Selecione o estado por favor]"))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Estados
+                if (control.Name.Equals(txtEstado.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtEstado.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtDescricao.Text)) &&
+                            !(string.IsNullOrWhiteSpace(txtDocumentos.Text) || txtDocumentos.Text == "[Selecione o documento por favor]") &&
+                            !(string.IsNullOrWhiteSpace(txtEstudantes.Text) || txtEstudantes.Text == "[Selecione o estudante por favor]"))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
             }
             else
             {

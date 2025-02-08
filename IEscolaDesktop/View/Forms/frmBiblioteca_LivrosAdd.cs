@@ -64,7 +64,7 @@ namespace IEscolaDesktop.View.Forms
                 txtRating.EditValue = usuarios.Rating;
                 txtFavoritar.EditValue = usuarios.Favoritar;
                 txtAno.EditValue = usuarios.Ano;
-                txtEdicoes.EditValue = usuarios.EditorasID;
+                txtEditora.EditValue = usuarios.EditorasID;
                 txtAutor.EditValue = usuarios.AutoresID;
                 txtCAtegoria.EditValue = usuarios.CategoriasID;
                 txtDisponibilidade.EditValue = usuarios.Disponibilidade;
@@ -177,30 +177,28 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
-                var data = new Livros
-                {
-                    LivrosID = ID,
-                    Titulo =  (string) txtTitulos.Text.Trim(),
-                    SubTitulo = (string) txtSubtitulos.Text.Trim(),
-                    ISBN = (string) txtSbn.Text.Trim(),
-                    Edicao = (string) txtEdicoes.Text.Trim(),
-                    Descricao = (string) txtDescricao.Text.Trim(),
-                    Comentarios = (string) txtComentarios.Text.Trim(),
-                    Lancamento = (string) txtLancamento.Text.Trim(),
-                    LocalLancamento = (string) txtLocalLancamento.Text.Trim(),
-                    CodBar = (string) txtCodigoBarra.Text.Trim(),
-                    IsValidade = (bool) txtValidade.EditValue,
-                    Pratileira = (string) txtPratileira.Text.Trim(),
-                    PratileiraPosicao = (string) txtPratileiraPosicao.Text.Trim(),
-                    Rating = (int) txtRating.EditValue,
-                    Favoritar = (bool) txtFavoritar.EditValue,
-                    Ano = Convert.ToInt32(txtAno.EditValue, CultureInfo.CurrentCulture),
+                var data = new Livros();
+                data.LivrosID = ID;
+                data.Titulo = (string)txtTitulos.Text.Trim();
+                data.SubTitulo = (string)txtSubtitulos.Text.Trim();
+                data.ISBN = (string) txtSbn.Text.Trim();
+                data.Edicao = (string) txtEdicoes.Text.Trim();
+                data.Descricao = (string) txtDescricao.Text.Trim();
+                data.Comentarios = (string) txtComentarios.Text.Trim();
+                data.Lancamento = (string) txtLancamento.Text.Trim();
+                data.LocalLancamento = (string) txtLocalLancamento.Text.Trim();
+                data.CodBar = (string) txtCodigoBarra.Text.Trim();
+                data.IsValidade = (bool) txtValidade.IsOn;
+                data.Pratileira = (string) txtPratileira.Text.Trim();
+                data.PratileiraPosicao = (string) txtPratileiraPosicao.Text.Trim();
+                data.Rating = (int) txtRating.Value;
+                data.Favoritar = (bool) txtFavoritar.IsOn;
+                data.Ano = Convert.ToInt32(txtAno.EditValue, CultureInfo.CurrentCulture);
 
-                    CategoriasID = (int) txtAno.EditValue,
-                    EditorasID = (int) txtAno.EditValue,
-                    AutoresID = (int)txtAno.EditValue,
-                    Disponibilidade = (Disponibilidade) txtAno.EditValue,
-                };
+                data.CategoriasID = (int) txtCAtegoria.EditValue;
+                data.EditorasID = (int) txtEditora.EditValue;
+                data.AutoresID = Convert.ToInt32(txtAutor.EditValue);
+                data.Disponibilidade = (Disponibilidade) txtDisponibilidade.EditValue;
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.AutoresID == ID) > 0 :
                                        await DataRepository.Guardar(data, true);

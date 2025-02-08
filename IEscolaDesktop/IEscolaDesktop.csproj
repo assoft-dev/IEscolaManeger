@@ -139,6 +139,12 @@
     <Compile Include="View\Forms\frmBiblioteca_Pedidos.Designer.cs">
       <DependentUpon>frmBiblioteca_Pedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_PedidosBuscar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmBiblioteca_PedidosBuscar.Designer.cs">
+      <DependentUpon>frmBiblioteca_PedidosBuscar.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmPeriodos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -418,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmBiblioteca_Pedidos.resx">
       <DependentUpon>frmBiblioteca_Pedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmBiblioteca_PedidosBuscar.resx">
+      <DependentUpon>frmBiblioteca_PedidosBuscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmPeriodos.resx">
       <DependentUpon>frmPeriodos.cs</DependentUpon>

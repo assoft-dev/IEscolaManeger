@@ -33,6 +33,11 @@ namespace IEscolaEntity.Models.Biblioteca
 
         public int Ano { get; set; }
 
+        public decimal? Quantidade { get; set; }
+        public decimal? PrecoUnitario { get; set; }
+
+        [Ignore] public decimal TotalGeral { get { return Quantidade.Value * PrecoUnitario.Value; } }
+
 
         [ForeignKey(typeof(Editores))]
         public int EditorasID { get; set; }
