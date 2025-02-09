@@ -104,6 +104,9 @@ namespace IEscolaDesktop.View.Forms
                 livrosOriginalList = usuarios.PedidosOrdems;
                 pedidosOrdemsBindingSource.DataSource = livrosOriginalList;
                 Calculos();
+
+
+
                 txtDescricao.Focus();
             }
             else {
