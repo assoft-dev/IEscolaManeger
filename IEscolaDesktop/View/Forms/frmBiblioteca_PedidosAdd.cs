@@ -24,8 +24,6 @@ namespace IEscolaDesktop.View.Forms
         IEstudantes EstudantesRespository;
         List<PedidosOrdems> livrosOriginalList;
 
-        bool IsValidate = false;
-
         public frmBiblioteca_PedidosAdd(Pedidos usuarios = null)
         {
             InitializeComponent();
@@ -45,9 +43,28 @@ namespace IEscolaDesktop.View.Forms
             txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao);};
             txtDocumentos.EditValueChanged += delegate { ChangeValudations(txtDocumentos); };
             txtEstudantes.EditValueChanged += delegate { ChangeValudations(txtEstudantes); };
+            txtEstudantes.Properties.EditValueChanged += Properties_EditValueChanged; ;
             btnestudantes.Click += BtnBuscarEdicoes_Click;
 
+            this.Load += FrmUsuariosAdd_Load;
+            txtDesconto.EditValueChanged += CalculosDesconto;
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
+
+            // Menu de Contexto
+            #region Menu Populat
+            MenuPrinciapl.Opening += ContextMenuStrip1_Opening;
+            gridControl1.ContextMenuStrip = MenuPrinciapl;
+            btnBuscarItems.Click += BtnBuscarItems_Click;
+            btnApagar.Click += delegate { RemoverCarrinho(); };
+
+            //btnApagar.Click += Apagar_Click;
+            //btnAtualizar.Click += Atualizar_Click;
+            btnRelatorios.Click += delegate { gridControl1.ShowRibbonPrintPreview(); };
+            #endregion
+
+
+            txtDesconto.ValueChanged += TxtDesconto_ValueChanged;
+
 
             if (usuarios != null) {     
                 
@@ -65,11 +82,24 @@ namespace IEscolaDesktop.View.Forms
                 txtEstado.EditValue = usuarios.PedidosEstado;
 
                 // Preencher estudantes
-                var estuda = estudantesBindingSource.Current as Estudantes;
+                var estuda = estudantesBindingSource.List as Estudantes;
                 if (estuda != null) {
                     txtFullName.EditValue = estuda.FullName;
                     txtTelemovel.EditValue = estuda.Telemovel;
-                }   
+                }
+                else
+                {
+                    var estudantes = EstudantesRespository.Get(x => x.EstudantesID == (int) txtEstudantes.EditValue, null);
+                    if (estudantes != null)
+                    {
+                        Task.Factory.StartNew(async () =>
+                        {
+                            var t = await estudantes;
+                            txtFullName.EditValue = t.FullName;
+                            txtTelemovel.EditValue = t.Telemovel;
+                        });                    
+                    }
+                }
 
                 livrosOriginalList = usuarios.PedidosOrdems;
                 pedidosOrdemsBindingSource.DataSource = livrosOriginalList;
@@ -81,39 +111,17 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
             }
-
-            // Menu de Contexto
-            #region Menu Populat
-            MenuPrinciapl.Opening += ContextMenuStrip1_Opening;
-            gridControl1.ContextMenuStrip = MenuPrinciapl;
-            btnBuscarItems.Click += BtnBuscarItems_Click;
-            btnApagar.Click += delegate { RemoverCarrinho(); };
-
-            //btnApagar.Click += Apagar_Click;
-            //btnAtualizar.Click += Atualizar_Click;
-            btnRelatorios.Click += delegate { gridControl1.ShowRibbonPrintPreview(); };
-            #endregion
-
-            this.Load += FrmUsuariosAdd_Load;
-
-            txtDesconto.ValueChanged += TxtDesconto_ValueChanged;
-
-            txtEstudantes.KeyDown += TxtEstudantes_KeyDown;
-
         }
 
-        private void TxtEstudantes_KeyDown(object sender, KeyEventArgs e)
+        private void Properties_EditValueChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                var result = estudantesBindingSource.Current as Estudantes;
+            var result = estudantesBindingSource.Current as Estudantes;
 
-                if (result != null)
-                {
-                    txtFullName.EditValue = result.FullName;
-                    txtTelemovel.EditValue = result.Telemovel;
-                    windowsUIButtonPanel1.Focus();
-                }
+            if (result != null)
+            {
+                txtFullName.EditValue = result.FullName;
+                txtTelemovel.EditValue = result.Telemovel;
+                windowsUIButtonPanel1.Focus();
             }
         }
 
@@ -143,13 +151,18 @@ namespace IEscolaDesktop.View.Forms
                     if (livrosOriginalList.Count == 0)
                     {
                         livrosOriginalList.Add(new PedidosOrdems {  
-                            DocNumero = null, 
+                            DocNumero = null,
                             PedidoID = 0,
                             PedidosOrdemID = 0,
                             Quantidade = (int) LivrosBuscar.Quantidade,
                             Precounitario = (decimal) LivrosBuscar.PrecoUnitario ,
                             Total = LivrosBuscar.TotalGeral,
                             LivrosID = LivrosBuscar.LivrosID,
+                            Livros = LivrosBuscar,
+                            FirstName = txtEstudantes.Text,
+
+                            ISBN= LivrosBuscar.ISBN,
+                            Titulo = LivrosBuscar.Titulo,
                         });
                     }
                     else if (Existe == null)
@@ -163,13 +176,17 @@ namespace IEscolaDesktop.View.Forms
                             Precounitario = (decimal)LivrosBuscar.PrecoUnitario,
                             Total = LivrosBuscar.TotalGeral,
                             LivrosID = LivrosBuscar.LivrosID,
+                            Livros = LivrosBuscar,
+                            FirstName = txtEstudantes.Text,
+
+                            ISBN = LivrosBuscar.ISBN,
+                            Titulo = LivrosBuscar.Titulo,
                         });
                     }
                 }
 
                 pedidosOrdemsBindingSource.DataSource = livrosOriginalList;
                 pedidosOrdemsBindingSource.ResetBindings(true);
-
                 Calculos();
             }
         }
@@ -179,8 +196,12 @@ namespace IEscolaDesktop.View.Forms
             var total = livrosOriginalList.Sum(x => x.Total);
             txtDesconto.Properties.MaxValue = total;
 
-            txtSubTotal.Value = total;
+            txtTotal.Value = total;
             txtSubTotal.Value = total - txtDesconto.Value;
+        } 
+        private void CalculosDesconto(object e, EventArgs eventArgs)
+        {
+            txtTotal.Value = txtSubTotal.Value - txtDesconto.Value;
         }
 
         private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -311,10 +332,10 @@ namespace IEscolaDesktop.View.Forms
                         DataEntrega = (DateTime)txtdatEntrega.DateTime,
                         DataReserva = (DateTime)txtDataReserva.DateTime,
                         IsValid = (bool)txtIsValido.IsOn,
-                        TotalGeral = (decimal)txtTotal.EditValue,
                         PedidosEstado = (PedidosEstado)txtEstado.EditValue,
                         PedidosDocuments = (PedidosDocuments)txtDocumentos.EditValue,
                         EstudantesID = (int)txtEstudantes.EditValue,
+                        TotalGeral = (decimal)txtTotal.EditValue,
                     };
                     var IDResult = PedidosRepository.DoInsertReturnAsync(pedido);
 
@@ -325,12 +346,17 @@ namespace IEscolaDesktop.View.Forms
                         var pedidoOrdem = new PedidosOrdems
                         {
                             DocNumero = NumeroDoc,
+                            Livros = item.Livros,
                             LivrosID = item.LivrosID,
                             PedidoID = IDResult.PedidosID,
+
                             Quantidade = item.Quantidade,
                             Total = item.Total,
-                            Livros = item.Livros,
                             Precounitario = item.Precounitario,
+
+                            FirstName = item.FirstName,
+                            ISBN = item.ISBN,
+                            Titulo = item.Titulo,
                         };
                         PedidosRepository.DoSaveAsync(pedidoOrdem);
                     }
@@ -343,7 +369,7 @@ namespace IEscolaDesktop.View.Forms
                     //Imprimir o comprovativo
 
                     #region Imprimir
-                    var data = new List<Pedidos>
+                    var data = new List<Pedidos>();
                     {
 
                     };

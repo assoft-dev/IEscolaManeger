@@ -13,6 +13,11 @@ namespace IEscolaEntity.Models.Biblioteca
         public string DocNumero { get; set; }
 
 
+        public string Titulo { get; set; }
+        public string ISBN { get; set; }
+        public string FirstName { get; set; }
+
+
         [ForeignKey(typeof(Pedidos))]
         public int PedidoID { get; set; }
         [Reference] public Pedidos Pedidos { get; set; }
