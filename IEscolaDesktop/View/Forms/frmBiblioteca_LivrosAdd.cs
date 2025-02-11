@@ -200,6 +200,8 @@ namespace IEscolaDesktop.View.Forms
                 data.AutoresID = Convert.ToInt32(txtAutor.EditValue);
                 data.Disponibilidade = (Disponibilidade) txtDisponibilidade.EditValue;
 
+                data.Quantidade = txt
+
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.AutoresID == ID) > 0 :
                                        await DataRepository.Guardar(data, true);
 
