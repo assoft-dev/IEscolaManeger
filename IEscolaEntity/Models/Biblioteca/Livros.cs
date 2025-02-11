@@ -1,5 +1,6 @@
 ﻿using IEscolaEntity.Models.Helps;
 using ServiceStack.DataAnnotations;
+using System;
 using System.Collections.Generic;
 
 namespace IEscolaEntity.Models.Biblioteca
@@ -36,7 +37,8 @@ namespace IEscolaEntity.Models.Biblioteca
         public decimal? Quantidade { get; set; }
         public decimal? PrecoUnitario { get; set; }
 
-        [Ignore] public decimal TotalGeral { get { return Quantidade.Value * PrecoUnitario.Value; } }
+        [Ignore]
+        public decimal TotalGeral { get { return Quantidade.GetValueOrDefault(0) * PrecoUnitario.GetValueOrDefault(0);    }   }
 
 
         [ForeignKey(typeof(Editores))]
