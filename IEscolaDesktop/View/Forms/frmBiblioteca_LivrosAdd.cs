@@ -167,7 +167,7 @@ namespace IEscolaDesktop.View.Forms
                         Limpar();
                     }
                 }
-            }     
+            }
         }
 
         private async void Guardar()
@@ -177,30 +177,35 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
-                var data = new Livros();
-                data.LivrosID = ID;
-                data.Titulo = (string)txtTitulos.Text.Trim();
-                data.SubTitulo = (string)txtSubtitulos.Text.Trim();
-                data.ISBN = (string) txtSbn.Text.Trim();
-                data.Edicao = (string) txtEdicoes.Text.Trim();
-                data.Descricao = (string) txtDescricao.Text.Trim();
-                data.Comentarios = (string) txtComentarios.Text.Trim();
-                data.Lancamento = (string) txtLancamento.Text.Trim();
-                data.LocalLancamento = (string) txtLocalLancamento.Text.Trim();
-                data.CodBar = (string) txtCodigoBarra.Text.Trim();
-                data.IsValidade = (bool) txtValidade.IsOn;
-                data.Pratileira = (string) txtPratileira.Text.Trim();
-                data.PratileiraPosicao = (string) txtPratileiraPosicao.Text.Trim();
-                data.Rating = (int) txtRating.Value;
-                data.Favoritar = (bool) txtFavoritar.IsOn;
-                data.Ano = Convert.ToInt32(txtAno.EditValue, CultureInfo.CurrentCulture);
+                var data = new Livros
+                {
+                    LivrosID = ID,
+                    Titulo = (string)txtTitulos.Text.Trim(),
+                    SubTitulo = (string)txtSubtitulos.Text.Trim(),
+                    ISBN = (string)txtSbn.Text.Trim(),
+                    Edicao = (string)txtEdicoes.Text.Trim(),
+                    Descricao = (string)txtDescricao.Text.Trim(),
+                    Comentarios = (string)txtComentarios.Text.Trim(),
+                    Lancamento = (string)txtLancamento.Text.Trim(),
+                    LocalLancamento = (string)txtLocalLancamento.Text.Trim(),
+                    CodBar = (string)txtCodigoBarra.Text.Trim(),
+                    IsValidade = (bool)txtValidade.IsOn,
+                    Pratileira = (string)txtPratileira.Text.Trim(),
+                    PratileiraPosicao = (string)txtPratileiraPosicao.Text.Trim(),
+                    Rating = (int)txtRating.Value,
+                    Favoritar = (bool)txtFavoritar.IsOn,
+                    Ano = Convert.ToInt32(txtAno.EditValue, CultureInfo.CurrentCulture),
 
-                data.CategoriasID = (int) txtCAtegoria.EditValue;
-                data.EditorasID = (int) txtEditora.EditValue;
-                data.AutoresID = Convert.ToInt32(txtAutor.EditValue);
-                data.Disponibilidade = (Disponibilidade) txtDisponibilidade.EditValue;
+                    CategoriasID = (int)txtCAtegoria.EditValue,
+                    EditorasID = (int)txtEditora.EditValue,
+                    AutoresID = Convert.ToInt32(txtAutor.EditValue),
+                    Disponibilidade = (Disponibilidade)txtDisponibilidade.EditValue,
 
-                data.Quantidade = txt
+                    PrecoUnitario = txtPrecoUnitario.Value,
+                    Quantidade = txtQuantidade.Value,
+                    ImagemFrente = null,
+                    ImagemVerso = null,
+                };
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.AutoresID == ID) > 0 :
                                        await DataRepository.Guardar(data, true);
@@ -285,7 +290,8 @@ namespace IEscolaDesktop.View.Forms
             txtRating.EditValue = string.Empty;
             txtFavoritar.EditValue = string.Empty;
             txtDisponibilidade.EditValue = string.Empty;
-            txtTitulos.Focus();
+            txtQuantidade.EditValue= string.Empty;
+            txtPrecoUnitario.EditValue = string.Empty;
 
             txtCodigo.Text = string.Empty;
             txtTitulo.Text = "[Novo]";

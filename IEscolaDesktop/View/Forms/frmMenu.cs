@@ -1,10 +1,10 @@
-﻿using DevExpress.XtraEditors;
-using IEscolaDesktop.View.Helps;
-using IEscolaEntity.Models;
-using System.Windows.Forms;
-
-namespace IEscolaDesktop.View.Forms
+﻿namespace IEscolaDesktop.View.Forms
 {
+    using DevExpress.XtraEditors;
+    using IEscolaDesktop.View.Helps;
+    using IEscolaEntity.Models;
+    using System.Windows.Forms;
+
     public partial class frmMenu : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
         public frmMenu(Permissoes permission)
@@ -13,7 +13,7 @@ namespace IEscolaDesktop.View.Forms
 
             ActivarBotoes(permission);
 
-            //Metodos 
+            //Metodos
             this.FormClosing += FrmMenu_FormClosing;
 
             // Usuarios
@@ -42,6 +42,7 @@ namespace IEscolaDesktop.View.Forms
             Livros_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Livros()); };
             btnPedidos_Consltas_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Pedidos()); };
             btnPedidos_Requisicao_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_PedidosAdd()); };
+       
         }
 
         private void OpenForms(XtraUserControl control)
@@ -213,11 +214,6 @@ namespace IEscolaDesktop.View.Forms
                     item.Show();
                 }
             }
-        }
-
-        private void accordionControlElement14_Click(object sender, System.EventArgs e)
-        {
-
         }
     }
 }

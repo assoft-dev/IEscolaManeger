@@ -1,7 +1,5 @@
 ﻿using IEscolaEntity.Controllers.Helps;
 using IEscolaEntity.Controllers.Interfaces;
-using IEscolaEntity.Models;
-using ServiceStack;
 using ServiceStack.OrmLite;
 using System;
 using System.Collections.Generic;
@@ -26,9 +24,8 @@ namespace IEscolaEntity.Controllers.Repository
 
         ~ GenericRepository()
         {
-            DbConection.Close();
+            this.DbConection.Close();
         }
-
         #endregion
 
         #region Apagar os dados

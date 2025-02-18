@@ -7,7 +7,6 @@ namespace IEscolaEntity.Controllers.Helps
 {
     public class DataConnectionConfig: DataBaseAtributos
     {
-
         public static SqlConnectionStringBuilder connectionString = new SqlConnectionStringBuilder();
         public DataConnectionConfig()
         {

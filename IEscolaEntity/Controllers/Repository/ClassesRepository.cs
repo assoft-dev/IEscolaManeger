@@ -10,5 +10,6 @@ namespace IEscolaEntity.Controllers.Repository
 {
     public class ClassesRepository : GenericRepository<Classes>, IClasses
     {
+
     }
 }

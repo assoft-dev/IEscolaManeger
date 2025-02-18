@@ -17,7 +17,7 @@ namespace IEscolaEntity.Models
         {
             get { return string.Format("{0} {1}", FirstName, LastName); }
         }
-
+        
         public string Senha { get; set; }
 
         [Index(Unique = true), Required]

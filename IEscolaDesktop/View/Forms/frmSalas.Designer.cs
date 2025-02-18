@@ -163,7 +163,7 @@
             this.colSalasID.Name = "colSalasID";
             this.colSalasID.Visible = true;
             this.colSalasID.VisibleIndex = 0;
-            this.colSalasID.Width = 119;
+            this.colSalasID.Width = 104;
             // 
             // colDescricao
             // 
@@ -173,7 +173,7 @@
             this.colDescricao.Name = "colDescricao";
             this.colDescricao.Visible = true;
             this.colDescricao.VisibleIndex = 1;
-            this.colDescricao.Width = 486;
+            this.colDescricao.Width = 501;
             // 
             // repositoryItemCheckEdit1
             // 

@@ -305,7 +305,6 @@
             this.accordionControlElement14.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement14.ImageOptions.SvgImage")));
             this.accordionControlElement14.Name = "accordionControlElement14";
             this.accordionControlElement14.Text = "Pedidos";
-            this.accordionControlElement14.Click += new System.EventHandler(this.accordionControlElement14_Click);
             // 
             // btnPedidos_Consltas_Biblioteca
             // 
