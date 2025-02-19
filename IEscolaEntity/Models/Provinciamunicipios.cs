@@ -1,4 +1,6 @@
 ﻿using ServiceStack.DataAnnotations;
+using System.Collections.Generic;
+using System.Security.Permissions;
 
 namespace IEscolaEntity.Models
 {
@@ -14,5 +16,7 @@ namespace IEscolaEntity.Models
         [ForeignKey(typeof(Municipios))]
         public int MunicipiosID { get; set; }
         [Reference]  public Municipios  Municios { get; set; }
+
+        [Reference] public List<Inscricoes>  Inscricoes { get; set; }
     }
 }

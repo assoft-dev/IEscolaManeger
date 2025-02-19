@@ -136,9 +136,15 @@
     <Compile Include="Models\Estudantes.cs" />
     <Compile Include="Models\Grupos.cs" />
     <Compile Include="Models\Helps\Disponibilidade.cs" />
+    <Compile Include="Models\Helps\DocType.cs" />
     <Compile Include="Models\Helps\Escolaridade.cs" />
     <Compile Include="Models\Helps\Estado.cs" />
+    <Compile Include="Models\Helps\EstadoCivil.cs" />
+    <Compile Include="Models\Helps\EstadoEstudantes.cs" />
+    <Compile Include="Models\Helps\FAZES.cs" />
+    <Compile Include="Models\Helps\GrauParentesco.cs" />
     <Compile Include="Models\Helps\ModelsEntityBase.cs" />
+    <Compile Include="Models\Helps\Nacionalidade.cs" />
     <Compile Include="Models\Helps\PedidosDocuments.cs" />
     <Compile Include="Models\Helps\PedidosEstado.cs" />
     <Compile Include="Models\Helps\PedidosPagamentos.cs" />
