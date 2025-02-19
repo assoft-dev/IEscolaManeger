@@ -100,8 +100,8 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 38.80001F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 459.5993F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 85.19936F)});
-            this.tablePanel1.Size = new System.Drawing.Size(579, 541);
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 82.79936F)});
+            this.tablePanel1.Size = new System.Drawing.Size(540, 562);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
             // 
@@ -125,10 +125,10 @@
             this.panelControl1.Controls.Add(this.txtSenhaNova);
             this.panelControl1.Controls.Add(this.panel4);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(15, 53);
+            this.panelControl1.Location = new System.Drawing.Point(16, 56);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel1.SetRow(this.panelControl1, 1);
-            this.panelControl1.Size = new System.Drawing.Size(549, 388);
+            this.panelControl1.Size = new System.Drawing.Size(508, 402);
             this.panelControl1.TabIndex = 2;
             // 
             // label4
@@ -136,7 +136,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(32, 292);
+            this.label4.Location = new System.Drawing.Point(12, 309);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 21);
             this.label4.TabIndex = 21;
@@ -147,7 +147,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(32, 190);
+            this.label3.Location = new System.Drawing.Point(12, 201);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 21);
             this.label3.TabIndex = 21;
@@ -158,7 +158,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(32, 97);
+            this.label2.Location = new System.Drawing.Point(12, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 21);
             this.label2.TabIndex = 21;
@@ -169,7 +169,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(32, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 21);
             this.label1.TabIndex = 21;
@@ -177,18 +177,18 @@
             // 
             // txtUsuarios
             // 
-            this.txtUsuarios.Location = new System.Drawing.Point(36, 32);
+            this.txtUsuarios.Location = new System.Drawing.Point(16, 33);
             this.txtUsuarios.Name = "txtUsuarios";
             this.txtUsuarios.Properties.AutoHeight = false;
             this.txtUsuarios.Properties.NullValuePrompt = "Email de registo";
-            this.txtUsuarios.Size = new System.Drawing.Size(475, 31);
+            this.txtUsuarios.Size = new System.Drawing.Size(475, 39);
             this.txtUsuarios.TabIndex = 0;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(55, 10);
+            this.labelControl4.Location = new System.Drawing.Point(35, 10);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(43, 16);
+            this.labelControl4.Size = new System.Drawing.Size(45, 17);
             this.labelControl4.TabIndex = 19;
             this.labelControl4.Text = "Usuário";
             // 
@@ -196,30 +196,32 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(45, 39);
+            this.panel8.Location = new System.Drawing.Point(25, 34);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(471, 40);
+            this.panel8.Size = new System.Drawing.Size(471, 42);
             this.panel8.TabIndex = 20;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel9.Location = new System.Drawing.Point(8, 94);
+            this.panel9.Location = new System.Drawing.Point(8, 100);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(366, 31);
+            this.panel9.Size = new System.Drawing.Size(366, 33);
             this.panel9.TabIndex = 7;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(55, 294);
+            this.labelControl3.Location = new System.Drawing.Point(35, 311);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(123, 16);
+            this.labelControl3.Size = new System.Drawing.Size(124, 17);
             this.labelControl3.TabIndex = 16;
             this.labelControl3.Text = "Repetir Senha (Nova)";
             // 
             // txtSenhaNovaRepetir
             // 
-            this.txtSenhaNovaRepetir.Location = new System.Drawing.Point(36, 316);
+            this.txtSenhaNovaRepetir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSenhaNovaRepetir.Location = new System.Drawing.Point(16, 335);
             this.txtSenhaNovaRepetir.Name = "txtSenhaNovaRepetir";
             this.txtSenhaNovaRepetir.Properties.AutoHeight = false;
             editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
@@ -227,37 +229,38 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtSenhaNovaRepetir.Properties.NullValuePrompt = "Senha/Pin (Nova) Repetir";
             this.txtSenhaNovaRepetir.Properties.UseSystemPasswordChar = true;
-            this.txtSenhaNovaRepetir.Size = new System.Drawing.Size(475, 31);
+            this.txtSenhaNovaRepetir.Size = new System.Drawing.Size(475, 39);
             this.txtSenhaNovaRepetir.TabIndex = 3;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(45, 323);
+            this.panel6.Location = new System.Drawing.Point(25, 336);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(471, 42);
+            this.panel6.Size = new System.Drawing.Size(471, 45);
             this.panel6.TabIndex = 17;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel7.Location = new System.Drawing.Point(8, 94);
+            this.panel7.Location = new System.Drawing.Point(8, 100);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(366, 31);
+            this.panel7.Size = new System.Drawing.Size(366, 33);
             this.panel7.TabIndex = 7;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(53, 99);
+            this.labelControl1.Location = new System.Drawing.Point(33, 104);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(76, 16);
+            this.labelControl1.Size = new System.Drawing.Size(76, 17);
             this.labelControl1.TabIndex = 13;
             this.labelControl1.Text = "Senha Antiga";
             // 
             // txtSenhaAntiga
             // 
-            this.txtSenhaAntiga.Location = new System.Drawing.Point(36, 121);
+            this.txtSenhaAntiga.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSenhaAntiga.Location = new System.Drawing.Point(16, 128);
             this.txtSenhaAntiga.Name = "txtSenhaAntiga";
             this.txtSenhaAntiga.Properties.AutoHeight = false;
             editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
@@ -265,37 +268,39 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtSenhaAntiga.Properties.NullValuePrompt = "Senha/Pin";
             this.txtSenhaAntiga.Properties.UseSystemPasswordChar = true;
-            this.txtSenhaAntiga.Size = new System.Drawing.Size(475, 31);
+            this.txtSenhaAntiga.Size = new System.Drawing.Size(475, 39);
             this.txtSenhaAntiga.TabIndex = 1;
+            this.txtSenhaAntiga.EditValueChanged += new System.EventHandler(this.txtSenhaAntiga_EditValueChanged);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(45, 128);
+            this.panel2.Location = new System.Drawing.Point(25, 129);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(471, 42);
+            this.panel2.Size = new System.Drawing.Size(471, 45);
             this.panel2.TabIndex = 14;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel3.Location = new System.Drawing.Point(8, 94);
+            this.panel3.Location = new System.Drawing.Point(8, 100);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(366, 31);
+            this.panel3.Size = new System.Drawing.Size(366, 33);
             this.panel3.TabIndex = 7;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(55, 191);
+            this.labelControl2.Location = new System.Drawing.Point(35, 202);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(68, 16);
+            this.labelControl2.Size = new System.Drawing.Size(70, 17);
             this.labelControl2.TabIndex = 10;
             this.labelControl2.Text = "Senha Nova";
             // 
             // txtSenhaNova
             // 
-            this.txtSenhaNova.Location = new System.Drawing.Point(36, 214);
+            this.txtSenhaNova.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSenhaNova.Location = new System.Drawing.Point(16, 226);
             this.txtSenhaNova.Name = "txtSenhaNova";
             this.txtSenhaNova.Properties.AutoHeight = false;
             editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
@@ -303,24 +308,24 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtSenhaNova.Properties.NullValuePrompt = "Senha/Pin (Nova)";
             this.txtSenhaNova.Properties.UseSystemPasswordChar = true;
-            this.txtSenhaNova.Size = new System.Drawing.Size(475, 31);
+            this.txtSenhaNova.Size = new System.Drawing.Size(475, 39);
             this.txtSenhaNova.TabIndex = 2;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(45, 221);
+            this.panel4.Location = new System.Drawing.Point(25, 228);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(471, 42);
+            this.panel4.Size = new System.Drawing.Size(471, 45);
             this.panel4.TabIndex = 11;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel5.Location = new System.Drawing.Point(8, 94);
+            this.panel5.Location = new System.Drawing.Point(8, 100);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(366, 31);
+            this.panel5.Size = new System.Drawing.Size(366, 33);
             this.panel5.TabIndex = 7;
             // 
             // windowsUIButtonPanel1
@@ -334,10 +339,10 @@
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(15, 445);
+            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(16, 464);
             this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
             this.tablePanel1.SetRow(this.windowsUIButtonPanel1, 2);
-            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(549, 81);
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(508, 82);
             this.windowsUIButtonPanel1.TabIndex = 4;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
             // 
@@ -346,10 +351,10 @@
             this.tablePanel1.SetColumn(this.panel1, 0);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(15, 14);
+            this.panel1.Location = new System.Drawing.Point(16, 15);
             this.panel1.Name = "panel1";
             this.tablePanel1.SetRow(this.panel1, 0);
-            this.panel1.Size = new System.Drawing.Size(549, 35);
+            this.panel1.Size = new System.Drawing.Size(508, 35);
             this.panel1.TabIndex = 0;
             // 
             // btnClose
@@ -361,7 +366,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(489, 0);
+            this.btnClose.Location = new System.Drawing.Point(448, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(60, 35);
             this.btnClose.TabIndex = 0;
@@ -370,11 +375,11 @@
             // 
             // frmUsuarioPasswordChage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tablePanel1);
             this.Name = "frmUsuarioPasswordChage";
-            this.Size = new System.Drawing.Size(579, 541);
+            this.Size = new System.Drawing.Size(540, 562);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

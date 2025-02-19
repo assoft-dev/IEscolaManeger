@@ -41,12 +41,23 @@ namespace IEscolaDesktop.View.Forms
             txtUsuarios.EditValueChanged += delegate { ChangeValudations(txtUsuarios); };
             txtSenha.EditValueChanged += delegate { ChangeValudations(txtSenha); };
 
+            lblReservado.Click += LblReservado_Click;
+
              // Instancias das classe referente
              UserRepository = new UsuariosRepository();
             UserRepository.DoGetCount<Usuarios>();
 
             txtUsuarios.EditValue = "admin";
             txtSenha.EditValue = "0000";
+        }
+
+        private void LblReservado_Click(object sender, System.EventArgs e)
+        {
+            using (var frm = new frmUsuariosReservado())
+            {
+                var r = new OpenFormsDialog(this, null, frm);
+                r.ShowDialog();
+            }           
         }
 
         private void ChangeValudations(Control controlValues)
@@ -153,8 +164,10 @@ namespace IEscolaDesktop.View.Forms
 
         private static void CloseForms()
         {
-            var result = XtraMessageBox.Show("Queres relamente sair do sistema?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+            var result = Mensagens.Display("Sair", 
+                                           "Queres relamente sair do sistema?",
+                                           MessageBoxButtons.YesNo, 
+                                           MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 foreach (Form item in Application.OpenForms)
@@ -192,7 +205,7 @@ namespace IEscolaDesktop.View.Forms
                             var frm = new frmMenu(result.Permission);
 
                             this.Hide();
-                            frm.ShowDialog();            
+                            frm.ShowDialog();              
 
                             frm.FormClosed += delegate
                             {
@@ -328,6 +341,16 @@ namespace IEscolaDesktop.View.Forms
         {
             if (e.Button == MouseButtons.Left)
                 mover = false;
+        }
+
+        private void groupControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+
         }
 
         protected override CreateParams CreateParams

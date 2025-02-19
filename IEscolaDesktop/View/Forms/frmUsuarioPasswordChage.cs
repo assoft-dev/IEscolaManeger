@@ -35,6 +35,17 @@ namespace IEscolaDesktop.View.Forms
             txtSenhaNovaRepetir.EditValueChanged += delegate { ChangeValudations(txtSenhaNovaRepetir); };
 
             windowsUIButtonPanel1.Enabled = false;
+
+            txtSenhaAntiga.ButtonClick += delegate { GetViewPassowrd(txtSenhaAntiga); };
+            txtSenhaNova.ButtonClick += delegate { GetViewPassowrd(txtSenhaNova); };
+            txtSenhaNovaRepetir.ButtonClick += delegate { GetViewPassowrd(txtSenhaNovaRepetir); };
+        }
+
+        private void GetViewPassowrd(ButtonEdit control)
+        {
+            if (control.Properties.UseSystemPasswordChar)
+                control.Properties.UseSystemPasswordChar = false;
+            else control.Properties.UseSystemPasswordChar = false;
         }
 
         private void Limpar()
@@ -257,6 +268,14 @@ namespace IEscolaDesktop.View.Forms
             return false;
         }
 
-       
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtSenhaAntiga_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

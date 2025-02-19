@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.Data.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.DataAccess.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Drawing.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -58,6 +59,7 @@
     <Reference Include="DevExpress.XtraPrinting.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v24.2.Extensions, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraVerticalGrid.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\..\..\..\Repository\Guna.UI2.dll</HintPath>
@@ -331,6 +333,12 @@
     <Compile Include="View\Forms\frmUsuariosAdd.Designer.cs">
       <DependentUpon>frmUsuariosAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmUsuariosReservado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmUsuariosReservado.Designer.cs">
+      <DependentUpon>frmUsuariosReservado.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Helps\AutoCompleteExtension.cs" />
     <Compile Include="View\Helps\GlobalArquivos.cs" />
     <Compile Include="View\Helps\GlobalException.cs" />
@@ -520,6 +528,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmUsuariosAdd.resx">
       <DependentUpon>frmUsuariosAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmUsuariosReservado.resx">
+      <DependentUpon>frmUsuariosReservado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ReportForms\rptCursos.resx">
       <DependentUpon>rptCursos.cs</DependentUpon>
