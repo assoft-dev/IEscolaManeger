@@ -1,22 +1,12 @@
-﻿using ServiceStack.DataAnnotations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IEscolaEntity.Models.Helps;
+using ServiceStack.DataAnnotations;
 
 namespace IEscolaEntity.Models
 {
-    public class Inscricoes
+    public class Inscricoes : ModelsEntityBase
     {
         [AutoIncrement]
-        public int incricoesID { get; set; }
-        public string Codigo { get; set; }
-
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-        [Ignore] public string FullName { get { return string.Format("", FirstName, LastName); } }
+        public int InscricaoID { get; set; }
 
         // Encarregados
 

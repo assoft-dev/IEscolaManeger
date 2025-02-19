@@ -37,14 +37,13 @@ namespace IEscolaDesktop.View.Forms
         private void Timer1_Tick(object sender, EventArgs e)
         {
             Opacity += 0.05;
-            progressBar1.Increment(5);
 
-            switch (progressBar1.Value)
+            switch (Opacity)
             {
-                case 0:
+                case 0.5:
                     labelStatus.Text = "Inicial...";
                     break;
-                    case 50:
+                    case 0.7:
                     labelStatus.Text = "Leitura dos Modulos";
                     break;
                 default:
@@ -52,8 +51,9 @@ namespace IEscolaDesktop.View.Forms
                     break;
             }
 
-            if (progressBar1.Value == 100)
+            if (Opacity == 1.00)
             {
+                labelStatus.Text = "Concluido!...";
                 timer1.Stop();
                 var frm = new frmLogin();
                 frm.Show();

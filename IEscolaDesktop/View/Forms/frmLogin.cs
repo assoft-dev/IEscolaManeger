@@ -131,11 +131,11 @@ namespace IEscolaDesktop.View.Forms
 
         private void BtnPasswordReset_Click(object sender, System.EventArgs e)
         {
-            var frm = OpenFormsDialog.ShowForm(this, null, new frmUsuarioPasswordChage());
-            if (frm == DialogResult.OK)
-            {
-                Mensagens.Display("Alteração de senha: ", "As alterações foram feitas no entanto resta apenas");
-            }
+            OpenFormsDialog.ShowForm(this, null, new frmUsuarioPasswordChage());
+            //if (frm == DialogResult.OK)
+            //{
+            //    Mensagens.Display("Alteração de senha: ", "As alterações foram feitas no entanto resta apenas");
+            //}
         }
 
         private void TxtSenha_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
