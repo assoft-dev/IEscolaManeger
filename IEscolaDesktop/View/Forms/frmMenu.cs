@@ -42,7 +42,10 @@
             Livros_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Livros()); };
             btnPedidos_Consltas_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Pedidos()); };
             btnPedidos_Requisicao_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_PedidosAdd()); };
-       
+
+            btnEstudantesInscricoes.Click += delegate { OpenForms(new frmEstudantesInscritos()); };
+            btnEstudantes.Click += delegate { OpenForms(new frmEstudantes()); };
+
         }
 
         private void OpenForms(XtraUserControl control)
@@ -163,6 +166,20 @@
                     else if (control.Name.Equals(typeof(frmBiblioteca_PedidosAdd).Name))
                     {
                         this.Text = "Ped. (Requisição) -[Aberto]";
+
+                        OpenFormsDialog.ShowForm(this, null, control);
+                    }
+                    #endregion
+
+                    #region Estudantes
+                    else if (control.Name.Equals(typeof(frmEstudantes).Name))
+                    {
+                        this.Text = "Estudantes -[Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmEstudantesInscritos).Name))
+                    {
+                        this.Text = "Estudantes -[Aberto]";
 
                         OpenFormsDialog.ShowForm(this, null, control);
                     }

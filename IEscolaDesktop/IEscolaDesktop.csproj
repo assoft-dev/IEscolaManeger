@@ -44,6 +44,8 @@
     <Reference Include="DevExpress.Pdf.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v24.2.Export, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v24.2.UI, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -126,6 +128,30 @@
     </Compile>
     <Compile Include="View\Forms\frmBiblioteca_EditorasAdd.Designer.cs">
       <DependentUpon>frmBiblioteca_EditorasAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantesInscritosAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantesInscritosAdd.Designer.cs">
+      <DependentUpon>frmEstudantesInscritosAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantesInscritos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantesInscritos.Designer.cs">
+      <DependentUpon>frmEstudantesInscritos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantesAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantesAdd.Designer.cs">
+      <DependentUpon>frmEstudantesAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantes.Designer.cs">
+      <DependentUpon>frmEstudantes.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\frmBiblioteca_PedidosAdd.cs">
       <SubType>UserControl</SubType>
@@ -355,6 +381,18 @@
     <Compile Include="View\ReportForms\rptCursos.Designer.cs">
       <DependentUpon>rptCursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ReportForms\rptEstudantes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptEstudantes.Designer.cs">
+      <DependentUpon>rptEstudantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportForms\rptEstudantesInscritos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptEstudantesInscritos.Designer.cs">
+      <DependentUpon>rptEstudantesInscritos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ReportForms\rptGrupos.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -424,6 +462,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmBiblioteca_EditorasAdd.resx">
       <DependentUpon>frmBiblioteca_EditorasAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmEstudantesInscritosAdd.resx">
+      <DependentUpon>frmEstudantesInscritosAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmEstudantesInscritos.resx">
+      <DependentUpon>frmEstudantesInscritos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmEstudantesAdd.resx">
+      <DependentUpon>frmEstudantesAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmEstudantes.resx">
+      <DependentUpon>frmEstudantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmBiblioteca_PedidosAdd.resx">
       <DependentUpon>frmBiblioteca_PedidosAdd.cs</DependentUpon>
@@ -533,6 +583,12 @@
     <EmbeddedResource Include="View\ReportForms\rptCursos.resx">
       <DependentUpon>rptCursos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptEstudantes.resx">
+      <DependentUpon>rptEstudantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptEstudantesInscritos.resx">
+      <DependentUpon>rptEstudantesInscritos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ReportForms\rptGrupos.resx">
       <DependentUpon>rptGrupos.cs</DependentUpon>
     </EmbeddedResource>
@@ -561,6 +617,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Classes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Cursos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Estudantes.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.EstudantesInscricoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Municipios.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />

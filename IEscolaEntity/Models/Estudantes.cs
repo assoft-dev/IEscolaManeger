@@ -11,6 +11,7 @@ namespace IEscolaEntity.Models
         [AutoIncrement]
         public int EstudantesID { get; set; }
 
+
         // Dados dos Encarregados
         public string Telemovel { get; set; }
         public EstadoEstudantes EstadoEstudantes { get; set; }
