@@ -17,9 +17,9 @@ namespace IEscolaEntity.Models
         public string Entidade { get; set; }
 
         // Relacionamentos
-        [ForeignKey(typeof(Inscricoes))]
+        [ForeignKey(typeof(EstudantesInscricoes))]
         public int InscricoesID { get; set; }
-        [Reference] public Inscricoes Inscricoes { get; set; }
+        [Reference] public EstudantesInscricoes Inscricoes { get; set; }
 
         [Reference] public List<Pedidos> Pedidos { get; set; }
     }

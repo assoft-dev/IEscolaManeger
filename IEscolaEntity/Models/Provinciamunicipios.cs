@@ -17,6 +17,6 @@ namespace IEscolaEntity.Models
         public int MunicipiosID { get; set; }
         [Reference]  public Municipios  Municios { get; set; }
 
-        [Reference] public List<Inscricoes>  Inscricoes { get; set; }
+        [Reference] public List<EstudantesInscricoes>  Inscricoes { get; set; }
     }
 }

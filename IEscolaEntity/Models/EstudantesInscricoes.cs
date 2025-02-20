@@ -4,21 +4,25 @@ using System;
 
 namespace IEscolaEntity.Models
 {
-    public class Inscricoes : ModelsEntityBase
+    public class EstudantesInscricoes : ModelsEntityBase
     {
         [AutoIncrement]
         public int InscricaoID { get; set; }
 
+        // Informação pessoal
         public string BI { get; set; }
-        public DateTime DataNascimento { get; set; }
-        [Ignore] public int Idade { get { return DateTime.Now.Year - DataNascimento.Year; } }
         public string Naturalidade { get; set; }
         public Nacionalidade Nacionalidade { get; set; }
+        public DateTime DataNascimento { get; set; }
+        [Ignore] public int Idade { get { return DateTime.Now.Year - DataNascimento.Year; } }
 
-        [ForeignKey(typeof(ProvinciasMunicipios))]
-        public string ProvinciaMunicipioID { get; set; }
+
+        [ForeignKey(typeof(ProvinciasMunicipios), OnDelete = "CASCADE")]
+        public int ProvinciaMunicipioID { get; set; }
         [Reference] public ProvinciasMunicipios ProvinciasMunicipios { get; set; }
 
+
+        // Dados dos Encarregados
         public GrauParentesco GrauParentesco { get; set; }
         public bool NomePai { get; set; }
         public bool PaiVive { get; set; }
@@ -48,6 +52,7 @@ namespace IEscolaEntity.Models
         [ForeignKey(typeof(Cursos))]
         public int CursosID { get; set; }
         [Reference] public Cursos Cursos { get; set; }
+
 
         // Informações adicionais (Documentos apresentar)
         public string AdicionalFichaInscricao { get; set; }

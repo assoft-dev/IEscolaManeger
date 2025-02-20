@@ -12,31 +12,64 @@ namespace IEscolaEntity.Controllers.Helps
         public static void AsyncColuns(IDbConnection db)
         {
             //Adicionar se nao existe tabelas
-            var resultDb = db.CreateTableIfNotExists<T>();
+            var resultCreate = db.CreateTableIfNotExists<T>();
 
-            //Actualizacao de colunas
-            var models = typeof(T).GetProperties().Where(x => x.CanWrite && IsPrimitive(x.PropertyType));
-
-            foreach (var item in models)
+            if (!resultCreate)
             {
-                if (!db.ColumnExists(item.Name, typeof(T).Name))
-                {
-                    db.AddColumn(typeof(T), typeof(T).GetModelMetadata().GetFieldDefinition(item.Name));
-                }
-                else
-                {
-                    var u = item.PropertyType;;
-                }
-            }
+                //Actualizacao de colunas
+                var ModelsClasse = typeof(T).GetProperties().Where(x => x.CanWrite && IsPrimitive(x.PropertyType));
+                var ModelsDatabase = db.GetTableColumns<T>();
 
-            var sqlModels = db.GetTableColumns<T>();
-            foreach (var item in sqlModels)
-            {
-                if (!models.Any(x => x.Name.Equals(item.ColumnName)))
+                // COlunas existentes na classe passar para a Db
+                foreach (var item in ModelsClasse)
                 {
-                    db.DropColumn<T>(item.ColumnName);
+                    if (!db.ColumnExists(item.Name, typeof(T).Name))
+                    {
+                        db.AddColumn(typeof(T), typeof(T).GetModelMetadata().GetFieldDefinition(item.Name));
+                    }
                 }
-            }
+
+                // Colunas existentes na Db que não existem na Classe Eliminar
+                foreach (var item in ModelsDatabase)
+                {
+                    if (!ModelsClasse.Any(x => x.Name == item.ColumnName))
+                    {
+                        #region Ciclos
+                        //foreach (var prop in ModelsClasse)
+                        //{
+                        //    if (prop.Name == item.ColumnName)
+                        //    {
+                        //        var T = prop.GetCustomAttributes(true);
+                        //        if (T.Length > 0)
+                        //        {
+                        //            var y = T.FirstOrDefault().GetType() == typeof(ForeignKeyAttribute);
+                        //            if (y)
+                        //                db.DropForeignKey<T>(item.ColumnName);
+                        //            else
+                        //                db.DropIndex<T>(item.ColumnName);
+                        //        }
+                        //    }             
+                        //}
+                        #endregion
+
+                        try
+                        {
+                            db.DropColumn<T>(item.ColumnName);
+                        }
+                        catch (Exception)
+                        {
+                            try
+                            {
+                                db.DropForeignKey<T>(item.ColumnName);
+                            }
+                            catch (Exception)
+                            {
+                                db.DropIndex<T>(item.ColumnName);
+                            }              
+                        }
+                    }
+                }
+            }          
         }
 
         private static Type[] primary;
@@ -82,6 +115,12 @@ namespace IEscolaEntity.Controllers.Helps
                      typeof(UsuariosRetorno),
                      typeof(PedidosEstado),
                      typeof(PedidosDocuments),
+
+                     typeof(EstadoEstudantes),
+                     typeof(Nacionalidade),
+                     typeof(GrauParentesco),
+                     typeof(EstadoCivil),
+                     typeof(FAZES),
                 };
                 return primary.Contains(t);
             }

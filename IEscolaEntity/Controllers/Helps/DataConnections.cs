@@ -185,6 +185,7 @@ namespace IEscolaEntity.Controllers.Helps
             Db.CreateTableIfNotExists<Periodos>();
             Db.CreateTableIfNotExists<Turmas>();
 
+            Db.CreateTableIfNotExists<EstudantesInscricoes>();
             Db.CreateTableIfNotExists<Estudantes>();
 
             Db.CreateTableIfNotExists<Pais>();
@@ -215,6 +216,7 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<Periodos>.AsyncColuns(Db);
             DataColunsAsync<Turmas>.AsyncColuns(Db);
 
+            DataColunsAsync<EstudantesInscricoes>.AsyncColuns(Db);
             DataColunsAsync<Estudantes>.AsyncColuns(Db);
 
             DataColunsAsync<Pais>.AsyncColuns(Db);

@@ -90,6 +90,7 @@
     <Compile Include="Controllers\Interfaces\IEstudantes.cs" />
     <Compile Include="Controllers\Interfaces\IGeneric.cs" />
     <Compile Include="Controllers\Interfaces\IGrupos.cs" />
+    <Compile Include="Controllers\Interfaces\IEstudantesInscricoes.cs" />
     <Compile Include="Controllers\Interfaces\Ilogs.cs" />
     <Compile Include="Controllers\Interfaces\IMunicipios.cs" />
     <Compile Include="Controllers\Interfaces\IPeriodos.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Controllers\Repository\Biblioteca\PedidosRepository.cs" />
     <Compile Include="Controllers\Repository\ClassesRepository.cs" />
     <Compile Include="Controllers\Repository\CursosRepository.cs" />
+    <Compile Include="Controllers\Repository\EstudantesIncricoesRepository.cs" />
     <Compile Include="Controllers\Repository\EstudantesRepository.cs" />
     <Compile Include="Controllers\Repository\GenericRepository.cs" />
     <Compile Include="Controllers\Repository\GruposRepository.cs" />
@@ -151,7 +153,7 @@
     <Compile Include="Models\Helps\ProvinciasCodigo.cs" />
     <Compile Include="Models\Helps\Sexo.cs" />
     <Compile Include="Models\Helps\UsuariosRetorno.cs" />
-    <Compile Include="Models\Inscricoes.cs" />
+    <Compile Include="Models\EstudantesInscricoes.cs" />
     <Compile Include="Models\Municipios.cs" />
     <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\Permission.cs" />
