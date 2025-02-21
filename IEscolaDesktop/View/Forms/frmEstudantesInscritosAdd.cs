@@ -1,15 +1,11 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
-using DevExpress.XtraReports.Summary.Native;
 using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
-using IEscolaEntity.Controllers.Repository.Biblioteca;
 using IEscolaEntity.Models;
-using IEscolaEntity.Models.Biblioteca;
 using IEscolaEntity.Models.Helps;
 using System;
-using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,10 +13,9 @@ namespace IEscolaDesktop.View.Forms
 {
     public partial class frmEstudantesInscritosAdd : XtraUserControl
     {
-        ILivros DataRepository;
-        IEditoras EditoresRepository;
-        IAutores AutoresRepository;
-        ICategorias CateoriaRepository;
+        IEstudantesInscricoes DataRepository;
+        IProvinciasMunicipios provinciasMunicipiosRepository;
+        ICursos cursosRepository;
 
         bool IsValidate = false;
 
@@ -28,19 +23,19 @@ namespace IEscolaDesktop.View.Forms
         {
             InitializeComponent();
 
-            DataRepository = new LivrosRepository ();
-            EditoresRepository = new EditorasRepository();
-            AutoresRepository = new AutoresRepository();
-            CateoriaRepository =  new CategoriasRepository();
+            DataRepository = new EstudantesIncricoesRepository();
+            provinciasMunicipiosRepository = new ProvinciasMunicipiosRepository();
+            cursosRepository = new CursosRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
 
             txtSexo.EditValueChanged += delegate { ChangeValudations(txtSexo); };
-            txtCAtegoria.EditValueChanged += delegate { ChangeValudations(txtCAtegoria); };
 
-            btnEditoras.Click += BtnBuscarEdicoes_Click;
-            btnAutor.Click += BtnBuscarAutores_Click;
-            btnCategoria.Click += BtnBuscarCategoria_Click;
+            //txtCAtegoria.EditValueChanged += delegate { ChangeValudations(txtCAtegoria); };
+
+            //btnEditoras.Click += BtnBuscarEdicoes_Click;
+            //btnAutor.Click += BtnBuscarAutores_Click;
+            //btnCategoria.Click += BtnBuscarCategoria_Click;
 
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
 
@@ -49,25 +44,50 @@ namespace IEscolaDesktop.View.Forms
                 //Inicializar o Forms
                 txtTitulo.Text = "[Edição]";
 
-                //txtTitulos.EditValue = usuarios.Titulo;
-                //txtSubtitulos.EditValue = usuarios.SubTitulo;
-                //txtSbn.EditValue = usuarios.ISBN;
-                //txtEdicoes.EditValue = usuarios.Edicao;
-                //txtDescricao.EditValue = usuarios.Descricao;
-                //txtComentarios.EditValue = usuarios.Comentarios;
-                //txtLancamento.EditValue = usuarios.Lancamento;
-                //txtLocalLancamento.EditValue = usuarios.LocalLancamento;            
-                //txtCodigoBarra.EditValue = usuarios.CodBar;
-                //txtValidade.EditValue = usuarios.IsValidade;
-                //txtPratileira.EditValue = usuarios.Pratileira;
-                //txtPratileiraPosicao.EditValue = usuarios.PratileiraPosicao;
-                //txtRating.EditValue = usuarios.Rating;
-                //txtFavoritar.EditValue = usuarios.Favoritar;
-                //txtAno.EditValue = usuarios.Ano;
-                //txtEditora.EditValue = usuarios.EditorasID;
-                //txtAutor.EditValue = usuarios.AutoresID;
-                //txtCAtegoria.EditValue = usuarios.CategoriasID;
-                //txtDisponibilidade.EditValue = usuarios.Disponibilidade;
+                txtFirstName.EditValue = usuarios.FirstName;
+                txtLastName.EditValue = usuarios.LastName;
+                txtBI.EditValue = usuarios.BI;
+                txtNacionalidade.EditValue = usuarios.Nacionalidade;
+                txtSexo.EditValue = usuarios.Sexo;
+                txtEstadoCivil.EditValue = usuarios.EstadoCivil;
+                txtProvinciaMunicipio.EditValue = usuarios.ProvinciaMunicipioID;
+
+                txtGrauParentesco.EditValue = usuarios.GrauParentesco;
+                txtEncarregado.EditValue = usuarios.NomeEncarregado;
+                txtNomePai.EditValue = usuarios.NomePai;
+                txtNomeMae.EditValue = usuarios.NomeMae;
+                txtMaeVive.EditValue = usuarios.MaeVive;
+                txtPaiVive.EditValue = usuarios.PaiVive;
+
+                txtResidencia.EditValue = usuarios.Residencia;
+                txtenderco.EditValue = usuarios.Endereco;
+                txtContactos.EditValue = usuarios.Contacto;
+                txtCelular.EditValue = usuarios.Celular;
+                txtEmail.EditValue = usuarios.Email;
+                txtEmailFacebook.EditValue = usuarios.EmailFacebbok;
+
+                txtLocalEmissao.EditValue = usuarios.LocalEmissao;
+                txtDataEmissao.EditValue = usuarios.DataEmissao;
+                txtDataExpiracao.EditValue = usuarios.DataExpiracao;
+                txtTipoDocumentos.EditValue = usuarios.DocType;
+                txtDocumento.EditValue = usuarios.Documento;
+                txtDocumentoRecenciamnto.EditValue = usuarios.DocRecenciamentoMilitar;
+                txtTurma.EditValue = usuarios.CursosID;
+
+                txtEscolaOrigem.EditValue = usuarios.AdiconalEscolaOrigem;
+                txtProvinciaOrigem.EditValue = usuarios.AdiconalProvincias;
+                txtEscolaMedia.EditValue = usuarios.AdicionalMedia;
+                txtIsActived.EditValue = usuarios.IsActived;
+                txtMedia.EditValue = usuarios.Media;
+                txtDataFicha.EditValue = usuarios.DataFicha;
+
+                txtFazes.EditValue = usuarios.FAZES;
+                txtFichaInscricao.EditValue = usuarios.AdicionalFichaInscricao;
+                txtCertificadoAnexo.EditValue = usuarios.AdicionalCertificados;
+                txtImagemURL.Text = usuarios.ImagemURL;
+
+                txtCodigo.EditValue = usuarios.InscricaoID;
+                txtCodigoUnico.EditValue = usuarios.Codigo;
                 txtFirstName.Focus();
             }
             else {
@@ -110,16 +130,22 @@ namespace IEscolaDesktop.View.Forms
         private async void FrmUsuariosAdd_Load(object sender, EventArgs e)
         {
             // Leitura dos Grupos
-            var dataResult1 = await EditoresRepository.GetAll();
+            var dataResult1 = await provinciasMunicipiosRepository.GetAll();
             editoresBindingSource.DataSource = dataResult1;
 
-            var dataResult2 = await AutoresRepository.GetAll();
+            var dataResult2 = await cursosRepository.GetAll();
             autoresBindingSource.DataSource = dataResult2;
 
-            txtSexo.Properties.DataSource = Enum.GetValues(typeof(Disponibilidade)); 
+            txtProvinciaMunicipio.Properties.DataSource = dataResult1;
+            txtTurma.Properties.DataSource = dataResult2;
 
-            var dataResult4 = await CateoriaRepository.GetAll();
-            categoriasBindingSource.DataSource = dataResult4;
+            /// Enumeradoes
+            txtNacionalidade.Properties.DataSource = Enum.GetValues(typeof(Nacionalidade));
+            txtSexo.Properties.DataSource = Enum.GetValues(typeof(Sexo));
+            txtEstadoCivil.Properties.DataSource = Enum.GetValues(typeof(EstadoCivil));
+            txtGrauParentesco.Properties.DataSource = Enum.GetValues(typeof(GrauParentesco));
+            txtTipoDocumentos.Properties.DataSource = Enum.GetValues(typeof(DocType));
+            txtFazes.Properties.DataSource = Enum.GetValues(typeof(FAZES));
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -156,7 +182,7 @@ namespace IEscolaDesktop.View.Forms
                 if (msg == DialogResult.Yes)
                 {
                     var data = int.Parse(txtCodigo.Text);
-                    var apagar = await DataRepository.Excluir(x => x.AutoresID == data);
+                    var apagar = await DataRepository.Excluir(x => x.InscricaoID == data);
 
                     if (apagar)
                     {
@@ -177,37 +203,57 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
-                var data = new Livros
+                var data = new EstudantesInscricoes
                 {
-                    LivrosID = ID,
-                    Titulo = (string)txtFirstName.Text.Trim(),
-                    SubTitulo = (string)txtLastName.Text.Trim(),
-                    ISBN = (string)txtBI.Text.Trim(),
-                    Edicao = (string)txtNaturalidade.Text.Trim(),
-                    Descricao = (string)txtNacionalidade.Text.Trim(),
-                    Comentarios = (string)txtIdade.Text.Trim(),
-                    Lancamento = (string)txtLancamento.Text.Trim(),
-                    LocalLancamento = (string)txtLocalLancamento.Text.Trim(),
-                    CodBar = (string)txtCodigoBarra.Text.Trim(),
-                    IsValidade = (bool)txtValidade.IsOn,
-                    Pratileira = (string)txtPratileira.Text.Trim(),
-                    PratileiraPosicao = (string)txtPratileiraPosicao.Text.Trim(),
-                    Rating = (int)txtRating.Value,
-                    Favoritar = (bool)txtFavoritar.IsOn,
-                    Ano = Convert.ToInt32(txtAno.EditValue, CultureInfo.CurrentCulture),
+                    InscricaoID = ID,
 
-                    CategoriasID = (int)txtCAtegoria.EditValue,
-                    EditorasID = (int)txtEditora.EditValue,
-                    AutoresID = Convert.ToInt32(txtAutor.EditValue),
-                    Disponibilidade = (Disponibilidade)txtSexo.EditValue,
+                    FirstName = (string) txtFirstName.EditValue,
+                    LastName = (string) txtLastName.EditValue,
+                    BI = (string) txtBI.EditValue,
+                    Nacionalidade= (Nacionalidade) txtNacionalidade.EditValue,
+                    Sexo= (Sexo) txtSexo.EditValue,
+                    EstadoCivil= (EstadoCivil) txtEstadoCivil.EditValue,
+                    ProvinciaMunicipioID= (int) txtProvinciaMunicipio.EditValue,
 
-                    PrecoUnitario = txtPrecoUnitario.Value,
-                    Quantidade = txtQuantidade.Value,
-                    ImagemFrente = null,
-                    ImagemVerso = null,
+                    GrauParentesco= (GrauParentesco) txtGrauParentesco.EditValue,
+                    NomeEncarregado= (string) txtEncarregado.EditValue,
+                    NomePai= (string) txtNomePai.EditValue,
+                    NomeMae= (string) txtNomeMae.EditValue,
+                    MaeVive= (bool) txtMaeVive.Checked,
+                    PaiVive= (bool) txtPaiVive.Checked,
+
+                    Residencia= (string) txtResidencia.EditValue,
+                    Endereco= (string) txtenderco.EditValue,
+                    Contacto= (string) txtContactos.EditValue,
+                    Celular= (string) txtCelular.EditValue,
+                    Email= (string) txtEmail.EditValue,
+                    EmailFacebbok= (string) txtEmailFacebook.EditValue,
+
+                    LocalEmissao= (string) txtLocalEmissao.EditValue,
+                    DataEmissao= (DateTime) txtDataEmissao.DateTime,
+                    DataExpiracao= (DateTime) txtDataExpiracao.DateTime,
+                    DocType= (DocType) txtTipoDocumentos.EditValue,
+                    Documento= (string) txtDocumento.EditValue,
+                    DocRecenciamentoMilitar= (string) txtDocumentoRecenciamnto.EditValue,
+                    CursosID= (int) txtTurma.EditValue,
+
+                    AdiconalEscolaOrigem= (string) txtEscolaOrigem.EditValue,
+                    AdiconalProvincias= (string) txtProvinciaOrigem.EditValue,
+                    AdicionalMedia= (decimal) txtEscolaMedia.EditValue,
+                    IsActived= (bool) txtIsActived.Checked,
+                    Media= (decimal) txtMedia.EditValue,
+                    DataFicha= (DateTime)txtDataFicha.DateTime,
+
+                    ImagemURL = txtImagemURL.Text,
+
+                    FAZES = (FAZES) txtFazes.EditValue,
+                    AdicionalFichaInscricao= (bool) txtFichaInscricao.EditValue,
+                    AdicionalCertificados= (bool) txtCertificadoAnexo.EditValue,
+
+                    Codigo = (string) txtCodigoUnico.EditValue,
                 };
 
-                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.AutoresID == ID) > 0 :
+                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.InscricaoID == ID) > 0 :
                                        await DataRepository.Guardar(data, true);
 
                 if (IsValidate)
@@ -224,16 +270,16 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => (x.Descricao.ToUpper() == txtFirstName.Text.ToUpper()) &&
-                                                           ((x.EditorasID == (int) txtAutor.EditValue) && 
-                                                           (x.AutoresID == (int) txtCAtegoria.EditValue) &&
-                                                           (x.CategoriasID == (int) txtEditora.EditValue)), null);
+            var dataResult = await DataRepository.Get(x => (x.FirstName.ToUpper() == txtFirstName.Text.ToUpper()) &&
+                                                           ((x.LastName.ToUpper() == txtLastName.Text) && 
+                                                           (x.BI.ToUpper() == txtBI.Text.ToUpper()) &&
+                                                           (x.DocType.ToString() == txtTipoDocumentos.Text.ToUpper())), null);
 
             if (dataResult != null)
             {
                 if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
                 {
-                    if (dataResult.EditorasID != Convert.ToInt32(txtCodigo.Text))
+                    if (dataResult.InscricaoID != Convert.ToInt32(txtCodigo.Text))
                     {
                         Mensagens.Display("Duplicação de Valores as Atualiar", "Já existe uma descrição na nossa base de Dados!",
                                      MessageBoxButtons.OK,
@@ -245,9 +291,8 @@ namespace IEscolaDesktop.View.Forms
                     }
 
                     // Verificar a possibilidade de atualizar com base nos valores Sala Cursos e Periodos
-                    var dataResult2 = await DataRepository.Get(x => ((x.EditorasID == (int)txtAutor.EditValue) &&
-                                                                     (x.AutoresID == (int)txtCAtegoria.EditValue) &&
-                                                                     (x.CategoriasID == (int)txtEditora.EditValue)), null);
+                    var dataResult2 = await DataRepository.Get(x => ((x.ProvinciaMunicipioID == (int) txtProvinciaMunicipio.EditValue) &&
+                                                                     (x.CursosID == (int) txtTurma.EditValue)), null);
                     if (dataResult2 != null)
                     {
                         Mensagens.Display("Duplicação de Valores", "Já existe uma Turma com a descrição abaixo mencionada!",
@@ -275,23 +320,49 @@ namespace IEscolaDesktop.View.Forms
             windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
 
             txtFirstName.EditValue = string.Empty;
-            txtFirstName.EditValue = string.Empty;
             txtLastName.EditValue = string.Empty;
-            txtBI.EditValue = string.Empty;
-            txtNaturalidade.EditValue = string.Empty;
-            txtNacionalidade.EditValue = string.Empty;
-            txtIdade.EditValue = string.Empty;
-            txtLancamento.EditValue = string.Empty;
-            txtLocalLancamento.EditValue = string.Empty;
-            txtCodigoBarra.EditValue = string.Empty; ;
-            txtValidade.EditValue = string.Empty;
-            txtPratileira.EditValue = string.Empty;
-            txtPratileiraPosicao.EditValue = string.Empty;
-            txtRating.EditValue = string.Empty;
-            txtFavoritar.EditValue = string.Empty;
+                txtBI.EditValue = string.Empty;
+                txtNacionalidade.EditValue = string.Empty;
             txtSexo.EditValue = string.Empty;
-            txtQuantidade.EditValue= string.Empty;
-            txtPrecoUnitario.EditValue = string.Empty;
+            txtEstadoCivil.EditValue = string.Empty;
+            txtProvinciaMunicipio.EditValue = string.Empty;
+
+            txtGrauParentesco.EditValue = string.Empty;
+            txtEncarregado.EditValue = string.Empty;
+            txtNomePai.EditValue = string.Empty;
+            txtNomeMae.EditValue = string.Empty;
+            txtMaeVive.EditValue = string.Empty;
+            txtPaiVive.EditValue = string.Empty;
+
+            txtResidencia.EditValue = string.Empty;
+            txtenderco.EditValue = string.Empty;
+            txtContactos.EditValue = string.Empty;
+            txtCelular.EditValue = string.Empty;
+            txtEmail.EditValue = string.Empty;
+            txtEmailFacebook.EditValue = string.Empty;
+
+            txtLocalEmissao.EditValue = string.Empty;
+            txtDataEmissao.EditValue = string.Empty;
+            txtDataExpiracao.EditValue = string.Empty;
+            txtTipoDocumentos.EditValue = string.Empty;
+            txtDocumento.EditValue = string.Empty;
+            txtDocumentoRecenciamnto.EditValue = string.Empty;
+            txtTurma.EditValue = string.Empty;
+
+            txtEscolaOrigem.EditValue = string.Empty;
+            txtProvinciaOrigem.EditValue = string.Empty;
+            txtEscolaMedia.EditValue = string.Empty;
+            txtIsActived.EditValue = string.Empty;
+            txtMedia.EditValue = string.Empty;
+            txtDataFicha.EditValue = string.Empty;
+
+            txtFazes.EditValue = string.Empty;
+            txtFichaInscricao.EditValue = string.Empty;
+            txtCertificadoAnexo.EditValue = string.Empty;
+
+            txtCodigo.EditValue = string.Empty;
+            txtCodigoUnico.EditValue = string.Empty;
+            txtImagemURL.Text = string.Empty;
 
             txtCodigo.Text = string.Empty;
             txtTitulo.Text = "[Novo]";
@@ -316,69 +387,69 @@ namespace IEscolaDesktop.View.Forms
         {
             if (control != null)
             {
-                #region Descricao
-                if (control.Name.Equals(txtFirstName.Name))
-                {
-                    if (!string.IsNullOrWhiteSpace(txtFirstName.Text))
-                    {
-                        if (!(string.IsNullOrWhiteSpace(txtCAtegoria.Text) || txtCAtegoria.Text == "[Selecione o Curso por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtAutor.Text) || txtAutor.Text == "[Selecione a Sala por por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEditora.Text) || txtEditora.Text == "[Selecione o Periodo por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione a Classe por favor]"))
-                        {
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        }
-                        else
-                        {
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                        }
-                    }
-                    else
-                    {
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                    }
-                }
-                #endregion
+                //#region Descricao
+                //if (control.Name.Equals(txtFirstName.Name))
+                //{
+                //    if (!string.IsNullOrWhiteSpace(txtFirstName.Text))
+                //    {
+                //        if (!(string.IsNullOrWhiteSpace(txtCAtegoria.Text) || txtCAtegoria.Text == "[Selecione o Curso por favor]") &&
+                //             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a Sala por por favor]") &&
+                //             !(string.IsNullOrWhiteSpace(txtEditora.Text) || txtEditora.Text == "[Selecione o Periodo por favor]") &&
+                //             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione a Classe por favor]"))
+                //        {
+                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                //        }
+                //        else
+                //        {
+                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                //    }
+                //}
+                //#endregion
 
-                #region Provincias
-                if (control.Name.Equals(txtSexo.Name))
-                {
-                    if (!string.IsNullOrWhiteSpace(txtSexo.Text))
-                    {
-                        if (!(string.IsNullOrWhiteSpace(txtCAtegoria.Text) || txtCAtegoria.Text == "[Selecione o municipio por favor]"))
-                        { 
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        }
-                        else {
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                        }
-                    }
-                    else {
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                    }
-                }
-                #endregion
+                //#region Provincias
+                //if (control.Name.Equals(txtSexo.Name))
+                //{
+                //    if (!string.IsNullOrWhiteSpace(txtSexo.Text))
+                //    {
+                //        if (!(string.IsNullOrWhiteSpace(txtCAtegoria.Text) || txtCAtegoria.Text == "[Selecione o municipio por favor]"))
+                //        { 
+                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                //        }
+                //        else {
+                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                //        }
+                //    }
+                //    else {
+                //        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                //    }
+                //}
+                //#endregion
 
-                #region Municipios
-                if (control.Name.Equals(btnCategoria.Name))
-                {
-                    if (!string.IsNullOrWhiteSpace(btnCategoria.Text))
-                    {
-                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione a provincia por favor]"))
-                        {
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        }
-                        else
-                        {
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                        }
-                    }
-                    else
-                    {
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                    }
-                }
-                #endregion
+                //#region Municipios
+                //if (control.Name.Equals(btnCategoria.Name))
+                //{
+                //    if (!string.IsNullOrWhiteSpace(btnCategoria.Text))
+                //    {
+                //        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione a provincia por favor]"))
+                //        {
+                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                //        }
+                //        else
+                //        {
+                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                //    }
+                //}
+                //#endregion
             }
             else
             {

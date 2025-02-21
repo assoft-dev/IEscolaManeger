@@ -180,8 +180,7 @@
                     else if (control.Name.Equals(typeof(frmEstudantesInscritos).Name))
                     {
                         this.Text = "Estudantes -[Aberto]";
-
-                        OpenFormsDialog.ShowForm(this, null, control);
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
                     #endregion
 

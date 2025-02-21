@@ -26,7 +26,7 @@ namespace IEscolaEntity.Models
         // Dados dos Encarregados
         public GrauParentesco GrauParentesco { get; set; }
         public string NomeEncarregado { get; set; }
-        public bool NomePai { get; set; }
+        public string NomePai { get; set; }
         public string NomeMae { get; set; }
         public bool PaiVive { get; set; }
         public bool MaeVive { get; set; }
@@ -56,7 +56,7 @@ namespace IEscolaEntity.Models
         public string AdiconalProvincias { get; set; }
         public decimal AdicionalMedia { get; set; }
 
-        public string IsActived { get; set; }
+        public bool IsActived { get; set; }
         public decimal Media { get; set; }
         public DateTime DataFicha { get; set; }
 
@@ -64,5 +64,6 @@ namespace IEscolaEntity.Models
         public bool AdicionalFichaInscricao { get; set; }
         public bool AdicionalCertificados { get; set; }
 
+        public string ImagemURL { get; set; }
     }
 }

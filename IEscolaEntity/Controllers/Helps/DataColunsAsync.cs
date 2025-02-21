@@ -120,6 +120,7 @@ namespace IEscolaEntity.Controllers.Helps
                      typeof(Nacionalidade),
                      typeof(GrauParentesco),
                      typeof(EstadoCivil),
+                     typeof(DocType),
                      typeof(FAZES),
                 };
                 return primary.Contains(t);
