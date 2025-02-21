@@ -35,7 +35,7 @@ namespace IEscolaDesktop.View.Forms
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
 
-            txtDisponibilidade.EditValueChanged += delegate { ChangeValudations(txtDisponibilidade); };
+            txtSexo.EditValueChanged += delegate { ChangeValudations(txtSexo); };
             txtCAtegoria.EditValueChanged += delegate { ChangeValudations(txtCAtegoria); };
 
             btnEditoras.Click += BtnBuscarEdicoes_Click;
@@ -68,7 +68,7 @@ namespace IEscolaDesktop.View.Forms
                 //txtAutor.EditValue = usuarios.AutoresID;
                 //txtCAtegoria.EditValue = usuarios.CategoriasID;
                 //txtDisponibilidade.EditValue = usuarios.Disponibilidade;
-                txtTitulos.Focus();
+                txtFirstName.Focus();
             }
             else {
                 txtTitulo.Text = "[Novo]";
@@ -116,7 +116,7 @@ namespace IEscolaDesktop.View.Forms
             var dataResult2 = await AutoresRepository.GetAll();
             autoresBindingSource.DataSource = dataResult2;
 
-            txtDisponibilidade.Properties.DataSource = Enum.GetValues(typeof(Disponibilidade)); 
+            txtSexo.Properties.DataSource = Enum.GetValues(typeof(Disponibilidade)); 
 
             var dataResult4 = await CateoriaRepository.GetAll();
             categoriasBindingSource.DataSource = dataResult4;
@@ -180,12 +180,12 @@ namespace IEscolaDesktop.View.Forms
                 var data = new Livros
                 {
                     LivrosID = ID,
-                    Titulo = (string)txtTitulos.Text.Trim(),
-                    SubTitulo = (string)txtSubtitulos.Text.Trim(),
-                    ISBN = (string)txtSbn.Text.Trim(),
-                    Edicao = (string)txtEdicoes.Text.Trim(),
-                    Descricao = (string)txtDescricao.Text.Trim(),
-                    Comentarios = (string)txtComentarios.Text.Trim(),
+                    Titulo = (string)txtFirstName.Text.Trim(),
+                    SubTitulo = (string)txtLastName.Text.Trim(),
+                    ISBN = (string)txtBI.Text.Trim(),
+                    Edicao = (string)txtNaturalidade.Text.Trim(),
+                    Descricao = (string)txtNacionalidade.Text.Trim(),
+                    Comentarios = (string)txtIdade.Text.Trim(),
                     Lancamento = (string)txtLancamento.Text.Trim(),
                     LocalLancamento = (string)txtLocalLancamento.Text.Trim(),
                     CodBar = (string)txtCodigoBarra.Text.Trim(),
@@ -199,7 +199,7 @@ namespace IEscolaDesktop.View.Forms
                     CategoriasID = (int)txtCAtegoria.EditValue,
                     EditorasID = (int)txtEditora.EditValue,
                     AutoresID = Convert.ToInt32(txtAutor.EditValue),
-                    Disponibilidade = (Disponibilidade)txtDisponibilidade.EditValue,
+                    Disponibilidade = (Disponibilidade)txtSexo.EditValue,
 
                     PrecoUnitario = txtPrecoUnitario.Value,
                     Quantidade = txtQuantidade.Value,
@@ -224,7 +224,7 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => (x.Descricao.ToUpper() == txtTitulos.Text.ToUpper()) &&
+            var dataResult = await DataRepository.Get(x => (x.Descricao.ToUpper() == txtFirstName.Text.ToUpper()) &&
                                                            ((x.EditorasID == (int) txtAutor.EditValue) && 
                                                            (x.AutoresID == (int) txtCAtegoria.EditValue) &&
                                                            (x.CategoriasID == (int) txtEditora.EditValue)), null);
@@ -239,8 +239,8 @@ namespace IEscolaDesktop.View.Forms
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Error);
 
-                        txtDisponibilidade.SelectAll();
-                        txtDisponibilidade.Focus();
+                        txtSexo.SelectAll();
+                        txtSexo.Focus();
                         return true;
                     }
 
@@ -262,8 +262,8 @@ namespace IEscolaDesktop.View.Forms
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Error);
 
-                    txtDisponibilidade.SelectAll();
-                    txtDisponibilidade.Focus();
+                    txtSexo.SelectAll();
+                    txtSexo.Focus();
                     return true;
                 }
             }
@@ -274,13 +274,13 @@ namespace IEscolaDesktop.View.Forms
         {
             windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
 
-            txtTitulos.EditValue = string.Empty;
-            txtTitulos.EditValue = string.Empty;
-            txtSubtitulos.EditValue = string.Empty;
-            txtSbn.EditValue = string.Empty;
-            txtEdicoes.EditValue = string.Empty;
-            txtDescricao.EditValue = string.Empty;
-            txtComentarios.EditValue = string.Empty;
+            txtFirstName.EditValue = string.Empty;
+            txtFirstName.EditValue = string.Empty;
+            txtLastName.EditValue = string.Empty;
+            txtBI.EditValue = string.Empty;
+            txtNaturalidade.EditValue = string.Empty;
+            txtNacionalidade.EditValue = string.Empty;
+            txtIdade.EditValue = string.Empty;
             txtLancamento.EditValue = string.Empty;
             txtLocalLancamento.EditValue = string.Empty;
             txtCodigoBarra.EditValue = string.Empty; ;
@@ -289,13 +289,13 @@ namespace IEscolaDesktop.View.Forms
             txtPratileiraPosicao.EditValue = string.Empty;
             txtRating.EditValue = string.Empty;
             txtFavoritar.EditValue = string.Empty;
-            txtDisponibilidade.EditValue = string.Empty;
+            txtSexo.EditValue = string.Empty;
             txtQuantidade.EditValue= string.Empty;
             txtPrecoUnitario.EditValue = string.Empty;
 
             txtCodigo.Text = string.Empty;
             txtTitulo.Text = "[Novo]";
-            txtTitulos.Focus();
+            txtFirstName.Focus();
         }
 
         private void ChangeValidationCodigo()
@@ -317,14 +317,14 @@ namespace IEscolaDesktop.View.Forms
             if (control != null)
             {
                 #region Descricao
-                if (control.Name.Equals(txtTitulos.Name))
+                if (control.Name.Equals(txtFirstName.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtTitulos.Text))
+                    if (!string.IsNullOrWhiteSpace(txtFirstName.Text))
                     {
                         if (!(string.IsNullOrWhiteSpace(txtCAtegoria.Text) || txtCAtegoria.Text == "[Selecione o Curso por favor]") &&
                              !(string.IsNullOrWhiteSpace(txtAutor.Text) || txtAutor.Text == "[Selecione a Sala por por favor]") &&
                              !(string.IsNullOrWhiteSpace(txtEditora.Text) || txtEditora.Text == "[Selecione o Periodo por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtDisponibilidade.Text) || txtDisponibilidade.Text == "[Selecione a Classe por favor]"))
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione a Classe por favor]"))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -341,9 +341,9 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Provincias
-                if (control.Name.Equals(txtDisponibilidade.Name))
+                if (control.Name.Equals(txtSexo.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtDisponibilidade.Text))
+                    if (!string.IsNullOrWhiteSpace(txtSexo.Text))
                     {
                         if (!(string.IsNullOrWhiteSpace(txtCAtegoria.Text) || txtCAtegoria.Text == "[Selecione o municipio por favor]"))
                         { 
@@ -364,7 +364,7 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(btnCategoria.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtDisponibilidade.Text) || txtDisponibilidade.Text == "[Selecione a provincia por favor]"))
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione a provincia por favor]"))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
