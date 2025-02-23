@@ -131,10 +131,10 @@ namespace IEscolaDesktop.View.Forms
         {
             // Leitura dos Grupos
             var dataResult1 = await provinciasMunicipiosRepository.GetAll();
-            editoresBindingSource.DataSource = dataResult1;
+            provinciasMunicipiosBindingSource.DataSource = dataResult1;
 
             var dataResult2 = await cursosRepository.GetAll();
-            autoresBindingSource.DataSource = dataResult2;
+            cursosBindingSource.DataSource = dataResult2;
 
             txtProvinciaMunicipio.Properties.DataSource = dataResult1;
             txtTurma.Properties.DataSource = dataResult2;

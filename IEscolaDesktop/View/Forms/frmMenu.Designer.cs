@@ -44,6 +44,9 @@
             this.btnClasses = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnPeriodos = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnSalas = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator6 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.btnEstudantesInscricoes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnEstudantes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnProvinciasMunicipios = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -86,9 +89,6 @@
             this.btnGrupo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnUsuariosLog = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnPermissio = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnEstudantes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlSeparator6 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
-            this.btnEstudantesInscricoes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -101,7 +101,7 @@
             this.fluentDesignFormContainer1.Location = new System.Drawing.Point(173, 29);
             this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(731, 622);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(913, 819);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // accordionControl1
@@ -121,7 +121,7 @@
             this.accordionControl1.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.accordionControl1.Size = new System.Drawing.Size(173, 622);
+            this.accordionControl1.Size = new System.Drawing.Size(173, 819);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -184,6 +184,24 @@
             this.btnSalas.Name = "btnSalas";
             this.btnSalas.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnSalas.Text = "Salas";
+            // 
+            // accordionControlSeparator6
+            // 
+            this.accordionControlSeparator6.Name = "accordionControlSeparator6";
+            // 
+            // btnEstudantesInscricoes
+            // 
+            this.btnEstudantesInscricoes.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEstudantesInscricoes.ImageOptions.SvgImage")));
+            this.btnEstudantesInscricoes.Name = "btnEstudantesInscricoes";
+            this.btnEstudantesInscricoes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnEstudantesInscricoes.Text = "Estudantes Insc.";
+            // 
+            // btnEstudantes
+            // 
+            this.btnEstudantes.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEstudantes.ImageOptions.SvgImage")));
+            this.btnEstudantes.Name = "btnEstudantes";
+            this.btnEstudantes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnEstudantes.Text = "Estudantes";
             // 
             // accordionControlElement1
             // 
@@ -400,7 +418,7 @@
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
             this.fluentDesignFormControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(904, 29);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1086, 29);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.barButtonItem1);
@@ -503,29 +521,11 @@
             this.btnPermissio.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnPermissio.Text = "Permissões";
             // 
-            // btnEstudantes
-            // 
-            this.btnEstudantes.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement11.ImageOptions.SvgImage")));
-            this.btnEstudantes.Name = "btnEstudantes";
-            this.btnEstudantes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnEstudantes.Text = "Estudantes";
-            // 
-            // accordionControlSeparator6
-            // 
-            this.accordionControlSeparator6.Name = "accordionControlSeparator6";
-            // 
-            // btnEstudantesInscricoes
-            // 
-            this.btnEstudantesInscricoes.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement12.ImageOptions.SvgImage")));
-            this.btnEstudantesInscricoes.Name = "btnEstudantesInscricoes";
-            this.btnEstudantesInscricoes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnEstudantesInscricoes.Text = "Estudantes Insc.";
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 651);
+            this.ClientSize = new System.Drawing.Size(1086, 848);
             this.ControlContainer = this.fluentDesignFormContainer1;
             this.Controls.Add(this.fluentDesignFormContainer1);
             this.Controls.Add(this.accordionControl1);
