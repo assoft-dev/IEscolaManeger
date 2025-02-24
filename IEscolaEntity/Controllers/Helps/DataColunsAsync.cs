@@ -122,6 +122,7 @@ namespace IEscolaEntity.Controllers.Helps
                      typeof(EstadoCivil),
                      typeof(DocType),
                      typeof(FAZES),
+                     typeof(ProvinciasLocal),
                 };
                 return primary.Contains(t);
             }

@@ -17,6 +17,21 @@ namespace IEscolaEntity.Models
         public int MunicipiosID { get; set; }
         [Reference]  public Municipios  Municios { get; set; }
 
+
+        [Ignore]
+        public string Descricao
+        {
+            get
+            {
+                {
+                    if (Municios != null && Provincias != null)
+                        return string.Format("{0} -> {1}", Provincias.Referencias, Municios.Referencias);
+                    else
+                        return string.Empty;
+                };
+            }
+        }
+
         [Reference] public List<EstudantesInscricoes>  Inscricoes { get; set; }
     }
 }

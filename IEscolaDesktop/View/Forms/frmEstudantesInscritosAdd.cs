@@ -1,11 +1,14 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
+using DevExpress.XtraLayout;
 using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
 using IEscolaEntity.Models.Helps;
 using System;
+using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,16 +31,27 @@ namespace IEscolaDesktop.View.Forms
             cursosRepository = new CursosRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
-
             txtSexo.EditValueChanged += delegate { ChangeValudations(txtSexo); };
+            txtFirstName.EditValueChanged += delegate { ChangeValudations(txtFirstName); };
+            txtLastName.EditValueChanged += delegate { ChangeValudations(txtLastName); };
+            txtBI.EditValueChanged += delegate { ChangeValudations(txtBI); };
+            txtNacionalidade.EditValueChanged += delegate { ChangeValudations(txtNacionalidade); };
+            txtProvinciaMunicipio.EditValueChanged += delegate { ChangeValudations(txtProvinciaMunicipio); };
+            txtEstadoCivil.EditValueChanged += delegate { ChangeValudations(txtEstadoCivil); };
+            txtNomePai.EditValueChanged += delegate { ChangeValudations(txtNomePai); };
+            txtNomeMae.EditValueChanged += delegate { ChangeValudations(txtNomeMae); };
 
-            //txtCAtegoria.EditValueChanged += delegate { ChangeValudations(txtCAtegoria); };
-
-            //btnEditoras.Click += BtnBuscarEdicoes_Click;
-            //btnAutor.Click += BtnBuscarAutores_Click;
-            //btnCategoria.Click += BtnBuscarCategoria_Click;
+            txtResidencia.EditValueChanged += delegate { ChangeValudations(txtResidencia); };
+            txtenderco.EditValueChanged += delegate { ChangeValudations(txtenderco); };
+            txtLocalEmissao.EditValueChanged += delegate { ChangeValudations(txtLocalEmissao); };
+            txtTipoDocumentos.EditValueChanged += delegate { ChangeValudations(txtTipoDocumentos); };
+            txtTurma.EditValueChanged += delegate { ChangeValudations(txtTurma); };
 
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
+
+            // Assinatura dos Nulable
+            txtLocalEmissao.Properties.NullText = localemissao;
+            txtTipoDocumentos.Properties.NullText = tipodoc;
 
             if (usuarios != null) {     
                 
@@ -94,9 +108,65 @@ namespace IEscolaDesktop.View.Forms
                 txtTitulo.Text = "[Novo]";
                 windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
+
+                txtDataEmissao.DateTime = DateTime.Now;
+                txtDataExpiracao.DateTime = DateTime.Now;
+                txtDataFicha.DateTime = DateTime.Now;
+                txtDataNascimento.DateTime = DateTime.Now;
             }
 
             this.Load += FrmUsuariosAdd_Load;
+
+            #region Calcula Idade
+            txtDataNascimento.EditValueChanged += delegate {
+
+                if (txtDataNascimento.DateTime != null)
+                {
+                    var idade = DateTime.Now.Year - txtDataNascimento.DateTime.Year;
+                    txtIdade.EditValue = idade;
+                }
+            };
+            #endregion
+
+            txtImagemURL.ButtonClick += TxtImagemURL_ButtonClick;
+            btnProvinciaMunicipios.Click += BtnProvinciaMunicipios_Click;
+            pictureEdit1.MouseDoubleClick += PictureEdit1_MouseClick;
+        }
+
+        private void PictureEdit1_MouseClick(object sender, MouseEventArgs e)
+        {
+            var fileStream = xtraOpenFileDialog1.ShowDialog();
+            xtraOpenFileDialog1.FileName = string.Empty;
+            xtraOpenFileDialog1.RestoreDirectory = true;
+
+
+            if (fileStream == DialogResult.OK)
+            {
+                txtImagemURL.Text = xtraOpenFileDialog1.FileName;
+                pictureEdit1.Image = Image.FromFile(xtraOpenFileDialog1.FileName); 
+            }
+        }
+
+        private void BtnProvinciaMunicipios_Click(object sender, EventArgs e)
+        {
+            // Buscar Grupos
+            var forms = OpenFormsDialog.ShowForm(null,
+                  new frmProvinciasMunicipiosAdd());
+
+            if (forms == DialogResult.None || forms == DialogResult.Cancel)
+                FrmUsuariosAdd_Load(null, null);
+        }
+
+        private void TxtImagemURL_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var fileStream = xtraOpenFileDialog1.ShowDialog();
+            xtraOpenFileDialog1.FileName = string.Empty;
+            xtraOpenFileDialog1.RestoreDirectory = true;
+
+            if (fileStream == DialogResult.OK)
+            {
+                txtImagemURL.Text = xtraOpenFileDialog1.FileName;
+            }
         }
 
         private void BtnBuscarEdicoes_Click(object sender, EventArgs e)
@@ -146,6 +216,8 @@ namespace IEscolaDesktop.View.Forms
             txtGrauParentesco.Properties.DataSource = Enum.GetValues(typeof(GrauParentesco));
             txtTipoDocumentos.Properties.DataSource = Enum.GetValues(typeof(DocType));
             txtFazes.Properties.DataSource = Enum.GetValues(typeof(FAZES));
+            txtLocalEmissao.Properties.DataSource = Enum.GetValues(typeof(ProvinciasLocal));
+            txtProvinciaOrigem.Properties.DataSource = Enum.GetValues(typeof(ProvinciasLocal));
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -201,12 +273,13 @@ namespace IEscolaDesktop.View.Forms
             if (!await ValidationDatabase())
             {
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
+                var codigo = await DataRepository.GetQR();
 
                 // save Data
                 var data = new EstudantesInscricoes
                 {
                     InscricaoID = ID,
-
+                    
                     FirstName = (string) txtFirstName.EditValue,
                     LastName = (string) txtLastName.EditValue,
                     BI = (string) txtBI.EditValue,
@@ -229,7 +302,7 @@ namespace IEscolaDesktop.View.Forms
                     Email= (string) txtEmail.EditValue,
                     EmailFacebbok= (string) txtEmailFacebook.EditValue,
 
-                    LocalEmissao= (string) txtLocalEmissao.EditValue,
+                    LocalEmissao= (ProvinciasLocal) txtLocalEmissao.EditValue,
                     DataEmissao= (DateTime) txtDataEmissao.DateTime,
                     DataExpiracao= (DateTime) txtDataExpiracao.DateTime,
                     DocType= (DocType) txtTipoDocumentos.EditValue,
@@ -250,7 +323,7 @@ namespace IEscolaDesktop.View.Forms
                     AdicionalFichaInscricao= (bool) txtFichaInscricao.EditValue,
                     AdicionalCertificados= (bool) txtCertificadoAnexo.EditValue,
 
-                    Codigo = (string) txtCodigoUnico.EditValue,
+                    Codigo = (string)codigo,
                 };
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.InscricaoID == ID) > 0 :
@@ -321,13 +394,7 @@ namespace IEscolaDesktop.View.Forms
 
             txtFirstName.EditValue = string.Empty;
             txtLastName.EditValue = string.Empty;
-                txtBI.EditValue = string.Empty;
-                txtNacionalidade.EditValue = string.Empty;
-            txtSexo.EditValue = string.Empty;
-            txtEstadoCivil.EditValue = string.Empty;
-            txtProvinciaMunicipio.EditValue = string.Empty;
-
-            txtGrauParentesco.EditValue = string.Empty;
+            txtBI.EditValue = string.Empty;
             txtEncarregado.EditValue = string.Empty;
             txtNomePai.EditValue = string.Empty;
             txtNomeMae.EditValue = string.Empty;
@@ -341,28 +408,28 @@ namespace IEscolaDesktop.View.Forms
             txtEmail.EditValue = string.Empty;
             txtEmailFacebook.EditValue = string.Empty;
 
-            txtLocalEmissao.EditValue = string.Empty;
-            txtDataEmissao.EditValue = string.Empty;
-            txtDataExpiracao.EditValue = string.Empty;
-            txtTipoDocumentos.EditValue = string.Empty;
+            txtLocalEmissao.EditValue = DateTime.Now;
+            txtDataEmissao.EditValue = DateTime.Now;
+            txtDataExpiracao.EditValue = DateTime.Now;
+            txtDataNascimento.EditValue = DateTime.Now;
+            txtDataFicha.EditValue = DateTime.Now;
+
             txtDocumento.EditValue = string.Empty;
             txtDocumentoRecenciamnto.EditValue = string.Empty;
-            txtTurma.EditValue = string.Empty;
 
             txtEscolaOrigem.EditValue = string.Empty;
             txtProvinciaOrigem.EditValue = string.Empty;
             txtEscolaMedia.EditValue = string.Empty;
             txtIsActived.EditValue = string.Empty;
             txtMedia.EditValue = string.Empty;
-            txtDataFicha.EditValue = string.Empty;
 
-            txtFazes.EditValue = string.Empty;
             txtFichaInscricao.EditValue = string.Empty;
             txtCertificadoAnexo.EditValue = string.Empty;
 
             txtCodigo.EditValue = string.Empty;
             txtCodigoUnico.EditValue = string.Empty;
             txtImagemURL.Text = string.Empty;
+            pictureEdit1.Image = null;
 
             txtCodigo.Text = string.Empty;
             txtTitulo.Text = "[Novo]";
@@ -383,73 +450,396 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+        private string localemissao = "[Selecione o local por favor]";
+        private string tipodoc = "[Selecione o tipo de Doc por favor]";
+        private string fazes = "[Selecione o local por favor]";
+        private string grauparentesco = "[Selecione o grau parentesco]";
+
         private void ChangeValudations(Control control)
         {
             if (control != null)
             {
-                //#region Descricao
-                //if (control.Name.Equals(txtFirstName.Name))
-                //{
-                //    if (!string.IsNullOrWhiteSpace(txtFirstName.Text))
-                //    {
-                //        if (!(string.IsNullOrWhiteSpace(txtCAtegoria.Text) || txtCAtegoria.Text == "[Selecione o Curso por favor]") &&
-                //             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a Sala por por favor]") &&
-                //             !(string.IsNullOrWhiteSpace(txtEditora.Text) || txtEditora.Text == "[Selecione o Periodo por favor]") &&
-                //             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione a Classe por favor]"))
-                //        {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                //        }
-                //        else
-                //        {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //    }
-                //}
-                //#endregion
+                #region FirstName
+                if (control.Name.Equals(txtFirstName.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtFirstName.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a provincias por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
 
-                //#region Provincias
-                //if (control.Name.Equals(txtSexo.Name))
-                //{
-                //    if (!string.IsNullOrWhiteSpace(txtSexo.Text))
-                //    {
-                //        if (!(string.IsNullOrWhiteSpace(txtCAtegoria.Text) || txtCAtegoria.Text == "[Selecione o municipio por favor]"))
-                //        { 
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                //        }
-                //        else {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //        }
-                //    }
-                //    else {
-                //        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //    }
-                //}
-                //#endregion
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                             !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+                
+                #region LastName
+                if (control.Name.Equals(txtLastName.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtLastName.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a provincias por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
 
-                //#region Municipios
-                //if (control.Name.Equals(btnCategoria.Name))
-                //{
-                //    if (!string.IsNullOrWhiteSpace(btnCategoria.Text))
-                //    {
-                //        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione a provincia por favor]"))
-                //        {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                //        }
-                //        else
-                //        {
-                //            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                //    }
-                //}
-                //#endregion
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                             !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region BI
+                if (control.Name.Equals(txtBI.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtBI.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a provincias por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+
+
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Nacionalidade
+                if (control.Name.Equals(txtNacionalidade.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtNacionalidade.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a provincias por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region BI
+                if (control.Name.Equals(txtProvinciaMunicipio.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+
+                                                          !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Sexo
+                if (control.Name.Equals(txtSexo.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtSexo.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+
+                                                          !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                               !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Estado Civil
+                if (control.Name.Equals(txtEstadoCivil.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtEstadoCivil.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+
+
+                                                          !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region NomePai
+                if (control.Name.Equals(txtNomePai.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtNomePai.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+
+
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Nome Mãe
+                if (control.Name.Equals(txtNomeMae.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtNomeMae.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Residencias
+                if (control.Name.Equals(txtResidencia.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtResidencia.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                                 !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Endereco
+                if (control.Name.Equals(txtenderco.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtenderco.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
+                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Local-Emisssao
+                if (control.Name.Equals(txtLocalEmissao.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtLocalEmissao.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                                 !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Tipo-Documento
+                if (control.Name.Equals(txtTipoDocumentos.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtTipoDocumentos.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao))
+
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
             }
             else
             {
@@ -482,10 +872,5 @@ namespace IEscolaDesktop.View.Forms
             return false;
         }
         #endregion
-
-        private void txtSala_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

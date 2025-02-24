@@ -151,6 +151,7 @@
     <Compile Include="Models\Helps\PedidosEstado.cs" />
     <Compile Include="Models\Helps\PedidosPagamentos.cs" />
     <Compile Include="Models\Helps\ProvinciasCodigo.cs" />
+    <Compile Include="Models\Helps\ProvinciasLocal.cs" />
     <Compile Include="Models\Helps\Sexo.cs" />
     <Compile Include="Models\Helps\UsuariosRetorno.cs" />
     <Compile Include="Models\EstudantesInscricoes.cs" />

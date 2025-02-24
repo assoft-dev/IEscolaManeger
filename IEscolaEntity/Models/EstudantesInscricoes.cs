@@ -40,7 +40,7 @@ namespace IEscolaEntity.Models
         public string Email { get; set; }
 
         //Documentos de Identificacao
-        public string LocalEmissao { get; set; }
+        public ProvinciasLocal LocalEmissao { get; set; }
         public DateTime DataEmissao { get; set; }
         public DateTime DataExpiracao { get; set; }
         public DocType DocType { get; set; }
