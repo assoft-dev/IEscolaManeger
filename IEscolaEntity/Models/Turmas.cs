@@ -1,18 +1,22 @@
 ﻿using ServiceStack.DataAnnotations;
+using System.Collections.Generic;
 
 namespace IEscolaEntity.Models
 {
     public class Turmas
     {
+
         [AutoIncrement]
         public int TurmaID { get; set; }
 
         [Required]
         public string Descricao { get; set; }
 
+
         public int Quantidade { get; set; }
         public int Idades1 { get; set; }
         public int Idades2 { get; set; }
+
 
         [ForeignKey(typeof(Cursos))]
         public int CursosID { get; set; }
@@ -32,5 +36,7 @@ namespace IEscolaEntity.Models
         [ForeignKey(typeof(Periodos), OnDelete = "CASCADE")]
         public int PeriodosID { get; set; }
         [Reference] public Periodos Periodos { get; set; }
+
+        [Reference] public List<Estudantes> Estudantes { get; set; }
     }
 }

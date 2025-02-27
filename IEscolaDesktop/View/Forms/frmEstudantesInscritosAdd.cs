@@ -1,14 +1,15 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
-using DevExpress.XtraLayout;
 using IEscolaDesktop.View.Helps;
+using IEscolaDesktop.View.ReportForms;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
+using IEscolaEntity.Models.Biblioteca;
 using IEscolaEntity.Models.Helps;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,21 +32,28 @@ namespace IEscolaDesktop.View.Forms
             cursosRepository = new CursosRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
-            txtSexo.EditValueChanged += delegate { ChangeValudations(txtSexo); };
+            txtSexo.TextChanged += delegate { ChangeValudations(txtSexo); };
             txtFirstName.EditValueChanged += delegate { ChangeValudations(txtFirstName); };
             txtLastName.EditValueChanged += delegate { ChangeValudations(txtLastName); };
             txtBI.EditValueChanged += delegate { ChangeValudations(txtBI); };
             txtNacionalidade.EditValueChanged += delegate { ChangeValudations(txtNacionalidade); };
             txtProvinciaMunicipio.EditValueChanged += delegate { ChangeValudations(txtProvinciaMunicipio); };
-            txtEstadoCivil.EditValueChanged += delegate { ChangeValudations(txtEstadoCivil); };
+            txtEstadoCivil.TextChanged += delegate { ChangeValudations(txtEstadoCivil); };
             txtNomePai.EditValueChanged += delegate { ChangeValudations(txtNomePai); };
             txtNomeMae.EditValueChanged += delegate { ChangeValudations(txtNomeMae); };
-
             txtResidencia.EditValueChanged += delegate { ChangeValudations(txtResidencia); };
             txtenderco.EditValueChanged += delegate { ChangeValudations(txtenderco); };
-            txtLocalEmissao.EditValueChanged += delegate { ChangeValudations(txtLocalEmissao); };
-            txtTipoDocumentos.EditValueChanged += delegate { ChangeValudations(txtTipoDocumentos); };
-            txtTurma.EditValueChanged += delegate { ChangeValudations(txtTurma); };
+            
+            txtLocalEmissao.TextChanged += delegate { ChangeValudations(txtLocalEmissao); };
+            txtTipoDocumentos.TextChanged += delegate { ChangeValudations(txtTipoDocumentos); };
+            txtTurma.SelectionChanged += delegate { ChangeValudations(txtTurma); };
+            txtGrauParentesco.TextChanged += delegate { ChangeValudations(txtGrauParentesco); };
+
+            txtContactos.EditValueChanged += delegate { ChangeValudations(txtContactos); };
+            txtEmail.EditValueChanged += delegate { ChangeValudations(txtEmail); };
+            txtEmailFacebook.EditValueChanged += delegate { ChangeValudations(txtEmailFacebook); };
+            txtEscolaOrigem.EditValueChanged += delegate { ChangeValudations(txtEscolaOrigem); };
+            txtEncarregado.EditValueChanged += delegate { ChangeValudations(txtEncarregado); };
 
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
 
@@ -87,6 +95,9 @@ namespace IEscolaDesktop.View.Forms
                 txtDocumento.EditValue = usuarios.Documento;
                 txtDocumentoRecenciamnto.EditValue = usuarios.DocRecenciamentoMilitar;
                 txtTurma.EditValue = usuarios.CursosID;
+
+                txtDataNascimento.DateTime = usuarios.DataNascimento;
+                txtIdade.EditValue = usuarios.Idade;
 
                 txtEscolaOrigem.EditValue = usuarios.AdiconalEscolaOrigem;
                 txtProvinciaOrigem.EditValue = usuarios.AdiconalProvincias;
@@ -131,6 +142,18 @@ namespace IEscolaDesktop.View.Forms
             txtImagemURL.ButtonClick += TxtImagemURL_ButtonClick;
             btnProvinciaMunicipios.Click += BtnProvinciaMunicipios_Click;
             pictureEdit1.MouseDoubleClick += PictureEdit1_MouseClick;
+
+            btnCurso.Click += BtnCurso_Click;
+        }
+
+        private void BtnCurso_Click(object sender, EventArgs e)
+        {
+            // Buscar Grupos
+            var forms = OpenFormsDialog.ShowForm(null,
+                  new frmCursosAdd());
+
+            if (forms == DialogResult.None || forms == DialogResult.Cancel)
+                FrmUsuariosAdd_Load(null, null);
         }
 
         private void PictureEdit1_MouseClick(object sender, MouseEventArgs e)
@@ -279,51 +302,53 @@ namespace IEscolaDesktop.View.Forms
                 var data = new EstudantesInscricoes
                 {
                     InscricaoID = ID,
-                    
-                    FirstName = (string) txtFirstName.EditValue,
-                    LastName = (string) txtLastName.EditValue,
-                    BI = (string) txtBI.EditValue,
-                    Nacionalidade= (Nacionalidade) txtNacionalidade.EditValue,
-                    Sexo= (Sexo) txtSexo.EditValue,
-                    EstadoCivil= (EstadoCivil) txtEstadoCivil.EditValue,
-                    ProvinciaMunicipioID= (int) txtProvinciaMunicipio.EditValue,
 
-                    GrauParentesco= (GrauParentesco) txtGrauParentesco.EditValue,
-                    NomeEncarregado= (string) txtEncarregado.EditValue,
-                    NomePai= (string) txtNomePai.EditValue,
-                    NomeMae= (string) txtNomeMae.EditValue,
-                    MaeVive= (bool) txtMaeVive.Checked,
-                    PaiVive= (bool) txtPaiVive.Checked,
+                    FirstName = (string)txtFirstName.EditValue,
+                    LastName = (string)txtLastName.EditValue,
+                    BI = (string)txtBI.EditValue,
+                    Nacionalidade = (Nacionalidade)txtNacionalidade.EditValue,
+                    Sexo = (Sexo)txtSexo.EditValue,
+                    EstadoCivil = (EstadoCivil)txtEstadoCivil.EditValue,
+                    ProvinciaMunicipioID = (int)txtProvinciaMunicipio.EditValue,
 
-                    Residencia= (string) txtResidencia.EditValue,
-                    Endereco= (string) txtenderco.EditValue,
-                    Contacto= (string) txtContactos.EditValue,
-                    Celular= (string) txtCelular.EditValue,
-                    Email= (string) txtEmail.EditValue,
-                    EmailFacebbok= (string) txtEmailFacebook.EditValue,
+                    GrauParentesco = (GrauParentesco)txtGrauParentesco.EditValue,
+                    NomeEncarregado = (string)txtEncarregado.EditValue,
+                    NomePai = (string)txtNomePai.EditValue,
+                    NomeMae = (string)txtNomeMae.EditValue,
+                    MaeVive = (bool)txtMaeVive.Checked,
+                    PaiVive = (bool)txtPaiVive.Checked,
 
-                    LocalEmissao= (ProvinciasLocal) txtLocalEmissao.EditValue,
-                    DataEmissao= (DateTime) txtDataEmissao.DateTime,
-                    DataExpiracao= (DateTime) txtDataExpiracao.DateTime,
-                    DocType= (DocType) txtTipoDocumentos.EditValue,
-                    Documento= (string) txtDocumento.EditValue,
-                    DocRecenciamentoMilitar= (string) txtDocumentoRecenciamnto.EditValue,
-                    CursosID= (int) txtTurma.EditValue,
+                    Residencia = (string)txtResidencia.EditValue,
+                    Endereco = (string)txtenderco.EditValue,
+                    Contacto = (string)txtContactos.EditValue,
+                    Celular = (string)txtCelular.EditValue,
+                    Email = (string)txtEmail.EditValue,
+                    EmailFacebbok = (string)txtEmailFacebook.EditValue,
 
-                    AdiconalEscolaOrigem= (string) txtEscolaOrigem.EditValue,
-                    AdiconalProvincias= (string) txtProvinciaOrigem.EditValue,
-                    AdicionalMedia= (decimal) txtEscolaMedia.EditValue,
-                    IsActived= (bool) txtIsActived.Checked,
-                    Media= (decimal) txtMedia.EditValue,
-                    DataFicha= (DateTime)txtDataFicha.DateTime,
+                    LocalEmissao = (ProvinciasLocal)txtLocalEmissao.EditValue,
+                    DataEmissao = (DateTime)txtDataEmissao.DateTime,
+                    DataExpiracao = (DateTime)txtDataExpiracao.DateTime,
+                    DocType = (DocType)txtTipoDocumentos.EditValue,
+                    Documento = (string)txtDocumento.EditValue,
+                    DocRecenciamentoMilitar = (string)txtDocumentoRecenciamnto.EditValue,
+                    CursosID = (int)txtTurma.EditValue,
+
+                    AdiconalEscolaOrigem = (string)txtEscolaOrigem.EditValue,
+                    AdiconalProvincias = (ProvinciasLocal)txtProvinciaOrigem.EditValue,
+                    AdicionalMedia = (decimal)txtEscolaMedia.EditValue,
+                    IsActived = (bool)txtIsActived.Checked,
+                    Media = (decimal)txtMedia.EditValue,
+                    DataFicha = (DateTime)txtDataFicha.DateTime,
+
+                    DataNascimento =  txtDataNascimento.DateTime,              
 
                     ImagemURL = txtImagemURL.Text,
 
-                    FAZES = (FAZES) txtFazes.EditValue,
-                    AdicionalFichaInscricao= (bool) txtFichaInscricao.EditValue,
-                    AdicionalCertificados= (bool) txtCertificadoAnexo.EditValue,
+                    FAZES = (FAZES)txtFazes.EditValue,
+                    AdicionalFichaInscricao = (bool)txtFichaInscricao.Checked,
+                    AdicionalCertificados = (bool)txtCertificadoAnexo.Checked,
 
-                    Codigo = (string)codigo,
+                    Codigo = (string)codigo
                 };
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.InscricaoID == ID) > 0 :
@@ -331,6 +356,14 @@ namespace IEscolaDesktop.View.Forms
 
                 if (IsValidate)
                 {
+                    // Imprimir Relatorio
+                    #region Imprimir
+                    var items = new List<EstudantesInscricoes>();
+                    items.Add(data);
+
+                    GlobalReport.GetReport(new rptEstudantesInscritos(items));
+                    #endregion
+
                     Mensagens.Display("Guardar Dados", "Dados Guardados com muito Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Limpar();
                 }
@@ -488,7 +521,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
                 
                 #region LastName
-                if (control.Name.Equals(txtLastName.Name))
+                else if (control.Name.Equals(txtLastName.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtLastName.Text))
                     {
@@ -517,7 +550,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region BI
-                if (control.Name.Equals(txtBI.Name))
+                else if (control.Name.Equals(txtBI.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtBI.Text))
                     {
@@ -547,7 +580,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Nacionalidade
-                if (control.Name.Equals(txtNacionalidade.Name))
+                else if (control.Name.Equals(txtNacionalidade.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtNacionalidade.Text))
                     {
@@ -576,7 +609,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region BI
-                if (control.Name.Equals(txtProvinciaMunicipio.Name))
+                else if (control.Name.Equals(txtProvinciaMunicipio.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text))
                     {
@@ -605,7 +638,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Sexo
-                if (control.Name.Equals(txtSexo.Name))
+                else if (control.Name.Equals(txtSexo.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtSexo.Text))
                     {
@@ -634,7 +667,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Estado Civil
-                if (control.Name.Equals(txtEstadoCivil.Name))
+                else if (control.Name.Equals(txtEstadoCivil.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtEstadoCivil.Text))
                     {
@@ -665,7 +698,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region NomePai
-                if (control.Name.Equals(txtNomePai.Name))
+                else if (control.Name.Equals(txtNomePai.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtNomePai.Text))
                     {
@@ -695,7 +728,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Nome Mãe
-                if (control.Name.Equals(txtNomeMae.Name))
+                else if (control.Name.Equals(txtNomeMae.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtNomeMae.Text))
                     {
@@ -725,7 +758,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Residencias
-                if (control.Name.Equals(txtResidencia.Name))
+                else if (control.Name.Equals(txtResidencia.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtResidencia.Text))
                     {
@@ -734,12 +767,11 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
                              !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
-                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
-                             !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
-                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
-
-                             !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
-                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text)  &&
+                             !string.IsNullOrWhiteSpace(txtNomePai.Text)   &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text)        &&
+                             !string.IsNullOrWhiteSpace(txtNomeMae.Text)   &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text)   &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                                  !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
@@ -755,7 +787,7 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Endereco
-                if (control.Name.Equals(txtenderco.Name))
+                else if (control.Name.Equals(txtenderco.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtenderco.Text))
                     {
@@ -783,8 +815,8 @@ namespace IEscolaDesktop.View.Forms
                 }
                 #endregion
 
-                #region Local-Emisssao
-                if (control.Name.Equals(txtLocalEmissao.Name))
+                 #region Local-Emisssao
+                else if (control.Name.Equals(txtLocalEmissao.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtLocalEmissao.Text))
                     {
@@ -812,8 +844,8 @@ namespace IEscolaDesktop.View.Forms
                 }
                 #endregion
 
-                #region Tipo-Documento
-                if (control.Name.Equals(txtTipoDocumentos.Name))
+                 #region Tipo-Documento
+                else if (control.Name.Equals(txtTipoDocumentos.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtTipoDocumentos.Text))
                     {
@@ -840,6 +872,29 @@ namespace IEscolaDesktop.View.Forms
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                 }
                 #endregion
+
+                else
+                {
+                    if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
+                            !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
+                            !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
+                            !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                            !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc) &&
+                            !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                            !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                            !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
+                            !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
+                            !string.IsNullOrWhiteSpace(txtBI.Text) &&
+                            !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                            !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                            !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                            !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
+                            !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao))
+
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
             }
             else
             {

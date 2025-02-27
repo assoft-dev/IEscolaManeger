@@ -53,7 +53,7 @@ namespace IEscolaEntity.Models
 
         // Informações adicionais (Documentos apresentar)
         public string AdiconalEscolaOrigem { get; set; }
-        public string AdiconalProvincias { get; set; }
+        public ProvinciasLocal AdiconalProvincias { get; set; }
         public decimal AdicionalMedia { get; set; }
 
         public bool IsActived { get; set; }

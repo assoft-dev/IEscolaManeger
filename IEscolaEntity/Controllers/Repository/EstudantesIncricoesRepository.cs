@@ -16,9 +16,9 @@
         }
         private async Task<string> GetListaUnik()
         {
-            var sql1 = DbConection.From<Estudantes>().OrderByDescending(x => x.InscricoesID);
+            var sql1 = DbConection.From<EstudantesInscricoes>().OrderByDescending(x => x.InscricaoID);
 
-            var result = await DbConection.SingleAsync<Estudantes>(sql1);
+            var result = await DbConection.SingleAsync<EstudantesInscricoes>(sql1);
 
             if (result != null)
             {
@@ -40,18 +40,18 @@
                     }
                     else
                     {
-                        var fatur = "QR " + "FAC" + DateTime.Now.Year + "/" + 1;
+                        var fatur = "QR " + "EST" + DateTime.Now.Year + "/" + 1;
                         return fatur;
                     }
                 }
                 else
                 {
-                    return "QR " + "FAC" + DateTime.Now.Year + "/" + 1;
+                    return "QR " + "EST" + DateTime.Now.Year + "/" + 1;
                 }
             }
             else
             {
-                var fatura = "QR " + "FAC" + DateTime.Now.Year + "/" + 1;
+                var fatura = "QR " + "EST" + DateTime.Now.Year + "/" + 1;
                 return fatura;
             }
         }

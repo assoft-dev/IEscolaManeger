@@ -11,11 +11,14 @@ namespace IEscolaEntity.Models
         [AutoIncrement]
         public int EstudantesID { get; set; }
 
-
         // Dados dos Encarregados
         public string Telemovel { get; set; }
-        public EstadoEstudantes EstadoEstudantes { get; set; }
         public string Entidade { get; set; }
+        public EstadoEstudantes EstadoEstudantes { get; set; }
+
+        [ForeignKey(typeof(Turmas))]
+        public int TurmaID { get; set; }
+        [Reference] public Turmas Turmas { get; set; }
 
         // Relacionamentos
         [ForeignKey(typeof(EstudantesInscricoes))]

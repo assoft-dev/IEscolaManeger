@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstudantesInscritosAdd));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
@@ -61,6 +61,7 @@
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.btnProvinciaMunicipios = new DevExpress.XtraEditors.SimpleButton();
             this.txtProvinciaMunicipio = new DevExpress.XtraEditors.LookUpEdit();
+            this.provinciasMunicipiosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
@@ -131,7 +132,9 @@
             this.panelControl27 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.txtTurma = new DevExpress.XtraEditors.LookUpEdit();
+            this.cursosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel52 = new System.Windows.Forms.Panel();
+            this.btnCurso = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl28 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.txtLocalEmissao = new DevExpress.XtraEditors.LookUpEdit();
@@ -193,10 +196,12 @@
             this.panel37 = new System.Windows.Forms.Panel();
             this.panel38 = new System.Windows.Forms.Panel();
             this.panelControl21 = new DevExpress.XtraEditors.PanelControl();
+            this.txtProvinciaOrigem = new DevExpress.XtraEditors.LookUpEdit();
             this.panel39 = new System.Windows.Forms.Panel();
             this.panel40 = new System.Windows.Forms.Panel();
             this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl22 = new DevExpress.XtraEditors.PanelControl();
+            this.txtEscolaMedia = new DevExpress.XtraEditors.SpinEdit();
             this.panel41 = new System.Windows.Forms.Panel();
             this.panel42 = new System.Windows.Forms.Panel();
             this.panelControl24 = new DevExpress.XtraEditors.PanelControl();
@@ -204,6 +209,7 @@
             this.panel45 = new System.Windows.Forms.Panel();
             this.panel46 = new System.Windows.Forms.Panel();
             this.panelControl34 = new DevExpress.XtraEditors.PanelControl();
+            this.txtMedia = new DevExpress.XtraEditors.SpinEdit();
             this.panel47 = new System.Windows.Forms.Panel();
             this.panel53 = new System.Windows.Forms.Panel();
             this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
@@ -237,11 +243,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.xtraOpenFileDialog1 = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
-            this.txtMedia = new DevExpress.XtraEditors.SpinEdit();
-            this.txtEscolaMedia = new DevExpress.XtraEditors.SpinEdit();
-            this.txtProvinciaOrigem = new DevExpress.XtraEditors.LookUpEdit();
-            this.provinciasMunicipiosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cursosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
@@ -268,6 +269,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaMunicipio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provinciasMunicipiosBindingSource)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
@@ -326,6 +328,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl27)).BeginInit();
             this.panelControl27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTurma.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).BeginInit();
+            this.panel52.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl28)).BeginInit();
             this.panelControl28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLocalEmissao.Properties)).BeginInit();
@@ -378,9 +382,11 @@
             this.panel37.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).BeginInit();
             this.panelControl21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaOrigem.Properties)).BeginInit();
             this.panel39.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl22)).BeginInit();
             this.panelControl22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEscolaMedia.Properties)).BeginInit();
             this.panel41.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl24)).BeginInit();
             this.panelControl24.SuspendLayout();
@@ -388,6 +394,7 @@
             this.panel45.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl34)).BeginInit();
             this.panelControl34.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMedia.Properties)).BeginInit();
             this.panel47.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl36)).BeginInit();
             this.panelControl36.SuspendLayout();
@@ -408,11 +415,6 @@
             this.panel36.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMedia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEscolaMedia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaOrigem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.provinciasMunicipiosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -540,12 +542,12 @@
             // 
             // txtImagemURL
             // 
-            this.txtImagemURL.Location = new System.Drawing.Point(4, 164);
+            this.txtImagemURL.Location = new System.Drawing.Point(5, 116);
             this.txtImagemURL.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtImagemURL.Name = "txtImagemURL";
             this.txtImagemURL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtImagemURL.Size = new System.Drawing.Size(367, 28);
+            this.txtImagemURL.Size = new System.Drawing.Size(205, 28);
             this.txtImagemURL.TabIndex = 20;
             // 
             // pictureEdit1
@@ -630,7 +632,7 @@
             this.txtSexo.Properties.DropDownRows = 10;
             this.txtSexo.Properties.NullText = "[Selecione o seu genero por favor]";
             this.txtSexo.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtSexo.Size = new System.Drawing.Size(355, 35);
+            this.txtSexo.Size = new System.Drawing.Size(358, 31);
             this.txtSexo.TabIndex = 8;
             // 
             // panel2
@@ -692,6 +694,8 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl3.Appearance.Options.UseBackColor = true;
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl3, 0);
             this.panelControl3.Controls.Add(this.txtCodigo);
@@ -708,13 +712,13 @@
             this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigo.EditValue = "";
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(0, 1);
+            this.txtCodigo.Location = new System.Drawing.Point(2, 1);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Properties.AutoHeight = false;
             this.txtCodigo.Properties.NullValuePrompt = "Codigo Interno";
             this.txtCodigo.Properties.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(356, 33);
+            this.txtCodigo.Size = new System.Drawing.Size(364, 37);
             this.txtCodigo.TabIndex = 8;
             // 
             // panel3
@@ -817,6 +821,10 @@
             this.txtProvinciaMunicipio.Size = new System.Drawing.Size(314, 35);
             this.txtProvinciaMunicipio.TabIndex = 8;
             // 
+            // provinciasMunicipiosBindingSource
+            // 
+            this.provinciasMunicipiosBindingSource.DataSource = typeof(IEscolaEntity.Models.ProvinciasMunicipios);
+            // 
             // panel14
             // 
             this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -860,7 +868,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Properties.AutoHeight = false;
             this.txtLastName.Properties.NullValuePrompt = "Escreva aqui o Segundo nome";
-            this.txtLastName.Size = new System.Drawing.Size(361, 31);
+            this.txtLastName.Size = new System.Drawing.Size(358, 31);
             this.txtLastName.TabIndex = 8;
             // 
             // panel16
@@ -967,7 +975,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtNacionalidade.Properties.NullText = "[Selecione sua nacionalidade por favor]";
             this.txtNacionalidade.Properties.PopupSizeable = false;
-            this.txtNacionalidade.Size = new System.Drawing.Size(358, 33);
+            this.txtNacionalidade.Size = new System.Drawing.Size(358, 31);
             this.txtNacionalidade.TabIndex = 8;
             // 
             // panel24
@@ -1014,7 +1022,7 @@
             this.txtIdade.Properties.AutoHeight = false;
             this.txtIdade.Properties.NullValuePrompt = "Descreva aqui a idade";
             this.txtIdade.Properties.ReadOnly = true;
-            this.txtIdade.Size = new System.Drawing.Size(361, 33);
+            this.txtIdade.Size = new System.Drawing.Size(358, 31);
             this.txtIdade.TabIndex = 8;
             // 
             // panel26
@@ -1022,10 +1030,10 @@
             this.panel26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel26.Controls.Add(this.panel27);
-            this.panel26.Location = new System.Drawing.Point(10, 12);
+            this.panel26.Location = new System.Drawing.Point(8, 12);
             this.panel26.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(357, 34);
+            this.panel26.Size = new System.Drawing.Size(359, 34);
             this.panel26.TabIndex = 6;
             // 
             // panel27
@@ -1087,7 +1095,7 @@
             this.txtEstadoCivil.Properties.DropDownRows = 10;
             this.txtEstadoCivil.Properties.NullText = "[Selecione o estado Civil por favor]";
             this.txtEstadoCivil.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtEstadoCivil.Size = new System.Drawing.Size(360, 35);
+            this.txtEstadoCivil.Size = new System.Drawing.Size(358, 31);
             this.txtEstadoCivil.TabIndex = 8;
             // 
             // panel10
@@ -1095,10 +1103,10 @@
             this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel10.Controls.Add(this.panel11);
-            this.panel10.Location = new System.Drawing.Point(10, 14);
+            this.panel10.Location = new System.Drawing.Point(8, 14);
             this.panel10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(356, 35);
+            this.panel10.Size = new System.Drawing.Size(358, 35);
             this.panel10.TabIndex = 6;
             // 
             // panel11
@@ -1157,7 +1165,7 @@
             this.txtNomePai.Name = "txtNomePai";
             this.txtNomePai.Properties.AutoHeight = false;
             this.txtNomePai.Properties.NullValuePrompt = "Descreva aqui o nome do seu Pai";
-            this.txtNomePai.Size = new System.Drawing.Size(303, 35);
+            this.txtNomePai.Size = new System.Drawing.Size(304, 31);
             this.txtNomePai.TabIndex = 8;
             // 
             // panel8
@@ -1213,7 +1221,7 @@
             this.txtNomeMae.Name = "txtNomeMae";
             this.txtNomeMae.Properties.AutoHeight = false;
             this.txtNomeMae.Properties.NullValuePrompt = "Descreva aqui o nome da Mãe";
-            this.txtNomeMae.Size = new System.Drawing.Size(305, 34);
+            this.txtNomeMae.Size = new System.Drawing.Size(304, 31);
             this.txtNomeMae.TabIndex = 8;
             // 
             // panel12
@@ -1222,10 +1230,10 @@
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel12.Controls.Add(this.txtMaeVive);
             this.panel12.Controls.Add(this.panel13);
-            this.panel12.Location = new System.Drawing.Point(13, 18);
+            this.panel12.Location = new System.Drawing.Point(8, 18);
             this.panel12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(354, 34);
+            this.panel12.Size = new System.Drawing.Size(359, 34);
             this.panel12.TabIndex = 6;
             // 
             // txtMaeVive
@@ -1277,7 +1285,7 @@
             this.txtDataNascimento.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtDataNascimento.Properties.MaskSettings.Set("mask", "");
             this.txtDataNascimento.Properties.NullValuePrompt = "Descreva a turma!...";
-            this.txtDataNascimento.Size = new System.Drawing.Size(361, 31);
+            this.txtDataNascimento.Size = new System.Drawing.Size(358, 31);
             this.txtDataNascimento.TabIndex = 8;
             // 
             // panel18
@@ -1285,10 +1293,10 @@
             this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel18.Controls.Add(this.panel19);
-            this.panel18.Location = new System.Drawing.Point(13, 6);
+            this.panel18.Location = new System.Drawing.Point(8, 6);
             this.panel18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(354, 34);
+            this.panel18.Size = new System.Drawing.Size(359, 34);
             this.panel18.TabIndex = 6;
             // 
             // panel19
@@ -1313,6 +1321,8 @@
             // 
             // panelControl37
             // 
+            this.panelControl37.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl37.Appearance.Options.UseBackColor = true;
             this.panelControl37.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl37, 1);
             this.panelControl37.Controls.Add(this.txtCodigoUnico);
@@ -1687,18 +1697,34 @@
             this.txtTurma.Properties.NullText = "[Selecione o Curso por favor]";
             this.txtTurma.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtTurma.Properties.ValueMember = "CursosID";
-            this.txtTurma.Size = new System.Drawing.Size(361, 35);
+            this.txtTurma.Size = new System.Drawing.Size(308, 35);
             this.txtTurma.TabIndex = 8;
+            // 
+            // cursosBindingSource
+            // 
+            this.cursosBindingSource.DataSource = typeof(IEscolaEntity.Models.Cursos);
             // 
             // panel52
             // 
             this.panel52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel52.Controls.Add(this.btnCurso);
             this.panel52.Location = new System.Drawing.Point(10, 14);
             this.panel52.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel52.Name = "panel52";
             this.panel52.Size = new System.Drawing.Size(358, 35);
             this.panel52.TabIndex = 6;
+            // 
+            // btnCurso
+            // 
+            this.btnCurso.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCurso.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCurso.ImageOptions.SvgImage")));
+            this.btnCurso.Location = new System.Drawing.Point(304, -6);
+            this.btnCurso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCurso.Name = "btnCurso";
+            this.btnCurso.Size = new System.Drawing.Size(47, 34);
+            this.btnCurso.TabIndex = 9;
+            this.btnCurso.Text = "Save";
             // 
             // panelControl28
             // 
@@ -2457,6 +2483,20 @@
             this.panelControl21.Size = new System.Drawing.Size(377, 72);
             this.panelControl21.TabIndex = 18;
             // 
+            // txtProvinciaOrigem
+            // 
+            this.txtProvinciaOrigem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProvinciaOrigem.EditValue = "";
+            this.txtProvinciaOrigem.Location = new System.Drawing.Point(4, 16);
+            this.txtProvinciaOrigem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtProvinciaOrigem.Name = "txtProvinciaOrigem";
+            this.txtProvinciaOrigem.Properties.AutoHeight = false;
+            this.txtProvinciaOrigem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtProvinciaOrigem.Properties.NullText = "[Selecione a provincias de Origem]";
+            this.txtProvinciaOrigem.Size = new System.Drawing.Size(362, 41);
+            this.txtProvinciaOrigem.TabIndex = 8;
+            // 
             // panel39
             // 
             this.panel39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -2501,6 +2541,26 @@
             this.tablePanel4.SetRow(this.panelControl22, 4);
             this.panelControl22.Size = new System.Drawing.Size(377, 55);
             this.panelControl22.TabIndex = 18;
+            // 
+            // txtEscolaMedia
+            // 
+            this.txtEscolaMedia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEscolaMedia.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtEscolaMedia.Location = new System.Drawing.Point(2, 5);
+            this.txtEscolaMedia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtEscolaMedia.Name = "txtEscolaMedia";
+            this.txtEscolaMedia.Properties.AutoHeight = false;
+            this.txtEscolaMedia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtEscolaMedia.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtEscolaMedia.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.txtEscolaMedia.Properties.NullValuePrompt = "Descreva a turma!...";
+            this.txtEscolaMedia.Size = new System.Drawing.Size(361, 38);
+            this.txtEscolaMedia.TabIndex = 8;
             // 
             // panel41
             // 
@@ -2581,6 +2641,27 @@
             this.tablePanel4.SetRow(this.panelControl34, 7);
             this.panelControl34.Size = new System.Drawing.Size(377, 55);
             this.panelControl34.TabIndex = 18;
+            // 
+            // txtMedia
+            // 
+            this.txtMedia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMedia.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtMedia.Location = new System.Drawing.Point(4, 4);
+            this.txtMedia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtMedia.Name = "txtMedia";
+            this.txtMedia.Properties.AutoHeight = false;
+            this.txtMedia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtMedia.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtMedia.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.txtMedia.Properties.NullValuePrompt = "Algum comentario?";
+            this.txtMedia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtMedia.Size = new System.Drawing.Size(361, 38);
+            this.txtMedia.TabIndex = 8;
             // 
             // panel47
             // 
@@ -2899,7 +2980,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 15);
@@ -2932,7 +3013,7 @@
             this.panel1.Location = new System.Drawing.Point(4, 3);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(379, 28);
+            this.panel1.Size = new System.Drawing.Size(376, 28);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -2957,14 +3038,14 @@
             // 
             // windowsUIButtonPanel1
             // 
-            windowsUIButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions4.Image")));
-            windowsUIButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions5.Image")));
-            windowsUIButtonImageOptions6.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions6.Image")));
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
+            windowsUIButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions2.Image")));
+            windowsUIButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions3.Image")));
             this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2979,69 +3060,6 @@
             // xtraOpenFileDialog1
             // 
             this.xtraOpenFileDialog1.FileName = "xtraOpenFileDialog1";
-            // 
-            // txtMedia
-            // 
-            this.txtMedia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMedia.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtMedia.Location = new System.Drawing.Point(4, 4);
-            this.txtMedia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtMedia.Name = "txtMedia";
-            this.txtMedia.Properties.AutoHeight = false;
-            this.txtMedia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtMedia.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.txtMedia.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.txtMedia.Properties.NullValuePrompt = "Algum comentario?";
-            this.txtMedia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMedia.Size = new System.Drawing.Size(361, 38);
-            this.txtMedia.TabIndex = 8;
-            // 
-            // txtEscolaMedia
-            // 
-            this.txtEscolaMedia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEscolaMedia.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtEscolaMedia.Location = new System.Drawing.Point(2, 5);
-            this.txtEscolaMedia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtEscolaMedia.Name = "txtEscolaMedia";
-            this.txtEscolaMedia.Properties.AutoHeight = false;
-            this.txtEscolaMedia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtEscolaMedia.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.txtEscolaMedia.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.txtEscolaMedia.Properties.NullValuePrompt = "Descreva a turma!...";
-            this.txtEscolaMedia.Size = new System.Drawing.Size(361, 38);
-            this.txtEscolaMedia.TabIndex = 8;
-            // 
-            // txtProvinciaOrigem
-            // 
-            this.txtProvinciaOrigem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProvinciaOrigem.EditValue = "";
-            this.txtProvinciaOrigem.Location = new System.Drawing.Point(4, 16);
-            this.txtProvinciaOrigem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtProvinciaOrigem.Name = "txtProvinciaOrigem";
-            this.txtProvinciaOrigem.Properties.AutoHeight = false;
-            this.txtProvinciaOrigem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtProvinciaOrigem.Properties.NullText = "[Selecione a provincias de Origem]";
-            this.txtProvinciaOrigem.Size = new System.Drawing.Size(362, 41);
-            this.txtProvinciaOrigem.TabIndex = 8;
-            // 
-            // provinciasMunicipiosBindingSource
-            // 
-            this.provinciasMunicipiosBindingSource.DataSource = typeof(IEscolaEntity.Models.ProvinciasMunicipios);
-            // 
-            // cursosBindingSource
-            // 
-            this.cursosBindingSource.DataSource = typeof(IEscolaEntity.Models.Cursos);
             // 
             // frmEstudantesInscritosAdd
             // 
@@ -3078,6 +3096,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaMunicipio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provinciasMunicipiosBindingSource)).EndInit();
             this.panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
@@ -3137,6 +3156,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl27)).EndInit();
             this.panelControl27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtTurma.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).EndInit();
+            this.panel52.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl28)).EndInit();
             this.panelControl28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtLocalEmissao.Properties)).EndInit();
@@ -3190,9 +3211,11 @@
             this.panel37.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).EndInit();
             this.panelControl21.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaOrigem.Properties)).EndInit();
             this.panel39.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl22)).EndInit();
             this.panelControl22.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtEscolaMedia.Properties)).EndInit();
             this.panel41.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl24)).EndInit();
             this.panelControl24.ResumeLayout(false);
@@ -3200,6 +3223,7 @@
             this.panel45.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl34)).EndInit();
             this.panelControl34.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtMedia.Properties)).EndInit();
             this.panel47.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl36)).EndInit();
             this.panelControl36.ResumeLayout(false);
@@ -3221,11 +3245,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMedia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEscolaMedia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaOrigem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.provinciasMunicipiosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3441,5 +3460,6 @@
         private DevExpress.XtraEditors.LookUpEdit txtProvinciaOrigem;
         private DevExpress.XtraEditors.SpinEdit txtEscolaMedia;
         private DevExpress.XtraEditors.SpinEdit txtMedia;
+        private DevExpress.XtraEditors.SimpleButton btnCurso;
     }
 }
