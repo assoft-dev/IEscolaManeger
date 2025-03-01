@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
+using IEscolaEntity.Models;
 using IEscolaEntity.Models.Biblioteca;
 using System;
 using System.Collections.Generic;
@@ -11,19 +12,19 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmPropinasPagamento : XtraUserControl
+    public partial class frmPropinasRecibo : XtraUserControl
     {
-        IAutores DataRepository;
+        IPropinasPagamentos DataRepository;
 
-        List<Autores>  DataOriginalList;
+        List<PropinasPagamentos>  DataOriginalList;
 
         AlertControl alert = null;
 
-        public frmPropinasPagamento()
+        public frmPropinasRecibo()
         {
             InitializeComponent();
-            DataRepository = new AutoresRepository();
-            DataOriginalList = new List<Autores>();
+            DataRepository = new PropinasPagamentosRepository();
+            DataOriginalList = new List<PropinasPagamentos>();
 
             LeituraInicial();
 
@@ -67,7 +68,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmBiblioteca_AutoresAdd(null));
+                   new frmPropinasPagamentosAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();
@@ -77,10 +78,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = autoresBindingSource.Current as Autores;
+                var result = autoresBindingSource.Current as PropinasPagamentos;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmBiblioteca_AutoresAdd(result ?? null));
+                    new frmPropinasPagamentosAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -89,8 +90,8 @@ namespace IEscolaDesktop.View.Forms
 
         private void LeituraFilter()
         {
-            var data = DataOriginalList.FindAll(x => x.FullName.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.Pais.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
+            var data = DataOriginalList.FindAll(x => x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                         x.PropinasConfig.Meses.ToString().Contains(txtPesquisar.Text.ToUpper()));
             autoresBindingSource.DataSource = data;
         }
 
@@ -132,7 +133,7 @@ namespace IEscolaDesktop.View.Forms
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = autoresBindingSource.Current as Autores;
+                    var result = autoresBindingSource.Current as PropinasPagamentos;
                     try
                     {
                         if (result != null)

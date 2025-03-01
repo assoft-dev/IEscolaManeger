@@ -96,11 +96,29 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Forms\frmPropinasPagamento.cs">
+    <Compile Include="View\Forms\frmPropinasRecibo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Forms\frmPropinasPagamento.Designer.cs">
-      <DependentUpon>frmPropinasPagamento.cs</DependentUpon>
+    <Compile Include="View\Forms\frmPropinasRecibo.Designer.cs">
+      <DependentUpon>frmPropinasRecibo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasPagamentos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasPagamentos.Designer.cs">
+      <DependentUpon>frmPropinasPagamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasReciboAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasReciboAdd.Designer.cs">
+      <DependentUpon>frmPropinasReciboAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasPagamentosAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasPagamentosAdd.Designer.cs">
+      <DependentUpon>frmPropinasPagamentosAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\frmBiblioteca_Categorias.cs">
       <SubType>UserControl</SubType>
@@ -472,8 +490,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Forms\frmPropinasPagamento.resx">
-      <DependentUpon>frmPropinasPagamento.cs</DependentUpon>
+    <EmbeddedResource Include="View\Forms\frmPropinasRecibo.resx">
+      <DependentUpon>frmPropinasRecibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmPropinasPagamentos.resx">
+      <DependentUpon>frmPropinasPagamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmPropinasReciboAdd.resx">
+      <DependentUpon>frmPropinasReciboAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmPropinasPagamentosAdd.resx">
+      <DependentUpon>frmPropinasPagamentosAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmBiblioteca_Categorias.resx">
       <DependentUpon>frmBiblioteca_Categorias.cs</DependentUpon>
@@ -662,6 +689,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Permissoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasConfig.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasRecibos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Provincias.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.ProvinciasMunicipios.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Salas.datasource" />

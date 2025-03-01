@@ -9,10 +9,12 @@ namespace IEscolaEntity.Models
         public string Descricao { get; set; }
 
         [ForeignKey(typeof(PropinasConfig))]
-        [Reference] public int PropinasConfigID { get; set; }
+         public int PropinasConfigID { get; set; }
+        [Reference] public PropinasConfig PropinasConfig { get; set; }
 
 
         [ForeignKey(typeof(Estudantes))]
-        [Reference] public int EstudanteID { get; set; }
+        public int EstudanteID { get; set; }
+        [Reference]public Estudantes Estudantes { get; set; }
     }
 }

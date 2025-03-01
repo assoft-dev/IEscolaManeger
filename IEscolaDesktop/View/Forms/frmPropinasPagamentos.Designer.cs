@@ -1,6 +1,6 @@
 ﻿namespace IEscolaDesktop.View.Forms
 {
-    partial class frmPropinasPagamento
+    partial class frmPropinasPagamentos
     {
         /// <summary> 
         /// Required designer variable.
