@@ -96,6 +96,9 @@
     <Compile Include="Controllers\Interfaces\IPeriodos.cs" />
     <Compile Include="Controllers\Interfaces\IPermissions.cs" />
     <Compile Include="Controllers\Interfaces\IProfessores.cs" />
+    <Compile Include="Controllers\Interfaces\IPropinasConfig.cs" />
+    <Compile Include="Controllers\Interfaces\IPropinasPagamentos.cs" />
+    <Compile Include="Controllers\Interfaces\IPropinasRecibos.cs" />
     <Compile Include="Controllers\Interfaces\IProvincias.cs" />
     <Compile Include="Controllers\Interfaces\IProvinciasMunicipios.cs" />
     <Compile Include="Controllers\Interfaces\ISalas.cs" />
@@ -120,6 +123,9 @@
     <Compile Include="Controllers\Repository\PeriodosRepository.cs" />
     <Compile Include="Controllers\Repository\PermissionsRepository.cs" />
     <Compile Include="Controllers\Repository\ProfessoresRepository.cs" />
+    <Compile Include="Controllers\Repository\PropinasConfigRepository.cs" />
+    <Compile Include="Controllers\Repository\PropinasReciboRepository.cs" />
+    <Compile Include="Controllers\Repository\PropinasPagamentosRepository.cs" />
     <Compile Include="Controllers\Repository\ProvinciasMunicipiosRepository.cs" />
     <Compile Include="Controllers\Repository\ProvinciasRepository.cs" />
     <Compile Include="Controllers\Repository\SalasRepository.cs" />
@@ -145,6 +151,7 @@
     <Compile Include="Models\Helps\EstadoEstudantes.cs" />
     <Compile Include="Models\Helps\FAZES.cs" />
     <Compile Include="Models\Helps\GrauParentesco.cs" />
+    <Compile Include="Models\Helps\Meses.cs" />
     <Compile Include="Models\Helps\ModelsEntityBase.cs" />
     <Compile Include="Models\Helps\Nacionalidade.cs" />
     <Compile Include="Models\Helps\PedidosDocuments.cs" />
@@ -159,6 +166,9 @@
     <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\Professores.cs" />
+    <Compile Include="Models\PropinasConfig.cs" />
+    <Compile Include="Models\PropinasPagamentos.cs" />
+    <Compile Include="Models\PropinasRecibos.cs" />
     <Compile Include="Models\Provinciamunicipios.cs" />
     <Compile Include="Models\Provincias.cs" />
     <Compile Include="Models\Salas.cs" />
@@ -170,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Applications\" />
+    <Folder Include="Models\Pagamento\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

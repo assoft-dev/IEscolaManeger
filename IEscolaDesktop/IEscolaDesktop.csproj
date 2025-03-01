@@ -96,6 +96,12 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\frmPropinasPagamento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasPagamento.Designer.cs">
+      <DependentUpon>frmPropinasPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmBiblioteca_Categorias.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,11 +180,29 @@
     <Compile Include="View\Forms\frmBiblioteca_PedidosBuscar.Designer.cs">
       <DependentUpon>frmBiblioteca_PedidosBuscar.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmMenuTeste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmMenuTeste.Designer.cs">
+      <DependentUpon>frmMenuTeste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasConfig.Designer.cs">
+      <DependentUpon>frmPropinasConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmPeriodos.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\Forms\frmPeriodos.Designer.cs">
       <DependentUpon>frmPeriodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasConfigAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPropinasConfigAdd.Designer.cs">
+      <DependentUpon>frmPropinasConfigAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\frmPeriodosAdd.cs">
       <SubType>UserControl</SubType>
@@ -448,6 +472,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\frmPropinasPagamento.resx">
+      <DependentUpon>frmPropinasPagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmBiblioteca_Categorias.resx">
       <DependentUpon>frmBiblioteca_Categorias.cs</DependentUpon>
     </EmbeddedResource>
@@ -487,8 +514,17 @@
     <EmbeddedResource Include="View\Forms\frmBiblioteca_PedidosBuscar.resx">
       <DependentUpon>frmBiblioteca_PedidosBuscar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmMenuTeste.resx">
+      <DependentUpon>frmMenuTeste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmPropinasConfig.resx">
+      <DependentUpon>frmPropinasConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmPeriodos.resx">
       <DependentUpon>frmPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmPropinasConfigAdd.resx">
+      <DependentUpon>frmPropinasConfigAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmPeriodosAdd.resx">
       <DependentUpon>frmPeriodosAdd.cs</DependentUpon>
@@ -625,6 +661,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Municipios.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Permissoes.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasConfig.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Provincias.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.ProvinciasMunicipios.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Salas.datasource" />
