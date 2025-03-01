@@ -46,6 +46,10 @@
             btnEstudantesInscricoes.Click += delegate { OpenForms(new frmEstudantesInscritos()); };
             btnEstudantes.Click += delegate { OpenForms(new frmEstudantes()); };
 
+            btnPropinasConfig.Click += delegate { OpenForms(new frmPropinasConfig()); };
+            btnPropinasPagamento.Click += delegate { OpenForms(new frmPropinasPagamentos()); };
+            btnPropinasRecibo.Click += delegate { OpenForms(new frmPropinasRecibo()); };
+
         }
 
         private void OpenForms(XtraUserControl control)
@@ -180,6 +184,24 @@
                     else if (control.Name.Equals(typeof(frmEstudantesInscritos).Name))
                     {
                         this.Text = "Estudantes -[Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    #endregion
+
+                    #region Financeiros
+                    else if (control.Name.Equals(typeof(frmPropinasConfig).Name))
+                    {
+                        this.Text = "Propinas Config -[Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmPropinasPagamentos).Name))
+                    {
+                        this.Text = "Propinas Pag -[Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmPropinasRecibo).Name))
+                    {
+                        this.Text = "Propinas -[Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
                     #endregion

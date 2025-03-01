@@ -689,6 +689,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Permissoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasConfig.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasPagamentos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasRecibos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Provincias.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.ProvinciasMunicipios.datasource" />

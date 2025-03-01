@@ -232,9 +232,9 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<PedidosOrdems>.AsyncColuns(Db);
 
 
-            DataColunsAsync<PedidosOrdems>.AsyncColuns(Db);
-            DataColunsAsync<PedidosOrdems>.AsyncColuns(Db);
-            DataColunsAsync<PedidosOrdems>.AsyncColuns(Db);
+            DataColunsAsync<PropinasConfig>.AsyncColuns(Db);
+            DataColunsAsync<PropinasPagamentos>.AsyncColuns(Db);
+            DataColunsAsync<PropinasRecibos>.AsyncColuns(Db);
         }
     }
 }

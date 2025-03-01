@@ -201,8 +201,6 @@ namespace IEscolaDesktop.View.Forms
 
             txtCodigo.Text = string.Empty;
             txtDescricao.Text = string.Empty;
-            txtPropinasConfig.Text = string.Empty;
-            txtEstudante.Text = string.Empty.ToString();
             txtTitulo.Text = "[Novo]";
             txtDescricao.Focus();
         }

@@ -73,6 +73,12 @@
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnPais_Biblioteca = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement11 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator8 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.btnPropinasConfig = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnPropinasPagamento = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnPropinasRecibo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator7 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -98,10 +104,10 @@
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(173, 29);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(181, 29);
             this.fluentDesignFormContainer1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(913, 819);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(905, 819);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // accordionControl1
@@ -121,7 +127,7 @@
             this.accordionControl1.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.accordionControl1.Size = new System.Drawing.Size(173, 819);
+            this.accordionControl1.Size = new System.Drawing.Size(181, 819);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -401,10 +407,52 @@
             // 
             // accordionControlElement4
             // 
+            this.accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement11,
+            this.accordionControlSeparator8,
+            this.btnPropinasConfig,
+            this.btnPropinasPagamento,
+            this.btnPropinasRecibo,
+            this.accordionControlSeparator7});
             this.accordionControlElement4.Expanded = true;
             this.accordionControlElement4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement4.ImageOptions.SvgImage")));
             this.accordionControlElement4.Name = "accordionControlElement4";
-            this.accordionControlElement4.Text = "Sistema";
+            this.accordionControlElement4.Text = "Financeiro";
+            // 
+            // accordionControlElement11
+            // 
+            this.accordionControlElement11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement11.ImageOptions.SvgImage")));
+            this.accordionControlElement11.Name = "accordionControlElement11";
+            this.accordionControlElement11.Text = "Financeiro";
+            // 
+            // accordionControlSeparator8
+            // 
+            this.accordionControlSeparator8.Name = "accordionControlSeparator8";
+            // 
+            // btnPropinasConfig
+            // 
+            this.btnPropinasConfig.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPropinasConfig.ImageOptions.SvgImage")));
+            this.btnPropinasConfig.Name = "btnPropinasConfig";
+            this.btnPropinasConfig.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnPropinasConfig.Text = "Configuração";
+            // 
+            // btnPropinasPagamento
+            // 
+            this.btnPropinasPagamento.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPropinasPagamento.ImageOptions.SvgImage")));
+            this.btnPropinasPagamento.Name = "btnPropinasPagamento";
+            this.btnPropinasPagamento.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnPropinasPagamento.Text = "Pagamento";
+            // 
+            // btnPropinasRecibo
+            // 
+            this.btnPropinasRecibo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPropinasRecibo.ImageOptions.SvgImage")));
+            this.btnPropinasRecibo.Name = "btnPropinasRecibo";
+            this.btnPropinasRecibo.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnPropinasRecibo.Text = "Recibos";
+            // 
+            // accordionControlSeparator7
+            // 
+            this.accordionControlSeparator7.Name = "accordionControlSeparator7";
             // 
             // fluentDesignFormControl1
             // 
@@ -599,5 +647,11 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnEstudantesInscricoes;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnEstudantes;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement11;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator8;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnPropinasConfig;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnPropinasPagamento;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnPropinasRecibo;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator7;
     }
 }

@@ -24,7 +24,14 @@ namespace IEscolaDesktop.View.Forms
             DataRepository = new PropinasConfigRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
+
+
             txtMeses.EditValueChanged += delegate { ChangeValudations(txtMeses); };
+            txtInicio.EditValueChanged += delegate { ChangeValudations(txtInicio); };
+            txtTermina.EditValueChanged += delegate { ChangeValudations(txtTermina); };
+            txtExcedente.EditValueChanged += delegate { ChangeValudations(txtExcedente); };
+            txtAno.EditValueChanged += delegate { ChangeValudations(txtAno); };
+            txtValor.EditValueChanged += delegate { ChangeValudations(txtValor); };
             
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
 
@@ -48,6 +55,13 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
             }
+
+            this.Load += FrmPropinasConfigAdd_Load;
+        }
+
+        private void FrmPropinasConfigAdd_Load(object sender, EventArgs e)
+        {
+            txtMeses.Properties.DataSource = Enum.GetValues(typeof(Meses));
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -110,12 +124,12 @@ namespace IEscolaDesktop.View.Forms
                 var data = new PropinasConfig
                 {
                     PropinasConfigID = ID,
-                    Inicia = (int) txtInicio.EditValue,
-                    Termina = (int) txtTermina.EditValue,
+                    Inicia = Convert.ToInt32(txtInicio.Value),
+                    Termina = Convert.ToInt32(txtTermina.Value),
                     Meses = (Meses) txtMeses.EditValue,
-                    Excedente = (int) txtExcedente.EditValue,
+                    Excedente = Convert.ToInt32(txtExcedente.Value),
                     Valor = (decimal) txtValor.EditValue,
-                    Ano = (int) txtAno.EditValue,
+                    Ano = Convert.ToInt32(txtAno.Value),
                 };
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.PropinasConfigID == ID) > 0 :
@@ -163,7 +177,6 @@ namespace IEscolaDesktop.View.Forms
             windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
 
             txtCodigo.Text = string.Empty;
-            txtMeses.EditValue = string.Empty;
             txtInicio.EditValue = string.Empty;
             txtTermina.EditValue = string.Empty;
             txtExcedente.EditValue = string.Empty;
@@ -194,7 +207,7 @@ namespace IEscolaDesktop.View.Forms
                 #region FirstName
                 if (control.Name.Equals(txtMeses.Name))
                 {
-                    if ((!string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == "[Selecione o Mês por favor]") )
+                    if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == "[Selecione o Mês por favor]"))
                     {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                     }
@@ -203,6 +216,18 @@ namespace IEscolaDesktop.View.Forms
                     }
                 }
                 #endregion
+
+                else
+                {
+                    if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == "[Selecione o Mês por favor]"))
+                    {
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                    }
+                    else
+                    {
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                }
             }
             else
             {

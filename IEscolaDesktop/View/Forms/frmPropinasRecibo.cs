@@ -4,7 +4,6 @@ using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
-using IEscolaEntity.Models.Biblioteca;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,17 +13,17 @@ namespace IEscolaDesktop.View.Forms
 {
     public partial class frmPropinasRecibo : XtraUserControl
     {
-        IPropinasPagamentos DataRepository;
+        IPropinasRecibos DataRepository;
 
-        List<PropinasPagamentos>  DataOriginalList;
+        List<PropinasRecibos>  DataOriginalList;
 
         AlertControl alert = null;
 
         public frmPropinasRecibo()
         {
             InitializeComponent();
-            DataRepository = new PropinasPagamentosRepository();
-            DataOriginalList = new List<PropinasPagamentos>();
+            DataRepository = new PropinasReciboRepository();
+            DataOriginalList = new List<PropinasRecibos>();
 
             LeituraInicial();
 
@@ -68,7 +67,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmPropinasPagamentosAdd(null));
+                   new frmPropinasReciboAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();
@@ -78,10 +77,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = autoresBindingSource.Current as PropinasPagamentos;
+                var result = propinasRecibosBindingSource.Current as PropinasRecibos;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmPropinasPagamentosAdd(result ?? null));
+                    new frmPropinasReciboAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -90,15 +89,14 @@ namespace IEscolaDesktop.View.Forms
 
         private void LeituraFilter()
         {
-            var data = DataOriginalList.FindAll(x => x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.PropinasConfig.Meses.ToString().Contains(txtPesquisar.Text.ToUpper()));
-            autoresBindingSource.DataSource = data;
+            var data = DataOriginalList.FindAll(x => x.PropinasPagamentos.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
+            propinasRecibosBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
             DataOriginalList = await DataRepository.GetAll();
-            autoresBindingSource.DataSource = DataOriginalList;
+            propinasRecibosBindingSource.DataSource = DataOriginalList;
 
             if (DataOriginalList.Count > 0)
             {
@@ -133,7 +131,7 @@ namespace IEscolaDesktop.View.Forms
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = autoresBindingSource.Current as PropinasPagamentos;
+                    var result = propinasRecibosBindingSource.Current as PropinasRecibos;
                     try
                     {
                         if (result != null)

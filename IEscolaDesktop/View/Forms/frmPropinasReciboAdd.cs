@@ -12,25 +12,22 @@ namespace IEscolaDesktop.View.Forms
 {
     public partial class frmPropinasReciboAdd : XtraUserControl
     {
-        IPropinasPagamentos DataRepository;
-        IPropinasConfig propinasConfigRepository;
-        IEstudantes EstudantesRepository;
+        IPropinasRecibos DataRepository;
+        IPropinasPagamentos propinasConfigRepository;
         bool IsValidate = false;
 
-        public frmPropinasReciboAdd(PropinasPagamentos usuarios = null)
+        public frmPropinasReciboAdd(PropinasRecibos usuarios = null)
         {
             InitializeComponent();
 
-            DataRepository = new PropinasPagamentosRepository();
-            propinasConfigRepository = new PropinasConfigRepository();
-            EstudantesRepository = new EstudantesRepository();
+            DataRepository = new PropinasReciboRepository();
+            propinasConfigRepository = new PropinasPagamentosRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
-            txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
-            txtEstudante.EditValueChanged += delegate { ChangeValudations(txtEstudante); };
+            //txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
+            txtValorFalta.EditValueChanged += delegate { ChangeValudations(txtValorFalta); };
 
             btnPropinasConfig.Click += BtnBuscar1Grupos_Click;
-            btnEstudantes.Click += BtnBuscar2Grupos_Click;
 
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
 
@@ -39,12 +36,12 @@ namespace IEscolaDesktop.View.Forms
                 //Inicializar o Forms
                 txtTitulo.Text = "[Edição]";
 
-                txtDescricao.EditValue = usuarios.Descricao;
-                txtPropinasConfig.EditValue = usuarios.PropinasConfigID;
-                txtEstudante.EditValue = usuarios.EstudanteID;
-                txtCodigo.EditValue = usuarios.PropinasPagamentosID;
+                txtPagamento.EditValue = usuarios.PropinasPagamentoID;
+                txtValorPago.EditValue = usuarios.ValorPago;
+                txtValorFalta.EditValue = usuarios.ValorFalta;
+                txtCodigo.EditValue = usuarios.PropinasRecibosID;
 
-                txtDescricao.Focus();
+                txtPagamento.Focus();
             }
             else {
                 txtTitulo.Text = "[Novo]";
@@ -53,39 +50,25 @@ namespace IEscolaDesktop.View.Forms
             }
 
             this.Load += FrmUsuariosAdd_Load;
-            txtEstudante.Properties.NullText = estudanteLabel;
-            txtPropinasConfig.Properties.NullText = propinasconfigLabel;
+            txtPagamento.Properties.NullText = pagamentoLabel;
         }
 
         private void BtnBuscar1Grupos_Click(object sender, EventArgs e)
         {
             // Buscar Grupos
             var forms = OpenFormsDialog.ShowForm(null,
-                  new frmPropinasConfigAdd());
+                  new frmPropinasPagamentosAdd());
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 FrmUsuariosAdd_Load(null, null);
         } 
-        
-        private void BtnBuscar2Grupos_Click(object sender, EventArgs e)
-        {
-            // Buscar Grupos
-            var forms = OpenFormsDialog.ShowForm(null,
-                  new frmEstudantesAdd());
-
-            if (forms == DialogResult.None || forms == DialogResult.Cancel)
-                FrmUsuariosAdd_Load(null, null);
-        }
+       
 
         private async void FrmUsuariosAdd_Load(object sender, EventArgs e)
         {
             // Leitura dos Grupos
             var dataResult = await propinasConfigRepository.GetAll();
-            propinasConfigBindingSource.DataSource = dataResult;
-            
-            
-            var dataResult1 = await EstudantesRepository.GetAll();
-            estudantesBindingSource.DataSource = dataResult1;
+            propinasPagamentosBindingSource.DataSource = dataResult;        
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -122,7 +105,7 @@ namespace IEscolaDesktop.View.Forms
                 if (msg == DialogResult.Yes)
                 {
                     var data = int.Parse(txtCodigo.Text);
-                    var apagar = await DataRepository.Excluir(x => x.PropinasPagamentosID == data);
+                    var apagar = await DataRepository.Excluir(x => x.PropinasRecibosID == data);
 
                     if (apagar)
                     {
@@ -146,15 +129,15 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
-                var data = new PropinasPagamentos
+                var data = new PropinasRecibos
                 {
-                    PropinasPagamentosID = ID,
-                    Descricao = (string) txtDescricao.Text.Trim(),
-                    PropinasConfigID = (int) txtPropinasConfig.EditValue,
-                    EstudanteID = (int) txtEstudante.EditValue,
+                    PropinasRecibosID = ID,
+                    PropinasPagamentoID = (int) txtPagamento.EditValue,
+                    ValorPago = (decimal) txtValorPago.EditValue,
+                    ValorFalta = (decimal) txtValorFalta.EditValue,
                 };
 
-                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.PropinasPagamentosID == ID) > 0 :
+                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.PropinasRecibosID == ID) > 0 :
                                        await DataRepository.Guardar(data, true);
 
                 if (IsValidate)
@@ -171,27 +154,29 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => (x.Descricao == txtDescricao.Text &&
-                                                            x.PropinasConfigID == 1), null);
+            return true;
 
-            if (dataResult != null)
-            {
-                if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
-                {
-                    if (dataResult.PropinasPagamentosID != Convert.ToInt32(txtCodigo.Text))
-                    {
-                        Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Error);
+            //var dataResult = await DataRepository.Get(x => (x.Descricao == txtDescricao.Text &&
+            //                                                x.PropinasConfigID == 1), null);
 
-                        txtDescricao.SelectAll();
-                        txtDescricao.Focus();
+            //if (dataResult != null)
+            //{
+            //    if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
+            //    {
+            //        if (dataResult.PropinasPagamentosID != Convert.ToInt32(txtCodigo.Text))
+            //        {
+            //            Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
+            //                         MessageBoxButtons.OK,
+            //                         MessageBoxIcon.Error);
 
-                        return true;
-                    } 
-                }
-            }
-            return false;
+            //            txtDescricao.SelectAll();
+            //            txtDescricao.Focus();
+
+            //            return true;
+            //        } 
+            //    }
+            //}
+            //return false;
         }
 
         private void Limpar()
@@ -200,11 +185,10 @@ namespace IEscolaDesktop.View.Forms
             windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
 
             txtCodigo.Text = string.Empty;
-            txtDescricao.Text = string.Empty;
-            txtPropinasConfig.Text = string.Empty;
-            txtEstudante.Text = string.Empty.ToString();
+            txtValorFalta.Text = string.Empty.ToString();
+            txtValorPago.Text = string.Empty.ToString();
             txtTitulo.Text = "[Novo]";
-            txtDescricao.Focus();
+            txtPagamento.ShowPopup();
         }
 
         private void ChangeValidationCodigo()
@@ -221,20 +205,19 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
-        private string estudanteLabel = "[Selecione a configuração por favor]";
-        private string propinasconfigLabel = "[Selecione a configuração por favor]";
+        private string pagamentoLabel = "[Selecione o pagamento por favor]";
 
         private void ChangeValudations(Control control)
         {
             if (control != null)
             {
-                #region Descricao
-                if (control.Name.Equals(txtDescricao.Name))
+                #region Pagamento
+                if (control.Name.Equals(txtPagamento.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
+                    if (!string.IsNullOrWhiteSpace(txtPagamento.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtEstudante.Text) || txtEstudante.Text == estudanteLabel) &&
-                            !(string.IsNullOrWhiteSpace(txtPropinasConfig.Text) || txtPropinasConfig.Text == propinasconfigLabel))
+                        if (!(string.IsNullOrWhiteSpace(txtValorFalta.Text) || txtValorFalta.Value != 0) &&
+                            !(string.IsNullOrWhiteSpace(txtValorPago.Text) || txtValorPago.Value != 0))
                         { 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -249,12 +232,12 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Estudantes
-                else if (control.Name.Equals(txtEstudante.Name))
+                else if (control.Name.Equals(txtValorFalta.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtEstudante.Text))
+                    if (!string.IsNullOrWhiteSpace(txtValorFalta.Text))
                     {
-                        if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
-                            !(string.IsNullOrWhiteSpace(txtPropinasConfig.Text) || txtPropinasConfig.Text == propinasconfigLabel))
+                        if (!(string.IsNullOrWhiteSpace(txtValorPago.Text) || txtValorPago.Value != 0) &&
+                            !(string.IsNullOrWhiteSpace(txtPagamento.Text) || txtPagamento.Text == pagamentoLabel))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -271,12 +254,12 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Propinas Config
-                else if (control.Name.Equals(txtPropinasConfig.Name))
+                else if (control.Name.Equals(txtValorPago.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtPropinasConfig.Text))
+                    if (!string.IsNullOrWhiteSpace(txtValorPago.Text))
                     {
-                        if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
-                            !(string.IsNullOrWhiteSpace(txtEstudante.Text) || txtEstudante.Text == estudanteLabel))
+                        if (!(string.IsNullOrWhiteSpace(txtValorFalta.Text) || txtValorFalta.Value != 0) &&
+                            !(string.IsNullOrWhiteSpace(txtPagamento.Text) || txtPagamento.Text == pagamentoLabel))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -294,9 +277,9 @@ namespace IEscolaDesktop.View.Forms
 
                 else
                 {
-                    if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
-                          !(string.IsNullOrWhiteSpace(txtEstudante.Text) || txtEstudante.Text == estudanteLabel) &&
-                          !(string.IsNullOrWhiteSpace(txtPropinasConfig.Text) || txtPropinasConfig.Text == propinasconfigLabel))
+                    if (  !(string.IsNullOrWhiteSpace(txtValorPago.Text) || txtValorPago.Value != 0) &&
+                          !(string.IsNullOrWhiteSpace(txtValorFalta.Text)|| txtValorFalta.Value != 0) &&
+                          !(string.IsNullOrWhiteSpace(txtPagamento.Text) || txtPagamento.Text == pagamentoLabel))
                     {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                     }
