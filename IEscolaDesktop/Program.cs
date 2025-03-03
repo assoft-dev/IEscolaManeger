@@ -1,9 +1,11 @@
-﻿using IEscolaDesktop.View.Forms;
+﻿using DevExpress.CodeParser;
+using IEscolaDesktop.View.Forms;
 using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Helps;
 using System;
 using System.Collections;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -24,7 +26,21 @@ namespace IEscolaDesktop
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmTelaInicial());
+
+            Mutex mutex = new Mutex(true, name: "{Escola - F1056557-EDEF-4A8B-8AC7-7D5D659FA2C7}");
+
+            if (mutex.WaitOne(TimeSpan.Zero, true))
+            {
+                Application.Run(new frmTelaInicial());
+            }
+            else {
+                mutex.Close();
+
+                Mensagens.Display("[IEscola - já em Execução]", "\nDesculpe mais a sua Aplicação Já esta em Execução\nTente verificar na barra de baixo do windows (Menu inicial)", 
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Error);
+                Application.Exit();
+            }
         }
 
         private static void inicializacaoDirectory()

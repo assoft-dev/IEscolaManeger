@@ -9,7 +9,6 @@ namespace IEscolaEntity.Models
         public int PermissoeID { get; set; }
 
         // Permissions Geral
-
         public bool List { get; set; }
         public bool Create { get; set; }
         public bool Update { get; set; }

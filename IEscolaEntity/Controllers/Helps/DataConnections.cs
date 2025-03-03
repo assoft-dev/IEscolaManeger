@@ -105,6 +105,22 @@ namespace IEscolaEntity.Controllers.Helps
                     Logs = true,
                     Permissions = true,
                     Turmas = true,
+                    Autores = true,
+                    Categorias = true,
+                    Cursos = true,
+                    Editores = true,
+                    EstudantesInscricao = true,
+                    Livros = true,
+                    Municipios = true,
+                    PedidosConsultas = true,
+                    PedidosAquisicao = true,
+                    PropinasConfig = true,
+                    PropinasPagamento = true,
+                    Provincias = true,
+                    PropinasRecibo = true,
+                    Pais = true,
+                    ProvinciasMunicipios = true,    
+                    Salas = true,         
                 };
                 permissoesID = db.Insert<Permissoes>(permissoes, true);
             }
