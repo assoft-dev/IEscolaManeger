@@ -30,6 +30,20 @@ namespace IEscolaEntity.Models
         public bool Municipios { get; set; }
         public bool ProvinciasMunicipios { get; set; }
 
+        public bool Salas { get; set; }
+        public bool Cursos { get; set; }
+        public bool Categorias { get; set; }
+        public bool Autores { get; set; }
+        public bool Livros { get; set; }
+        public bool PedidosConsultas { get; set; }
+        public bool PedidosAquisicao { get; set; }
+        public bool EstudantesInscricao { get; set; }
+        public bool PropinasPagamento { get; set; }
+        public bool PropinasRecibo { get; set; }
+        public bool PropinasConfig { get; set; }
+        public bool Pais { get; set; }
+        public bool Editores { get; set; }
+
         [Reference] public List<Grupos> grupos { get; set; }
     }
 }

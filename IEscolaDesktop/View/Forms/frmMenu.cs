@@ -37,15 +37,17 @@
             // Biblioteca
             btnCategoria_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Categorias()); };
             Editoras_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Editoras()); };
-            btnPais_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Pais()); };
+            btnPais_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Pais()); };     
             Autores_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Autores()); };
             Livros_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Livros()); };
             btnPedidos_Consltas_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Pedidos()); };
             btnPedidos_Requisicao_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_PedidosAdd()); };
 
+            //Estudantes
             btnEstudantesInscricoes.Click += delegate { OpenForms(new frmEstudantesInscritos()); };
             btnEstudantes.Click += delegate { OpenForms(new frmEstudantes()); };
 
+            //Financeiros
             btnPropinasConfig.Click += delegate { OpenForms(new frmPropinasConfig()); };
             btnPropinasPagamento.Click += delegate { OpenForms(new frmPropinasPagamentos()); };
             btnPropinasRecibo.Click += delegate { OpenForms(new frmPropinasRecibo()); };
@@ -59,6 +61,8 @@
             {
                 if (control != null)
                 {
+
+                    #region Sistemas
                     if (control.Name.Equals(typeof(frmUsuarios).Name))
                     {
                         this.Text = "Usuários [Aberto]";
@@ -79,6 +83,9 @@
                         this.Text = "Usuarios Auditoria - [Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
+                    #endregion
+
+                    #region Regioes
 
                     // Provincias
                     else if (control.Name.Equals(typeof(frmProvincias).Name))
@@ -98,6 +105,7 @@
                         this.Text = "Provincias-Municipios - [Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
+                    #endregion
 
                     #region Escolas
                     // Turma
@@ -224,7 +232,42 @@
 
         private void ActivarBotoes(Permissoes permission)
         {
+            // Usuarios
+            btnUser.Enabled = permission.Usuarios;
+            btnGroup.Enabled = permission.Grupos;
+            btnPermis.Enabled = permission.Permissions;
+            btnUserLogs.Enabled = permission.Logs;
 
+            // Localizacao
+            btnMunicipios.Enabled = permission.Municipios;
+            btnProvincias.Enabled = permission.Provincias;
+            btnProvinciasMunicipios.Enabled = permission.ProvinciasMunicipios   ;
+
+            // Escolas
+            btnTurma.Enabled = permission.Turmas  ;
+            btnPeriodos.Enabled = permission.Periodos;
+            btnClasses.Enabled = permission.Classes;
+
+            btnSalas.Enabled = permission.Salas;
+            btnCursos.Enabled = permission.Cursos;
+
+            // Biblioteca
+            btnCategoria_Biblioteca.Enabled = permission.Categorias;
+            Editoras_Biblioteca.Enabled = permission.Editores;
+            btnPais_Biblioteca.Enabled = permission.Pais;
+            Autores_Biblioteca.Enabled = permission.Autores;
+            Livros_Biblioteca.Enabled = permission.Livros;
+            btnPedidos_Consltas_Biblioteca.Enabled = permission.Periodos;
+            btnPedidos_Requisicao_Biblioteca.Enabled = permission.PedidosAquisicao;
+
+            //Estudantes
+            btnEstudantesInscricoes.Enabled = permission.EstudantesInscricao;
+            btnEstudantes.Enabled = permission.Estudantes;
+
+            //Financeiros
+            btnPropinasConfig.Enabled = permission.PropinasConfig;
+            btnPropinasPagamento.Enabled = permission.PropinasPagamento;
+            btnPropinasRecibo.Enabled = permission.PropinasRecibo;
         }
 
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
