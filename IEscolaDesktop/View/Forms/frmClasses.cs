@@ -36,6 +36,7 @@ namespace IEscolaDesktop.View.Forms
             gridControl1.DoubleClick += GridControl1_DoubleClick;
 
             // Menu de Contexto
+
             #region Menu Populat
             MenuPrinciapl.Opening += ContextMenuStrip1_Opening;
             gridControl1.ContextMenuStrip = MenuPrinciapl;

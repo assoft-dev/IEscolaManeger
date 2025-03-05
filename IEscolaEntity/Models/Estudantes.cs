@@ -5,15 +5,13 @@ using System.Collections.Generic;
 
 namespace IEscolaEntity.Models
 {
-    public class Estudantes : ModelsEntityBase
+    public class Estudantes
     {
-
         // Dados Internos
         [AutoIncrement]
         public int EstudantesID { get; set; }
 
         // Dados dos Encarregados
-        public string Telemovel { get; set; }
         public string Entidade { get; set; }
         public EstadoEstudantes EstadoEstudantes { get; set; }
 
@@ -21,9 +19,8 @@ namespace IEscolaEntity.Models
         public int TurmaID { get; set; }
         [Reference] public Turmas Turmas { get; set; }
 
-
         // Relacionamentos
-        [ForeignKey(typeof(EstudantesInscricoes))]
+        [ForeignKey(typeof(EstudantesInscricoes)), Unique]
         public int InscricoesID { get; set; }
         [Reference] public EstudantesInscricoes Inscricoes { get; set; }
 

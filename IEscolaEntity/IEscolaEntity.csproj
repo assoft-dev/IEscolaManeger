@@ -142,13 +142,16 @@
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Cursos.cs" />
     <Compile Include="Models\Estudantes.cs" />
+    <Compile Include="Models\EstudantesAuditoria.cs" />
     <Compile Include="Models\Grupos.cs" />
+    <Compile Include="Models\Helps\AbilitacoesLiterarias.cs" />
     <Compile Include="Models\Helps\Disponibilidade.cs" />
     <Compile Include="Models\Helps\DocType.cs" />
     <Compile Include="Models\Helps\Escolaridade.cs" />
     <Compile Include="Models\Helps\Estado.cs" />
     <Compile Include="Models\Helps\EstadoCivil.cs" />
     <Compile Include="Models\Helps\EstadoEstudantes.cs" />
+    <Compile Include="Models\Helps\EstudanteOperacao.cs" />
     <Compile Include="Models\Helps\FAZES.cs" />
     <Compile Include="Models\Helps\GrauParentesco.cs" />
     <Compile Include="Models\Helps\Meses.cs" />
@@ -165,6 +168,7 @@
     <Compile Include="Models\Municipios.cs" />
     <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\Permission.cs" />
+    <Compile Include="Models\ProfessorAreaFormacao.cs" />
     <Compile Include="Models\Professores.cs" />
     <Compile Include="Models\PropinasConfig.cs" />
     <Compile Include="Models\PropinasPagamentos.cs" />
