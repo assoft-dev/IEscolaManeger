@@ -84,8 +84,8 @@ namespace IEscolaDesktop.View.Forms
                 // Preencher estudantes
                 var estuda = estudantesBindingSource.List as Estudantes;
                 if (estuda != null) {
-                    txtFullName.EditValue = estuda.FullName;
-                    txtTelemovel.EditValue = estuda.Telemovel;
+                    txtFullName.EditValue = estuda.Inscricoes.FullName;
+                    txtTelemovel.EditValue = estuda.Inscricoes.Celular;
                 }
                 else
                 {
@@ -95,8 +95,8 @@ namespace IEscolaDesktop.View.Forms
                         Task.Factory.StartNew(async () =>
                         {
                             var t = await estudantes;
-                            txtFullName.EditValue = t.FullName;
-                            txtTelemovel.EditValue = t.Telemovel;
+                            txtFullName.EditValue = t.Inscricoes.FullName;
+                            txtTelemovel.EditValue = t.Inscricoes.Celular;
                         });                    
                     }
                 }
@@ -122,8 +122,8 @@ namespace IEscolaDesktop.View.Forms
 
             if (result != null)
             {
-                txtFullName.EditValue = result.FullName;
-                txtTelemovel.EditValue = result.Telemovel;
+                txtFullName.EditValue = result.Inscricoes.FullName;
+                txtTelemovel.EditValue = result.Inscricoes.Celular;
                 windowsUIButtonPanel1.Focus();
             }
         }

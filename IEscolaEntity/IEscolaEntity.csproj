@@ -86,7 +86,10 @@
     <Compile Include="Controllers\Interfaces\Biblioteca\IPedidosOrdem.cs" />
     <Compile Include="Controllers\Interfaces\Biblioteca\IPais.cs" />
     <Compile Include="Controllers\Interfaces\IClasses.cs" />
+    <Compile Include="Controllers\Interfaces\ICursoClasseDisciplina.cs" />
     <Compile Include="Controllers\Interfaces\ICursos.cs" />
+    <Compile Include="Controllers\Interfaces\IDisciplina.cs" />
+    <Compile Include="Controllers\Interfaces\IDisciplinaPrograma.cs" />
     <Compile Include="Controllers\Interfaces\IEstudantes.cs" />
     <Compile Include="Controllers\Interfaces\IGeneric.cs" />
     <Compile Include="Controllers\Interfaces\IGrupos.cs" />
@@ -113,7 +116,10 @@
     <Compile Include="Controllers\Repository\Biblioteca\PedidosOrdemRepository.cs" />
     <Compile Include="Controllers\Repository\Biblioteca\PedidosRepository.cs" />
     <Compile Include="Controllers\Repository\ClassesRepository.cs" />
+    <Compile Include="Controllers\Repository\CursoClasseDisciplinaRepository.cs" />
     <Compile Include="Controllers\Repository\CursosRepository.cs" />
+    <Compile Include="Controllers\Repository\DisciplinaProgramaRepository.cs" />
+    <Compile Include="Controllers\Repository\DisciplinaRepository.cs" />
     <Compile Include="Controllers\Repository\EstudantesIncricoesRepository.cs" />
     <Compile Include="Controllers\Repository\EstudantesRepository.cs" />
     <Compile Include="Controllers\Repository\GenericRepository.cs" />
@@ -140,11 +146,15 @@
     <Compile Include="Models\Biblioteca\Pedidos.cs" />
     <Compile Include="Models\Biblioteca\PedidosOrdems.cs" />
     <Compile Include="Models\Classes.cs" />
+    <Compile Include="Models\CursoClasseDisciplina.cs" />
     <Compile Include="Models\Cursos.cs" />
+    <Compile Include="Models\Disciplinas.cs" />
+    <Compile Include="Models\DisciplinasProgramas.cs" />
     <Compile Include="Models\Estudantes.cs" />
     <Compile Include="Models\EstudantesAuditoria.cs" />
     <Compile Include="Models\Grupos.cs" />
     <Compile Include="Models\Helps\AbilitacoesLiterarias.cs" />
+    <Compile Include="Models\Helps\DisciplinasComponentes.cs" />
     <Compile Include="Models\Helps\Disponibilidade.cs" />
     <Compile Include="Models\Helps\DocType.cs" />
     <Compile Include="Models\Helps\Escolaridade.cs" />

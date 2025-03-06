@@ -1,37 +1,28 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
 using IEscolaDesktop.View.Helps;
-using IEscolaEntity.Controllers.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
-using IEscolaEntity.Controllers.Repository.Biblioteca;
 using IEscolaEntity.Models;
-using IEscolaEntity.Models.Biblioteca;
-using IEscolaEntity.Models.Helps;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmBiblioteca_EditorasAdd : XtraUserControl
+    public partial class frmDisciplinaAdd : XtraUserControl
     {
-        IEditoras DataRepository;
-        IPais paisRepository;
+        IDisciplina DataRepository;
         bool IsValidate = false;
 
-        public frmBiblioteca_EditorasAdd(Editores usuarios = null)
+        public frmDisciplinaAdd(Disciplinas usuarios = null)
         {
             InitializeComponent();
 
-            DataRepository = new EditorasRepository();
-            paisRepository = new PaisRepository();
+            DataRepository = new DisciplinaRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
             txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
-            txtPermissioes.EditValueChanged += delegate { ChangeValudations(txtPermissioes); };
-
-            btnBuscarGrupos.Click += BtnBuscarGrupos_Click;
 
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
 
@@ -41,9 +32,8 @@ namespace IEscolaDesktop.View.Forms
                 txtTitulo.Text = "[Edição]";
 
                 txtDescricao.EditValue = usuarios.Descricao;
-                txtComentarios.EditValue = usuarios.Comentarios;
-                txtPermissioes.EditValue = usuarios.PaisID;
-                txtCodigo.EditValue = usuarios.EditoresID;
+                txtSiglas.EditValue = usuarios.Sigla;
+                txtCodigo.EditValue = usuarios.DisciplinasID;
 
                 txtDescricao.Focus();
             }
@@ -52,25 +42,6 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
             }
-
-            this.Load += FrmUsuariosAdd_Load;
-        }
-
-        private void BtnBuscarGrupos_Click(object sender, EventArgs e)
-        {
-            // Buscar Grupos
-            var forms = OpenFormsDialog.ShowForm(null,
-                  new frmBiblioteca_PaisAdd());
-
-            if (forms == DialogResult.None || forms == DialogResult.Cancel)
-                FrmUsuariosAdd_Load(null, null);
-        }
-
-        private async void FrmUsuariosAdd_Load(object sender, EventArgs e)
-        {
-            // Leitura dos Grupos
-            var dataResult = await paisRepository.GetAll();
-            paisBindingSource.DataSource = dataResult;
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -107,7 +78,7 @@ namespace IEscolaDesktop.View.Forms
                 if (msg == DialogResult.Yes)
                 {
                     var data = int.Parse(txtCodigo.Text);
-                    var apagar = await DataRepository.Excluir(x => x.EditoresID == data);
+                    var apagar = await DataRepository.Excluir(x => x.DisciplinasID == data);
 
                     if (apagar)
                     {
@@ -131,15 +102,14 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
-                var data = new Editores
-                { 
-                    EditoresID = ID,
+                var data = new Disciplinas
+                {
+                    DisciplinasID = ID,
                     Descricao = txtDescricao.Text.Trim(),
-                    Comentarios = txtComentarios.Text,
-                    PaisID = (int) txtPermissioes.EditValue,
+                    Sigla = txtSiglas.Text.Trim(),
                 };
 
-                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.PaisID == ID) > 0 :
+                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.DisciplinasID == ID) > 0 :
                                        await DataRepository.Guardar(data, true);
 
                 if (IsValidate)
@@ -162,7 +132,7 @@ namespace IEscolaDesktop.View.Forms
             {
                 if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
                 {
-                    if (dataResult.EditoresID != Convert.ToInt32(txtCodigo.Text))
+                    if (dataResult.DisciplinasID != Convert.ToInt32(txtCodigo.Text))
                     {
                         Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
                                      MessageBoxButtons.OK,
@@ -185,7 +155,7 @@ namespace IEscolaDesktop.View.Forms
 
             txtCodigo.Text = string.Empty;
             txtDescricao.Text = string.Empty;
-            txtComentarios.Text = string.Empty;       
+            txtSiglas.Text = string.Empty;       
             txtTitulo.Text = "[Novo]";
             txtDescricao.Focus();
         }
@@ -213,51 +183,14 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
                     {
-                        if (!string.IsNullOrWhiteSpace(txtComentarios.Text) &&
-                            !(string.IsNullOrWhiteSpace(txtPermissioes.Text) || txtPermissioes.Text == "[Selecione a o pais por favor]"))
-                        { 
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        }
-                        else {
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                        }
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        
                     }
                     else {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                     }
                 }
                 #endregion
-
-                #region Grupos
-                else if (control.Name.Equals(txtPermissioes.Name))
-                {
-                    if (!string.IsNullOrWhiteSpace(txtPermissioes.Text))
-                    {
-                        if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
-                        {
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        }
-                        else
-                        {
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                        }
-                    }
-                    else
-                    {
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                    }
-                }
-                #endregion
-
-                else
-                {
-                    if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
-                        !string.IsNullOrWhiteSpace(txtComentarios.Text) &&
-                           !(string.IsNullOrWhiteSpace(txtPermissioes.Text) || txtPermissioes.Text == "[Selecione a o pais por favor]"))
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                    else
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                }
             }
             else
             {
@@ -265,6 +198,7 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+       
         #region Teclas
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

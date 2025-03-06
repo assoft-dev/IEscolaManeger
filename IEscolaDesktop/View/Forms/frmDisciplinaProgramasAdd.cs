@@ -14,13 +14,13 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmBiblioteca_EditorasAdd : XtraUserControl
+    public partial class rmDisciplinaProgramasAdd : XtraUserControl
     {
         IEditoras DataRepository;
         IPais paisRepository;
         bool IsValidate = false;
 
-        public frmBiblioteca_EditorasAdd(Editores usuarios = null)
+        public rmDisciplinaProgramasAdd(Editores usuarios = null)
         {
             InitializeComponent();
 

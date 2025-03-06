@@ -1,21 +1,18 @@
 ﻿using ServiceStack.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace IEscolaEntity.Models
 {
-    public class Cursos
+    public class Disciplinas
     {
-        [AutoIncrement]
-        public int CursosID { get; set; }
+        [ServiceStack.DataAnnotations.AutoIncrement, Display(Name = "Código")]
+        public int DisciplinasID { get; set; }
 
-        [Required]
+        [System.ComponentModel.DataAnnotations.Required, Display(Name = "Descrição")]
         public string Descricao { get; set; }
 
         public string Sigla { get; set; }
-
-        //   Turmas
-        [Reference] public List<Turmas> Turmas { get; set; }
-
 
         [Reference] public List<CursoClasseDisciplina> CursoClasseDisciplina { get; set; }
     }

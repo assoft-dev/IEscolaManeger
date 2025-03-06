@@ -215,6 +215,10 @@ namespace IEscolaEntity.Controllers.Helps
             Db.CreateTableIfNotExists<PropinasConfig>();
             Db.CreateTableIfNotExists<PropinasPagamentos>();
             Db.CreateTableIfNotExists<PropinasRecibos>();
+            
+            Db.CreateTableIfNotExists<Disciplinas>();
+            Db.CreateTableIfNotExists<CursoClasseDisciplina>();
+            Db.CreateTableIfNotExists<DisciplinasProgramas>();
         }
 
         public void UPDATETABLE()
@@ -251,6 +255,10 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<PropinasConfig>.AsyncColuns(Db);
             DataColunsAsync<PropinasPagamentos>.AsyncColuns(Db);
             DataColunsAsync<PropinasRecibos>.AsyncColuns(Db);
+
+            DataColunsAsync<Disciplinas>.AsyncColuns(Db);
+            DataColunsAsync<CursoClasseDisciplina>.AsyncColuns(Db);
+            DataColunsAsync<DisciplinasProgramas>.AsyncColuns(Db);
         }
     }
 }

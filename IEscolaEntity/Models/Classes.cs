@@ -18,5 +18,7 @@ namespace IEscolaEntity.Models
 
         //   Turmas
         [Reference] public List<Turmas> Turmas { get; set; }
+
+        [Reference] public List<CursoClasseDisciplina> CursoClasseDisciplina { get; set; }
     }
 }

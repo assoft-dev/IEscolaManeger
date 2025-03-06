@@ -96,6 +96,30 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\frmDisciplinaProgramasAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmDisciplinaProgramasAdd.Designer.cs">
+      <DependentUpon>frmDisciplinaProgramasAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmDisciplinaProgramas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmDisciplinaProgramas.Designer.cs">
+      <DependentUpon>frmDisciplinaProgramas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmDisciplina.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmDisciplina.Designer.cs">
+      <DependentUpon>frmDisciplina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmDisciplinaAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmDisciplinaAdd.Designer.cs">
+      <DependentUpon>frmDisciplinaAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmPropinasRecibo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -490,6 +514,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\frmDisciplinaProgramasAdd.resx">
+      <DependentUpon>frmDisciplinaProgramasAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmDisciplinaProgramas.resx">
+      <DependentUpon>frmDisciplinaProgramas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmDisciplina.resx">
+      <DependentUpon>frmDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmDisciplinaAdd.resx">
+      <DependentUpon>frmDisciplinaAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmPropinasRecibo.resx">
       <DependentUpon>frmPropinasRecibo.cs</DependentUpon>
     </EmbeddedResource>
@@ -682,6 +718,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.PedidosOrdems.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Classes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Cursos.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Disciplinas.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Estudantes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.EstudantesInscricoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />

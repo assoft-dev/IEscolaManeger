@@ -2,6 +2,7 @@
 using IEscolaEntity.Models.Helps;
 using ServiceStack.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace IEscolaEntity.Models
 {
@@ -10,6 +11,9 @@ namespace IEscolaEntity.Models
         // Dados Internos
         [AutoIncrement]
         public int EstudantesID { get; set; }
+
+        [Display(Name = "Código"), System.ComponentModel.DataAnnotations.Required, Unique]
+        public string Codigo { get;  set; }
 
         // Dados dos Encarregados
         public string Entidade { get; set; }
