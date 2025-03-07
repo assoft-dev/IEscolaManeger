@@ -7,6 +7,7 @@
     using System.Threading.Tasks;
     using System;
     using System.Linq;
+    using System.Collections.Generic;
 
     public class EstudantesIncricoesRepository: GenericRepository<EstudantesInscricoes>, IEstudantesInscricoes
     {
@@ -54,6 +55,24 @@
                 var fatura = "QR " + "EST" + DateTime.Now.Year + "/" + 1;
                 return fatura;
             }
+        }
+
+        public async Task<List<EstudantesInscricoes>> GetAllinclud()
+        {
+            var sql = DbConection.From<EstudantesInscricoes>();
+
+            var result = await DbConection.LoadSelectAsync(sql);
+
+            var provincia = await DbConection.SelectAsync<Provincias>();
+            var municipio = await DbConection.SelectAsync<Municipios>();
+
+            result.ForEach(x =>
+            {
+                x.ProvinciasMunicipios.Provincias = provincia.Find(y => y.ProvinciasID == x.ProvinciasMunicipios.ProvinciasID);
+                x.ProvinciasMunicipios.Municios = municipio.Find(y => y.MunicipiosID == x.ProvinciasMunicipios.MunicipiosID);
+            });
+
+            return result;
         }
     }
 }

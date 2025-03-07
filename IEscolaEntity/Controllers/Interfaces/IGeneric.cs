@@ -17,7 +17,10 @@ namespace IEscolaEntity.Controllers.Interfaces
         #region Listagem
         Task<bool> Get(Expression<Func<T, bool>> Filter);
         Task<T> Get(Expression<Func<T, bool>> Filter, string[] includes = null);
-        Task<List<T>> GetAll(Expression<Func<T, bool>> Filter = null, string[] includes = null);
+        Task<List<T>> GetAll(Expression<Func<T, bool>> Filter = null);
+        Task<List<T>> GetAll(Expression<Func<T, bool>> Filter, string [] includes);
+        Task<List<object>> GetAll(Expression<Func<T, bool>> Filter, Expression<Func<T, object>> FildesDevolucao = null);
+        Task<Dictionary<object, object>> GetAllDicionary(Expression<Func<T, bool>> Filter = null, Expression<Func<T, object>> FildesDevolucao = null);
 
         #endregion
 

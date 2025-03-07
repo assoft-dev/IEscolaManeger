@@ -13,7 +13,6 @@ namespace IEscolaDesktop.View.Forms
     public partial class frmCursosAdd : XtraUserControl
     {
         ICursos DataRepository;
-        IProfessores ProfessoresRepository;
         bool IsValidate = false;
 
         public frmCursosAdd(Cursos usuarios = null)
@@ -21,7 +20,6 @@ namespace IEscolaDesktop.View.Forms
             InitializeComponent();
 
             DataRepository = new CursosRepository();
-            ProfessoresRepository = new ProfessoresRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
             txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
@@ -45,24 +43,6 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
             }
 
-            this.Load += FrmUsuariosAdd_Load;
-        }
-
-        private void BtnBuscarGrupos_Click(object sender, EventArgs e)
-        {
-            // Buscar Grupos
-            var forms = OpenFormsDialog.ShowForm(null,
-                  new frmCursosAdd());
-
-            if (forms == DialogResult.None || forms == DialogResult.Cancel)
-                FrmUsuariosAdd_Load(null, null);
-        }
-
-        private async void FrmUsuariosAdd_Load(object sender, EventArgs e)
-        {
-            // Leitura dos Grupos
-            var dataResult = await ProfessoresRepository.GetAll();
-            permissoesBindingSource.DataSource = dataResult;
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)

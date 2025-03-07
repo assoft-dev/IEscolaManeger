@@ -1,6 +1,5 @@
 ﻿using IEscolaEntity.Models.Helps;
 using ServiceStack.DataAnnotations;
-using ServiceStack.Script;
 using System.Collections.Generic;
 
 namespace IEscolaEntity.Models
@@ -10,12 +9,12 @@ namespace IEscolaEntity.Models
         [AutoIncrement]
         public int CursoClasseDisciplinaID { get; set; }
 
-        [ForeignKey(typeof(Cursos))]
+        [References(typeof(Cursos))]
         public int CursosID { get; set; }
         [Reference] public Cursos  Cursos { get; set; }
 
 
-        [ForeignKey(typeof(Classes))]
+        [References(typeof(Classes))]
         public int ClassesID { get; set; }
         [Reference] public Classes Classes { get; set; }
 
@@ -24,9 +23,22 @@ namespace IEscolaEntity.Models
         public int DisciplinasID { get; set; }
         [Reference] public Disciplinas Disciplinas { get; set; }
 
-        public string Comentarios { get; set; }
-
         public DisciplinasComponentesType DisciplinasComponentesType { get; set; }
+
+        [Ignore]
+        public string Descricao
+        {
+            get
+            {
+                {
+                    if (Cursos != null && Classes != null && Disciplinas != null)
+                        return string.Format("{0} -> {1} => {2}", 
+                            Cursos.Descricao, Classes.Descricao, Disciplinas.Descricao);
+                    else
+                        return string.Empty;
+                };
+            }
+        }
 
         [Reference] public List<DisciplinasProgramas> disciplinasProgramas { get; set; }
     }

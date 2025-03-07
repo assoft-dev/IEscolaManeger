@@ -34,6 +34,7 @@
             btnSalas.Click += delegate { OpenForms(new frmSalas()); };
             btnCursos.Click += delegate { OpenForms(new frmCursos()); };
 
+
             // Biblioteca
             btnCategoria_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Categorias()); };
             Editoras_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Editoras()); };
@@ -52,6 +53,10 @@
             btnPropinasPagamento.Click += delegate { OpenForms(new frmPropinasPagamentos()); };
             btnPropinasRecibo.Click += delegate { OpenForms(new frmPropinasRecibo()); };
 
+            //Financeiros
+            btnCursoClasseDisciplina.Click += delegate { OpenForms(new frmCursoClasseDisciplina()); };
+            btnDisciplina.Click += delegate { OpenForms(new frmDisciplina()); };
+            btnDisciplinaPrograma.Click += delegate { OpenForms(new frmDisciplinaProgramas()); };
         }
 
         private void OpenForms(XtraUserControl control)
@@ -136,6 +141,25 @@
                     else if (control.Name.Equals(typeof(frmCursos).Name))
                     {
                         this.Text = "Cursos - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Cursos Classe Disciplina
+                    else if (control.Name.Equals(typeof(frmCursoClasseDisciplina).Name))
+                    {
+                        this.Text = "Cursos/Classe/Dis - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+
+                    // Disciplina
+                    else if (control.Name.Equals(typeof(frmDisciplina).Name))
+                    {
+                        this.Text = "Disciplina - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Disciplina / Programa
+                    else if (control.Name.Equals(typeof(frmDisciplinaProgramas).Name))
+                    {
+                        this.Text = "Disciplina/Programa - [Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
                     #endregion

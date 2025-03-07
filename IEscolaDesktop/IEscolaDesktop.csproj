@@ -294,6 +294,18 @@
     <Compile Include="View\Forms\frmBiblioteca_LivrosAdd.Designer.cs">
       <DependentUpon>frmBiblioteca_LivrosAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmCursoClasseDisciplina.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmCursoClasseDisciplina.Designer.cs">
+      <DependentUpon>frmCursoClasseDisciplina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmCursoClasseDisciplinaAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmCursoClasseDisciplinaAdd.Designer.cs">
+      <DependentUpon>frmCursoClasseDisciplinaAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmTurmasAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -613,6 +625,12 @@
     <EmbeddedResource Include="View\Forms\frmBiblioteca_LivrosAdd.resx">
       <DependentUpon>frmBiblioteca_LivrosAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmCursoClasseDisciplina.resx">
+      <DependentUpon>frmCursoClasseDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmCursoClasseDisciplinaAdd.resx">
+      <DependentUpon>frmCursoClasseDisciplinaAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmTurmasAdd.resx">
       <DependentUpon>frmTurmasAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -717,8 +735,10 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.Pedidos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Biblioteca.PedidosOrdems.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Classes.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.CursoClasseDisciplina.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Cursos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Disciplinas.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.DisciplinasProgramas.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Estudantes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.EstudantesInscricoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />

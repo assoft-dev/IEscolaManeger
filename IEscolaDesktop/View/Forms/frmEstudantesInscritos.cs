@@ -133,17 +133,17 @@ namespace IEscolaDesktop.View.Forms
 
         private void LeituraFilter()
         {
-            var data = UsuariosOriginalList.FindAll(x => x.FirstName.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.LastName.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+            var data = UsuariosOriginalList.FindAll(x => x.FullName.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
                                                          x.BI.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
                                                          x.Celular.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                         x.ProvinciasMunicipios.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
                                                          x.EstadoCivil.ToString().ToUpper().Contains(txtPesquisar.Text.ToUpper()) );
             estudantesInscricoesBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
-            UsuariosOriginalList = await dataRepository.GetAll();
+            UsuariosOriginalList = await dataRepository.GetAllinclud();
             estudantesInscricoesBindingSource.DataSource = UsuariosOriginalList;
 
             if (UsuariosOriginalList.Count > 0)
@@ -180,7 +180,7 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.FocusedRowHandle >= 0)
             {
-                var msg = Mensagens.Display("Apagar",  
+                var msg = Mensagens.Display("Apagar",
                                            "Apagar uma informação implica perda de informação!\nPretendes mesmo continuar?!...",
                                            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -212,10 +212,5 @@ namespace IEscolaDesktop.View.Forms
         }
 
         #endregion
-
-        private void btnNovo_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

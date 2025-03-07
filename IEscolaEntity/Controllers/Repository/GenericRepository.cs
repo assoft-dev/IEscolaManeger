@@ -55,10 +55,34 @@ namespace IEscolaEntity.Controllers.Repository
             return result.FirstOrDefault();
         }
 
+        public async Task<List<T>> GetAll(Expression<Func<T, bool>> Filter = null)
+        {
+            var RESULT = await DbConection.LoadSelectAsync<T>(Filter);
+                return RESULT;
+        }
+
         public async Task<List<T>> GetAll(Expression<Func<T, bool>> Filter = null, string[] includes = null)
         {
              var RESULT = await DbConection.LoadSelectAsync<T>(Filter, includes);
             return RESULT;
+        }
+        public async Task<List<object>> GetAll(Expression<Func<T, bool>> Filter = null, Expression<Func<T, object>> FildesDevolucao = null)
+        {
+            var q = DbConection.From<T>()
+                               .Where(Filter)
+                               .Select(FildesDevolucao);
+
+            var results = await DbConection.SelectAsync<object>(q);
+            return results;
+        }
+        public async Task<Dictionary<object, object>> GetAllDicionary(Expression<Func<T, bool>> Filter = null, Expression<Func<T, object>> FildesDevolucao = null)
+        {
+            var q = DbConection.From<T>()
+                               .Where(Filter)
+                               .Select(FildesDevolucao);
+
+            var results = await DbConection.DictionaryAsync<object, object>(q);
+            return results;
         }
         #endregion
 

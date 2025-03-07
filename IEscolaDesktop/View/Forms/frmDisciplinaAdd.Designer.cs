@@ -112,7 +112,7 @@
             this.tablePanel2.Controls.Add(this.labelControl3);
             this.tablePanel2.Controls.Add(this.panelControl3);
             this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel2.Location = new System.Drawing.Point(15, 44);
+            this.tablePanel2.Location = new System.Drawing.Point(14, 52);
             this.tablePanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablePanel2.Name = "tablePanel2";
             this.tablePanel1.SetRow(this.tablePanel2, 1);
@@ -126,7 +126,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 18.03F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 29.72F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 80.19F)});
-            this.tablePanel2.Size = new System.Drawing.Size(535, 425);
+            this.tablePanel2.Size = new System.Drawing.Size(537, 418);
             this.tablePanel2.TabIndex = 2;
             this.tablePanel2.UseSkinIndents = true;
             // 
@@ -142,11 +142,11 @@
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
             this.tablePanel2.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 348);
+            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 340);
             this.windowsUIButtonPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
             this.tablePanel2.SetRow(this.windowsUIButtonPanel1, 8);
-            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(507, 59);
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(509, 59);
             this.windowsUIButtonPanel1.TabIndex = 17;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
             // 
@@ -156,11 +156,11 @@
             this.tablePanel2.SetColumn(this.panelControl4, 0);
             this.panelControl4.Controls.Add(this.panelControl2);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(14, 221);
+            this.panelControl4.Location = new System.Drawing.Point(14, 217);
             this.panelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl4.Name = "panelControl4";
             this.tablePanel2.SetRow(this.panelControl4, 5);
-            this.panelControl4.Size = new System.Drawing.Size(507, 73);
+            this.panelControl4.Size = new System.Drawing.Size(509, 71);
             this.panelControl4.TabIndex = 13;
             // 
             // panelControl2
@@ -172,18 +172,18 @@
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(507, 73);
+            this.panelControl2.Size = new System.Drawing.Size(509, 71);
             this.panelControl2.TabIndex = 12;
             // 
             // txtSiglas
             // 
             this.txtSiglas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSiglas.Location = new System.Drawing.Point(1, 16);
+            this.txtSiglas.Location = new System.Drawing.Point(4, 11);
             this.txtSiglas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSiglas.Name = "txtSiglas";
             this.txtSiglas.Properties.AutoHeight = false;
             this.txtSiglas.Properties.NullValuePrompt = "Escreva aqui a sigla";
-            this.txtSiglas.Size = new System.Drawing.Size(492, 29);
+            this.txtSiglas.Size = new System.Drawing.Size(494, 32);
             this.txtSiglas.TabIndex = 1;
             // 
             // panel8
@@ -191,10 +191,10 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(9, 27);
+            this.panel8.Location = new System.Drawing.Point(12, 23);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(488, 28);
+            this.panel8.Size = new System.Drawing.Size(490, 28);
             this.panel8.TabIndex = 6;
             // 
             // panel9
@@ -209,7 +209,7 @@
             // labelControl1
             // 
             this.tablePanel2.SetColumn(this.labelControl1, 0);
-            this.labelControl1.Location = new System.Drawing.Point(14, 98);
+            this.labelControl1.Location = new System.Drawing.Point(14, 96);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.tablePanel2.SetRow(this.labelControl1, 2);
@@ -224,22 +224,22 @@
             this.panelControl1.Controls.Add(this.txtDescricao);
             this.panelControl1.Controls.Add(this.panel2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(14, 121);
+            this.panelControl1.Location = new System.Drawing.Point(14, 119);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel2.SetRow(this.panelControl1, 3);
-            this.panelControl1.Size = new System.Drawing.Size(507, 52);
+            this.panelControl1.Size = new System.Drawing.Size(509, 51);
             this.panelControl1.TabIndex = 12;
             // 
             // txtDescricao
             // 
             this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescricao.Location = new System.Drawing.Point(1, 1);
+            this.txtDescricao.Location = new System.Drawing.Point(4, 4);
             this.txtDescricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Properties.AutoHeight = false;
             this.txtDescricao.Properties.NullValuePrompt = "Descrição descreva aqui";
-            this.txtDescricao.Size = new System.Drawing.Size(492, 29);
+            this.txtDescricao.Size = new System.Drawing.Size(494, 30);
             this.txtDescricao.TabIndex = 0;
             // 
             // panel2
@@ -247,10 +247,10 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Controls.Add(this.panel6);
-            this.panel2.Location = new System.Drawing.Point(9, 12);
+            this.panel2.Location = new System.Drawing.Point(12, 13);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(488, 28);
+            this.panel2.Size = new System.Drawing.Size(490, 28);
             this.panel2.TabIndex = 6;
             // 
             // panel6
@@ -265,7 +265,7 @@
             // labelControl2
             // 
             this.tablePanel2.SetColumn(this.labelControl2, 0);
-            this.labelControl2.Location = new System.Drawing.Point(14, 190);
+            this.labelControl2.Location = new System.Drawing.Point(14, 187);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.tablePanel2.SetRow(this.labelControl2, 4);
@@ -295,7 +295,7 @@
             this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl3.Name = "panelControl3";
             this.tablePanel2.SetRow(this.panelControl3, 1);
-            this.panelControl3.Size = new System.Drawing.Size(507, 48);
+            this.panelControl3.Size = new System.Drawing.Size(509, 47);
             this.panelControl3.TabIndex = 12;
             // 
             // txtCodigo
@@ -303,13 +303,13 @@
             this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigo.EditValue = "";
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(0, 0);
+            this.txtCodigo.Location = new System.Drawing.Point(4, -1);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Properties.AutoHeight = false;
             this.txtCodigo.Properties.NullValuePrompt = "Codigo Interno";
             this.txtCodigo.Properties.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(493, 25);
+            this.txtCodigo.Size = new System.Drawing.Size(494, 30);
             this.txtCodigo.TabIndex = 8;
             // 
             // panel3
@@ -317,10 +317,10 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(9, 6);
+            this.panel3.Location = new System.Drawing.Point(12, 7);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(488, 27);
+            this.panel3.Size = new System.Drawing.Size(490, 30);
             this.panel3.TabIndex = 6;
             // 
             // panel4
@@ -338,16 +338,16 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 13);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tablePanel1.SetRow(this.tableLayoutPanel1, 0);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(535, 26);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(537, 26);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btnClose
@@ -356,7 +356,7 @@
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FillColor = System.Drawing.Color.Transparent;
             this.btnClose.IconColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(494, 2);
+            this.btnClose.Location = new System.Drawing.Point(496, 2);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.PressedColor = System.Drawing.Color.Transparent;

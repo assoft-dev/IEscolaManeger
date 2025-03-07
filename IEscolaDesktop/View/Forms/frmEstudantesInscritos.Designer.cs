@@ -195,7 +195,6 @@
             this.btnNovo.Size = new System.Drawing.Size(37, 37);
             this.btnNovo.TabIndex = 1;
             this.btnNovo.Text = "Novo";
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click_1);
             // 
             // gridControl1
             // 

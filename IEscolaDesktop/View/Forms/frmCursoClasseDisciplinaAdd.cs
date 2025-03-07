@@ -5,43 +5,40 @@ using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
+using IEscolaEntity.Models.Helps;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmTurmasAdd : XtraUserControl
+    public partial class frmCursoClasseDisciplinaAdd : XtraUserControl
     {
-        ITurmas DataRepository;
-        ISalas salasRepository;
-        ICursos cursosRepository;
+        ICursoClasseDisciplina DataRepository;
+        ICursos cursoRepository;
         IClasses classeRepository;
-        IPeriodos periodoRepository;
-
+        IDisciplina DisciplinaRepository;
         bool IsValidate = false;
 
-        public frmTurmasAdd(Turmas usuarios = null)
+        public frmCursoClasseDisciplinaAdd(CursoClasseDisciplina usuarios = null)
         {
             InitializeComponent();
 
-            DataRepository = new TurmasRepository();
-            salasRepository = new SalasRepository();
-            cursosRepository = new CursosRepository();
-            periodoRepository = new PeriodosRepository();
-            classeRepository =  new ClassesRepository();
+            DataRepository = new CursoClasseDisciplinaRepository();
+            cursoRepository = new CursosRepository();
+            classeRepository = new ClassesRepository();
+            DisciplinaRepository = new DisciplinaRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
 
-            txtClasse.TextChanged += delegate { ChangeValudations(txtClasse); };
             txtCurso.TextChanged += delegate { ChangeValudations(txtCurso); };
-            txtPeriodo.TextChanged += delegate { ChangeValudations(txtPeriodo); };
-            txtSala.TextChanged += delegate { ChangeValudations(txtSala); };
+            txtCLasse.TextChanged += delegate { ChangeValudations(txtCLasse); };
+            txtDisciplina.TextChanged += delegate { ChangeValudations(txtDisciplina); };
+            txtComponentes.TextChanged += delegate { ChangeValudations(txtComponentes); };
 
             btnCurso.Click += BtnBuscarGrupos_Click;
-            btnPeriodo.Click += BtnBuscar1Grupos_Click;
             btnClasse.Click += BtnBuscar2Grupos_Click;
-            btnSala.Click += BtnBuscar3Grupos_Click;
+            btnDisciplina.Click += BtnBuscar3Grupos_Click;
 
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
 
@@ -50,17 +47,14 @@ namespace IEscolaDesktop.View.Forms
                 //Inicializar o Forms
                 txtTitulo.Text = "[Edição]";
 
-                txtDescricao.EditValue = usuarios.Descricao;
-                txtIdade1.EditValue = usuarios.Idades1;
-                txtIdade2.EditValue = usuarios.Idades2;
-                txtQuantidade.EditValue = usuarios.Quantidade;
-                txtClasse.EditValue = usuarios.ClassesID;
                 txtCurso.EditValue = usuarios.CursosID;
-                txtSala.EditValue = usuarios.SalasID;
-                txtPeriodo.EditValue = usuarios.PeriodosID;
-                txtCodigo.EditValue = usuarios.TurmaID;
+                txtCLasse.EditValue = usuarios.ClassesID;      
+                txtDisciplina.EditValue = usuarios.DisciplinasID;
+                txtComponentes.EditValue = usuarios.DisciplinasComponentesType;
 
-                txtClasse.Focus();
+                txtCodigo.EditValue = usuarios.CursoClasseDisciplinaID;
+
+                txtCurso.Focus();
             }
             else {
                 txtTitulo.Text = "[Novo]";
@@ -70,10 +64,10 @@ namespace IEscolaDesktop.View.Forms
 
             this.Load += FrmUsuariosAdd_Load;
 
-            txtCurso.Properties.NullText = curso;
-            txtPeriodo.Properties.NullText = periodo;
-            txtClasse.Properties.NullText = classe;
-            txtSala.Properties.NullText = sala;
+            txtCurso.Properties.NullText = cursos;
+            txtCLasse.Properties.NullText = classes;
+            txtDisciplina.Properties.NullText = disciplinas;
+            txtComponentes.Properties.NullText = componetes;
         }
 
         private void BtnBuscarGrupos_Click(object sender, EventArgs e)
@@ -85,16 +79,6 @@ namespace IEscolaDesktop.View.Forms
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 FrmUsuariosAdd_Load(null, null);
         }
-        private void BtnBuscar1Grupos_Click(object sender, EventArgs e)
-        {
-            // Buscar Grupos
-            var forms = OpenFormsDialog.ShowForm(null,
-                  new frmPeriodosAdd());
-
-            if (forms == DialogResult.None || forms == DialogResult.Cancel)
-                FrmUsuariosAdd_Load(null, null);
-        }
-
         private void BtnBuscar2Grupos_Click(object sender, EventArgs e)
         {
             // Buscar Grupos
@@ -104,12 +88,11 @@ namespace IEscolaDesktop.View.Forms
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 FrmUsuariosAdd_Load(null, null);
         }
-
         private void BtnBuscar3Grupos_Click(object sender, EventArgs e)
         {
             // Buscar Grupos
             var forms = OpenFormsDialog.ShowForm(null,
-                  new frmSalasAdd());
+                  new frmDisciplinaAdd());
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 FrmUsuariosAdd_Load(null, null);
@@ -118,17 +101,16 @@ namespace IEscolaDesktop.View.Forms
         private async void FrmUsuariosAdd_Load(object sender, EventArgs e)
         {
             // Leitura dos Grupos
-            var dataResult1 = await salasRepository.GetAll();
-            salasBindingSource.DataSource = dataResult1;
+            var dataResult = await cursoRepository.GetAll();
+            cursosBindingSource.DataSource = dataResult;
 
-            var dataResult2 = await cursosRepository.GetAll();
-            cursosBindingSource.DataSource = dataResult2;
+            var dataResult2 = await classeRepository.GetAll();
+            classesBindingSource.DataSource = dataResult2;
 
-            var dataResult3 = await periodoRepository.GetAll();
-            periodosBindingSource.DataSource = dataResult3;
+            var dataResult3 = await DisciplinaRepository.GetAll();
+            disciplinasBindingSource.DataSource = dataResult3;
 
-            var dataResult4 = await classeRepository.GetAll();
-            classesBindingSource.DataSource = dataResult4;
+            txtComponentes.Properties.DataSource = Enum.GetValues(typeof(DisciplinasComponentesType));
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -165,7 +147,7 @@ namespace IEscolaDesktop.View.Forms
                 if (msg == DialogResult.Yes)
                 {
                     var data = int.Parse(txtCodigo.Text);
-                    var apagar = await DataRepository.Excluir(x => x.TurmaID == data);
+                    var apagar = await DataRepository.Excluir(x => x.CursoClasseDisciplinaID == data);
 
                     if (apagar)
                     {
@@ -186,22 +168,16 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
-                var data = new Turmas
+                var data = new CursoClasseDisciplina
                 {
-                    TurmaID = ID,
-
-                    Idades1 = Convert.ToInt32(txtIdade1.EditValue),
-                    Idades2 = Convert.ToInt32(txtIdade2.EditValue),
-                    Descricao = (string) txtDescricao.Text.Trim(),
-                    Quantidade = Convert.ToInt32(txtQuantidade.EditValue),
-
-                    ClassesID = (int) txtClasse.EditValue,
+                    CursoClasseDisciplinaID = ID,
                     CursosID = (int) txtCurso.EditValue,
-                    PeriodosID = (int) txtPeriodo.EditValue,
-                    SalasID = (int) txtSala.EditValue,
+                    ClassesID = (int) txtCLasse.EditValue,
+                    DisciplinasID = (int) txtDisciplina.EditValue,
+                    DisciplinasComponentesType = (DisciplinasComponentesType) txtComponentes.EditValue,
                 };
 
-                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.TurmaID == ID) > 0 :
+                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.CursoClasseDisciplinaID == ID) > 0 :
                                        await DataRepository.Guardar(data, true);
 
                 if (IsValidate)
@@ -218,40 +194,26 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => (x.Descricao.ToUpper() == txtDescricao.Text.ToUpper()) &&
-                                                           ((x.SalasID == (int) txtSala.EditValue) && 
-                                                           (x.CursosID == (int) txtCurso.EditValue) &&
-                                                           (x.PeriodosID == (int) txtPeriodo.EditValue) &&
-                                                           (x.CursosID == (int)txtClasse.EditValue)), null);
+            var dataResult = await DataRepository.Get(x => (x.CursosID == (int) txtCurso.EditValue) &&
+                                                           (x.DisciplinasID == (int)txtDisciplina.EditValue) &&
+                                                           (x.ClassesID == (int) txtCLasse.EditValue) &&
+                                                           (x.DisciplinasComponentesType == (DisciplinasComponentesType) txtComponentes.EditValue), null);
 
             if (dataResult != null)
             {
                 if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
                 {
-                    if (dataResult.TurmaID != Convert.ToInt32(txtCodigo.Text))
+                    if (dataResult.CursoClasseDisciplinaID != Convert.ToInt32(txtCodigo.Text))
                     {
                         Mensagens.Display("Duplicação de Valores as Atualiar", "Já existe uma descrição na nossa base de Dados!",
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Error);
 
-                        txtClasse.SelectAll();
-                        txtClasse.Focus();
-                        return true;
-                    }
+                        txtCurso.SelectAll();
+                        txtCurso.Focus();
 
-                    // Verificar a possibilidade de atualizar com base nos valores Sala Cursos e Periodos
-                    var dataResult2 = await DataRepository.Get(x => ((x.SalasID == (int)txtSala.EditValue) &&
-                                                                     (x.CursosID == (int)txtCurso.EditValue) &&
-                                                                     (x.PeriodosID == (int)txtPeriodo.EditValue) &&
-                                                                     (x.CursosID == (int)txtClasse.EditValue)), null);
-
-                    if (dataResult2 != null)
-                    {
-                        Mensagens.Display("Duplicação de Valores", "Já existe uma Turma com a descrição abaixo mencionada!",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Error);
                         return true;
-                    }
+                    } 
                 }
                 else
                 {
@@ -259,8 +221,8 @@ namespace IEscolaDesktop.View.Forms
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Error);
 
-                    txtClasse.SelectAll();
-                    txtClasse.Focus();
+                    txtCurso.SelectAll();
+                    txtCurso.Focus();
 
                     return true;
                 }
@@ -273,14 +235,9 @@ namespace IEscolaDesktop.View.Forms
             //windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
             windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
 
-            txtDescricao.EditValue = string.Empty;
-            //txtQuantidade.EditValue = string.Empty;
-            //txtIdade1.EditValue = string.Empty;
-            //txtIdade2.EditValue = string.Empty;
-
             txtCodigo.Text = string.Empty;
             txtTitulo.Text = "[Novo]";
-            txtDescricao.Focus();
+            txtCurso.Focus();
         }
 
         private void ChangeValidationCodigo()
@@ -297,116 +254,118 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
-        private string curso = "[Selecione o Curso por favor]";
-        private string periodo = "[Selecione o Periodo por favor]";
-        private string classe = "[Selecione a Classe por favor]";
-        private string sala = "[Selecione a Sala por por favor]";
+        private string cursos = "[Selecione o Curso por favor]";
+        private string classes = "[Selecione a Classe por favor]";
+        private string disciplinas = "[Selecione a Disciplina por favor]";
+        private string componetes = "[Selecione a Componente por favor]";
 
         private void ChangeValudations(Control control)
         {
             if (control != null)
             {
-                #region Descricao
-                if (control.Name.Equals(txtDescricao.Name))
-                {
-                    if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
-                    {
-                        if ( !(string.IsNullOrWhiteSpace(txtCurso.Text) || txtCurso.Text == curso) &&
-                             !(string.IsNullOrWhiteSpace(txtSala.Text) || txtSala.Text == sala) &&
-                             !(string.IsNullOrWhiteSpace(txtPeriodo.Text) || txtPeriodo.Text == periodo) &&
-                             !(string.IsNullOrWhiteSpace(txtClasse.Text) || txtClasse.Text == classe))
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        else
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                    }
-                    else
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                }
-                #endregion
-
-                #region Curso
-                else if (control.Name.Equals(txtCurso.Name))
+                #region Cursos
+                if (control.Name.Equals(txtCurso.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtCurso.Text))
                     {
-                        if ( 
-                             !(string.IsNullOrWhiteSpace(txtSala.Text) || txtSala.Text == sala) &&
-                             !(string.IsNullOrWhiteSpace(txtPeriodo.Text) || txtPeriodo.Text == periodo) &&
-                             !(string.IsNullOrWhiteSpace(txtDescricao.Text) &&
-                             !(string.IsNullOrWhiteSpace(txtClasse.Text) || txtClasse.Text == classe)))
+                        if (!(string.IsNullOrWhiteSpace(txtCLasse.Text) || txtCLasse.Text == classes) &&
+                            !(string.IsNullOrWhiteSpace(txtDisciplina.Text) || txtDisciplina.Text == disciplinas) &&
+                            !(string.IsNullOrWhiteSpace(txtComponentes.Text) || txtComponentes.Text == componetes))
+                        { 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        else
+                        }
+                        else {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                        }
                     }
-                    else
+                    else {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                }
-                #endregion
-
-                #region Periodos
-                else if (control.Name.Equals(txtPeriodo.Name))
-                {
-                    if (!string.IsNullOrWhiteSpace(txtPeriodo.Text))
-                    {
-                        if (!(string.IsNullOrWhiteSpace(txtCurso.Text) || txtCurso.Text == curso) &&
-                             !(string.IsNullOrWhiteSpace(txtSala.Text) || txtSala.Text == sala) &&
-                             !(string.IsNullOrWhiteSpace(txtDescricao.Text) &&
-                             !(string.IsNullOrWhiteSpace(txtClasse.Text) || txtClasse.Text == classe)))
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        else
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                     }
-                    else
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                 }
                 #endregion
 
                 #region Classe
-                else if (control.Name.Equals(txtClasse.Name))
+                else if (control.Name.Equals(txtCLasse.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtClasse.Text))
+                    if (!string.IsNullOrWhiteSpace(txtCLasse.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtCurso.Text) || txtCurso.Text == curso) &&
-                             !(string.IsNullOrWhiteSpace(txtSala.Text) || txtSala.Text == sala) &&
-                             !(string.IsNullOrWhiteSpace(txtPeriodo.Text) || txtPeriodo.Text == periodo) &&
-                             !(string.IsNullOrWhiteSpace(txtDescricao.Text)))
+                        if (!(string.IsNullOrWhiteSpace(txtCurso.Text) || txtCurso.Text == cursos) &&
+                            !(string.IsNullOrWhiteSpace(txtDisciplina.Text) || txtDisciplina.Text == disciplinas) &&
+                            !(string.IsNullOrWhiteSpace(txtComponentes.Text) || txtComponentes.Text == componetes))
+                        {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        }
                         else
+                        {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                        }
                     }
                     else
+                    {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
                 }
                 #endregion
 
-                #region Salas
-                else if (control.Name.Equals(txtSala.Name))
+                #region Disciplina
+                else if (control.Name.Equals(txtDisciplina.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtSala.Text))
+                    if (!string.IsNullOrWhiteSpace(txtDisciplina.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtCurso.Text) || txtCurso.Text == curso) &&                       
-                             !(string.IsNullOrWhiteSpace(txtPeriodo.Text) || txtPeriodo.Text == periodo) &&
-                             !(string.IsNullOrWhiteSpace(txtDescricao.Text) &&
-                             !(string.IsNullOrWhiteSpace(txtClasse.Text) || txtClasse.Text == classe)))
+                        if (!(string.IsNullOrWhiteSpace(txtCurso.Text) || txtCurso.Text == cursos) &&
+                            !(string.IsNullOrWhiteSpace(txtCLasse.Text) || txtCLasse.Text == classes) &&
+                            !(string.IsNullOrWhiteSpace(txtComponentes.Text) || txtComponentes.Text == componetes))
+                        {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        }
                         else
+                        {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                        }
                     }
                     else
+                    {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                }
+                #endregion
+
+                #region Disciplina
+                else if (control.Name.Equals(txtComponentes.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtComponentes.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtCurso.Text) || txtCurso.Text == cursos) &&
+                            !(string.IsNullOrWhiteSpace(txtCLasse.Text) || txtCLasse.Text == classes) &&
+                            !(string.IsNullOrWhiteSpace(txtDisciplina.Text) || txtDisciplina.Text == disciplinas))
+                        {
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        }
+                        else
+                        {
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
                 }
                 #endregion
 
                 else
                 {
-                    if (   !(string.IsNullOrWhiteSpace(txtCurso.Text) || txtCurso.Text == curso) &&
-                           !(string.IsNullOrWhiteSpace(txtPeriodo.Text) || txtPeriodo.Text == periodo) &&
-                           !(string.IsNullOrWhiteSpace(txtSala.Text) || txtSala.Text == sala) &&
-                           !(string.IsNullOrWhiteSpace(txtDescricao.Text) &&
-                           !(string.IsNullOrWhiteSpace(txtClasse.Text) || txtClasse.Text == classe)))
+                    if (!(string.IsNullOrWhiteSpace(txtCurso.Text) || txtCurso.Text == cursos) &&
+                            !(string.IsNullOrWhiteSpace(txtCLasse.Text) || txtCLasse.Text == classes) &&
+                            !(string.IsNullOrWhiteSpace(txtComponentes.Text) || txtComponentes.Text == componetes) &&
+                            !(string.IsNullOrWhiteSpace(txtDisciplina.Text) || txtDisciplina.Text == disciplinas))
+                    {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                    }
                     else
+                    {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
                 }
             }
             else
@@ -440,10 +399,5 @@ namespace IEscolaDesktop.View.Forms
             return false;
         }
         #endregion
-
-        private void txtSala_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

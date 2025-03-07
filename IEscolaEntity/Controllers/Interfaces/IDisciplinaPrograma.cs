@@ -9,6 +9,6 @@ namespace IEscolaEntity.Controllers.Interfaces
 {
     public interface IDisciplinaPrograma : IGeneric<DisciplinasProgramas>, ITransationRepository
     {
-
+        Task<List<DisciplinasProgramas>> GetAllinclud();
     }
 }

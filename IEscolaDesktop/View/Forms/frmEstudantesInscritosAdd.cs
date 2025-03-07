@@ -46,7 +46,7 @@ namespace IEscolaDesktop.View.Forms
             
             txtLocalEmissao.TextChanged += delegate { ChangeValudations(txtLocalEmissao); };
             txtTipoDocumentos.TextChanged += delegate { ChangeValudations(txtTipoDocumentos); };
-            txtTurma.SelectionChanged += delegate { ChangeValudations(txtTurma); };
+            txtCurso.SelectionChanged += delegate { ChangeValudations(txtCurso); };
             txtGrauParentesco.TextChanged += delegate { ChangeValudations(txtGrauParentesco); };
 
             txtContactos.EditValueChanged += delegate { ChangeValudations(txtContactos); };
@@ -94,7 +94,7 @@ namespace IEscolaDesktop.View.Forms
                 txtTipoDocumentos.EditValue = usuarios.DocType;
                 txtDocumento.EditValue = usuarios.Documento;
                 txtDocumentoRecenciamnto.EditValue = usuarios.DocRecenciamentoMilitar;
-                txtTurma.EditValue = usuarios.CursosID;
+                txtCurso.EditValue = usuarios.CursosID;
 
                 txtDataNascimento.DateTime = usuarios.DataNascimento;
                 txtIdade.EditValue = usuarios.Idade;
@@ -144,6 +144,22 @@ namespace IEscolaDesktop.View.Forms
             pictureEdit1.MouseDoubleClick += PictureEdit1_MouseClick;
 
             btnCurso.Click += BtnCurso_Click;
+
+            //Atribuicao de Parcelas de TextNULL 1-
+            txtNacionalidade.Properties.NullText = nacionalidade;
+            txtSexo.Properties.NullText = sexo;
+            txtEstadoCivil.Properties.NullText = estadocivil;
+
+            // 2-
+            txtLocalEmissao.Properties.NullText = localemissao;
+            txtTipoDocumentos.Properties.NullText = tipodoc;
+            txtCurso.Properties.NullText = curso; 
+            
+            // 3-
+            txtProvinciaOrigem.Properties.NullText = provinciaOrigem;
+            txtFazes.Properties.NullText = fazes;
+            txtGrauParentesco.Properties.NullText = grauparentesco;
+            txtProvinciaMunicipio.Properties.NullText = municipioprovincia;
         }
 
         private void BtnCurso_Click(object sender, EventArgs e)
@@ -230,7 +246,7 @@ namespace IEscolaDesktop.View.Forms
             cursosBindingSource.DataSource = dataResult2;
 
             txtProvinciaMunicipio.Properties.DataSource = dataResult1;
-            txtTurma.Properties.DataSource = dataResult2;
+            txtCurso.Properties.DataSource = dataResult2;
 
             /// Enumeradoes
             txtNacionalidade.Properties.DataSource = Enum.GetValues(typeof(Nacionalidade));
@@ -331,7 +347,7 @@ namespace IEscolaDesktop.View.Forms
                     DocType = (DocType)txtTipoDocumentos.EditValue,
                     Documento = (string)txtDocumento.EditValue,
                     DocRecenciamentoMilitar = (string)txtDocumentoRecenciamnto.EditValue,
-                    CursosID = (int)txtTurma.EditValue,
+                    CursosID = (int)txtCurso.EditValue,
 
                     AdiconalEscolaOrigem = (string)txtEscolaOrigem.EditValue,
                     AdiconalProvincias = (ProvinciasLocal)txtProvinciaOrigem.EditValue,
@@ -398,7 +414,7 @@ namespace IEscolaDesktop.View.Forms
 
                     // Verificar a possibilidade de atualizar com base nos valores Sala Cursos e Periodos
                     var dataResult2 = await DataRepository.Get(x => ((x.ProvinciaMunicipioID == (int) txtProvinciaMunicipio.EditValue) &&
-                                                                     (x.CursosID == (int) txtTurma.EditValue)), null);
+                                                                     (x.CursosID == (int) txtCurso.EditValue)), null);
                     if (dataResult2 != null)
                     {
                         Mensagens.Display("Duplicação de Valores", "Já existe uma Turma com a descrição abaixo mencionada!",
@@ -485,8 +501,17 @@ namespace IEscolaDesktop.View.Forms
 
         private string localemissao = "[Selecione o local por favor]";
         private string tipodoc = "[Selecione o tipo de Doc por favor]";
-        private string fazes = "[Selecione o local por favor]";
+        private string curso = "[Selecione o curso em questão por favor]";
+
+        private string fazes = "[Selecione a Faze do Inscrito por favor]";
         private string grauparentesco = "[Selecione o grau parentesco]";
+        private string provinciaOrigem = "[Selecione a provincia de onde vem por favor]";
+
+        private string nacionalidade = "[Selecione a Nacionalidade por Favor]";
+        private string sexo = "[Selecione o seu Genero por favor]";
+        private string estadocivil = "[Selecione o estado civil por favor]";
+
+        private string municipioprovincia = "[Selecione a Provincia/Municipio por favor]";
 
         private void ChangeValudations(Control control)
         {
@@ -497,14 +522,13 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtFirstName.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a provincias por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
+                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
-
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
@@ -525,10 +549,10 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtLastName.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a provincias por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
+                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
@@ -554,16 +578,14 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtBI.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a provincias por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
+                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
-
-
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
@@ -584,15 +606,14 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtNacionalidade.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione a provincias por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
-
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
@@ -613,9 +634,9 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
@@ -642,9 +663,9 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtSexo.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
@@ -671,9 +692,9 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtEstadoCivil.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
@@ -702,10 +723,10 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtNomePai.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
@@ -732,10 +753,10 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtNomeMae.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
@@ -762,10 +783,10 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtResidencia.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text)  &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text)   &&
@@ -791,10 +812,10 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtenderco.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
@@ -820,10 +841,10 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtLocalEmissao.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
@@ -849,10 +870,10 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtTipoDocumentos.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtNomePai.Text) &&
@@ -875,10 +896,10 @@ namespace IEscolaDesktop.View.Forms
 
                 else
                 {
-                    if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == "[Selecione o seu genero por favor]") &&
-                            !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == "[Selecione o seu genero por favor]") &&
-                            !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == "[Selecione o estado Civil por favor]") &&
-                            !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == "[Selecione sua nacionalidade por favor]") &&
+                    if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                            !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                            !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                            !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc) &&
                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&

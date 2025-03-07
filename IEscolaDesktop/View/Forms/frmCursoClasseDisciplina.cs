@@ -11,19 +11,19 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmDisciplinaProgramas : XtraUserControl
+    public partial class frmCursoClasseDisciplina : XtraUserControl
     {
-        IDisciplinaPrograma DataRepository = null;
+        ICursoClasseDisciplina DataRepository;
 
-        List<DisciplinasProgramas>  DataOriginalList;
+        List<CursoClasseDisciplina>  DataOriginalList;
 
         AlertControl alert = null;
 
-        public frmDisciplinaProgramas()
+        public frmCursoClasseDisciplina()
         {
             InitializeComponent();
-            DataRepository = new DisciplinaProgramaRepository();
-            DataOriginalList = new List<DisciplinasProgramas>();
+            DataRepository = new CursoClasseDisciplinaRepository();
+            DataOriginalList = new List<CursoClasseDisciplina>();
 
             LeituraInicial();
 
@@ -67,7 +67,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmDisciplinaProgramasAdd(null));
+                   new frmCursoClasseDisciplinaAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();
@@ -77,10 +77,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = disciplinasProgramasBindingSource.Current as DisciplinasProgramas;
+                var result = cursoClasseDisciplinaBindingSource.Current as CursoClasseDisciplina;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmDisciplinaProgramasAdd(result ?? null));
+                    new frmCursoClasseDisciplinaAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -89,18 +89,16 @@ namespace IEscolaDesktop.View.Forms
 
         private void LeituraFilter()
         {
-            var data = DataOriginalList.FindAll(x => x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.Titulo.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.Lei.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.CursoClasseDisciplina.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.Comentario.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
-            disciplinasProgramasBindingSource.DataSource = data;
+            var data = DataOriginalList.FindAll(x => x.Cursos.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                     x.Disciplinas.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                     x.Classes.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
+            cursoClasseDisciplinaBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
-            DataOriginalList = await DataRepository.GetAllinclud();
-            disciplinasProgramasBindingSource.DataSource = DataOriginalList;
+            DataOriginalList = await DataRepository.GetAll();
+            cursoClasseDisciplinaBindingSource.DataSource = DataOriginalList;
 
             if (DataOriginalList.Count > 0)
             {
@@ -114,6 +112,7 @@ namespace IEscolaDesktop.View.Forms
         }
 
         #region Contexto Menu
+
         private void Atualizar_Click(object sender, EventArgs e)
         {
             if (gridView1.FocusedRowHandle >= 0)
@@ -135,7 +134,7 @@ namespace IEscolaDesktop.View.Forms
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = disciplinasProgramasBindingSource.Current as DisciplinasProgramas;
+                    var result = cursoClasseDisciplinaBindingSource.Current as CursoClasseDisciplina;
                     try
                     {
                         if (result != null)

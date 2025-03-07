@@ -13,7 +13,7 @@ namespace IEscolaEntity.Models
         public DateTime Data { get; set; }
         public string Lei { get; set; }
 
-        [ForeignKey(typeof(CursoClasseDisciplina))]
+        [References(typeof(CursoClasseDisciplina))]
         public int CursoClasseDisciplinaID { get; set; }
         [Reference] public CursoClasseDisciplina CursoClasseDisciplina { get; set; }
 

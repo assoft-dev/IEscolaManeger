@@ -28,8 +28,8 @@ namespace IEscolaDesktop.View.Forms
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
 
-            txtProvincias.EditValueChanged += delegate { ChangeValudations(txtProvincias); };
-            txtMunicipios.EditValueChanged += delegate { ChangeValudations(txtMunicipios); };
+            txtProvincias.TextChanged += delegate { ChangeValudations(txtProvincias); };
+            txtMunicipios.TextChanged += delegate { ChangeValudations(txtMunicipios); };
 
             btnProvincias.Click += BtnBuscarGrupos_Click;
             btnMunicipios.Click += BtnBuscar2Grupos_Click;
@@ -222,6 +222,9 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+        private string provincia = "[Selecione a provincia por favor]";
+        private string muninicio ="[Selecione o municipio por favor]";
+
         private void ChangeValudations(Control control)
         {
             if (control != null)
@@ -231,7 +234,7 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtProvincias.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtMunicipios.Text) || txtMunicipios.Text == "[Selecione o municipio por favor]"))
+                        if (!(string.IsNullOrWhiteSpace(txtMunicipios.Text) || txtMunicipios.Text == muninicio))
                         { 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -246,11 +249,11 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Municipios
-                if (control.Name.Equals(btnMunicipios.Name))
+                else if (control.Name.Equals(btnMunicipios.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(btnMunicipios.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtProvincias.Text) || txtProvincias.Text == "[Selecione a provincia por favor]"))
+                        if (!(string.IsNullOrWhiteSpace(txtProvincias.Text) || txtProvincias.Text == provincia))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -265,6 +268,19 @@ namespace IEscolaDesktop.View.Forms
                     }
                 }
                 #endregion
+
+                else
+                {
+                    if (!(string.IsNullOrWhiteSpace(txtProvincias.Text) || txtProvincias.Text == provincia) &&
+                        !(string.IsNullOrWhiteSpace(txtMunicipios.Text) || txtMunicipios.Text == provincia))
+                    {
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                    }
+                    else
+                    {
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                }
             }
             else
             {
