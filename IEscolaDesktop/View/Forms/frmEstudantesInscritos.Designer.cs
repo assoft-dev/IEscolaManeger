@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstudantesInscritos));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXLS = new DevExpress.XtraEditors.SimpleButton();
@@ -121,7 +121,7 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 60.40005F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 435.5993F)});
-            this.tablePanel1.Size = new System.Drawing.Size(794, 602);
+            this.tablePanel1.Size = new System.Drawing.Size(1405, 693);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
             // 
@@ -137,13 +137,13 @@
             this.tableLayoutPanel1.Controls.Add(this.btnPDF, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtPesquisar, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnNovo, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 19);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tablePanel1.SetRow(this.tableLayoutPanel1, 0);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(766, 41);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1377, 41);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // btnXLS
@@ -151,7 +151,7 @@
             this.btnXLS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXLS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnXLS.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXLS.ImageOptions.SvgImage")));
-            this.btnXLS.Location = new System.Drawing.Point(726, 2);
+            this.btnXLS.Location = new System.Drawing.Point(1337, 2);
             this.btnXLS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXLS.Name = "btnXLS";
             this.btnXLS.Size = new System.Drawing.Size(37, 37);
@@ -163,7 +163,7 @@
             this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPDF.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPDF.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPDF.ImageOptions.SvgImage")));
-            this.btnPDF.Location = new System.Drawing.Point(683, 2);
+            this.btnPDF.Location = new System.Drawing.Point(1294, 2);
             this.btnPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPDF.Name = "btnPDF";
             this.btnPDF.Size = new System.Drawing.Size(37, 37);
@@ -177,11 +177,11 @@
             this.txtPesquisar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Properties.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.txtPesquisar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtPesquisar.Properties.NullValuePrompt = "Pesquise Aqui [Estudantes - Inscrições]";
-            this.txtPesquisar.Size = new System.Drawing.Size(631, 37);
+            this.txtPesquisar.Size = new System.Drawing.Size(1242, 37);
             this.txtPesquisar.TabIndex = 0;
             // 
             // btnNovo
@@ -189,7 +189,7 @@
             this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNovo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNovo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNovo.ImageOptions.SvgImage")));
-            this.btnNovo.Location = new System.Drawing.Point(640, 2);
+            this.btnNovo.Location = new System.Drawing.Point(1251, 2);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(37, 37);
@@ -202,14 +202,14 @@
             this.gridControl1.DataSource = this.estudantesInscricoesBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridControl1.Location = new System.Drawing.Point(14, 58);
+            this.gridControl1.Location = new System.Drawing.Point(14, 72);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
             this.tablePanel1.SetRow(this.gridControl1, 1);
-            this.gridControl1.Size = new System.Drawing.Size(766, 531);
+            this.gridControl1.Size = new System.Drawing.Size(1377, 608);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -293,8 +293,8 @@
             this.colFullName.Name = "colFullName";
             this.colFullName.OptionsColumn.ReadOnly = true;
             this.colFullName.Visible = true;
-            this.colFullName.VisibleIndex = 2;
-            this.colFullName.Width = 85;
+            this.colFullName.VisibleIndex = 1;
+            this.colFullName.Width = 101;
             // 
             // colBI
             // 
@@ -302,8 +302,8 @@
             this.colBI.FieldName = "BI";
             this.colBI.Name = "colBI";
             this.colBI.Visible = true;
-            this.colBI.VisibleIndex = 3;
-            this.colBI.Width = 90;
+            this.colBI.VisibleIndex = 2;
+            this.colBI.Width = 82;
             // 
             // colNaturalidade
             // 
@@ -315,8 +315,6 @@
             // 
             this.colNacionalidade.FieldName = "Nacionalidade";
             this.colNacionalidade.Name = "colNacionalidade";
-            this.colNacionalidade.Visible = true;
-            this.colNacionalidade.VisibleIndex = 4;
             this.colNacionalidade.Width = 132;
             // 
             // colDataNascimento
@@ -331,8 +329,8 @@
             this.colIdade.Name = "colIdade";
             this.colIdade.OptionsColumn.ReadOnly = true;
             this.colIdade.Visible = true;
-            this.colIdade.VisibleIndex = 5;
-            this.colIdade.Width = 81;
+            this.colIdade.VisibleIndex = 3;
+            this.colIdade.Width = 73;
             // 
             // colProvinciaMunicipioID
             // 
@@ -340,8 +338,8 @@
             this.colProvinciaMunicipioID.FieldName = "ProvinciasMunicipios.Descricao";
             this.colProvinciaMunicipioID.Name = "colProvinciaMunicipioID";
             this.colProvinciaMunicipioID.Visible = true;
-            this.colProvinciaMunicipioID.VisibleIndex = 6;
-            this.colProvinciaMunicipioID.Width = 161;
+            this.colProvinciaMunicipioID.VisibleIndex = 7;
+            this.colProvinciaMunicipioID.Width = 147;
             // 
             // colGrauParentesco
             // 
@@ -378,40 +376,40 @@
             this.colSexo.FieldName = "Sexo";
             this.colSexo.Name = "colSexo";
             this.colSexo.Visible = true;
-            this.colSexo.VisibleIndex = 7;
-            this.colSexo.Width = 76;
+            this.colSexo.VisibleIndex = 4;
+            this.colSexo.Width = 68;
             // 
             // colEstadoCivil
             // 
             this.colEstadoCivil.FieldName = "EstadoCivil";
             this.colEstadoCivil.Name = "colEstadoCivil";
             this.colEstadoCivil.Visible = true;
-            this.colEstadoCivil.VisibleIndex = 8;
-            this.colEstadoCivil.Width = 115;
+            this.colEstadoCivil.VisibleIndex = 5;
+            this.colEstadoCivil.Width = 104;
             // 
             // colResidencia
             // 
             this.colResidencia.FieldName = "Residencia";
             this.colResidencia.Name = "colResidencia";
             this.colResidencia.Visible = true;
-            this.colResidencia.VisibleIndex = 9;
-            this.colResidencia.Width = 110;
+            this.colResidencia.VisibleIndex = 8;
+            this.colResidencia.Width = 100;
             // 
             // colEndereco
             // 
             this.colEndereco.FieldName = "Endereco";
             this.colEndereco.Name = "colEndereco";
             this.colEndereco.Visible = true;
-            this.colEndereco.VisibleIndex = 10;
-            this.colEndereco.Width = 103;
+            this.colEndereco.VisibleIndex = 9;
+            this.colEndereco.Width = 94;
             // 
             // colContacto
             // 
             this.colContacto.FieldName = "Contacto";
             this.colContacto.Name = "colContacto";
             this.colContacto.Visible = true;
-            this.colContacto.VisibleIndex = 11;
-            this.colContacto.Width = 100;
+            this.colContacto.VisibleIndex = 10;
+            this.colContacto.Width = 91;
             // 
             // colCelular
             // 
@@ -430,8 +428,8 @@
             this.colEmail.FieldName = "Email";
             this.colEmail.Name = "colEmail";
             this.colEmail.Visible = true;
-            this.colEmail.VisibleIndex = 12;
-            this.colEmail.Width = 79;
+            this.colEmail.VisibleIndex = 11;
+            this.colEmail.Width = 146;
             // 
             // colNomeEncarregado
             // 
@@ -461,8 +459,6 @@
             // 
             this.colDocType.FieldName = "DocType";
             this.colDocType.Name = "colDocType";
-            this.colDocType.Visible = true;
-            this.colDocType.VisibleIndex = 13;
             this.colDocType.Width = 103;
             // 
             // colDocumento
@@ -485,11 +481,12 @@
             // 
             // colCursosID
             // 
+            this.colCursosID.Caption = "Curso";
             this.colCursosID.FieldName = "Cursos.Descricao";
             this.colCursosID.Name = "colCursosID";
             this.colCursosID.Visible = true;
-            this.colCursosID.VisibleIndex = 14;
-            this.colCursosID.Width = 104;
+            this.colCursosID.VisibleIndex = 6;
+            this.colCursosID.Width = 95;
             // 
             // colCursos
             // 
@@ -543,8 +540,6 @@
             // 
             this.colIsActived.FieldName = "IsActived";
             this.colIsActived.Name = "colIsActived";
-            this.colIsActived.Visible = true;
-            this.colIsActived.VisibleIndex = 15;
             this.colIsActived.Width = 103;
             // 
             // colMedia
@@ -552,16 +547,16 @@
             this.colMedia.FieldName = "Media";
             this.colMedia.Name = "colMedia";
             this.colMedia.Visible = true;
-            this.colMedia.VisibleIndex = 16;
-            this.colMedia.Width = 85;
+            this.colMedia.VisibleIndex = 12;
+            this.colMedia.Width = 46;
             // 
             // colDataFicha
             // 
             this.colDataFicha.FieldName = "DataFicha";
             this.colDataFicha.Name = "colDataFicha";
             this.colDataFicha.Visible = true;
-            this.colDataFicha.VisibleIndex = 1;
-            this.colDataFicha.Width = 108;
+            this.colDataFicha.VisibleIndex = 13;
+            this.colDataFicha.Width = 65;
             // 
             // colFAZES
             // 
@@ -569,16 +564,17 @@
             this.colFAZES.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colFAZES.ImageOptions.Image")));
             this.colFAZES.Name = "colFAZES";
             this.colFAZES.Visible = true;
-            this.colFAZES.VisibleIndex = 17;
-            this.colFAZES.Width = 83;
+            this.colFAZES.VisibleIndex = 14;
+            this.colFAZES.Width = 86;
             // 
             // colCodigo
             // 
+            this.colCodigo.Caption = "Código";
             this.colCodigo.FieldName = "Codigo";
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.Visible = true;
             this.colCodigo.VisibleIndex = 0;
-            this.colCodigo.Width = 91;
+            this.colCodigo.Width = 52;
             // 
             // colFirstName
             // 
@@ -609,40 +605,40 @@
             this.btnRelatorios,
             this.btnReportdatabase});
             this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(252, 168);
+            this.MenuPrinciapl.Size = new System.Drawing.Size(230, 168);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(251, 38);
+            this.btnAtualizar.Size = new System.Drawing.Size(229, 38);
             this.btnAtualizar.Text = "Editar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(248, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
             this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(251, 38);
+            this.btnApagar.Size = new System.Drawing.Size(229, 38);
             this.btnApagar.Text = "Apagar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(248, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(226, 6);
             // 
             // btnRelatorios
             // 
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(251, 38);
+            this.btnRelatorios.Size = new System.Drawing.Size(229, 38);
             this.btnRelatorios.Text = "Relatórios";
             // 
             // btnReportdatabase
@@ -650,7 +646,7 @@
             this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
             this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(251, 38);
+            this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
             // frmEstudantesInscritos
@@ -660,7 +656,7 @@
             this.Controls.Add(this.tablePanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmEstudantesInscritos";
-            this.Size = new System.Drawing.Size(794, 602);
+            this.Size = new System.Drawing.Size(1405, 693);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

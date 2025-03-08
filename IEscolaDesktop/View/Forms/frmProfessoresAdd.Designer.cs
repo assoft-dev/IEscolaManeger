@@ -1,6 +1,6 @@
 ﻿namespace IEscolaDesktop.View.Forms
 {
-    partial class frmEstudantesAdd
+    partial class frmProfessoresAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstudantesInscritosAdd));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProfessoresAdd));
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
@@ -357,7 +357,7 @@
             this.navigationPage1.Caption = "(1) Informação Pessoal";
             this.navigationPage1.Controls.Add(this.tablePanel2);
             this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(679, 586);
+            this.navigationPage1.Size = new System.Drawing.Size(679, 582);
             // 
             // tablePanel2
             // 
@@ -412,7 +412,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 60.14F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 29.43F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 63.81F)});
-            this.tablePanel2.Size = new System.Drawing.Size(679, 586);
+            this.tablePanel2.Size = new System.Drawing.Size(679, 582);
             this.tablePanel2.TabIndex = 2;
             this.tablePanel2.UseSkinIndents = true;
             // 
@@ -426,7 +426,7 @@
             this.panelControl4.Location = new System.Drawing.Point(342, 12);
             this.panelControl4.Name = "panelControl4";
             this.tablePanel2.SetRow(this.panelControl4, 0);
-            this.panelControl4.Size = new System.Drawing.Size(325, 119);
+            this.panelControl4.Size = new System.Drawing.Size(325, 118);
             this.panelControl4.TabIndex = 19;
             // 
             // txtImagemURL
@@ -458,7 +458,7 @@
             this.tablePanel2.SetColumn(this.panelControl2, 0);
             this.panelControl2.Controls.Add(this.txtFirstName);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(14, 215);
+            this.panelControl2.Location = new System.Drawing.Point(14, 213);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -486,7 +486,7 @@
             this.tablePanel2.SetColumn(this.panelControl1, 0);
             this.panelControl1.Controls.Add(this.txtSexo);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(14, 463);
+            this.panelControl1.Location = new System.Drawing.Point(14, 460);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -516,7 +516,7 @@
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
             this.tablePanel2.SetColumn(this.labelControl1, 0);
-            this.labelControl1.Location = new System.Drawing.Point(14, 197);
+            this.labelControl1.Location = new System.Drawing.Point(14, 195);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.tablePanel2.SetRow(this.labelControl1, 3);
@@ -529,7 +529,7 @@
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl2.Appearance.Options.UseFont = true;
             this.tablePanel2.SetColumn(this.labelControl2, 0);
-            this.labelControl2.Location = new System.Drawing.Point(14, 258);
+            this.labelControl2.Location = new System.Drawing.Point(14, 256);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.tablePanel2.SetRow(this.labelControl2, 5);
@@ -544,7 +544,7 @@
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
             this.tablePanel2.SetColumn(this.labelControl3, 0);
-            this.labelControl3.Location = new System.Drawing.Point(14, 137);
+            this.labelControl3.Location = new System.Drawing.Point(14, 136);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
             this.tablePanel2.SetRow(this.labelControl3, 1);
@@ -560,7 +560,7 @@
             this.tablePanel2.SetColumn(this.panelControl3, 0);
             this.panelControl3.Controls.Add(this.txtCodigo);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(14, 157);
+            this.panelControl3.Location = new System.Drawing.Point(14, 156);
             this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -587,7 +587,7 @@
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl5.Appearance.Options.UseFont = true;
             this.tablePanel2.SetColumn(this.labelControl5, 0);
-            this.labelControl5.Location = new System.Drawing.Point(14, 318);
+            this.labelControl5.Location = new System.Drawing.Point(14, 315);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
             this.tablePanel2.SetRow(this.labelControl5, 7);
@@ -600,7 +600,7 @@
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl6.Appearance.Options.UseFont = true;
             this.tablePanel2.SetColumn(this.labelControl6, 1);
-            this.labelControl6.Location = new System.Drawing.Point(343, 318);
+            this.labelControl6.Location = new System.Drawing.Point(343, 315);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
             this.tablePanel2.SetRow(this.labelControl6, 7);
@@ -613,7 +613,7 @@
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl7.Appearance.Options.UseFont = true;
             this.tablePanel2.SetColumn(this.labelControl7, 0);
-            this.labelControl7.Location = new System.Drawing.Point(14, 379);
+            this.labelControl7.Location = new System.Drawing.Point(14, 376);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl7.Name = "labelControl7";
             this.tablePanel2.SetRow(this.labelControl7, 9);
@@ -630,7 +630,7 @@
             this.panelControl7.Controls.Add(this.txtProvinciaMunicipio);
             this.panelControl7.Controls.Add(this.btnProvinciaMunicipios);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl7.Location = new System.Drawing.Point(14, 398);
+            this.panelControl7.Location = new System.Drawing.Point(14, 395);
             this.panelControl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl7.Name = "panelControl7";
             this.panelControl7.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -683,7 +683,7 @@
             this.tablePanel2.SetColumn(this.panelControl8, 1);
             this.panelControl8.Controls.Add(this.txtLastName);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl8.Location = new System.Drawing.Point(343, 215);
+            this.panelControl8.Location = new System.Drawing.Point(343, 213);
             this.panelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl8.Name = "panelControl8";
             this.panelControl8.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -710,7 +710,7 @@
             this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Appearance.Options.UseForeColor = true;
             this.tablePanel2.SetColumn(this.labelControl9, 1);
-            this.labelControl9.Location = new System.Drawing.Point(343, 197);
+            this.labelControl9.Location = new System.Drawing.Point(343, 195);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl9.Name = "labelControl9";
             this.tablePanel2.SetRow(this.labelControl9, 3);
@@ -725,7 +725,7 @@
             this.panelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl9, 0);
             this.panelControl9.Controls.Add(this.txtBI);
-            this.panelControl9.Location = new System.Drawing.Point(14, 277);
+            this.panelControl9.Location = new System.Drawing.Point(14, 275);
             this.panelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl9.Name = "panelControl9";
             this.panelControl9.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -753,7 +753,7 @@
             this.tablePanel2.SetColumn(this.panelControl12, 0);
             this.panelControl12.Controls.Add(this.txtNacionalidade);
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl12.Location = new System.Drawing.Point(14, 337);
+            this.panelControl12.Location = new System.Drawing.Point(14, 334);
             this.panelControl12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl12.Name = "panelControl12";
             this.panelControl12.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -784,7 +784,7 @@
             this.tablePanel2.SetColumn(this.panelControl13, 1);
             this.panelControl13.Controls.Add(this.txtIdade);
             this.panelControl13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl13.Location = new System.Drawing.Point(343, 337);
+            this.panelControl13.Location = new System.Drawing.Point(343, 334);
             this.panelControl13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl13.Name = "panelControl13";
             this.panelControl13.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -810,7 +810,7 @@
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl10.Appearance.Options.UseFont = true;
             this.tablePanel2.SetColumn(this.labelControl10, 0);
-            this.labelControl10.Location = new System.Drawing.Point(14, 443);
+            this.labelControl10.Location = new System.Drawing.Point(14, 440);
             this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl10.Name = "labelControl10";
             this.tablePanel2.SetRow(this.labelControl10, 11);
@@ -823,7 +823,7 @@
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl11.Appearance.Options.UseFont = true;
             this.tablePanel2.SetColumn(this.labelControl11, 1);
-            this.labelControl11.Location = new System.Drawing.Point(343, 443);
+            this.labelControl11.Location = new System.Drawing.Point(343, 440);
             this.labelControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl11.Name = "labelControl11";
             this.tablePanel2.SetRow(this.labelControl11, 11);
@@ -839,7 +839,7 @@
             this.tablePanel2.SetColumn(this.panelControl5, 1);
             this.panelControl5.Controls.Add(this.txtEstadoCivil);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(343, 463);
+            this.panelControl5.Location = new System.Drawing.Point(343, 460);
             this.panelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl5.Name = "panelControl5";
             this.panelControl5.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -867,7 +867,7 @@
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl8.Appearance.Options.UseFont = true;
             this.tablePanel2.SetColumn(this.labelControl8, 0);
-            this.labelControl8.Location = new System.Drawing.Point(14, 509);
+            this.labelControl8.Location = new System.Drawing.Point(14, 506);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl8.Name = "labelControl8";
             this.tablePanel2.SetRow(this.labelControl8, 13);
@@ -880,7 +880,7 @@
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl12.Appearance.Options.UseFont = true;
             this.tablePanel2.SetColumn(this.labelControl12, 1);
-            this.labelControl12.Location = new System.Drawing.Point(343, 509);
+            this.labelControl12.Location = new System.Drawing.Point(343, 506);
             this.labelControl12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl12.Name = "labelControl12";
             this.tablePanel2.SetRow(this.labelControl12, 13);
@@ -897,12 +897,12 @@
             this.panelControl6.Controls.Add(this.txtNomePai);
             this.panelControl6.Controls.Add(this.txtPaiVive);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl6.Location = new System.Drawing.Point(14, 529);
+            this.panelControl6.Location = new System.Drawing.Point(14, 526);
             this.panelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tablePanel2.SetRow(this.panelControl6, 14);
-            this.panelControl6.Size = new System.Drawing.Size(323, 44);
+            this.panelControl6.Size = new System.Drawing.Size(323, 43);
             this.panelControl6.TabIndex = 18;
             // 
             // txtNomePai
@@ -914,7 +914,7 @@
             this.txtNomePai.Name = "txtNomePai";
             this.txtNomePai.Properties.AutoHeight = false;
             this.txtNomePai.Properties.NullValuePrompt = "Descreva aqui o nome do seu Pai";
-            this.txtNomePai.Size = new System.Drawing.Size(265, 41);
+            this.txtNomePai.Size = new System.Drawing.Size(265, 40);
             this.txtNomePai.TabIndex = 8;
             // 
             // txtPaiVive
@@ -923,7 +923,7 @@
             this.txtPaiVive.Location = new System.Drawing.Point(265, 0);
             this.txtPaiVive.Name = "txtPaiVive";
             this.txtPaiVive.Properties.Caption = "Vive?";
-            this.txtPaiVive.Size = new System.Drawing.Size(55, 41);
+            this.txtPaiVive.Size = new System.Drawing.Size(55, 40);
             this.txtPaiVive.TabIndex = 8;
             // 
             // panelControl10
@@ -935,12 +935,12 @@
             this.panelControl10.Controls.Add(this.txtNomeMae);
             this.panelControl10.Controls.Add(this.txtMaeVive);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl10.Location = new System.Drawing.Point(343, 529);
+            this.panelControl10.Location = new System.Drawing.Point(343, 526);
             this.panelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl10.Name = "panelControl10";
             this.panelControl10.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tablePanel2.SetRow(this.panelControl10, 14);
-            this.panelControl10.Size = new System.Drawing.Size(323, 44);
+            this.panelControl10.Size = new System.Drawing.Size(323, 43);
             this.panelControl10.TabIndex = 18;
             // 
             // txtNomeMae
@@ -952,7 +952,7 @@
             this.txtNomeMae.Name = "txtNomeMae";
             this.txtNomeMae.Properties.AutoHeight = false;
             this.txtNomeMae.Properties.NullValuePrompt = "Descreva aqui o nome da Mãe";
-            this.txtNomeMae.Size = new System.Drawing.Size(268, 41);
+            this.txtNomeMae.Size = new System.Drawing.Size(268, 40);
             this.txtNomeMae.TabIndex = 8;
             // 
             // txtMaeVive
@@ -961,7 +961,7 @@
             this.txtMaeVive.Location = new System.Drawing.Point(268, 0);
             this.txtMaeVive.Name = "txtMaeVive";
             this.txtMaeVive.Properties.Caption = "Vive?";
-            this.txtMaeVive.Size = new System.Drawing.Size(52, 41);
+            this.txtMaeVive.Size = new System.Drawing.Size(52, 40);
             this.txtMaeVive.TabIndex = 8;
             // 
             // panelControl11
@@ -971,7 +971,7 @@
             this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl11, 1);
             this.panelControl11.Controls.Add(this.txtDataNascimento);
-            this.panelControl11.Location = new System.Drawing.Point(343, 277);
+            this.panelControl11.Location = new System.Drawing.Point(343, 275);
             this.panelControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl11.Name = "panelControl11";
             this.panelControl11.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -1005,7 +1005,7 @@
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.labelControl4.Appearance.Options.UseFont = true;
             this.tablePanel2.SetColumn(this.labelControl4, 1);
-            this.labelControl4.Location = new System.Drawing.Point(343, 258);
+            this.labelControl4.Location = new System.Drawing.Point(343, 256);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
             this.tablePanel2.SetRow(this.labelControl4, 5);
@@ -1021,7 +1021,7 @@
             this.tablePanel2.SetColumn(this.panelControl37, 1);
             this.panelControl37.Controls.Add(this.txtCodigoUnico);
             this.panelControl37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl37.Location = new System.Drawing.Point(343, 157);
+            this.panelControl37.Location = new System.Drawing.Point(343, 156);
             this.panelControl37.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl37.Name = "panelControl37";
             this.panelControl37.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
@@ -1050,7 +1050,7 @@
             this.labelControl39.Appearance.Options.UseFont = true;
             this.labelControl39.Appearance.Options.UseForeColor = true;
             this.tablePanel2.SetColumn(this.labelControl39, 1);
-            this.labelControl39.Location = new System.Drawing.Point(343, 137);
+            this.labelControl39.Location = new System.Drawing.Point(343, 136);
             this.labelControl39.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl39.Name = "labelControl39";
             this.tablePanel2.SetRow(this.labelControl39, 1);
@@ -2313,7 +2313,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -2346,7 +2346,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(429, 22);
+            this.panel1.Size = new System.Drawing.Size(428, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -2364,9 +2364,9 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(5, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.Size = new System.Drawing.Size(119, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Estudantes Inscrições";
+            this.label1.Text = "Professores Inscrições";
             // 
             // windowsUIButtonPanel1
             // 
@@ -2393,13 +2393,13 @@
             // 
             this.xtraOpenFileDialog1.FileName = "xtraOpenFileDialog1";
             // 
-            // frmEstudantesInscritosAdd
+            // frmProfessoresAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tablePanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmEstudantesInscritosAdd";
+            this.Name = "frmProfessoresAdd";
             this.Size = new System.Drawing.Size(907, 776);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);

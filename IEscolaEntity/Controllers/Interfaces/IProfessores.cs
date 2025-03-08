@@ -9,5 +9,7 @@ namespace IEscolaEntity.Controllers.Interfaces
 {
     public interface IProfessores: ITransationRepository, IGeneric<Professores>
     {
+        Task<string> GetQR();
+        Task<List<Professores>> GetAllinclud();
     }
 }

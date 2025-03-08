@@ -13,19 +13,19 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmEstudantes : XtraUserControl
+    public partial class frmProfessores : XtraUserControl
     {
-        IEstudantes dataRepository;
+        IProfessores dataRepository;
 
-        List<Estudantes>  UsuariosOriginalList;
+        List<Professores>  UsuariosOriginalList;
 
         AlertControl alert = null;
 
-        public frmEstudantes()
+        public frmProfessores()
         {
             InitializeComponent();
-            dataRepository = new EstudantesRepository();
-            UsuariosOriginalList = new List<Estudantes>();
+            dataRepository = new ProfessoresRepository();
+            UsuariosOriginalList = new List<Professores>();
 
             LeituraInicial();
 
@@ -61,10 +61,10 @@ namespace IEscolaDesktop.View.Forms
             using (ReportDisposed rep = new ReportDisposed())
             {
                 //Busca dos valores
-                var buscas = estudantesBindingSource.DataSource as List<Estudantes>;
+                var buscas = professoresBindingSource.DataSource as List<Professores>;
                 if (buscas.Count != 0)
                 {
-                    rep.GetReport(new rptEstudantes(buscas), "." + Extension, Caminho);
+                    rep.GetReport(new rptProfessores(buscas), "." + Extension, Caminho);
 
                     var form = Application.OpenForms;
                     foreach (Form item in form)
@@ -121,10 +121,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = estudantesBindingSource.Current as Estudantes;
+                var result = professoresBindingSource.Current as Professores;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmEstudantesAdd(result ?? null));
+                    new frmProfessoresAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -133,18 +133,18 @@ namespace IEscolaDesktop.View.Forms
 
         private void LeituraFilter()
         {
-            var data = UsuariosOriginalList.FindAll(x => x.Inscricoes.FullName.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.Inscricoes.BI.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.Inscricoes.Celular.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.Inscricoes.ProvinciasMunicipios.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.Inscricoes.EstadoCivil.ToString().ToUpper().Contains(txtPesquisar.Text.ToUpper()) );
-            estudantesBindingSource.DataSource = data;
+            var data = UsuariosOriginalList.FindAll(x => x.FullName.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                         x.BI.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                         x.Celular.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                         x.ProvinciasMunicipios.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                         x.EstadoCivil.ToString().ToUpper().Contains(txtPesquisar.Text.ToUpper()) );
+            professoresBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
-            UsuariosOriginalList = await dataRepository.GetAll();
-            estudantesBindingSource.DataSource = UsuariosOriginalList;
+            UsuariosOriginalList = await dataRepository.GetAllinclud();
+            professoresBindingSource.DataSource = UsuariosOriginalList;
 
             if (UsuariosOriginalList.Count > 0)
             {
@@ -160,9 +160,9 @@ namespace IEscolaDesktop.View.Forms
         #region Contexto Menu
         private void BaseDeDados_Click(object sender, EventArgs e)
         {
-            var user = estudantesBindingSource.DataSource as List<Estudantes>;
+            var user = professoresBindingSource.DataSource as List<Professores>;
             if (user != null)
-                GlobalReport.GetReport(new rptEstudantes(user), false);
+                GlobalReport.GetReport(new rptProfessores(user), false);
         }
 
         private void Atualizar_Click(object sender, EventArgs e)
@@ -186,7 +186,7 @@ namespace IEscolaDesktop.View.Forms
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = estudantesBindingSource.Current as Estudantes;
+                    var result = professoresBindingSource.Current as Professores;
                     try
                     {
                         if (result != null)

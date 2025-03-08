@@ -120,6 +120,30 @@
     <Compile Include="View\Forms\frmDisciplinaAdd.Designer.cs">
       <DependentUpon>frmDisciplinaAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmEstudantes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantes.Designer.cs">
+      <DependentUpon>frmEstudantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantesAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantesAdd.Designer.cs">
+      <DependentUpon>frmEstudantesAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresAdd.Designer.cs">
+      <DependentUpon>frmProfessoresAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessores.Designer.cs">
+      <DependentUpon>frmProfessores.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmPropinasRecibo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,18 +215,6 @@
     </Compile>
     <Compile Include="View\Forms\frmEstudantesInscritos.Designer.cs">
       <DependentUpon>frmEstudantesInscritos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Forms\frmEstudantesAdd.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Forms\frmEstudantesAdd.Designer.cs">
-      <DependentUpon>frmEstudantesAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Forms\frmEstudantes.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\Forms\frmEstudantes.Designer.cs">
-      <DependentUpon>frmEstudantes.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\frmBiblioteca_PedidosAdd.cs">
       <SubType>UserControl</SubType>
@@ -498,6 +510,12 @@
     <Compile Include="View\ReportForms\rptPedidoInvoice.Designer.cs">
       <DependentUpon>rptPedidoInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ReportForms\rptProfessores.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptProfessores.Designer.cs">
+      <DependentUpon>rptProfessores.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ReportForms\rptTurmas.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -538,6 +556,18 @@
     <EmbeddedResource Include="View\Forms\frmDisciplinaAdd.resx">
       <DependentUpon>frmDisciplinaAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmEstudantes.resx">
+      <DependentUpon>frmEstudantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmEstudantesAdd.resx">
+      <DependentUpon>frmEstudantesAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProfessoresAdd.resx">
+      <DependentUpon>frmProfessoresAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProfessores.resx">
+      <DependentUpon>frmProfessores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmPropinasRecibo.resx">
       <DependentUpon>frmPropinasRecibo.cs</DependentUpon>
     </EmbeddedResource>
@@ -573,12 +603,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmEstudantesInscritos.resx">
       <DependentUpon>frmEstudantesInscritos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Forms\frmEstudantesAdd.resx">
-      <DependentUpon>frmEstudantesAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Forms\frmEstudantes.resx">
-      <DependentUpon>frmEstudantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmBiblioteca_PedidosAdd.resx">
       <DependentUpon>frmBiblioteca_PedidosAdd.cs</DependentUpon>
@@ -721,6 +745,9 @@
     <EmbeddedResource Include="View\ReportForms\rptPedidoInvoice.resx">
       <DependentUpon>rptPedidoInvoice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptProfessores.resx">
+      <DependentUpon>rptProfessores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ReportForms\rptTurmas.resx">
       <DependentUpon>rptTurmas.cs</DependentUpon>
     </EmbeddedResource>
@@ -745,6 +772,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Municipios.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Permissoes.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Professores.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasConfig.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasPagamentos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasRecibos.datasource" />

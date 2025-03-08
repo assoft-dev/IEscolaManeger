@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using IEscolaDesktop.View.Helps;
 using IEscolaDesktop.View.ReportForms;
+using IEscolaEntity.Controllers.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
@@ -126,8 +127,6 @@ namespace IEscolaDesktop.View.Forms
                 txtDataNascimento.DateTime = DateTime.Now;
             }
 
-            this.Load += FrmUsuariosAdd_Load;
-
             #region Calcula Idade
             txtDataNascimento.EditValueChanged += delegate {
 
@@ -147,19 +146,23 @@ namespace IEscolaDesktop.View.Forms
 
             //Atribuicao de Parcelas de TextNULL 1-
             txtNacionalidade.Properties.NullText = nacionalidade;
+            txtProvinciaOrigem.Properties.NullText = provinciaOrigem;
+
+
             txtSexo.Properties.NullText = sexo;
             txtEstadoCivil.Properties.NullText = estadocivil;
 
             // 2-
             txtLocalEmissao.Properties.NullText = localemissao;
             txtTipoDocumentos.Properties.NullText = tipodoc;
-            txtCurso.Properties.NullText = curso; 
+            txtCurso.Properties.NullText = curso;
             
             // 3-
-            txtProvinciaOrigem.Properties.NullText = provinciaOrigem;
             txtFazes.Properties.NullText = fazes;
             txtGrauParentesco.Properties.NullText = grauparentesco;
             txtProvinciaMunicipio.Properties.NullText = municipioprovincia;
+
+            this.Load += FrmUsuariosAdd_Load;
         }
 
         private void BtnCurso_Click(object sender, EventArgs e)
@@ -312,7 +315,7 @@ namespace IEscolaDesktop.View.Forms
             if (!await ValidationDatabase())
             {
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
-                var codigo = await DataRepository.GetQR();
+                var codigo = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? await DataRepository.GetQR() : txtCodigoUnico.Text;
 
                 // save Data
                 var data = new EstudantesInscricoes
@@ -358,7 +361,7 @@ namespace IEscolaDesktop.View.Forms
 
                     DataNascimento =  txtDataNascimento.DateTime,              
 
-                    ImagemURL = txtImagemURL.Text,
+                    ImagemURL = txtImagemURL.Text, 
 
                     FAZES = (FAZES)txtFazes.EditValue,
                     AdicionalFichaInscricao = (bool)txtFichaInscricao.Checked,
@@ -373,6 +376,7 @@ namespace IEscolaDesktop.View.Forms
                 if (IsValidate)
                 {
                     // Imprimir Relatorio
+
                     #region Imprimir
                     var items = new List<EstudantesInscricoes>();
                     items.Add(data);
@@ -502,15 +506,12 @@ namespace IEscolaDesktop.View.Forms
         private string localemissao = "[Selecione o local por favor]";
         private string tipodoc = "[Selecione o tipo de Doc por favor]";
         private string curso = "[Selecione o curso em questão por favor]";
-
         private string fazes = "[Selecione a Faze do Inscrito por favor]";
         private string grauparentesco = "[Selecione o grau parentesco]";
         private string provinciaOrigem = "[Selecione a provincia de onde vem por favor]";
-
         private string nacionalidade = "[Selecione a Nacionalidade por Favor]";
         private string sexo = "[Selecione o seu Genero por favor]";
         private string estadocivil = "[Selecione o estado civil por favor]";
-
         private string municipioprovincia = "[Selecione a Provincia/Municipio por favor]";
 
         private void ChangeValudations(Control control)
@@ -920,6 +921,25 @@ namespace IEscolaDesktop.View.Forms
             else
             {
                 windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+            }
+        }
+
+        private void ActivarGuardar()
+        {
+            if (txtEmail.Text.Contains("@"))
+            {
+                if (EmailValidade.GetIstance().IsValidEmail(txtEmail.Text))
+                    windowsUIButtonPanel1.Enabled = true;
+                else
+                    windowsUIButtonPanel1.Enabled = false;
+            }
+
+            if (txtEmail.Text.Contains("@"))
+            {
+                if (EmailValidade.GetIstance().IsValidEmail(txtEmail.Text))
+                    windowsUIButtonPanel1.Enabled = true;
+                else
+                    windowsUIButtonPanel1.Enabled = false;
             }
         }
 
