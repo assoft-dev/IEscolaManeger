@@ -13,8 +13,6 @@ namespace IEscolaEntity.Models
         
         public Escolaridade Escolaridade { get; set; }
         public AbilitacoesLiterarias abilitacoesLiterarias { get; set; }
-
-
         public string AreaEscola { get; set; }
         public string AreaData { get; set; }
         public string AreaDuracao { get; set; }

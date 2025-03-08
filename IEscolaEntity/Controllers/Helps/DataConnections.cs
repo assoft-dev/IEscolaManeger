@@ -167,7 +167,6 @@ namespace IEscolaEntity.Controllers.Helps
             }
             #endregion
 
-
             #region UsuariosLogs
             var logs = new UsuariosLogs
             {
@@ -219,6 +218,9 @@ namespace IEscolaEntity.Controllers.Helps
             Db.CreateTableIfNotExists<Disciplinas>();
             Db.CreateTableIfNotExists<CursoClasseDisciplina>();
             Db.CreateTableIfNotExists<DisciplinasProgramas>();
+
+            Db.CreateTableIfNotExists<ProfessorAreaFormacao>();       
+            Db.CreateTableIfNotExists<ProfessoresDisciplinas>();
         }
 
         public void UPDATETABLE()
@@ -232,6 +234,7 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<Provincias>.AsyncColuns(Db);
             DataColunsAsync<Municipios>.AsyncColuns(Db);
             DataColunsAsync<ProvinciasMunicipios>.AsyncColuns(Db);
+
             DataColunsAsync<Professores>.AsyncColuns(Db);
 
             DataColunsAsync<Salas>.AsyncColuns(Db);
@@ -259,6 +262,9 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<Disciplinas>.AsyncColuns(Db);
             DataColunsAsync<CursoClasseDisciplina>.AsyncColuns(Db);
             DataColunsAsync<DisciplinasProgramas>.AsyncColuns(Db);
+
+            DataColunsAsync<ProfessorAreaFormacao>.AsyncColuns(Db);
+            DataColunsAsync<ProfessoresDisciplinas>.AsyncColuns(Db);
         }
     }
 }

@@ -1,16 +1,19 @@
 ﻿using ServiceStack.DataAnnotations;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace IEscolaEntity.Models
 {
     public class ProfessorAreaFormacao
     {
-        [AutoIncrement]
+        [AutoIncrement, Display(Name = "Código")]
         public int ProfessorAreaFormacaoID { get; set; }
+
+
+        [Display(Name = "Referência")]
         public string Descricao { get; set; }
+
+
+        [Reference] public List<Professores> Professores { get; set; }
     }
 }

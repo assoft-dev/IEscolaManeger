@@ -13,19 +13,19 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmProfessores : XtraUserControl
+    public partial class frmProfessoresAreaFormacao : XtraUserControl
     {
-        IProfessores dataRepository;
+        IProfessoresAreaFormacao DataRepository;
 
-        List<Professores>  UsuariosOriginalList;
+        List<ProfessorAreaFormacao>  DataOriginalList;
 
         AlertControl alert = null;
 
-        public frmProfessores()
+        public frmProfessoresAreaFormacao()
         {
             InitializeComponent();
-            dataRepository = new ProfessoresRepository();
-            UsuariosOriginalList = new List<Professores>();
+            DataRepository = new ProfessoresAreaFormacaoRepository();
+            DataOriginalList = new List<ProfessorAreaFormacao>();
 
             LeituraInicial();
 
@@ -36,6 +36,7 @@ namespace IEscolaDesktop.View.Forms
             gridControl1.DoubleClick += GridControl1_DoubleClick;
 
             // Menu de Contexto
+
             #region Menu Populat
             MenuPrinciapl.Opening += ContextMenuStrip1_Opening;
             gridControl1.ContextMenuStrip = MenuPrinciapl;
@@ -43,51 +44,9 @@ namespace IEscolaDesktop.View.Forms
             btnApagar.Click += Apagar_Click;
             btnAtualizar.Click += Atualizar_Click;
             btnRelatorios.Click += delegate { gridControl1.ShowRibbonPrintPreview(); };
-            btnReportdatabase.Click += BaseDeDados_Click;
             #endregion
 
-            btnPDF.Click += delegate { BtnPDF_Click("PDF"); };
-            btnXLS.Click += delegate { BtnPDF_Click("XLS"); };
-
             alert = new AlertControl();
-        }
-
-        private void BtnPDF_Click(string Extension)
-        {
-            var data = GlobalArquivos.GetLocalData(LocalFolder.REPORT, DateTime.Now.ToString("dd-MM-yyyy"));
-
-            //Imprimir Documento em PDF
-            string Caminho = string.Format(data + "\\{0}.{1}", DateTime.Now.Ticks, Extension);
-            using (ReportDisposed rep = new ReportDisposed())
-            {
-                //Busca dos valores
-                var buscas = professoresBindingSource.DataSource as List<Professores>;
-                if (buscas.Count != 0)
-                {
-                    rep.GetReport(new rptProfessores(buscas), "." + Extension, Caminho);
-
-                    var form = Application.OpenForms;
-                    foreach (Form item in form)
-                    {
-                        if (item.Name != typeof(frmMenu).Name)
-                        {
-                            alert.Show(item, "Impressão de Documentos!",
-                                             "Seu documento esta pronto e foi gerado com sucesso! Queira por favor conferir");
-
-                            alert.AlertClick += delegate
-                            {
-                                new Process { StartInfo = new ProcessStartInfo(Caminho) { UseShellExecute = true } }.Start();
-                            };
-                            return;
-                        }
-                    }
-                   
-                }
-                else {
-                    Mensagens.Display("Falta de informação na Tabela",
-                                      "Infelimente não temos informação para Imprimir em PDF", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
         private void ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -111,7 +70,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmProfessoresAdd(null));
+                   new frmProfessoresAreaFormacaoAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();
@@ -121,10 +80,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = professoresBindingSource.Current as Professores;
+                var result = professorAreaFormacaoBindingSource .Current as ProfessorAreaFormacao;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmProfessoresAdd(result ?? null));
+                    new frmProfessoresAreaFormacaoAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -133,38 +92,17 @@ namespace IEscolaDesktop.View.Forms
 
         private void LeituraFilter()
         {
-            var data = UsuariosOriginalList.FindAll(x => x.FullName.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.BI.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.Celular.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.ProvinciasMunicipios.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                         x.EstadoCivil.ToString().ToUpper().Contains(txtPesquisar.Text.ToUpper()) );
-            professoresBindingSource.DataSource = data;
+            var data = DataOriginalList.FindAll(x => x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
+            professorAreaFormacaoBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
-            UsuariosOriginalList = await dataRepository.GetAllinclud();
-            professoresBindingSource.DataSource = UsuariosOriginalList;
-
-            if (UsuariosOriginalList.Count > 0)
-            {
-                btnPDF.Enabled = true;
-                btnXLS.Enabled = true;
-            }
-            else {           
-                btnPDF.Enabled = false;
-                btnXLS.Enabled = false;
-            }
+            DataOriginalList = await DataRepository.GetAll();
+            professorAreaFormacaoBindingSource.DataSource = DataOriginalList;
         }
 
         #region Contexto Menu
-        private void BaseDeDados_Click(object sender, EventArgs e)
-        {
-            var user = professoresBindingSource.DataSource as List<Professores>;
-            if (user != null)
-                GlobalReport.GetReport(new rptProfessores(user), false);
-        }
-
         private void Atualizar_Click(object sender, EventArgs e)
         {
             if (gridView1.FocusedRowHandle >= 0)
@@ -180,18 +118,18 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.FocusedRowHandle >= 0)
             {
-                var msg = Mensagens.Display("Apagar",
+                var msg = Mensagens.Display("Apagar",  
                                            "Apagar uma informação implica perda de informação!\nPretendes mesmo continuar?!...",
                                            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = professoresBindingSource.Current as Professores;
+                    var result = professorAreaFormacaoBindingSource.Current as ProfessorAreaFormacao;
                     try
                     {
                         if (result != null)
                         {
-                            var resultDelete = await dataRepository.Excluir(result);
+                            var resultDelete = await DataRepository.Excluir(result);
                             if (resultDelete)
                             {
                                 Mensagens.Display("Apagar Informação", "Informação selecionada Pagada com Exito!...", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -210,7 +148,7 @@ namespace IEscolaDesktop.View.Forms
             else
                 XtraMessageBox.Show("Por favor selecione alguma informação na tela!...");
         }
-
+      
         #endregion
     }
 }

@@ -75,44 +75,44 @@ namespace IEscolaDesktop.View.Forms
                 txtEstadoCivil.EditValue = usuarios.EstadoCivil;
                 txtProvinciaMunicipio.EditValue = usuarios.ProvinciaMunicipioID;
 
-                txtGrauParentesco.EditValue = usuarios.GrauParentesco;
-                txtEncarregado.EditValue = usuarios.NomeEncarregado;
-                txtNomePai.EditValue = usuarios.NomePai;
-                txtNomeMae.EditValue = usuarios.NomeMae;
-                txtMaeVive.EditValue = usuarios.MaeVive;
-                txtPaiVive.EditValue = usuarios.PaiVive;
+                //txtGrauParentesco.EditValue = usuarios.GrauParentesco;
+                //txtEncarregado.EditValue = usuarios.NomeEncarregado;
+                //txtNomePai.EditValue = usuarios.NomePai;
+                //txtNomeMae.EditValue = usuarios.NomeMae;
+                //txtMaeVive.EditValue = usuarios.MaeVive;
+                //txtPaiVive.EditValue = usuarios.PaiVive;
 
-                txtResidencia.EditValue = usuarios.Residencia;
-                txtenderco.EditValue = usuarios.Endereco;
-                txtContactos.EditValue = usuarios.Contacto;
-                txtCelular.EditValue = usuarios.Celular;
-                txtEmail.EditValue = usuarios.Email;
-                txtEmailFacebook.EditValue = usuarios.EmailFacebbok;
+                //txtResidencia.EditValue = usuarios.Residencia;
+                //txtenderco.EditValue = usuarios.Endereco;
+                //txtContactos.EditValue = usuarios.Contacto;
+                //txtCelular.EditValue = usuarios.Celular;
+                //txtEmail.EditValue = usuarios.Email;
+                //txtEmailFacebook.EditValue = usuarios.EmailFacebbok;
 
-                txtLocalEmissao.EditValue = usuarios.LocalEmissao;
-                txtDataEmissao.EditValue = usuarios.DataEmissao;
-                txtDataExpiracao.EditValue = usuarios.DataExpiracao;
-                txtTipoDocumentos.EditValue = usuarios.DocType;
-                txtDocumento.EditValue = usuarios.Documento;
-                txtDocumentoRecenciamnto.EditValue = usuarios.DocRecenciamentoMilitar;
-                txtCurso.EditValue = usuarios.CursosID;
+                //txtLocalEmissao.EditValue = usuarios.LocalEmissao;
+                //txtDataEmissao.EditValue = usuarios.DataEmissao;
+                //txtDataExpiracao.EditValue = usuarios.DataExpiracao;
+                //txtTipoDocumentos.EditValue = usuarios.DocType;
+                //txtDocumento.EditValue = usuarios.Documento;
+                //txtDocumentoRecenciamnto.EditValue = usuarios.DocRecenciamentoMilitar;
+                //txtCurso.EditValue = usuarios.CursosID;
 
-                txtDataNascimento.DateTime = usuarios.DataNascimento;
-                txtIdade.EditValue = usuarios.Idade;
+                //txtDataNascimento.DateTime = usuarios.DataNascimento;
+                //txtIdade.EditValue = usuarios.Idade;
 
-                txtEscolaOrigem.EditValue = usuarios.AdiconalEscolaOrigem;
-                txtProvinciaOrigem.EditValue = usuarios.AdiconalProvincias;
-                txtEscolaMedia.EditValue = usuarios.AdicionalMedia;
-                txtIsActived.EditValue = usuarios.IsActived;
-                txtMedia.EditValue = usuarios.Media;
-                txtDataFicha.EditValue = usuarios.DataFicha;
+                //txtEscolaOrigem.EditValue = usuarios.AdiconalEscolaOrigem;
+                //txtProvinciaOrigem.EditValue = usuarios.AdiconalProvincias;
+                //txtEscolaMedia.EditValue = usuarios.AdicionalMedia;
+                //txtIsActived.EditValue = usuarios.IsActived;
+                //txtMedia.EditValue = usuarios.Media;
+                //txtDataFicha.EditValue = usuarios.DataFicha;
 
-                txtFazes.EditValue = usuarios.FAZES;
-                txtFichaInscricao.EditValue = usuarios.AdicionalFichaInscricao;
-                txtCertificadoAnexo.EditValue = usuarios.AdicionalCertificados;
-                txtImagemURL.Text = usuarios.ImagemURL;
+                //txtFazes.EditValue = usuarios.FAZES;
+                //txtFichaInscricao.EditValue = usuarios.AdicionalFichaInscricao;
+                //txtCertificadoAnexo.EditValue = usuarios.AdicionalCertificados;
+                //txtImagemURL.Text = usuarios.ImagemURL;
 
-                txtCodigo.EditValue = usuarios.InscricaoID;
+                //txtCodigo.EditValue = usuarios.InscricaoID;
                 txtCodigoUnico.EditValue = usuarios.Codigo;
                 txtFirstName.Focus();
             }

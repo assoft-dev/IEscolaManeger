@@ -96,6 +96,30 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\frmProfessoresAreaFormacaoAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresAreaFormacaoAdd.Designer.cs">
+      <DependentUpon>frmProfessoresAreaFormacaoAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresAreaFormacao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresAreaFormacao.Designer.cs">
+      <DependentUpon>frmProfessoresAreaFormacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresDisciplinaAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresDisciplinaAdd.Designer.cs">
+      <DependentUpon>frmProfessoresDisciplinaAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresDisciplina.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresDisciplina.Designer.cs">
+      <DependentUpon>frmProfessoresDisciplina.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmDisciplinaProgramasAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -544,6 +568,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\frmProfessoresAreaFormacaoAdd.resx">
+      <DependentUpon>frmProfessoresAreaFormacaoAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProfessoresAreaFormacao.resx">
+      <DependentUpon>frmProfessoresAreaFormacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProfessoresDisciplinaAdd.resx">
+      <DependentUpon>frmProfessoresDisciplinaAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProfessoresDisciplina.resx">
+      <DependentUpon>frmProfessoresDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmDisciplinaProgramasAdd.resx">
       <DependentUpon>frmDisciplinaProgramasAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -772,7 +808,9 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Municipios.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Permissoes.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.ProfessorAreaFormacao.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Professores.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.ProfessoresDisciplinas.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasConfig.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasPagamentos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasRecibos.datasource" />

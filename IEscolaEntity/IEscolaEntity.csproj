@@ -99,6 +99,8 @@
     <Compile Include="Controllers\Interfaces\IPeriodos.cs" />
     <Compile Include="Controllers\Interfaces\IPermissions.cs" />
     <Compile Include="Controllers\Interfaces\IProfessores.cs" />
+    <Compile Include="Controllers\Interfaces\IProfessoresAreaFormacao.cs" />
+    <Compile Include="Controllers\Interfaces\IProfessoresDisciplinas.cs" />
     <Compile Include="Controllers\Interfaces\IPropinasConfig.cs" />
     <Compile Include="Controllers\Interfaces\IPropinasPagamentos.cs" />
     <Compile Include="Controllers\Interfaces\IPropinasRecibos.cs" />
@@ -128,6 +130,8 @@
     <Compile Include="Controllers\Repository\MunicipiosRepository.cs" />
     <Compile Include="Controllers\Repository\PeriodosRepository.cs" />
     <Compile Include="Controllers\Repository\PermissionsRepository.cs" />
+    <Compile Include="Controllers\Repository\ProfessoresAreaFormacaoRepository.cs" />
+    <Compile Include="Controllers\Repository\ProfessoresDisciplinasRepository.cs" />
     <Compile Include="Controllers\Repository\ProfessoresRepository.cs" />
     <Compile Include="Controllers\Repository\PropinasConfigRepository.cs" />
     <Compile Include="Controllers\Repository\PropinasReciboRepository.cs" />
@@ -180,6 +184,7 @@
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\ProfessorAreaFormacao.cs" />
     <Compile Include="Models\Professores.cs" />
+    <Compile Include="Models\ProfessoresDisciplinas.cs" />
     <Compile Include="Models\PropinasConfig.cs" />
     <Compile Include="Models\PropinasPagamentos.cs" />
     <Compile Include="Models\PropinasRecibos.cs" />

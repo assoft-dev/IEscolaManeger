@@ -125,6 +125,7 @@ namespace IEscolaEntity.Controllers.Helps
                      typeof(ProvinciasLocal),
                      typeof(Meses),
                      typeof(DisciplinasComponentesType),
+                     typeof(AbilitacoesLiterarias),
                 };
                 return primary.Contains(t);
             }

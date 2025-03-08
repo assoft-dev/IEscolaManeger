@@ -41,9 +41,13 @@
             this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnTurma = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnCursos = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnCursoClasseDisciplina = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnClasses = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnPeriodos = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnSalas = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator9 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.btnDisciplina = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnDisciplinaPrograma = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator6 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.btnEstudantesInscricoes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnEstudantes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -95,10 +99,9 @@
             this.btnGrupo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnUsuariosLog = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnPermissio = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnCursoClasseDisciplina = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnDisciplina = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnDisciplinaPrograma = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlSeparator9 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.btnProfessor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnProfessorDisciplina = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnProfessorFormacao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -141,7 +144,10 @@
             this.accordionControlElement5,
             this.accordionControlSeparator6,
             this.btnEstudantesInscricoes,
-            this.btnEstudantes});
+            this.btnEstudantes,
+            this.btnProfessor,
+            this.btnProfessorDisciplina,
+            this.btnProfessorFormacao});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement2.ImageOptions.SvgImage")));
             this.accordionControlElement2.Name = "accordionControlElement2";
@@ -178,6 +184,13 @@
             this.btnCursos.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnCursos.Text = "Cursos";
             // 
+            // btnCursoClasseDisciplina
+            // 
+            this.btnCursoClasseDisciplina.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCursoClasseDisciplina.ImageOptions.SvgImage")));
+            this.btnCursoClasseDisciplina.Name = "btnCursoClasseDisciplina";
+            this.btnCursoClasseDisciplina.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnCursoClasseDisciplina.Text = "Curso/Classe/Disciplina";
+            // 
             // btnClasses
             // 
             this.btnClasses.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClasses.ImageOptions.SvgImage")));
@@ -198,6 +211,24 @@
             this.btnSalas.Name = "btnSalas";
             this.btnSalas.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnSalas.Text = "Salas";
+            // 
+            // accordionControlSeparator9
+            // 
+            this.accordionControlSeparator9.Name = "accordionControlSeparator9";
+            // 
+            // btnDisciplina
+            // 
+            this.btnDisciplina.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDisciplina.ImageOptions.SvgImage")));
+            this.btnDisciplina.Name = "btnDisciplina";
+            this.btnDisciplina.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnDisciplina.Text = "Disciplinas";
+            // 
+            // btnDisciplinaPrograma
+            // 
+            this.btnDisciplinaPrograma.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDisciplinaPrograma.ImageOptions.SvgImage")));
+            this.btnDisciplinaPrograma.Name = "btnDisciplinaPrograma";
+            this.btnDisciplinaPrograma.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnDisciplinaPrograma.Text = "Disciplinas Programa";
             // 
             // accordionControlSeparator6
             // 
@@ -577,30 +608,26 @@
             this.btnPermissio.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnPermissio.Text = "Permissões";
             // 
-            // btnCursoClasseDisciplina
+            // btnProfessor
             // 
-            this.btnCursoClasseDisciplina.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement12.ImageOptions.SvgImage")));
-            this.btnCursoClasseDisciplina.Name = "btnCursoClasseDisciplina";
-            this.btnCursoClasseDisciplina.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnCursoClasseDisciplina.Text = "Curso/Classe/Disciplina";
+            this.btnProfessor.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement12.ImageOptions.SvgImage")));
+            this.btnProfessor.Name = "btnProfessor";
+            this.btnProfessor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnProfessor.Text = "Professor";
             // 
-            // btnDisciplina
+            // btnProfessorDisciplina
             // 
-            this.btnDisciplina.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement12.ImageOptions.SvgImage1")));
-            this.btnDisciplina.Name = "btnDisciplina";
-            this.btnDisciplina.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnDisciplina.Text = "Disciplinas";
+            this.btnProfessorDisciplina.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement13.ImageOptions.SvgImage")));
+            this.btnProfessorDisciplina.Name = "btnProfessorDisciplina";
+            this.btnProfessorDisciplina.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnProfessorDisciplina.Text = "Professor Disciplina";
             // 
-            // btnDisciplinaPrograma
+            // btnProfessorFormacao
             // 
-            this.btnDisciplinaPrograma.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement13.ImageOptions.SvgImage")));
-            this.btnDisciplinaPrograma.Name = "btnDisciplinaPrograma";
-            this.btnDisciplinaPrograma.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnDisciplinaPrograma.Text = "Disciplinas Programa";
-            // 
-            // accordionControlSeparator9
-            // 
-            this.accordionControlSeparator9.Name = "accordionControlSeparator9";
+            this.btnProfessorFormacao.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement15.ImageOptions.SvgImage")));
+            this.btnProfessorFormacao.Name = "btnProfessorFormacao";
+            this.btnProfessorFormacao.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnProfessorFormacao.Text = "Professor Formação";
             // 
             // frmMenu
             // 
@@ -690,5 +717,8 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator9;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDisciplina;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDisciplinaPrograma;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessor;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessorDisciplina;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessorFormacao;
     }
 }
