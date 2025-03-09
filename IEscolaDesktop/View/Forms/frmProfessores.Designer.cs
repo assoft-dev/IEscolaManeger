@@ -44,51 +44,6 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.professoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colInscricaoID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colFullName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colBI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNaturalidade = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNacionalidade = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDataNascimento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdade = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colProvinciaMunicipioID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colGrauParentesco = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNomePai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPaiVive = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNomeMae = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaeVive = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSexo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEstadoCivil = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colResidencia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEndereco = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colContacto = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCelular = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEmailFacebbok = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNomeEncarregado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLocalEmissao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDataEmissao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDataExpiracao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocumento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocRecenciamentoMilitar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDocRecenciamentoEmissao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCursosID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCursos = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAdicionalFichaInscricao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAdicionalBI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAdicionalCertificados = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAdicionalRececiamentoMilitar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAdiconalEscolaOrigem = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAdiconalProvincias = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAdicionalMedia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIsActived = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMedia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDataFicha = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colFAZES = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCodigo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.MenuPrinciapl = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAtualizar = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,6 +52,46 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
+            this.colProfessoresID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNumeroAgente = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEscolaridade = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colabilitacoesLiterarias = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAreaEscola = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAreaData = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAreaDuracao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAreaProvincia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProfessorCategoriaID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProfessoresCategorias = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProfessorAreaFormacaoID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProfessorAreaFormacao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCodigo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFullName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNacionalidade = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDataNascimento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdade = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSexo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEstadoCivil = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProvinciaMunicipioID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProvinciasMunicipios = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colResidencia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEndereco = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colContacto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCelular = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmailFacebbok = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLocalEmissao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDataEmissao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDataExpiracao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDocType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDocumento = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIsActived = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDataFicha = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colImagemURL = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -221,51 +216,46 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colInscricaoID,
+            this.colProfessoresID,
+            this.colNumeroAgente,
+            this.colEscolaridade,
+            this.colabilitacoesLiterarias,
+            this.colAreaEscola,
+            this.colAreaData,
+            this.colAreaDuracao,
+            this.colAreaProvincia,
+            this.colProfessorCategoriaID,
+            this.colProfessoresCategorias,
+            this.colProfessorAreaFormacaoID,
+            this.colProfessorAreaFormacao,
+            this.colCodigo,
+            this.colFirstName,
+            this.colLastName,
             this.colFullName,
             this.colBI,
-            this.colNaturalidade,
             this.colNacionalidade,
             this.colDataNascimento,
             this.colIdade,
-            this.colProvinciaMunicipioID,
-            this.colGrauParentesco,
-            this.colNomePai,
-            this.colPaiVive,
-            this.colNomeMae,
-            this.colMaeVive,
             this.colSexo,
             this.colEstadoCivil,
+            this.colProvinciaMunicipioID,
+            this.colProvinciasMunicipios,
             this.colResidencia,
             this.colEndereco,
             this.colContacto,
             this.colCelular,
             this.colEmailFacebbok,
             this.colEmail,
-            this.colNomeEncarregado,
             this.colLocalEmissao,
             this.colDataEmissao,
             this.colDataExpiracao,
             this.colDocType,
             this.colDocumento,
-            this.colDocRecenciamentoMilitar,
-            this.colDocRecenciamentoEmissao,
-            this.colCursosID,
-            this.colCursos,
-            this.colAdicionalFichaInscricao,
-            this.colAdicionalBI,
-            this.colAdicionalCertificados,
-            this.colAdicionalRececiamentoMilitar,
-            this.colAdiconalEscolaOrigem,
-            this.colAdiconalProvincias,
-            this.colAdicionalMedia,
             this.colIsActived,
-            this.colMedia,
             this.colDataFicha,
-            this.colFAZES,
-            this.colCodigo,
-            this.colFirstName,
-            this.colLastName});
+            this.colImagemURL,
+            this.gridColumn1,
+            this.gridColumn2});
             this.gridView1.DetailHeight = 225;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupPanelText = "Pesquise Aqui";
@@ -276,317 +266,6 @@
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDataNascimento, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // colInscricaoID
-            // 
-            this.colInscricaoID.Caption = "Código";
-            this.colInscricaoID.FieldName = "InscricaoID";
-            this.colInscricaoID.Name = "colInscricaoID";
-            this.colInscricaoID.Width = 76;
-            // 
-            // colFullName
-            // 
-            this.colFullName.Caption = "Nome";
-            this.colFullName.FieldName = "FullName";
-            this.colFullName.Name = "colFullName";
-            this.colFullName.OptionsColumn.ReadOnly = true;
-            this.colFullName.Visible = true;
-            this.colFullName.VisibleIndex = 1;
-            this.colFullName.Width = 101;
-            // 
-            // colBI
-            // 
-            this.colBI.Caption = "BI";
-            this.colBI.FieldName = "BI";
-            this.colBI.Name = "colBI";
-            this.colBI.Visible = true;
-            this.colBI.VisibleIndex = 2;
-            this.colBI.Width = 82;
-            // 
-            // colNaturalidade
-            // 
-            this.colNaturalidade.FieldName = "Naturalidade";
-            this.colNaturalidade.Name = "colNaturalidade";
-            this.colNaturalidade.Width = 124;
-            // 
-            // colNacionalidade
-            // 
-            this.colNacionalidade.FieldName = "Nacionalidade";
-            this.colNacionalidade.Name = "colNacionalidade";
-            this.colNacionalidade.Width = 132;
-            // 
-            // colDataNascimento
-            // 
-            this.colDataNascimento.FieldName = "DataNascimento";
-            this.colDataNascimento.Name = "colDataNascimento";
-            this.colDataNascimento.Width = 119;
-            // 
-            // colIdade
-            // 
-            this.colIdade.FieldName = "Idade";
-            this.colIdade.Name = "colIdade";
-            this.colIdade.OptionsColumn.ReadOnly = true;
-            this.colIdade.Visible = true;
-            this.colIdade.VisibleIndex = 3;
-            this.colIdade.Width = 73;
-            // 
-            // colProvinciaMunicipioID
-            // 
-            this.colProvinciaMunicipioID.Caption = "Provincia => Munic";
-            this.colProvinciaMunicipioID.FieldName = "ProvinciasMunicipios.Descricao";
-            this.colProvinciaMunicipioID.Name = "colProvinciaMunicipioID";
-            this.colProvinciaMunicipioID.Visible = true;
-            this.colProvinciaMunicipioID.VisibleIndex = 7;
-            this.colProvinciaMunicipioID.Width = 147;
-            // 
-            // colGrauParentesco
-            // 
-            this.colGrauParentesco.FieldName = "GrauParentesco";
-            this.colGrauParentesco.Name = "colGrauParentesco";
-            this.colGrauParentesco.Width = 144;
-            // 
-            // colNomePai
-            // 
-            this.colNomePai.FieldName = "NomePai";
-            this.colNomePai.Name = "colNomePai";
-            this.colNomePai.Width = 22;
-            // 
-            // colPaiVive
-            // 
-            this.colPaiVive.FieldName = "PaiVive";
-            this.colPaiVive.Name = "colPaiVive";
-            this.colPaiVive.Width = 22;
-            // 
-            // colNomeMae
-            // 
-            this.colNomeMae.FieldName = "NomeMae";
-            this.colNomeMae.Name = "colNomeMae";
-            this.colNomeMae.Width = 22;
-            // 
-            // colMaeVive
-            // 
-            this.colMaeVive.FieldName = "MaeVive";
-            this.colMaeVive.Name = "colMaeVive";
-            this.colMaeVive.Width = 22;
-            // 
-            // colSexo
-            // 
-            this.colSexo.FieldName = "Sexo";
-            this.colSexo.Name = "colSexo";
-            this.colSexo.Visible = true;
-            this.colSexo.VisibleIndex = 4;
-            this.colSexo.Width = 68;
-            // 
-            // colEstadoCivil
-            // 
-            this.colEstadoCivil.FieldName = "EstadoCivil";
-            this.colEstadoCivil.Name = "colEstadoCivil";
-            this.colEstadoCivil.Visible = true;
-            this.colEstadoCivil.VisibleIndex = 5;
-            this.colEstadoCivil.Width = 104;
-            // 
-            // colResidencia
-            // 
-            this.colResidencia.FieldName = "Residencia";
-            this.colResidencia.Name = "colResidencia";
-            this.colResidencia.Visible = true;
-            this.colResidencia.VisibleIndex = 8;
-            this.colResidencia.Width = 100;
-            // 
-            // colEndereco
-            // 
-            this.colEndereco.FieldName = "Endereco";
-            this.colEndereco.Name = "colEndereco";
-            this.colEndereco.Visible = true;
-            this.colEndereco.VisibleIndex = 9;
-            this.colEndereco.Width = 94;
-            // 
-            // colContacto
-            // 
-            this.colContacto.FieldName = "Contacto";
-            this.colContacto.Name = "colContacto";
-            this.colContacto.Visible = true;
-            this.colContacto.VisibleIndex = 10;
-            this.colContacto.Width = 91;
-            // 
-            // colCelular
-            // 
-            this.colCelular.FieldName = "Celular";
-            this.colCelular.Name = "colCelular";
-            this.colCelular.Width = 142;
-            // 
-            // colEmailFacebbok
-            // 
-            this.colEmailFacebbok.FieldName = "EmailFacebbok";
-            this.colEmailFacebbok.Name = "colEmailFacebbok";
-            this.colEmailFacebbok.Width = 140;
-            // 
-            // colEmail
-            // 
-            this.colEmail.FieldName = "Email";
-            this.colEmail.Name = "colEmail";
-            this.colEmail.Visible = true;
-            this.colEmail.VisibleIndex = 11;
-            this.colEmail.Width = 146;
-            // 
-            // colNomeEncarregado
-            // 
-            this.colNomeEncarregado.FieldName = "NomeEncarregado";
-            this.colNomeEncarregado.Name = "colNomeEncarregado";
-            this.colNomeEncarregado.Width = 163;
-            // 
-            // colLocalEmissao
-            // 
-            this.colLocalEmissao.FieldName = "LocalEmissao";
-            this.colLocalEmissao.Name = "colLocalEmissao";
-            this.colLocalEmissao.Width = 130;
-            // 
-            // colDataEmissao
-            // 
-            this.colDataEmissao.FieldName = "DataEmissao";
-            this.colDataEmissao.Name = "colDataEmissao";
-            this.colDataEmissao.Width = 127;
-            // 
-            // colDataExpiracao
-            // 
-            this.colDataExpiracao.FieldName = "DataExpiracao";
-            this.colDataExpiracao.Name = "colDataExpiracao";
-            this.colDataExpiracao.Width = 136;
-            // 
-            // colDocType
-            // 
-            this.colDocType.FieldName = "DocType";
-            this.colDocType.Name = "colDocType";
-            this.colDocType.Width = 103;
-            // 
-            // colDocumento
-            // 
-            this.colDocumento.FieldName = "Documento";
-            this.colDocumento.Name = "colDocumento";
-            this.colDocumento.Width = 115;
-            // 
-            // colDocRecenciamentoMilitar
-            // 
-            this.colDocRecenciamentoMilitar.FieldName = "DocRecenciamentoMilitar";
-            this.colDocRecenciamentoMilitar.Name = "colDocRecenciamentoMilitar";
-            this.colDocRecenciamentoMilitar.Width = 204;
-            // 
-            // colDocRecenciamentoEmissao
-            // 
-            this.colDocRecenciamentoEmissao.FieldName = "DocRecenciamentoEmissao";
-            this.colDocRecenciamentoEmissao.Name = "colDocRecenciamentoEmissao";
-            this.colDocRecenciamentoEmissao.Width = 215;
-            // 
-            // colCursosID
-            // 
-            this.colCursosID.Caption = "Curso";
-            this.colCursosID.FieldName = "Cursos.Descricao";
-            this.colCursosID.Name = "colCursosID";
-            this.colCursosID.Visible = true;
-            this.colCursosID.VisibleIndex = 6;
-            this.colCursosID.Width = 95;
-            // 
-            // colCursos
-            // 
-            this.colCursos.FieldName = "Cursos";
-            this.colCursos.Name = "colCursos";
-            this.colCursos.Width = 88;
-            // 
-            // colAdicionalFichaInscricao
-            // 
-            this.colAdicionalFichaInscricao.FieldName = "AdicionalFichaInscricao";
-            this.colAdicionalFichaInscricao.Name = "colAdicionalFichaInscricao";
-            this.colAdicionalFichaInscricao.Width = 189;
-            // 
-            // colAdicionalBI
-            // 
-            this.colAdicionalBI.FieldName = "AdicionalBI";
-            this.colAdicionalBI.Name = "colAdicionalBI";
-            this.colAdicionalBI.Width = 115;
-            // 
-            // colAdicionalCertificados
-            // 
-            this.colAdicionalCertificados.FieldName = "AdicionalCertificados";
-            this.colAdicionalCertificados.Name = "colAdicionalCertificados";
-            this.colAdicionalCertificados.Width = 174;
-            // 
-            // colAdicionalRececiamentoMilitar
-            // 
-            this.colAdicionalRececiamentoMilitar.FieldName = "AdicionalRececiamentoMilitar";
-            this.colAdicionalRececiamentoMilitar.Name = "colAdicionalRececiamentoMilitar";
-            this.colAdicionalRececiamentoMilitar.Width = 227;
-            // 
-            // colAdiconalEscolaOrigem
-            // 
-            this.colAdiconalEscolaOrigem.FieldName = "AdiconalEscolaOrigem";
-            this.colAdiconalEscolaOrigem.Name = "colAdiconalEscolaOrigem";
-            this.colAdiconalEscolaOrigem.Width = 21;
-            // 
-            // colAdiconalProvincias
-            // 
-            this.colAdiconalProvincias.FieldName = "AdiconalProvincias";
-            this.colAdiconalProvincias.Name = "colAdiconalProvincias";
-            this.colAdiconalProvincias.Width = 21;
-            // 
-            // colAdicionalMedia
-            // 
-            this.colAdicionalMedia.FieldName = "AdicionalMedia";
-            this.colAdicionalMedia.Name = "colAdicionalMedia";
-            this.colAdicionalMedia.Width = 21;
-            // 
-            // colIsActived
-            // 
-            this.colIsActived.FieldName = "IsActived";
-            this.colIsActived.Name = "colIsActived";
-            this.colIsActived.Width = 103;
-            // 
-            // colMedia
-            // 
-            this.colMedia.FieldName = "Media";
-            this.colMedia.Name = "colMedia";
-            this.colMedia.Visible = true;
-            this.colMedia.VisibleIndex = 12;
-            this.colMedia.Width = 46;
-            // 
-            // colDataFicha
-            // 
-            this.colDataFicha.FieldName = "DataFicha";
-            this.colDataFicha.Name = "colDataFicha";
-            this.colDataFicha.Visible = true;
-            this.colDataFicha.VisibleIndex = 13;
-            this.colDataFicha.Width = 65;
-            // 
-            // colFAZES
-            // 
-            this.colFAZES.FieldName = "FAZES";
-            this.colFAZES.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colFAZES.ImageOptions.Image")));
-            this.colFAZES.Name = "colFAZES";
-            this.colFAZES.Visible = true;
-            this.colFAZES.VisibleIndex = 14;
-            this.colFAZES.Width = 86;
-            // 
-            // colCodigo
-            // 
-            this.colCodigo.Caption = "Código";
-            this.colCodigo.FieldName = "Codigo";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.Visible = true;
-            this.colCodigo.VisibleIndex = 0;
-            this.colCodigo.Width = 52;
-            // 
-            // colFirstName
-            // 
-            this.colFirstName.FieldName = "FirstName";
-            this.colFirstName.Name = "colFirstName";
-            this.colFirstName.Width = 22;
-            // 
-            // colLastName
-            // 
-            this.colLastName.FieldName = "LastName";
-            this.colLastName.Name = "colLastName";
-            this.colLastName.Width = 230;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -649,6 +328,289 @@
             this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
+            // colProfessoresID
+            // 
+            this.colProfessoresID.FieldName = "ProfessoresID";
+            this.colProfessoresID.Name = "colProfessoresID";
+            this.colProfessoresID.Visible = true;
+            this.colProfessoresID.VisibleIndex = 0;
+            // 
+            // colNumeroAgente
+            // 
+            this.colNumeroAgente.FieldName = "NumeroAgente";
+            this.colNumeroAgente.Name = "colNumeroAgente";
+            this.colNumeroAgente.Visible = true;
+            this.colNumeroAgente.VisibleIndex = 1;
+            // 
+            // colEscolaridade
+            // 
+            this.colEscolaridade.FieldName = "Escolaridade";
+            this.colEscolaridade.Name = "colEscolaridade";
+            this.colEscolaridade.Visible = true;
+            this.colEscolaridade.VisibleIndex = 2;
+            // 
+            // colabilitacoesLiterarias
+            // 
+            this.colabilitacoesLiterarias.FieldName = "abilitacoesLiterarias";
+            this.colabilitacoesLiterarias.Name = "colabilitacoesLiterarias";
+            this.colabilitacoesLiterarias.Visible = true;
+            this.colabilitacoesLiterarias.VisibleIndex = 3;
+            // 
+            // colAreaEscola
+            // 
+            this.colAreaEscola.FieldName = "AreaEscola";
+            this.colAreaEscola.Name = "colAreaEscola";
+            this.colAreaEscola.Visible = true;
+            this.colAreaEscola.VisibleIndex = 4;
+            // 
+            // colAreaData
+            // 
+            this.colAreaData.FieldName = "AreaData";
+            this.colAreaData.Name = "colAreaData";
+            this.colAreaData.Visible = true;
+            this.colAreaData.VisibleIndex = 5;
+            // 
+            // colAreaDuracao
+            // 
+            this.colAreaDuracao.FieldName = "AreaDuracao";
+            this.colAreaDuracao.Name = "colAreaDuracao";
+            this.colAreaDuracao.Visible = true;
+            this.colAreaDuracao.VisibleIndex = 6;
+            // 
+            // colAreaProvincia
+            // 
+            this.colAreaProvincia.FieldName = "AreaProvincia";
+            this.colAreaProvincia.Name = "colAreaProvincia";
+            this.colAreaProvincia.Visible = true;
+            this.colAreaProvincia.VisibleIndex = 7;
+            // 
+            // colProfessorCategoriaID
+            // 
+            this.colProfessorCategoriaID.FieldName = "ProfessorCategoriaID";
+            this.colProfessorCategoriaID.Name = "colProfessorCategoriaID";
+            this.colProfessorCategoriaID.Visible = true;
+            this.colProfessorCategoriaID.VisibleIndex = 8;
+            // 
+            // colProfessoresCategorias
+            // 
+            this.colProfessoresCategorias.FieldName = "ProfessoresCategorias";
+            this.colProfessoresCategorias.Name = "colProfessoresCategorias";
+            this.colProfessoresCategorias.Visible = true;
+            this.colProfessoresCategorias.VisibleIndex = 9;
+            // 
+            // colProfessorAreaFormacaoID
+            // 
+            this.colProfessorAreaFormacaoID.FieldName = "ProfessorAreaFormacaoID";
+            this.colProfessorAreaFormacaoID.Name = "colProfessorAreaFormacaoID";
+            this.colProfessorAreaFormacaoID.Visible = true;
+            this.colProfessorAreaFormacaoID.VisibleIndex = 10;
+            // 
+            // colProfessorAreaFormacao
+            // 
+            this.colProfessorAreaFormacao.FieldName = "ProfessorAreaFormacao";
+            this.colProfessorAreaFormacao.Name = "colProfessorAreaFormacao";
+            this.colProfessorAreaFormacao.Visible = true;
+            this.colProfessorAreaFormacao.VisibleIndex = 11;
+            // 
+            // colCodigo
+            // 
+            this.colCodigo.FieldName = "Codigo";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.Visible = true;
+            this.colCodigo.VisibleIndex = 12;
+            // 
+            // colFirstName
+            // 
+            this.colFirstName.FieldName = "FirstName";
+            this.colFirstName.Name = "colFirstName";
+            this.colFirstName.Visible = true;
+            this.colFirstName.VisibleIndex = 13;
+            // 
+            // colLastName
+            // 
+            this.colLastName.FieldName = "LastName";
+            this.colLastName.Name = "colLastName";
+            this.colLastName.Visible = true;
+            this.colLastName.VisibleIndex = 14;
+            // 
+            // colFullName
+            // 
+            this.colFullName.FieldName = "FullName";
+            this.colFullName.Name = "colFullName";
+            this.colFullName.OptionsColumn.ReadOnly = true;
+            this.colFullName.Visible = true;
+            this.colFullName.VisibleIndex = 15;
+            // 
+            // colBI
+            // 
+            this.colBI.FieldName = "BI";
+            this.colBI.Name = "colBI";
+            this.colBI.Visible = true;
+            this.colBI.VisibleIndex = 16;
+            // 
+            // colNacionalidade
+            // 
+            this.colNacionalidade.FieldName = "Nacionalidade";
+            this.colNacionalidade.Name = "colNacionalidade";
+            this.colNacionalidade.Visible = true;
+            this.colNacionalidade.VisibleIndex = 17;
+            // 
+            // colDataNascimento
+            // 
+            this.colDataNascimento.FieldName = "DataNascimento";
+            this.colDataNascimento.Name = "colDataNascimento";
+            this.colDataNascimento.Visible = true;
+            this.colDataNascimento.VisibleIndex = 18;
+            // 
+            // colIdade
+            // 
+            this.colIdade.FieldName = "Idade";
+            this.colIdade.Name = "colIdade";
+            this.colIdade.OptionsColumn.ReadOnly = true;
+            this.colIdade.Visible = true;
+            this.colIdade.VisibleIndex = 19;
+            // 
+            // colSexo
+            // 
+            this.colSexo.FieldName = "Sexo";
+            this.colSexo.Name = "colSexo";
+            this.colSexo.Visible = true;
+            this.colSexo.VisibleIndex = 20;
+            // 
+            // colEstadoCivil
+            // 
+            this.colEstadoCivil.FieldName = "EstadoCivil";
+            this.colEstadoCivil.Name = "colEstadoCivil";
+            this.colEstadoCivil.Visible = true;
+            this.colEstadoCivil.VisibleIndex = 21;
+            // 
+            // colProvinciaMunicipioID
+            // 
+            this.colProvinciaMunicipioID.FieldName = "ProvinciaMunicipioID";
+            this.colProvinciaMunicipioID.Name = "colProvinciaMunicipioID";
+            this.colProvinciaMunicipioID.Visible = true;
+            this.colProvinciaMunicipioID.VisibleIndex = 22;
+            // 
+            // colProvinciasMunicipios
+            // 
+            this.colProvinciasMunicipios.FieldName = "ProvinciasMunicipios";
+            this.colProvinciasMunicipios.Name = "colProvinciasMunicipios";
+            this.colProvinciasMunicipios.Visible = true;
+            this.colProvinciasMunicipios.VisibleIndex = 23;
+            // 
+            // colResidencia
+            // 
+            this.colResidencia.FieldName = "Residencia";
+            this.colResidencia.Name = "colResidencia";
+            this.colResidencia.Visible = true;
+            this.colResidencia.VisibleIndex = 24;
+            // 
+            // colEndereco
+            // 
+            this.colEndereco.FieldName = "Endereco";
+            this.colEndereco.Name = "colEndereco";
+            this.colEndereco.Visible = true;
+            this.colEndereco.VisibleIndex = 25;
+            // 
+            // colContacto
+            // 
+            this.colContacto.FieldName = "Contacto";
+            this.colContacto.Name = "colContacto";
+            this.colContacto.Visible = true;
+            this.colContacto.VisibleIndex = 26;
+            // 
+            // colCelular
+            // 
+            this.colCelular.FieldName = "Celular";
+            this.colCelular.Name = "colCelular";
+            this.colCelular.Visible = true;
+            this.colCelular.VisibleIndex = 27;
+            // 
+            // colEmailFacebbok
+            // 
+            this.colEmailFacebbok.FieldName = "EmailFacebbok";
+            this.colEmailFacebbok.Name = "colEmailFacebbok";
+            this.colEmailFacebbok.Visible = true;
+            this.colEmailFacebbok.VisibleIndex = 28;
+            // 
+            // colEmail
+            // 
+            this.colEmail.FieldName = "Email";
+            this.colEmail.Name = "colEmail";
+            this.colEmail.Visible = true;
+            this.colEmail.VisibleIndex = 29;
+            // 
+            // colLocalEmissao
+            // 
+            this.colLocalEmissao.FieldName = "LocalEmissao";
+            this.colLocalEmissao.Name = "colLocalEmissao";
+            this.colLocalEmissao.Visible = true;
+            this.colLocalEmissao.VisibleIndex = 30;
+            // 
+            // colDataEmissao
+            // 
+            this.colDataEmissao.FieldName = "DataEmissao";
+            this.colDataEmissao.Name = "colDataEmissao";
+            this.colDataEmissao.Visible = true;
+            this.colDataEmissao.VisibleIndex = 31;
+            // 
+            // colDataExpiracao
+            // 
+            this.colDataExpiracao.FieldName = "DataExpiracao";
+            this.colDataExpiracao.Name = "colDataExpiracao";
+            this.colDataExpiracao.Visible = true;
+            this.colDataExpiracao.VisibleIndex = 32;
+            // 
+            // colDocType
+            // 
+            this.colDocType.FieldName = "DocType";
+            this.colDocType.Name = "colDocType";
+            this.colDocType.Visible = true;
+            this.colDocType.VisibleIndex = 33;
+            // 
+            // colDocumento
+            // 
+            this.colDocumento.FieldName = "Documento";
+            this.colDocumento.Name = "colDocumento";
+            this.colDocumento.Visible = true;
+            this.colDocumento.VisibleIndex = 34;
+            // 
+            // colIsActived
+            // 
+            this.colIsActived.FieldName = "IsActived";
+            this.colIsActived.Name = "colIsActived";
+            this.colIsActived.Visible = true;
+            this.colIsActived.VisibleIndex = 35;
+            // 
+            // colDataFicha
+            // 
+            this.colDataFicha.FieldName = "DataFicha";
+            this.colDataFicha.Name = "colDataFicha";
+            this.colDataFicha.Visible = true;
+            this.colDataFicha.VisibleIndex = 36;
+            // 
+            // colImagemURL
+            // 
+            this.colImagemURL.FieldName = "ImagemURL";
+            this.colImagemURL.Name = "colImagemURL";
+            this.colImagemURL.Visible = true;
+            this.colImagemURL.VisibleIndex = 37;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.FieldName = "ProvinciasMunicipios.Descricao";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 38;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.FieldName = "Cursos.Descricao";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 39;
+            // 
             // frmProfessores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -688,51 +650,46 @@
         private DevExpress.XtraEditors.SimpleButton btnNovo;
         private DevExpress.XtraEditors.SimpleButton btnXLS;
         private DevExpress.XtraEditors.SimpleButton btnPDF;
-        private DevExpress.XtraGrid.Columns.GridColumn colInscricaoID;
+        private System.Windows.Forms.BindingSource professoresBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colProfessoresID;
+        private DevExpress.XtraGrid.Columns.GridColumn colNumeroAgente;
+        private DevExpress.XtraGrid.Columns.GridColumn colEscolaridade;
+        private DevExpress.XtraGrid.Columns.GridColumn colabilitacoesLiterarias;
+        private DevExpress.XtraGrid.Columns.GridColumn colAreaEscola;
+        private DevExpress.XtraGrid.Columns.GridColumn colAreaData;
+        private DevExpress.XtraGrid.Columns.GridColumn colAreaDuracao;
+        private DevExpress.XtraGrid.Columns.GridColumn colAreaProvincia;
+        private DevExpress.XtraGrid.Columns.GridColumn colProfessorCategoriaID;
+        private DevExpress.XtraGrid.Columns.GridColumn colProfessoresCategorias;
+        private DevExpress.XtraGrid.Columns.GridColumn colProfessorAreaFormacaoID;
+        private DevExpress.XtraGrid.Columns.GridColumn colProfessorAreaFormacao;
+        private DevExpress.XtraGrid.Columns.GridColumn colCodigo;
+        private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
+        private DevExpress.XtraGrid.Columns.GridColumn colLastName;
+        private DevExpress.XtraGrid.Columns.GridColumn colFullName;
         private DevExpress.XtraGrid.Columns.GridColumn colBI;
-        private DevExpress.XtraGrid.Columns.GridColumn colNaturalidade;
         private DevExpress.XtraGrid.Columns.GridColumn colNacionalidade;
         private DevExpress.XtraGrid.Columns.GridColumn colDataNascimento;
         private DevExpress.XtraGrid.Columns.GridColumn colIdade;
-        private DevExpress.XtraGrid.Columns.GridColumn colProvinciaMunicipioID;
-        private DevExpress.XtraGrid.Columns.GridColumn colGrauParentesco;
-        private DevExpress.XtraGrid.Columns.GridColumn colNomePai;
-        private DevExpress.XtraGrid.Columns.GridColumn colPaiVive;
-        private DevExpress.XtraGrid.Columns.GridColumn colNomeMae;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaeVive;
         private DevExpress.XtraGrid.Columns.GridColumn colSexo;
         private DevExpress.XtraGrid.Columns.GridColumn colEstadoCivil;
+        private DevExpress.XtraGrid.Columns.GridColumn colProvinciaMunicipioID;
+        private DevExpress.XtraGrid.Columns.GridColumn colProvinciasMunicipios;
         private DevExpress.XtraGrid.Columns.GridColumn colResidencia;
         private DevExpress.XtraGrid.Columns.GridColumn colEndereco;
         private DevExpress.XtraGrid.Columns.GridColumn colContacto;
         private DevExpress.XtraGrid.Columns.GridColumn colCelular;
         private DevExpress.XtraGrid.Columns.GridColumn colEmailFacebbok;
         private DevExpress.XtraGrid.Columns.GridColumn colEmail;
-        private DevExpress.XtraGrid.Columns.GridColumn colNomeEncarregado;
         private DevExpress.XtraGrid.Columns.GridColumn colLocalEmissao;
         private DevExpress.XtraGrid.Columns.GridColumn colDataEmissao;
         private DevExpress.XtraGrid.Columns.GridColumn colDataExpiracao;
         private DevExpress.XtraGrid.Columns.GridColumn colDocType;
         private DevExpress.XtraGrid.Columns.GridColumn colDocumento;
-        private DevExpress.XtraGrid.Columns.GridColumn colDocRecenciamentoMilitar;
-        private DevExpress.XtraGrid.Columns.GridColumn colDocRecenciamentoEmissao;
-        private DevExpress.XtraGrid.Columns.GridColumn colCursosID;
-        private DevExpress.XtraGrid.Columns.GridColumn colCursos;
-        private DevExpress.XtraGrid.Columns.GridColumn colAdicionalFichaInscricao;
-        private DevExpress.XtraGrid.Columns.GridColumn colAdicionalBI;
-        private DevExpress.XtraGrid.Columns.GridColumn colAdicionalCertificados;
-        private DevExpress.XtraGrid.Columns.GridColumn colAdicionalRececiamentoMilitar;
-        private DevExpress.XtraGrid.Columns.GridColumn colAdiconalEscolaOrigem;
-        private DevExpress.XtraGrid.Columns.GridColumn colAdiconalProvincias;
-        private DevExpress.XtraGrid.Columns.GridColumn colAdicionalMedia;
         private DevExpress.XtraGrid.Columns.GridColumn colIsActived;
-        private DevExpress.XtraGrid.Columns.GridColumn colMedia;
         private DevExpress.XtraGrid.Columns.GridColumn colDataFicha;
-        private DevExpress.XtraGrid.Columns.GridColumn colFAZES;
-        private DevExpress.XtraGrid.Columns.GridColumn colCodigo;
-        private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
-        private DevExpress.XtraGrid.Columns.GridColumn colLastName;
-        private DevExpress.XtraGrid.Columns.GridColumn colFullName;
-        private System.Windows.Forms.BindingSource professoresBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colImagemURL;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }

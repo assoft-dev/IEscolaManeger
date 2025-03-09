@@ -96,6 +96,18 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\frmProfessoresCategoriasAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresCategoriasAdd.Designer.cs">
+      <DependentUpon>frmProfessoresCategoriasAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresCategorias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresCategorias.Designer.cs">
+      <DependentUpon>frmProfessoresCategorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmProfessoresAreaFormacaoAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -540,6 +552,12 @@
     <Compile Include="View\ReportForms\rptProfessores.Designer.cs">
       <DependentUpon>rptProfessores.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ReportForms\rptProfessores1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ReportForms\rptProfessores1.Designer.cs">
+      <DependentUpon>rptProfessores1.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ReportForms\rptTurmas.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -568,6 +586,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\frmProfessoresCategoriasAdd.resx">
+      <DependentUpon>frmProfessoresCategoriasAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProfessoresCategorias.resx">
+      <DependentUpon>frmProfessoresCategorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmProfessoresAreaFormacaoAdd.resx">
       <DependentUpon>frmProfessoresAreaFormacaoAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -784,6 +808,9 @@
     <EmbeddedResource Include="View\ReportForms\rptProfessores.resx">
       <DependentUpon>rptProfessores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptProfessores1.resx">
+      <DependentUpon>rptProfessores1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ReportForms\rptTurmas.resx">
       <DependentUpon>rptTurmas.cs</DependentUpon>
     </EmbeddedResource>
@@ -810,6 +837,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Permissoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.ProfessorAreaFormacao.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Professores.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.ProfessoresCategorias.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.ProfessoresDisciplinas.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasConfig.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.PropinasPagamentos.datasource" />

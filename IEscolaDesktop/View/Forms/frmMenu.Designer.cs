@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -51,6 +51,9 @@
             this.accordionControlSeparator6 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.btnEstudantesInscricoes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnEstudantes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnProfessor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnProfessorDisciplina = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnProfessorFormacao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnProvinciasMunicipios = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -99,9 +102,7 @@
             this.btnGrupo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnUsuariosLog = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnPermissio = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnProfessor = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnProfessorDisciplina = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnProfessorFormacao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnProfessorCategoria = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -147,7 +148,8 @@
             this.btnEstudantes,
             this.btnProfessor,
             this.btnProfessorDisciplina,
-            this.btnProfessorFormacao});
+            this.btnProfessorFormacao,
+            this.btnProfessorCategoria});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement2.ImageOptions.SvgImage")));
             this.accordionControlElement2.Name = "accordionControlElement2";
@@ -247,6 +249,27 @@
             this.btnEstudantes.Name = "btnEstudantes";
             this.btnEstudantes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnEstudantes.Text = "Estudantes";
+            // 
+            // btnProfessor
+            // 
+            this.btnProfessor.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnProfessor.ImageOptions.SvgImage")));
+            this.btnProfessor.Name = "btnProfessor";
+            this.btnProfessor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnProfessor.Text = "Professor";
+            // 
+            // btnProfessorDisciplina
+            // 
+            this.btnProfessorDisciplina.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnProfessorDisciplina.ImageOptions.SvgImage")));
+            this.btnProfessorDisciplina.Name = "btnProfessorDisciplina";
+            this.btnProfessorDisciplina.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnProfessorDisciplina.Text = "Professor / Disciplina";
+            // 
+            // btnProfessorFormacao
+            // 
+            this.btnProfessorFormacao.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnProfessorFormacao.ImageOptions.SvgImage")));
+            this.btnProfessorFormacao.Name = "btnProfessorFormacao";
+            this.btnProfessorFormacao.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnProfessorFormacao.Text = "Professor / Formação";
             // 
             // accordionControlElement1
             // 
@@ -538,9 +561,9 @@
             // repositoryItemButtonEdit1
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             // 
             // accordionControlSeparator2
@@ -608,26 +631,12 @@
             this.btnPermissio.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnPermissio.Text = "Permissões";
             // 
-            // btnProfessor
+            // btnProfessorCategoria
             // 
-            this.btnProfessor.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement12.ImageOptions.SvgImage")));
-            this.btnProfessor.Name = "btnProfessor";
-            this.btnProfessor.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnProfessor.Text = "Professor";
-            // 
-            // btnProfessorDisciplina
-            // 
-            this.btnProfessorDisciplina.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement13.ImageOptions.SvgImage")));
-            this.btnProfessorDisciplina.Name = "btnProfessorDisciplina";
-            this.btnProfessorDisciplina.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnProfessorDisciplina.Text = "Professor Disciplina";
-            // 
-            // btnProfessorFormacao
-            // 
-            this.btnProfessorFormacao.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement15.ImageOptions.SvgImage")));
-            this.btnProfessorFormacao.Name = "btnProfessorFormacao";
-            this.btnProfessorFormacao.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnProfessorFormacao.Text = "Professor Formação";
+            this.btnProfessorCategoria.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnProfessorCategoria.ImageOptions.SvgImage")));
+            this.btnProfessorCategoria.Name = "btnProfessorCategoria";
+            this.btnProfessorCategoria.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnProfessorCategoria.Text = "Professor / Categoria";
             // 
             // frmMenu
             // 
@@ -720,5 +729,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessor;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessorDisciplina;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessorFormacao;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessorCategoria;
     }
 }

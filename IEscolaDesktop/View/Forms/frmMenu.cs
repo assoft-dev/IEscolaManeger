@@ -62,6 +62,7 @@
             btnProfessor.Click += delegate { OpenForms(new frmProfessores()); };
             btnProfessorDisciplina.Click += delegate { OpenForms(new frmProfessoresDisciplina()); };
             btnProfessorFormacao.Click += delegate { OpenForms(new frmProfessoresAreaFormacao()); };
+            btnProfessorCategoria.Click += delegate { OpenForms(new frmProfessoresCategorias()); };
         }
 
         private void OpenForms(XtraUserControl control)
@@ -257,6 +258,11 @@
                     else if (control.Name.Equals(typeof(frmProfessoresAreaFormacao).Name))
                     {
                         this.Text = "P/Formação -[Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    } 
+                    else if (control.Name.Equals(typeof(frmProfessoresCategorias).Name))
+                    {
+                        this.Text = "P/Categorias -[Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
                     #endregion

@@ -221,6 +221,7 @@ namespace IEscolaEntity.Controllers.Helps
 
             Db.CreateTableIfNotExists<ProfessorAreaFormacao>();       
             Db.CreateTableIfNotExists<ProfessoresDisciplinas>();
+            Db.CreateTableIfNotExists<ProfessoresCategorias>();
         }
 
         public void UPDATETABLE()
@@ -265,6 +266,7 @@ namespace IEscolaEntity.Controllers.Helps
 
             DataColunsAsync<ProfessorAreaFormacao>.AsyncColuns(Db);
             DataColunsAsync<ProfessoresDisciplinas>.AsyncColuns(Db);
+            DataColunsAsync<ProfessoresCategorias>.AsyncColuns(Db);
         }
     }
 }
