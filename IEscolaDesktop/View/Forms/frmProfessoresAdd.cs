@@ -10,6 +10,7 @@ using IEscolaEntity.Models.Helps;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -102,13 +103,15 @@ namespace IEscolaDesktop.View.Forms
                 txtIdade.EditValue = usuarios.Idade;
 
                 txtEscola.EditValue = usuarios.AreaEscola;
-                txtHabilitacoesLiterarias.EditValue = usuarios.abilitacoesLiterarias;
                 txtData.EditValue = usuarios.AreaData;
                 txtIsActived.EditValue = usuarios.IsActived;
                 txtProvinciasFormacao.EditValue = usuarios.AreaProvincia;
                 txtDuracao.EditValue = usuarios.AreaData;
 
                 txtImagemURL.Text = usuarios.ImagemURL;
+
+                txtEscolaridade.EditValue = usuarios.Escolaridade;
+                txtHabilitacoesLiterarias.EditValue = usuarios.abilitacoesLiterarias;
 
                 txtCodigo.EditValue = usuarios.ProfessoresID;
                 txtCodigoUnico.EditValue = usuarios.Codigo;
@@ -311,7 +314,7 @@ namespace IEscolaDesktop.View.Forms
 
                 // save Data
                 var data = new Professores
-                {
+                { 
                     ProfessoresID = ID,
                     FirstName = (string)txtFirstName.EditValue,
                     LastName = (string)txtLastName.EditValue,
@@ -341,13 +344,12 @@ namespace IEscolaDesktop.View.Forms
                     Escolaridade = (Escolaridade) txtEscolaridade.EditValue,
                     abilitacoesLiterarias = (AbilitacoesLiterarias)txtHabilitacoesLiterarias.EditValue,
                     AreaEscola = (string)txtEscola.EditValue,
-                    AreaDuracao = (int)txtDuracao.EditValue,
-                    AreaData = (DateTime)txtData.DateTime,
-                    AreaProvincia = (ProvinciasLocal)txtProvinciasFormacao.EditValue,
+                    AreaDuracao = Convert.ToInt32(txtDuracao.EditValue, CultureInfo.CurrentCulture),
+                    AreaData = (DateTime) txtData.DateTime,
+                    AreaProvincia = (ProvinciasLocal) txtProvinciasFormacao.EditValue,
                   
                     IsActived = txtIsActived.Checked,
                     DataFicha = DateTime.Now,
-
                     DataNascimento =  txtDataNascimento.DateTime,              
                     ImagemURL = txtImagemURL.Text,   
 

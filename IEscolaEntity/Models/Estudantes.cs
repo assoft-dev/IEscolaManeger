@@ -16,7 +16,6 @@ namespace IEscolaEntity.Models
         public string Codigo { get;  set; }
 
         // Dados dos Encarregados
-        public string Entidade { get; set; }
         public EstadoEstudantes EstadoEstudantes { get; set; }
 
         [ForeignKey(typeof(Turmas))]
@@ -27,6 +26,9 @@ namespace IEscolaEntity.Models
         [ForeignKey(typeof(EstudantesInscricoes)), Unique]
         public int InscricoesID { get; set; }
         [Reference] public EstudantesInscricoes Inscricoes { get; set; }
+
+
+
 
         [Reference] public List<Pedidos> Pedidos { get; set; }
 

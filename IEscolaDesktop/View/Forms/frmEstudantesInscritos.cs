@@ -48,8 +48,23 @@ namespace IEscolaDesktop.View.Forms
 
             btnPDF.Click += delegate { BtnPDF_Click("PDF"); };
             btnXLS.Click += delegate { BtnPDF_Click("XLS"); };
+            btnMatricular.Click += BtnMatricular_Click;
 
             alert = new AlertControl();
+        }
+
+        private void BtnMatricular_Click(object sender, EventArgs e)
+        {
+            if (gridView1.SelectedRowsCount > 0)
+            {
+                var result = estudantesInscricoesBindingSource.Current as Estudantes;
+
+                var forms = OpenFormsDialog.ShowForm(null,
+                    new frmEstudantesSimples(result ?? null));
+
+                if (forms == DialogResult.None || forms == DialogResult.Cancel)
+                    LeituraInicial();
+            }
         }
 
         private void BtnPDF_Click(string Extension)
@@ -98,6 +113,7 @@ namespace IEscolaDesktop.View.Forms
                 btnAtualizar.Enabled = true;
                 btnRelatorios.Enabled = true;
                 btnReportdatabase.Enabled = true;
+                btnMatricular.Enabled = true;
             }
             else
             {
@@ -105,6 +121,7 @@ namespace IEscolaDesktop.View.Forms
                 btnAtualizar.Enabled = false;
                 btnRelatorios.Enabled = false;
                 btnReportdatabase.Enabled = false;
+                btnMatricular.Enabled = false;
             }
         }
 

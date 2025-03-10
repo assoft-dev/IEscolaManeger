@@ -120,6 +120,12 @@
     <Compile Include="View\Forms\frmProfessoresAreaFormacao.Designer.cs">
       <DependentUpon>frmProfessoresAreaFormacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmEstudantesSimples.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmEstudantesSimples.Designer.cs">
+      <DependentUpon>frmEstudantesSimples.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmProfessoresDisciplinaAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -597,6 +603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmProfessoresAreaFormacao.resx">
       <DependentUpon>frmProfessoresAreaFormacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmEstudantesSimples.resx">
+      <DependentUpon>frmEstudantesSimples.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmProfessoresDisciplinaAdd.resx">
       <DependentUpon>frmProfessoresDisciplinaAdd.cs</DependentUpon>

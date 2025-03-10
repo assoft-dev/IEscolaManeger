@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstudantesInscritos));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXLS = new DevExpress.XtraEditors.SimpleButton();
@@ -97,6 +97,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMatricular = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -177,9 +178,9 @@
             this.txtPesquisar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Properties.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.txtPesquisar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtPesquisar.Properties.NullValuePrompt = "Pesquise Aqui [Estudantes - Inscrições]";
             this.txtPesquisar.Size = new System.Drawing.Size(1242, 37);
             this.txtPesquisar.TabIndex = 0;
@@ -294,7 +295,7 @@
             this.colFullName.OptionsColumn.ReadOnly = true;
             this.colFullName.Visible = true;
             this.colFullName.VisibleIndex = 1;
-            this.colFullName.Width = 101;
+            this.colFullName.Width = 99;
             // 
             // colBI
             // 
@@ -303,7 +304,7 @@
             this.colBI.Name = "colBI";
             this.colBI.Visible = true;
             this.colBI.VisibleIndex = 2;
-            this.colBI.Width = 82;
+            this.colBI.Width = 127;
             // 
             // colNaturalidade
             // 
@@ -330,16 +331,16 @@
             this.colIdade.OptionsColumn.ReadOnly = true;
             this.colIdade.Visible = true;
             this.colIdade.VisibleIndex = 3;
-            this.colIdade.Width = 73;
+            this.colIdade.Width = 46;
             // 
             // colProvinciaMunicipioID
             // 
-            this.colProvinciaMunicipioID.Caption = "Provincia => Munic";
+            this.colProvinciaMunicipioID.Caption = "Província/Municipio";
             this.colProvinciaMunicipioID.FieldName = "ProvinciasMunicipios.Descricao";
             this.colProvinciaMunicipioID.Name = "colProvinciaMunicipioID";
             this.colProvinciaMunicipioID.Visible = true;
             this.colProvinciaMunicipioID.VisibleIndex = 7;
-            this.colProvinciaMunicipioID.Width = 147;
+            this.colProvinciaMunicipioID.Width = 122;
             // 
             // colGrauParentesco
             // 
@@ -377,7 +378,7 @@
             this.colSexo.Name = "colSexo";
             this.colSexo.Visible = true;
             this.colSexo.VisibleIndex = 4;
-            this.colSexo.Width = 68;
+            this.colSexo.Width = 63;
             // 
             // colEstadoCivil
             // 
@@ -385,7 +386,7 @@
             this.colEstadoCivil.Name = "colEstadoCivil";
             this.colEstadoCivil.Visible = true;
             this.colEstadoCivil.VisibleIndex = 5;
-            this.colEstadoCivil.Width = 104;
+            this.colEstadoCivil.Width = 98;
             // 
             // colResidencia
             // 
@@ -393,7 +394,7 @@
             this.colResidencia.Name = "colResidencia";
             this.colResidencia.Visible = true;
             this.colResidencia.VisibleIndex = 8;
-            this.colResidencia.Width = 100;
+            this.colResidencia.Width = 96;
             // 
             // colEndereco
             // 
@@ -401,7 +402,7 @@
             this.colEndereco.Name = "colEndereco";
             this.colEndereco.Visible = true;
             this.colEndereco.VisibleIndex = 9;
-            this.colEndereco.Width = 94;
+            this.colEndereco.Width = 91;
             // 
             // colContacto
             // 
@@ -409,7 +410,7 @@
             this.colContacto.Name = "colContacto";
             this.colContacto.Visible = true;
             this.colContacto.VisibleIndex = 10;
-            this.colContacto.Width = 91;
+            this.colContacto.Width = 109;
             // 
             // colCelular
             // 
@@ -429,7 +430,7 @@
             this.colEmail.Name = "colEmail";
             this.colEmail.Visible = true;
             this.colEmail.VisibleIndex = 11;
-            this.colEmail.Width = 146;
+            this.colEmail.Width = 102;
             // 
             // colNomeEncarregado
             // 
@@ -486,7 +487,7 @@
             this.colCursosID.Name = "colCursosID";
             this.colCursosID.Visible = true;
             this.colCursosID.VisibleIndex = 6;
-            this.colCursosID.Width = 95;
+            this.colCursosID.Width = 90;
             // 
             // colCursos
             // 
@@ -548,7 +549,7 @@
             this.colMedia.Name = "colMedia";
             this.colMedia.Visible = true;
             this.colMedia.VisibleIndex = 12;
-            this.colMedia.Width = 46;
+            this.colMedia.Width = 45;
             // 
             // colDataFicha
             // 
@@ -565,7 +566,7 @@
             this.colFAZES.Name = "colFAZES";
             this.colFAZES.Visible = true;
             this.colFAZES.VisibleIndex = 14;
-            this.colFAZES.Width = 86;
+            this.colFAZES.Width = 138;
             // 
             // colCodigo
             // 
@@ -574,7 +575,7 @@
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.Visible = true;
             this.colCodigo.VisibleIndex = 0;
-            this.colCodigo.Width = 52;
+            this.colCodigo.Width = 58;
             // 
             // colFirstName
             // 
@@ -603,42 +604,43 @@
             this.btnApagar,
             this.toolStripSeparator2,
             this.btnRelatorios,
-            this.btnReportdatabase});
+            this.btnReportdatabase,
+            this.btnMatricular});
             this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(230, 168);
+            this.MenuPrinciapl.Size = new System.Drawing.Size(246, 286);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(229, 38);
+            this.btnAtualizar.Size = new System.Drawing.Size(245, 54);
             this.btnAtualizar.Text = "Editar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(242, 6);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
             this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(229, 38);
+            this.btnApagar.Size = new System.Drawing.Size(245, 54);
             this.btnApagar.Text = "Apagar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(242, 6);
             // 
             // btnRelatorios
             // 
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(229, 38);
+            this.btnRelatorios.Size = new System.Drawing.Size(245, 54);
             this.btnRelatorios.Text = "Relatórios";
             // 
             // btnReportdatabase
@@ -646,8 +648,16 @@
             this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
             this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
+            this.btnReportdatabase.Size = new System.Drawing.Size(245, 54);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
+            // 
+            // btnMatricular
+            // 
+            this.btnMatricular.Image = ((System.Drawing.Image)(resources.GetObject("btnMatricular.Image")));
+            this.btnMatricular.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnMatricular.Name = "btnMatricular";
+            this.btnMatricular.Size = new System.Drawing.Size(245, 54);
+            this.btnMatricular.Text = "Matricular";
             // 
             // frmEstudantesInscritos
             // 
@@ -734,5 +744,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colFirstName;
         private DevExpress.XtraGrid.Columns.GridColumn colLastName;
         private DevExpress.XtraGrid.Columns.GridColumn colFullName;
+        private System.Windows.Forms.ToolStripMenuItem btnMatricular;
     }
 }
