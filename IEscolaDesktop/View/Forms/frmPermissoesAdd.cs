@@ -71,6 +71,14 @@ namespace IEscolaDesktop.View.Forms
                 btnPropinasConfig.Checked = permissoes.PropinasConfig;
                 btnPropinasPagamento.Checked = permissoes.PropinasPagamento;
                 btnPropinasRecibo.Checked = permissoes.PropinasRecibo;
+                
+                txtDisciplinas.Checked = permissoes.Disciplinas;
+                txtCursoClasseDisciplina.Checked = permissoes.CursoClasseDisciplina;
+                txtDisciplinaProgramas.Checked = permissoes.DisciplinasProgramas;
+                txtProfessores.Checked = permissoes.Professores;
+                txtProfessoresAreFormacao.Checked = permissoes.ProfessorAreaFormacao;
+                txtProfessoresDisciplinas.Checked = permissoes.ProfessoresDisciplinas;
+                txtCategorias.Checked = permissoes.Categorias;
             }
         }
 
@@ -140,12 +148,12 @@ namespace IEscolaDesktop.View.Forms
             var data = new Permissoes
             {
                 PermissoeID = ID,
-               
+
                 //Geral
-                List = (bool) cbList.Checked,
-                Create = (bool) cbCriar.Checked,
-                Update = (bool) cbAtualizar.Checked,
-                Delete = (bool) cbPagar.Checked,
+                List = (bool)cbList.Checked,
+                Create = (bool)cbCriar.Checked,
+                Update = (bool)cbAtualizar.Checked,
+                Delete = (bool)cbPagar.Checked,
 
                 // Sistema
                 Usuarios = (bool)cbUsuarios.Checked,
@@ -182,6 +190,15 @@ namespace IEscolaDesktop.View.Forms
                 PropinasConfig = (bool)btnPropinasConfig.Checked,
                 PropinasPagamento = (bool)btnPropinasPagamento.Checked,
                 PropinasRecibo = (bool)btnPropinasRecibo.Checked,
+
+
+                Disciplinas = txtDisciplinas.Checked,
+                CursoClasseDisciplina = txtCursoClasseDisciplina.Checked,
+                DisciplinasProgramas = txtDisciplinaProgramas.Checked ,
+                Professores = txtProfessores.Checked,
+                ProfessorAreaFormacao = txtProfessoresAreFormacao.Checked ,
+                ProfessoresDisciplinas = txtProfessoresDisciplinas.Checked,
+                ProfessoresCategorias = txtCategorias.Checked,
             };
 
             IsValidate = ID != 0 ? await permissionRepository.Guardar(data, X => X.PermissoeID == ID) > 0 :

@@ -7,7 +7,6 @@ namespace IEscolaEntity.Models
     public class ProfessoresCategorias
     {
         [AutoIncrement]
-        [Display(Name = "Código")]
         public int ProfessoresCategoriasID { get; set; }
 
         [Display(Name = "Referência"), Unique]

@@ -1,12 +1,11 @@
-﻿using IEscolaEntity.Models.Helps;
-using ServiceStack.DataAnnotations;
-using ServiceStack.OrmLite;
-using System;
-using System.Data;
-using System.Linq;
-
-namespace IEscolaEntity.Controllers.Helps
+﻿namespace IEscolaEntity.Controllers.Helps
 {
+    using IEscolaEntity.Models.Helps;
+    using ServiceStack.OrmLite;
+    using System;
+    using System.Data;
+    using System.Linq;
+
     public class DataColunsAsync<T>
     {
         public static void AsyncColuns(IDbConnection db)

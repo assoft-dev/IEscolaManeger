@@ -313,7 +313,6 @@ namespace IEscolaDesktop.View.Forms
                 var data = new Professores
                 {
                     ProfessoresID = ID,
-
                     FirstName = (string)txtFirstName.EditValue,
                     LastName = (string)txtLastName.EditValue,
                     BI = (string)txtBI.EditValue,
@@ -346,11 +345,11 @@ namespace IEscolaDesktop.View.Forms
                     AreaData = (DateTime)txtData.DateTime,
                     AreaProvincia = (ProvinciasLocal)txtProvinciasFormacao.EditValue,
                   
-                    IsActived = (bool)txtIsActived.Checked,
+                    IsActived = txtIsActived.Checked,
                     DataFicha = DateTime.Now,
 
                     DataNascimento =  txtDataNascimento.DateTime,              
-                    ImagemURL = txtImagemURL.Text,  
+                    ImagemURL = txtImagemURL.Text,   
 
                     Codigo = (string)codigo
                 };

@@ -8,13 +8,11 @@ namespace IEscolaEntity.Models
         [AutoIncrement, Display(Name = "Código")]
         public int ProfessoresDisciplinasID { get; set; }
 
-
-        [References(typeof(Professores)), Display(Name = "Nome")]
+        [ForeignKey(typeof(Professores)), Display(Name = "Nome")]
         public int ProfessoresID { get; set; }
         [Reference] public Professores Professores { get; set; }
 
-
-        [References(typeof(CursoClasseDisciplina)), Display(Name = "Curso=>Classe->Disciplina")]
+        [ForeignKey(typeof(CursoClasseDisciplina)), Display(Name = "Curso=>Classe->Disciplina")]
         public int CursoClasseDisciplinaID { get; set; }
         [Reference] public CursoClasseDisciplina CursoClasseDisciplina { get; set; }
     }

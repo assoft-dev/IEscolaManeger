@@ -120,7 +120,15 @@ namespace IEscolaEntity.Controllers.Helps
                     PropinasRecibo = true,
                     Pais = true,
                     ProvinciasMunicipios = true,    
-                    Salas = true,         
+                    Salas = true, 
+                    
+                    ProfessoresCategorias = true,
+                    ProfessoresDisciplinas = true,
+                    ProfessorAreaFormacao = true,
+                    DisciplinasProgramas = true,
+                    CursoClasseDisciplina = true,
+                    Disciplinas = true,
+                    Professores = true       
                 };
                 permissoesID = db.Insert<Permissoes>(permissoes, true);
             }
@@ -192,7 +200,6 @@ namespace IEscolaEntity.Controllers.Helps
             Db.CreateTableIfNotExists<Municipios>();
             Db.CreateTableIfNotExists<ProvinciasMunicipios>();
 
-            Db.CreateTableIfNotExists<Professores>();       
 
             Db.CreateTableIfNotExists<Salas>();
             Db.CreateTableIfNotExists<Cursos>();
@@ -219,9 +226,12 @@ namespace IEscolaEntity.Controllers.Helps
             Db.CreateTableIfNotExists<CursoClasseDisciplina>();
             Db.CreateTableIfNotExists<DisciplinasProgramas>();
 
-            Db.CreateTableIfNotExists<ProfessorAreaFormacao>();       
-            Db.CreateTableIfNotExists<ProfessoresDisciplinas>();
+            Db.CreateTableIfNotExists<ProfessorAreaFormacao>(); 
+            
             Db.CreateTableIfNotExists<ProfessoresCategorias>();
+            Db.CreateTableIfNotExists<Professores>();  
+            
+            Db.CreateTableIfNotExists<ProfessoresDisciplinas>();
         }
 
         public void UPDATETABLE()
@@ -236,7 +246,6 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<Municipios>.AsyncColuns(Db);
             DataColunsAsync<ProvinciasMunicipios>.AsyncColuns(Db);
 
-            DataColunsAsync<Professores>.AsyncColuns(Db);
 
             DataColunsAsync<Salas>.AsyncColuns(Db);
             DataColunsAsync<Cursos>.AsyncColuns(Db);
@@ -255,7 +264,6 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<Pedidos>.AsyncColuns(Db);
             DataColunsAsync<PedidosOrdems>.AsyncColuns(Db);
 
-
             DataColunsAsync<PropinasConfig>.AsyncColuns(Db);
             DataColunsAsync<PropinasPagamentos>.AsyncColuns(Db);
             DataColunsAsync<PropinasRecibos>.AsyncColuns(Db);
@@ -265,6 +273,7 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<DisciplinasProgramas>.AsyncColuns(Db);
 
             DataColunsAsync<ProfessorAreaFormacao>.AsyncColuns(Db);
+            DataColunsAsync<Professores>.AsyncColuns(Db);
             DataColunsAsync<ProfessoresDisciplinas>.AsyncColuns(Db);
             DataColunsAsync<ProfessoresCategorias>.AsyncColuns(Db);
         }

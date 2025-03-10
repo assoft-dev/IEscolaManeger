@@ -37,11 +37,25 @@ namespace IEscolaEntity.Models
         public bool PedidosConsultas { get; set; }
         public bool PedidosAquisicao { get; set; }
         public bool EstudantesInscricao { get; set; }
+
         public bool PropinasPagamento { get; set; }
         public bool PropinasRecibo { get; set; }
         public bool PropinasConfig { get; set; }
+
+
         public bool Pais { get; set; }
         public bool Editores { get; set; }
+
+
+        public bool Disciplinas { get; set; }
+        public bool CursoClasseDisciplina { get; set; }
+        public bool DisciplinasProgramas { get; set; }
+
+        public bool Professores { get; set; }
+        public bool ProfessorAreaFormacao { get; set; }
+        public bool ProfessoresDisciplinas { get; set; }
+        public bool ProfessoresCategorias { get; set; }
+
 
         [Reference] public List<Grupos> grupos { get; set; }
     }

@@ -18,13 +18,11 @@ namespace IEscolaEntity.Models
         public DateTime AreaData { get; set; }
         public ProvinciasLocal AreaProvincia { get; set; }
 
-
-        [References(typeof(ProfessoresCategorias))]
+        [ForeignKey(typeof(ProfessoresCategorias))]
         public int ProfessorCategoriaID { get; set; }
         [Reference] public ProfessoresCategorias  ProfessoresCategorias { get; set; }
 
-
-        [References(typeof(ProfessorAreaFormacao))]
+        [ForeignKey(typeof(ProfessorAreaFormacao))]
         public int ProfessorAreaFormacaoID { get; set; }
         [Reference] public ProfessorAreaFormacao ProfessorAreaFormacao { get; set; }
     }
