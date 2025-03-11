@@ -68,6 +68,11 @@ namespace IEscolaDesktop.View.Forms
                 txtAutor.EditValue = usuarios.AutoresID;
                 txtCAtegoria.EditValue = usuarios.CategoriasID;
                 txtDisponibilidade.EditValue = usuarios.Disponibilidade;
+               
+                txtImagemFrente.EditValue = usuarios.ImagemFrente;
+                txtImagemVerso.EditValue = usuarios.ImagemVerso;
+
+
                 txtTitulos.Focus();
             }
             else {
@@ -203,8 +208,8 @@ namespace IEscolaDesktop.View.Forms
 
                     PrecoUnitario = txtPrecoUnitario.Value,
                     Quantidade = txtQuantidade.Value,
-                    ImagemFrente = null,
-                    ImagemVerso = null,
+                    ImagemFrente = (string) txtImagemFrente.EditValue,
+                    ImagemVerso = (string) txtImagemVerso.EditValue,
                 };
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.AutoresID == ID) > 0 :

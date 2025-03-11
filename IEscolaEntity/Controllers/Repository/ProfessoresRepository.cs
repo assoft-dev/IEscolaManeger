@@ -41,18 +41,18 @@ namespace IEscolaEntity.Controllers.Repository
                     }
                     else
                     {
-                        var fatur = "QR " + "EST" + DateTime.Now.Year + "/" + 1;
+                        var fatur = "QR " + "PRO" + DateTime.Now.Year + "/" + 1;
                         return fatur;
                     }
                 }
                 else
                 {
-                    return "QR " + "EST" + DateTime.Now.Year + "/" + 1;
+                    return "QR " + "PRO" + DateTime.Now.Year + "/" + 1;
                 }
             }
             else
             {
-                var fatura = "QR " + "EST" + DateTime.Now.Year + "/" + 1;
+                var fatura = "QR " + "PRO" + DateTime.Now.Year + "/" + 1;
                 return fatura;
             }
         }

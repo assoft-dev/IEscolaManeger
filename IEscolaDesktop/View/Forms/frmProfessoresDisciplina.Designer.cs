@@ -184,12 +184,14 @@
             this.colCursoClasseDisciplinaID});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupCount = 1;
             this.gridView1.GroupPanelText = "Pesquise Aqui";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colProfessoresID, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colProfessoresDisciplinasID
             // 
@@ -214,7 +216,7 @@
             this.colCursoClasseDisciplinaID.FieldName = "CursoClasseDisciplina.Descricao";
             this.colCursoClasseDisciplinaID.Name = "colCursoClasseDisciplinaID";
             this.colCursoClasseDisciplinaID.Visible = true;
-            this.colCursoClasseDisciplinaID.VisibleIndex = 2;
+            this.colCursoClasseDisciplinaID.VisibleIndex = 1;
             this.colCursoClasseDisciplinaID.Width = 393;
             // 
             // repositoryItemCheckEdit1
@@ -234,40 +236,40 @@
             this.btnRelatorios,
             this.btnReportdatabase});
             this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(230, 168);
+            this.MenuPrinciapl.Size = new System.Drawing.Size(252, 168);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(229, 38);
+            this.btnAtualizar.Size = new System.Drawing.Size(251, 38);
             this.btnAtualizar.Text = "Editar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(248, 6);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
             this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(229, 38);
+            this.btnApagar.Size = new System.Drawing.Size(251, 38);
             this.btnApagar.Text = "Apagar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(248, 6);
             // 
             // btnRelatorios
             // 
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(229, 38);
+            this.btnRelatorios.Size = new System.Drawing.Size(251, 38);
             this.btnRelatorios.Text = "Relatórios";
             // 
             // btnReportdatabase
@@ -275,11 +277,13 @@
             this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
             this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
+            this.btnReportdatabase.Size = new System.Drawing.Size(251, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
             // frmProfessoresDisciplina
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tablePanel1);

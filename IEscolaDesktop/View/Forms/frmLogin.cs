@@ -165,8 +165,8 @@ namespace IEscolaDesktop.View.Forms
         private static void CloseForms()
         {
             var result = Mensagens.Display("Sair", 
-                                           "Queres relamente sair do sistema?",
-                                           MessageBoxButtons.YesNo, 
+                                           "Queres realmente sair do sistema?",
+                                           MessageBoxButtons.YesNo,
                                            MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {

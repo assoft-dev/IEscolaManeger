@@ -1,9 +1,14 @@
 ﻿namespace IEscolaDesktop.View.Forms
 {
+    using DevExpress.LookAndFeel;
     using DevExpress.XtraEditors;
     using IEscolaDesktop.View.Helps;
     using IEscolaEntity.Models;
     using System.Windows.Forms;
+    using DevExpress.Utils.Frames;
+    using DevExpress.Skins;
+    using DevExpress.Utils.Svg;
+    using System.Drawing;
 
     public partial class frmMenu : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
@@ -63,6 +68,22 @@
             btnProfessorDisciplina.Click += delegate { OpenForms(new frmProfessoresDisciplina()); };
             btnProfessorFormacao.Click += delegate { OpenForms(new frmProfessoresAreaFormacao()); };
             btnProfessorCategoria.Click += delegate { OpenForms(new frmProfessoresCategorias()); };
+
+            btnTema.ItemClick += BtnTema_ItemClick;
+        }
+
+        private void BtnTema_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (btnTema.Checked)
+            {
+                // Current skin/palette is dark
+                UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.WXI.OfficeWhite);
+            }
+            else
+            {
+                // Current skin/palette is light
+                UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.WXI.Sharpness);
+            }
         }
 
         private void OpenForms(XtraUserControl control)

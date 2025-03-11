@@ -1,13 +1,9 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
 using IEscolaDesktop.View.Helps;
-using IEscolaEntity.Controllers.Helps;
 using IEscolaEntity.Controllers.Interfaces;
-using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Controllers.Repository.Biblioteca;
-using IEscolaEntity.Models;
 using IEscolaEntity.Models.Biblioteca;
-using IEscolaEntity.Models.Helps;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -196,7 +192,6 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
             }
         }
-
        
         #region Teclas
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

@@ -28,6 +28,7 @@ namespace IEscolaDesktop.View.Forms
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
             txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
             txtEstudante.EditValueChanged += delegate { ChangeValudations(txtEstudante); };
+            txtPropinasConfig.EditValueChanged += delegate { ChangeValudations(txtPropinasConfig); };
 
             btnPropinasConfig.Click += BtnBuscar1Grupos_Click;
             btnEstudantes.Click += BtnBuscar2Grupos_Click;
@@ -53,6 +54,7 @@ namespace IEscolaDesktop.View.Forms
             }
 
             this.Load += FrmUsuariosAdd_Load;
+
             txtEstudante.Properties.NullText = estudanteLabel;
             txtPropinasConfig.Properties.NullText = propinasconfigLabel;
         }
@@ -335,5 +337,10 @@ namespace IEscolaDesktop.View.Forms
             return false;
         }
         #endregion
+
+        private void btnPropinasConfig_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

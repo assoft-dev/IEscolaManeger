@@ -269,6 +269,7 @@
             this.colLastName});
             this.gridView1.DetailHeight = 225;
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupCount = 1;
             this.gridView1.GroupPanelText = "Pesquise Aqui";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
@@ -276,8 +277,8 @@
             this.gridView1.OptionsDetail.EnableDetailToolTip = true;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView1.OptionsView.ShowFooter = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colFAZES, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDataNascimento, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colInscricaoID
@@ -607,40 +608,40 @@
             this.btnReportdatabase,
             this.btnMatricular});
             this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(246, 286);
+            this.MenuPrinciapl.Size = new System.Drawing.Size(268, 286);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(245, 54);
+            this.btnAtualizar.Size = new System.Drawing.Size(267, 54);
             this.btnAtualizar.Text = "Editar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(242, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(264, 6);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
             this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(245, 54);
+            this.btnApagar.Size = new System.Drawing.Size(267, 54);
             this.btnApagar.Text = "Apagar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(242, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(264, 6);
             // 
             // btnRelatorios
             // 
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(245, 54);
+            this.btnRelatorios.Size = new System.Drawing.Size(267, 54);
             this.btnRelatorios.Text = "Relatórios";
             // 
             // btnReportdatabase
@@ -648,7 +649,7 @@
             this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
             this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(245, 54);
+            this.btnReportdatabase.Size = new System.Drawing.Size(267, 54);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
             // btnMatricular
@@ -656,7 +657,7 @@
             this.btnMatricular.Image = ((System.Drawing.Image)(resources.GetObject("btnMatricular.Image")));
             this.btnMatricular.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnMatricular.Name = "btnMatricular";
-            this.btnMatricular.Size = new System.Drawing.Size(245, 54);
+            this.btnMatricular.Size = new System.Drawing.Size(267, 54);
             this.btnMatricular.Text = "Matricular";
             // 
             // frmEstudantesInscritos

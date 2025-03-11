@@ -154,7 +154,10 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            return true;
+            return await Task.Run( () =>
+            {
+                return false;
+            });
 
             //var dataResult = await DataRepository.Get(x => (x.Descricao == txtDescricao.Text &&
             //                                                x.PropinasConfigID == 1), null);

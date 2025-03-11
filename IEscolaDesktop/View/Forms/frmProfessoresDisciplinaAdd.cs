@@ -82,11 +82,11 @@ namespace IEscolaDesktop.View.Forms
         private async void FrmUsuariosAdd_Load(object sender, EventArgs e)
         {
             // Leitura dos Grupos
-            var dataResult = await cursosRepository.GetAll();
-            cursoClasseDisciplinaBindingSource.DataSource = dataResult;
+            var dataResult = await professorRepository.GetAll();
+            professoresBindingSource.DataSource = dataResult;
             
             var dataResult2 = await cursosRepository.GetAll();
-            cursoClasseDisciplinaBindingSource.DataSource = dataResult;
+            cursoClasseDisciplinaBindingSource.DataSource = dataResult2;
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -140,8 +140,6 @@ namespace IEscolaDesktop.View.Forms
 
         private async void Guardar()
         {
-
-
             if (!await ValidationDatabase())
             {
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;

@@ -26,6 +26,8 @@ namespace IEscolaDesktop.View.Forms
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
             txtFIrstName.EditValueChanged += delegate { ChangeValudations(txtFIrstName); };
+            txtLastName.EditValueChanged += delegate { ChangeValudations(txtLastName); };
+            txtData.EditValueChanged += delegate { ChangeValudations(txtData); };
             txtPais.EditValueChanged += delegate { ChangeValudations(txtPais); };
 
             btnBuscarGrupos.Click += BtnBuscarGrupos_Click;

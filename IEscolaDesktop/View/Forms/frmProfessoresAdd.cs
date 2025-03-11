@@ -148,7 +148,6 @@ namespace IEscolaDesktop.View.Forms
 
             //Atribuicao de Parcelas de TextNULL 1-
             txtNacionalidade.Properties.NullText = nacionalidade;
-            txtHabilitacoesLiterarias.Properties.NullText = provinciaOrigem;
 
             txtEscolaridade.Properties.NullText = escolaridade;
             txtHabilitacoesLiterarias.Properties.NullText = habilitacoesliterarias;
@@ -254,7 +253,7 @@ namespace IEscolaDesktop.View.Forms
             txtTipoDocumentos.Properties.DataSource = Enum.GetValues(typeof(DocType));
             txtHabilitacoesLiterarias.Properties.DataSource = Enum.GetValues(typeof(AbilitacoesLiterarias));
             txtLocalEmissao.Properties.DataSource = Enum.GetValues(typeof(ProvinciasLocal));
-            txtHabilitacoesLiterarias.Properties.DataSource = Enum.GetValues(typeof(ProvinciasLocal));
+            //txtprov.Properties.DataSource = Enum.GetValues(typeof(ProvinciasLocal));
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -481,15 +480,11 @@ namespace IEscolaDesktop.View.Forms
 
         private string localemissao = "[Selecione o local por favor]";
         private string tipodoc = "[Selecione o tipo de Doc por favor]";
-        private string curso = "[Selecione o curso em questão por favor]";
-        private string fazes = "[Selecione a Faze do Inscrito por favor]";
-        private string grauparentesco = "[Selecione o grau parentesco]";
         private string provinciaOrigem = "[Selecione a provincia de onde vem por favor]";
         private string nacionalidade = "[Selecione a Nacionalidade por Favor]";
         private string sexo = "[Selecione o seu Genero por favor]";
         private string estadocivil = "[Selecione o estado civil por favor]";
         private string municipioprovincia = "[Selecione a Provincia/Municipio por favor]";
-
         private string categoria = "[Selecione a categorias por favor]";
         private string areaformacao = "[Selecione a sua Area de Formação por favor]";           
         private string escolaridade = "[Selecione o nivel de escolaridade por favor]";

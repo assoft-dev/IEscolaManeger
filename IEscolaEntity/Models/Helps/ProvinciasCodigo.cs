@@ -21,6 +21,8 @@ namespace IEscolaEntity.Models.Helps
         MX = 13, 
         NB = 14, 
         UE = 15, 
-        ZR = 16
+        ZR = 16,
+        HA = 17,
+        CA = 18,
     }
 }

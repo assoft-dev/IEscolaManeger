@@ -1,24 +1,46 @@
-﻿using ServiceStack.DataAnnotations;
+﻿
+using System.ComponentModel;
 
 namespace IEscolaEntity.Models.Helps
 {
-    [EnumAsInt]
+    [ServiceStack.DataAnnotations.EnumAsInt]
     public enum ProvinciasLocal
     {
-        HUILA = 0,
-        BENGUELA = 1,
-        LUANDA = 2,
-        LUNDA_NORTE = 3,
-        LUNDA_SUL = 4,
-        KUANZA_NORTE = 5,
-        KUANZA_SUL = 6,
-        MALANJE = 7,
-        UIGE = 8,
-        CABINDA = 9,
-        CUANDO = 10,
-        CUBANGO = 11,
-        BENGO = 12,
-        MOXICO_NORTE = 13,
-        MOXICO_LESTE = 14,
+        BENGUELA = 0,
+        LUANDA = 1,
+        MALANJE = 2,
+        UIGE = 3,
+        CABINDA = 4,
+        CUANDO = 5,
+        CUBANGO = 6,
+        BENGO = 7,
+        ICOLIBENGO = 8,
+        NAMIBE = 9,
+        HUAMBO = 10,
+        ZAIRE = 11,
+
+        [Description("LUNDA NORTE")]
+        LUNDA_NORTE = 12,
+
+        [Description("LUNDA SUL")]
+        LUNDA_SUL = 13,
+
+        [Description("HUÍLA")]
+        CUANZA_NORTE = 14,
+
+        [Description("CUANZA SUL")]
+        CUANZA_SUL = 15,
+
+        [Description("HUÍLA")]
+        HUILA = 16,
+
+        [Description("MOXICO OESTE")]
+        MOXICO_NORTE = 17,
+
+        [Description("MOXICO LESTE")]
+        MOXICO_LESTE = 18,
+
+        [Description("BIÉ")]
+        BIE = 19,
     }
 }

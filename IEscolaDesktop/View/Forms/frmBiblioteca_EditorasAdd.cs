@@ -29,7 +29,8 @@ namespace IEscolaDesktop.View.Forms
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
             txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
-            txtPermissioes.EditValueChanged += delegate { ChangeValudations(txtPermissioes); };
+            txtComentarios.EditValueChanged += delegate { ChangeValudations(txtComentarios); };
+            txtPais.EditValueChanged += delegate { ChangeValudations(txtPais); };
 
             btnBuscarGrupos.Click += BtnBuscarGrupos_Click;
 
@@ -42,7 +43,7 @@ namespace IEscolaDesktop.View.Forms
 
                 txtDescricao.EditValue = usuarios.Descricao;
                 txtComentarios.EditValue = usuarios.Comentarios;
-                txtPermissioes.EditValue = usuarios.PaisID;
+                txtPais.EditValue = usuarios.PaisID;
                 txtCodigo.EditValue = usuarios.EditoresID;
 
                 txtDescricao.Focus();
@@ -54,6 +55,8 @@ namespace IEscolaDesktop.View.Forms
             }
 
             this.Load += FrmUsuariosAdd_Load;
+
+            txtPais.Properties.NullText = pais;
         }
 
         private void BtnBuscarGrupos_Click(object sender, EventArgs e)
@@ -136,7 +139,7 @@ namespace IEscolaDesktop.View.Forms
                     EditoresID = ID,
                     Descricao = txtDescricao.Text.Trim(),
                     Comentarios = txtComentarios.Text,
-                    PaisID = (int) txtPermissioes.EditValue,
+                    PaisID = (int) txtPais.EditValue,
                 };
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.PaisID == ID) > 0 :
@@ -204,6 +207,8 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+        private string pais = "Selecione aqui o pais por favor";
+
         private void ChangeValudations(Control control)
         {
             if (control != null)
@@ -214,7 +219,7 @@ namespace IEscolaDesktop.View.Forms
                     if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
                     {
                         if (!string.IsNullOrWhiteSpace(txtComentarios.Text) &&
-                            !(string.IsNullOrWhiteSpace(txtPermissioes.Text) || txtPermissioes.Text == "[Selecione a o pais por favor]"))
+                            !(string.IsNullOrWhiteSpace(txtPais.Text) || txtPais.Text == pais))
                         { 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -229,9 +234,9 @@ namespace IEscolaDesktop.View.Forms
                 #endregion
 
                 #region Grupos
-                else if (control.Name.Equals(txtPermissioes.Name))
+                else if (control.Name.Equals(txtPais.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtPermissioes.Text))
+                    if (!string.IsNullOrWhiteSpace(txtPais.Text))
                     {
                         if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
                         {
@@ -253,7 +258,7 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
                         !string.IsNullOrWhiteSpace(txtComentarios.Text) &&
-                           !(string.IsNullOrWhiteSpace(txtPermissioes.Text) || txtPermissioes.Text == "[Selecione a o pais por favor]"))
+                           !(string.IsNullOrWhiteSpace(txtPais.Text) || txtPais.Text == pais))
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                     else
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;

@@ -78,7 +78,7 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = autoresBindingSource.Current as PropinasPagamentos;
+                var result = propinasPagamentosBindingSource.Current as PropinasPagamentos;
 
                 var forms = OpenFormsDialog.ShowForm(null,
                     new frmPropinasPagamentosAdd(result ?? null));
@@ -92,13 +92,13 @@ namespace IEscolaDesktop.View.Forms
         {
             var data = DataOriginalList.FindAll(x => x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
                                                          x.PropinasConfig.Meses.ToString().Contains(txtPesquisar.Text.ToUpper()));
-            autoresBindingSource.DataSource = data;
+            propinasPagamentosBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
             DataOriginalList = await DataRepository.GetAll();
-            autoresBindingSource.DataSource = DataOriginalList;
+            propinasPagamentosBindingSource.DataSource = DataOriginalList;
 
             if (DataOriginalList.Count > 0)
             {
@@ -133,7 +133,7 @@ namespace IEscolaDesktop.View.Forms
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = autoresBindingSource.Current as PropinasPagamentos;
+                    var result = propinasPagamentosBindingSource.Current as PropinasPagamentos;
                     try
                     {
                         if (result != null)

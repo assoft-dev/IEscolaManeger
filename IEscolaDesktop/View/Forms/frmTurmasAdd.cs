@@ -37,6 +37,10 @@ namespace IEscolaDesktop.View.Forms
             txtCurso.TextChanged += delegate { ChangeValudations(txtCurso); };
             txtPeriodo.TextChanged += delegate { ChangeValudations(txtPeriodo); };
             txtSala.TextChanged += delegate { ChangeValudations(txtSala); };
+            txtDescricao.TextChanged += delegate { ChangeValudations(txtDescricao); };
+            txtIdade1.TextChanged += delegate { ChangeValudations(txtIdade1); };
+            txtIdade2.TextChanged += delegate { ChangeValudations(txtIdade2); };
+            txtDescricao.TextChanged += delegate { ChangeValudations(txtDescricao); };
 
             btnCurso.Click += BtnBuscarGrupos_Click;
             btnPeriodo.Click += BtnBuscar1Grupos_Click;

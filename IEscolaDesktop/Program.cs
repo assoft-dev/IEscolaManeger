@@ -1,4 +1,6 @@
 ﻿using DevExpress.CodeParser;
+using DevExpress.LookAndFeel;
+using DevExpress.XtraEditors;
 using IEscolaDesktop.View.Forms;
 using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Helps;
@@ -26,6 +28,10 @@ namespace IEscolaDesktop
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            WindowsFormsSettings.TrackWindowsAccentColor = DevExpress.Utils.DefaultBoolean.True;
+            WindowsFormsSettings.EnableMdiFormSkins();
+            UserLookAndFeel.Default.SetSkinStyle(SkinStyle.WXI);
+            //DevExpress.UserSkins.BonusSkins.Register();
 
             Mutex mutex = new Mutex(true, name: "{Escola - F1056557-EDEF-4A8B-8AC7-7D5D659FA2C7}");
 

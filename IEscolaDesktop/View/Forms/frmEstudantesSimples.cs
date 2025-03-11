@@ -36,6 +36,10 @@ namespace IEscolaDesktop.View.Forms
 
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
 
+            txtInscritos_.Properties.NullText = estudantesinscritos;
+            txtTurmas.Properties.NullText = turma;
+            txtEstadoEstudantes.Properties.NullText = estudanteestado;
+
             if (usuarios != null) {     
                 
                 //Inicializar o Forms
@@ -54,10 +58,7 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
             }
 
-            this.Load += FrmUsuariosAdd_Load;
-
-            txtInscritos_.Properties.NullText = professor;
-            txtTurmas.Properties.NullText = cursosClassedisci;
+            this.Load += FrmUsuariosAdd_Load; 
         }
 
         private void BtnBuscarGrupos_Click(object sender, EventArgs e)
@@ -225,8 +226,9 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
-        private string professor = "* [Selecione o Professor da disciplina por favor";
-        private string cursosClassedisci = "* [Selecione a Disciplina [Curso => Claase => Disciplina]";
+        private string estudantesinscritos = "* [Selecione o Professor da disciplina por favor";
+        private string turma = "* [Selecione a turma por favor]";
+        private string estudanteestado = "* [Selecione o estado do mesmo por favor]";
 
         private void ChangeValudations(Control control)
         {
@@ -238,7 +240,7 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtTurmas.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtInscritos_.Text) || txtInscritos_.Text == professor))
+                        if (!(string.IsNullOrWhiteSpace(txtInscritos_.Text) || txtInscritos_.Text == estudantesinscritos))
                         { 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -257,7 +259,7 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtInscritos_.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == cursosClassedisci))
+                        if (!(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -278,7 +280,7 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtInscritos_.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == cursosClassedisci))
+                        if (!(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -297,8 +299,8 @@ namespace IEscolaDesktop.View.Forms
                 else
                 {
                     if (
-                        !(string.IsNullOrWhiteSpace(txtInscritos_.Text) || txtInscritos_.Text == professor) &&
-                        !(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == cursosClassedisci))
+                        !(string.IsNullOrWhiteSpace(txtInscritos_.Text) || txtInscritos_.Text == estudantesinscritos) &&
+                        !(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma))
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                     else
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
