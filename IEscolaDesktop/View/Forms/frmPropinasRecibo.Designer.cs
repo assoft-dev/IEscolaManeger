@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPropinasRecibo));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXLS = new DevExpress.XtraEditors.SimpleButton();
@@ -42,7 +42,13 @@
             this.txtPesquisar = new DevExpress.XtraEditors.ButtonEdit();
             this.btnNovo = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.propinasRecibosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colPropinasRecibosID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colValorPago = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colValorFalta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPropinasPagamentoID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPropinasPagamentos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.MenuPrinciapl = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAtualizar = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,21 +57,15 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
-            this.propinasRecibosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.colPropinasRecibosID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colValorPago = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colValorFalta = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPropinasPagamentoID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPropinasPagamentos = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPesquisar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propinasRecibosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.MenuPrinciapl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.propinasRecibosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -97,7 +97,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnPDF, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtPesquisar, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnNovo, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 19);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tablePanel1.SetRow(this.tableLayoutPanel1, 0);
@@ -137,9 +137,9 @@
             this.txtPesquisar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Properties.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.txtPesquisar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtPesquisar.Properties.NullValuePrompt = "Pesquise Aqui [Recibo]";
             this.txtPesquisar.Size = new System.Drawing.Size(412, 37);
             this.txtPesquisar.TabIndex = 0;
@@ -162,17 +162,21 @@
             this.gridControl1.DataSource = this.propinasRecibosBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridControl1.Location = new System.Drawing.Point(14, 58);
+            this.gridControl1.Location = new System.Drawing.Point(14, 72);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
             this.tablePanel1.SetRow(this.gridControl1, 1);
-            this.gridControl1.Size = new System.Drawing.Size(547, 354);
+            this.gridControl1.Size = new System.Drawing.Size(547, 340);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // propinasRecibosBindingSource
+            // 
+            this.propinasRecibosBindingSource.DataSource = typeof(IEscolaEntity.Models.PropinasRecibos);
             // 
             // gridView1
             // 
@@ -190,6 +194,51 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // colPropinasRecibosID
+            // 
+            this.colPropinasRecibosID.Caption = "ID";
+            this.colPropinasRecibosID.FieldName = "PropinasRecibosID";
+            this.colPropinasRecibosID.Name = "colPropinasRecibosID";
+            this.colPropinasRecibosID.Visible = true;
+            this.colPropinasRecibosID.VisibleIndex = 0;
+            this.colPropinasRecibosID.Width = 41;
+            // 
+            // colValorPago
+            // 
+            this.colValorPago.Caption = "Pago";
+            this.colValorPago.FieldName = "ValorPago";
+            this.colValorPago.Name = "colValorPago";
+            this.colValorPago.Visible = true;
+            this.colValorPago.VisibleIndex = 1;
+            this.colValorPago.Width = 118;
+            // 
+            // colValorFalta
+            // 
+            this.colValorFalta.Caption = "V. Falta";
+            this.colValorFalta.FieldName = "ValorFalta";
+            this.colValorFalta.Name = "colValorFalta";
+            this.colValorFalta.Visible = true;
+            this.colValorFalta.VisibleIndex = 2;
+            this.colValorFalta.Width = 118;
+            // 
+            // colPropinasPagamentoID
+            // 
+            this.colPropinasPagamentoID.Caption = "Pagamento";
+            this.colPropinasPagamentoID.FieldName = "PropinasPagamentos.Descricao";
+            this.colPropinasPagamentoID.Name = "colPropinasPagamentoID";
+            this.colPropinasPagamentoID.Visible = true;
+            this.colPropinasPagamentoID.VisibleIndex = 3;
+            this.colPropinasPagamentoID.Width = 122;
+            // 
+            // colPropinasPagamentos
+            // 
+            this.colPropinasPagamentos.Caption = "Estudante";
+            this.colPropinasPagamentos.FieldName = "PropinasPagamentos.Estudantes.Codigo";
+            this.colPropinasPagamentos.Name = "colPropinasPagamentos";
+            this.colPropinasPagamentos.Visible = true;
+            this.colPropinasPagamentos.VisibleIndex = 4;
+            this.colPropinasPagamentos.Width = 120;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -252,50 +301,6 @@
             this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
-            // propinasRecibosBindingSource
-            // 
-            this.propinasRecibosBindingSource.DataSource = typeof(IEscolaEntity.Models.PropinasRecibos);
-            // 
-            // colPropinasRecibosID
-            // 
-            this.colPropinasRecibosID.FieldName = "PropinasRecibosID";
-            this.colPropinasRecibosID.Name = "colPropinasRecibosID";
-            this.colPropinasRecibosID.Visible = true;
-            this.colPropinasRecibosID.VisibleIndex = 0;
-            this.colPropinasRecibosID.Width = 64;
-            // 
-            // colValorPago
-            // 
-            this.colValorPago.FieldName = "ValorPago";
-            this.colValorPago.Name = "colValorPago";
-            this.colValorPago.Visible = true;
-            this.colValorPago.VisibleIndex = 1;
-            this.colValorPago.Width = 64;
-            // 
-            // colValorFalta
-            // 
-            this.colValorFalta.FieldName = "ValorFalta";
-            this.colValorFalta.Name = "colValorFalta";
-            this.colValorFalta.Visible = true;
-            this.colValorFalta.VisibleIndex = 2;
-            this.colValorFalta.Width = 64;
-            // 
-            // colPropinasPagamentoID
-            // 
-            this.colPropinasPagamentoID.FieldName = "PropinasPagamentoID";
-            this.colPropinasPagamentoID.Name = "colPropinasPagamentoID";
-            this.colPropinasPagamentoID.Visible = true;
-            this.colPropinasPagamentoID.VisibleIndex = 3;
-            this.colPropinasPagamentoID.Width = 64;
-            // 
-            // colPropinasPagamentos
-            // 
-            this.colPropinasPagamentos.FieldName = "PropinasPagamentos";
-            this.colPropinasPagamentos.Name = "colPropinasPagamentos";
-            this.colPropinasPagamentos.Visible = true;
-            this.colPropinasPagamentos.VisibleIndex = 4;
-            this.colPropinasPagamentos.Width = 64;
-            // 
             // frmPropinasRecibo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,10 +314,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtPesquisar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propinasRecibosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.MenuPrinciapl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.propinasRecibosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

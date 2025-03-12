@@ -25,6 +25,8 @@ namespace IEscolaDesktop.View.Forms
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
             //txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
+            txtPagamento.EditValueChanged += delegate { ChangeValudations(txtPagamento); };
+            txtValorPago.EditValueChanged += delegate { ChangeValudations(txtValorPago); };
             txtValorFalta.EditValueChanged += delegate { ChangeValudations(txtValorFalta); };
 
             btnPropinasConfig.Click += BtnBuscar1Grupos_Click;
@@ -50,6 +52,7 @@ namespace IEscolaDesktop.View.Forms
             }
 
             this.Load += FrmUsuariosAdd_Load;
+
             txtPagamento.Properties.NullText = pagamentoLabel;
         }
 
@@ -219,7 +222,7 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtPagamento.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtValorFalta.Text) || txtValorFalta.Value != 0) &&
+                        if (!(string.IsNullOrWhiteSpace(txtValorFalta.Text)) &&
                             !(string.IsNullOrWhiteSpace(txtValorPago.Text) || txtValorPago.Value != 0))
                         { 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -281,7 +284,7 @@ namespace IEscolaDesktop.View.Forms
                 else
                 {
                     if (  !(string.IsNullOrWhiteSpace(txtValorPago.Text) || txtValorPago.Value != 0) &&
-                          !(string.IsNullOrWhiteSpace(txtValorFalta.Text)|| txtValorFalta.Value != 0) &&
+                          !(string.IsNullOrWhiteSpace(txtValorFalta.Text)) &&
                           !(string.IsNullOrWhiteSpace(txtPagamento.Text) || txtPagamento.Text == pagamentoLabel))
                     {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;

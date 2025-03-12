@@ -174,7 +174,9 @@ namespace IEscolaDesktop.View.Forms
         private async Task<bool> ValidationDatabase()
         {
             var dataResult = await DataRepository.Get(x => (x.Descricao == txtDescricao.Text &&
-                                                            x.PropinasConfigID == 1), null);
+                                                            x.PropinasConfigID == (int) txtPropinasConfig.EditValue &&
+                                                            x.EstudanteID == (int)txtEstudante.EditValue &&
+                                                            x.Data == DateTime.Now.Date), null);
 
             if (dataResult != null)
             {

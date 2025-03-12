@@ -139,7 +139,7 @@
             this.tablePanel2.Controls.Add(this.labelControl6);
             this.tablePanel2.Controls.Add(this.panelControl8);
             this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel2.Location = new System.Drawing.Point(15, 53);
+            this.tablePanel2.Location = new System.Drawing.Point(14, 52);
             this.tablePanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablePanel2.Name = "tablePanel2";
             this.tablePanel1.SetRow(this.tablePanel2, 1);
@@ -154,7 +154,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 74.43F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 29.46F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 30.94F)});
-            this.tablePanel2.Size = new System.Drawing.Size(535, 354);
+            this.tablePanel2.Size = new System.Drawing.Size(537, 356);
             this.tablePanel2.TabIndex = 2;
             this.tablePanel2.UseSkinIndents = true;
             // 
@@ -170,7 +170,7 @@
             this.panelControl10.Name = "panelControl10";
             this.panelControl10.Padding = new System.Windows.Forms.Padding(0, 0, 4, 4);
             this.tablePanel2.SetRow(this.panelControl10, 7);
-            this.panelControl10.Size = new System.Drawing.Size(507, 46);
+            this.panelControl10.Size = new System.Drawing.Size(509, 46);
             this.panelControl10.TabIndex = 14;
             // 
             // txtEstudante
@@ -189,7 +189,7 @@
             this.txtEstudante.Properties.NullText = "[Selecione o estudante por favor]";
             this.txtEstudante.Properties.PopupView = this.gridView1;
             this.txtEstudante.Properties.ValueMember = "EstudantesID";
-            this.txtEstudante.Size = new System.Drawing.Size(456, 42);
+            this.txtEstudante.Size = new System.Drawing.Size(458, 42);
             this.txtEstudante.TabIndex = 8;
             // 
             // estudantesBindingSource
@@ -264,7 +264,7 @@
             this.btnEstudantes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEstudantes.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEstudantes.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEstudantes.ImageOptions.SvgImage")));
-            this.btnEstudantes.Location = new System.Drawing.Point(456, 0);
+            this.btnEstudantes.Location = new System.Drawing.Point(458, 0);
             this.btnEstudantes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEstudantes.Name = "btnEstudantes";
             this.btnEstudantes.Size = new System.Drawing.Size(47, 42);
@@ -280,7 +280,7 @@
             this.panelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl4.Name = "panelControl4";
             this.tablePanel2.SetRow(this.panelControl4, 5);
-            this.panelControl4.Size = new System.Drawing.Size(507, 49);
+            this.panelControl4.Size = new System.Drawing.Size(509, 49);
             this.panelControl4.TabIndex = 13;
             // 
             // panelControl2
@@ -293,7 +293,7 @@
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(0, 0, 4, 4);
-            this.panelControl2.Size = new System.Drawing.Size(507, 49);
+            this.panelControl2.Size = new System.Drawing.Size(509, 49);
             this.panelControl2.TabIndex = 12;
             // 
             // txtPropinasConfig
@@ -312,7 +312,7 @@
             this.txtPropinasConfig.Properties.NullText = "[Selecione a configuração por favor]";
             this.txtPropinasConfig.Properties.PopupView = this.gridLookUpEdit1View;
             this.txtPropinasConfig.Properties.ValueMember = "PropinasConfigID";
-            this.txtPropinasConfig.Size = new System.Drawing.Size(456, 45);
+            this.txtPropinasConfig.Size = new System.Drawing.Size(458, 45);
             this.txtPropinasConfig.TabIndex = 1;
             // 
             // propinasConfigBindingSource
@@ -389,7 +389,7 @@
             this.btnPropinasConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPropinasConfig.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnPropinasConfig.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPropinasConfig.ImageOptions.SvgImage")));
-            this.btnPropinasConfig.Location = new System.Drawing.Point(456, 0);
+            this.btnPropinasConfig.Location = new System.Drawing.Point(458, 0);
             this.btnPropinasConfig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPropinasConfig.Name = "btnPropinasConfig";
             this.btnPropinasConfig.Size = new System.Drawing.Size(47, 45);
@@ -418,7 +418,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 4);
             this.tablePanel2.SetRow(this.panelControl1, 3);
-            this.panelControl1.Size = new System.Drawing.Size(507, 49);
+            this.panelControl1.Size = new System.Drawing.Size(509, 49);
             this.panelControl1.TabIndex = 12;
             // 
             // txtDescricao
@@ -428,8 +428,8 @@
             this.txtDescricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Properties.AutoHeight = false;
-            this.txtDescricao.Properties.NullValuePrompt = "Escreva primeiro Nome";
-            this.txtDescricao.Size = new System.Drawing.Size(503, 45);
+            this.txtDescricao.Properties.NullValuePrompt = "Qual a referência do Pagamento?";
+            this.txtDescricao.Size = new System.Drawing.Size(505, 45);
             this.txtDescricao.TabIndex = 0;
             // 
             // labelControl2
@@ -465,7 +465,7 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tablePanel2.SetRow(this.panelControl3, 1);
-            this.panelControl3.Size = new System.Drawing.Size(507, 36);
+            this.panelControl3.Size = new System.Drawing.Size(509, 36);
             this.panelControl3.TabIndex = 12;
             // 
             // txtCodigo
@@ -479,7 +479,7 @@
             this.txtCodigo.Properties.AutoHeight = false;
             this.txtCodigo.Properties.NullValuePrompt = "Codigo Interno";
             this.txtCodigo.Properties.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(504, 33);
+            this.txtCodigo.Size = new System.Drawing.Size(506, 33);
             this.txtCodigo.TabIndex = 8;
             // 
             // labelControl6
@@ -503,7 +503,7 @@
             this.panelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl8.Name = "panelControl8";
             this.tablePanel2.SetRow(this.panelControl8, 9);
-            this.panelControl8.Size = new System.Drawing.Size(507, 14);
+            this.panelControl8.Size = new System.Drawing.Size(509, 16);
             this.panelControl8.TabIndex = 13;
             // 
             // panelControl5
@@ -513,7 +513,7 @@
             this.panelControl5.Location = new System.Drawing.Point(0, 0);
             this.panelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(507, 14);
+            this.panelControl5.Size = new System.Drawing.Size(509, 16);
             this.panelControl5.TabIndex = 12;
             // 
             // tableLayoutPanel1
@@ -522,16 +522,16 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 18);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tablePanel1.SetRow(this.tableLayoutPanel1, 0);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(535, 26);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(537, 26);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btnClose
@@ -540,7 +540,7 @@
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FillColor = System.Drawing.Color.Transparent;
             this.btnClose.IconColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(494, 2);
+            this.btnClose.Location = new System.Drawing.Point(496, 2);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.PressedColor = System.Drawing.Color.Transparent;
@@ -555,7 +555,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(253, 22);
+            this.panel1.Size = new System.Drawing.Size(254, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -590,11 +590,11 @@
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(15, 411);
+            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 412);
             this.windowsUIButtonPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
             this.tablePanel1.SetRow(this.windowsUIButtonPanel1, 2);
-            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(535, 80);
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(537, 80);
             this.windowsUIButtonPanel1.TabIndex = 8;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
             // 

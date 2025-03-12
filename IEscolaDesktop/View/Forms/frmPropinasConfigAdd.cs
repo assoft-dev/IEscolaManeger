@@ -118,7 +118,7 @@ namespace IEscolaDesktop.View.Forms
             if (!await ValidationDatabase())
             {
 
-                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
+                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int) txtCodigo.EditValue;
 
                 // save Data
                 var data = new PropinasConfig
@@ -129,11 +129,13 @@ namespace IEscolaDesktop.View.Forms
                     Meses = (Meses) txtMeses.EditValue,
                     Excedente = Convert.ToInt32(txtExcedente.Value),
                     Valor = (decimal) txtValor.EditValue,
-                    Ano = Convert.ToInt32(txtAno.Value),
+                    Ano = Convert.ToInt32(txtAno.Value), 
                 };
 
-                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.PropinasConfigID == ID) > 0 :
-                                        await DataRepository.Guardar(data, true);
+                if (ID != 0)
+                    IsValidate = await DataRepository.Guardar(data, X => X.PropinasConfigID == ID) > 0;
+                else
+                    IsValidate = await DataRepository.Guardar(data, true);                            
 
                 if (IsValidate)
                 {
@@ -149,7 +151,8 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => x.Meses.ToString() == txtMeses.Text, null);
+            var dataResult = await DataRepository.Get(x => x.Meses.ToString() == txtMeses.Text &&
+                                                           x.Ano == txtAno.Value, null);
 
             if (dataResult != null)
             {

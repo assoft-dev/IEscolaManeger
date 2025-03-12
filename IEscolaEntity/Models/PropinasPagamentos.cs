@@ -1,4 +1,5 @@
 ﻿using ServiceStack.DataAnnotations;
+using System;
 
 namespace IEscolaEntity.Models
 {
@@ -16,5 +17,7 @@ namespace IEscolaEntity.Models
         [ForeignKey(typeof(Estudantes))]
         public int EstudanteID { get; set; }
         [Reference]public Estudantes Estudantes { get; set; }
+
+        public DateTime? Data { get; set; }
     }
 }

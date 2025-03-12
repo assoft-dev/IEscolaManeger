@@ -74,7 +74,7 @@
 
         private void BtnTema_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (btnTema.Checked)
+            if (!btnTema.Checked)
             {
                 // Current skin/palette is dark
                 UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.WXI.OfficeWhite);
