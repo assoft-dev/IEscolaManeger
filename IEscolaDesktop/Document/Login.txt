@@ -1,0 +1,11 @@
+﻿[Tela de Login];
+
+>Usuário *
+   Representa o nome ou a referencia do usuario a ser colocado no texto abaixo
+   Email: Representa ou é simplesmente uma forma de escrever na tua tela o [Email]
+
+>Senha *
+   Representa o nome ou a referencia do usuario a ser colocado no texto abaixo
+   Email: Representa ou é simplesmente uma forma de escrever na tua tela o [Email];
+
+

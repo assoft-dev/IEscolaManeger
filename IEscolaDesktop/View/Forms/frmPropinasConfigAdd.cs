@@ -57,6 +57,8 @@ namespace IEscolaDesktop.View.Forms
             }
 
             this.Load += FrmPropinasConfigAdd_Load;
+
+            txtMeses.Properties.NullText = mes;
         }
 
         private void FrmPropinasConfigAdd_Load(object sender, EventArgs e)
@@ -152,7 +154,7 @@ namespace IEscolaDesktop.View.Forms
         private async Task<bool> ValidationDatabase()
         {
             var dataResult = await DataRepository.Get(x => x.Meses.ToString() == txtMeses.Text &&
-                                                           x.Ano == txtAno.Value, null);
+                                                           x.Ano == Convert.ToInt32(txtAno.Value), null);
 
             if (dataResult != null)
             {
@@ -202,27 +204,43 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
             }
         }
-
+        private string mes = "[Selecione o Mês por favor]";
         private void ChangeValudations(Control control)
         {
             if (control != null)
             {
-                #region FirstName
+                #region Mes
                 if (control.Name.Equals(txtMeses.Name))
                 {
-                    if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == "[Selecione o Mês por favor]"))
+                    if (!string.IsNullOrWhiteSpace(txtMeses.Text))
                     {
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        if (!(string.IsNullOrWhiteSpace(txtValor.Text) || txtValor.Value == 0))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                     }
-                    else {
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Mes
+                else if (control.Name.Equals(txtValor.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtValor.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == mes))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                     }
+                    windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                 }
                 #endregion
 
                 else
                 {
-                    if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == "[Selecione o Mês por favor]"))
+                    if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == mes) &&
+                         !(string.IsNullOrWhiteSpace(txtValor.Text) || txtValor.Value == 0))
                     {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                     }

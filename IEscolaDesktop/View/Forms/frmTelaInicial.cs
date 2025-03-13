@@ -55,7 +55,7 @@ namespace IEscolaDesktop.View.Forms
             {
                 labelStatus.Text = "Concluido!...";
                 timer1.Stop();
-                var frm = new frmLogin();
+                var frm = new frmLogin1();
                 frm.Show();
                 this.Hide();
             }

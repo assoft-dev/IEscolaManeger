@@ -34,7 +34,7 @@ namespace IEscolaDesktop.View.Forms
             txtSenhaNova.EditValueChanged += delegate { ChangeValudations(txtSenhaNova); };
             txtSenhaNovaRepetir.EditValueChanged += delegate { ChangeValudations(txtSenhaNovaRepetir); };
 
-            windowsUIButtonPanel1.Enabled = false;
+            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
 
             txtSenhaAntiga.ButtonClick += delegate { GetViewPassowrd(txtSenhaAntiga); };
             txtSenhaNova.ButtonClick += delegate { GetViewPassowrd(txtSenhaNova); };
@@ -93,16 +93,16 @@ namespace IEscolaDesktop.View.Forms
                             !string.IsNullOrWhiteSpace(txtSenhaNova.Text) &&
                             !string.IsNullOrWhiteSpace(txtSenhaNovaRepetir.Text))
                         {
-                            windowsUIButtonPanel1.Enabled = true;
+                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = true;
                         }
                         else
                         {
-                            windowsUIButtonPanel1.Enabled = false;
+                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                         }                         
                     }
                     else
                     {
-                        windowsUIButtonPanel1.Enabled = false;      
+                        windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;      
                     }
                 }
                 #endregion
@@ -116,16 +116,16 @@ namespace IEscolaDesktop.View.Forms
                             !string.IsNullOrWhiteSpace(txtSenhaNova.Text) &&
                             !string.IsNullOrWhiteSpace(txtSenhaNovaRepetir.Text))
                         {
-                            windowsUIButtonPanel1.Enabled = true;
+                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = true;
                         }
                         else
                         {
-                            windowsUIButtonPanel1.Enabled = false;
+                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                         }
                     }
                     else
                     {
-                        windowsUIButtonPanel1.Enabled = false;
+                        windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                     }
                 }
                 #endregion  
@@ -143,12 +143,12 @@ namespace IEscolaDesktop.View.Forms
                         }
                         else
                         {
-                            windowsUIButtonPanel1.Enabled = false;
+                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                         }
                     }
                     else
                     {
-                        windowsUIButtonPanel1.Enabled = false;
+                        windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                     }
                 }
                 #endregion  
@@ -166,12 +166,12 @@ namespace IEscolaDesktop.View.Forms
                         }
                         else
                         {
-                            windowsUIButtonPanel1.Enabled = false;
+                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                         }
                     }
                     else
                     {
-                        windowsUIButtonPanel1.Enabled = false;
+                        windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                     }
                 }
                 #endregion
@@ -191,12 +191,12 @@ namespace IEscolaDesktop.View.Forms
             if (SenhaNova == SenhaNovaRepetir)
             {
                 if (control.Text.Length >= 4)
-                    windowsUIButtonPanel1.Enabled = true;
+                    windowsUIButtonPanel1.Buttons[0].Properties.Enabled = true;
                 else
-                    windowsUIButtonPanel1.Enabled = false;
+                    windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
             }
             else
-                windowsUIButtonPanel1.Enabled = false;
+                windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
             #endregion
         }
 
@@ -253,29 +253,19 @@ namespace IEscolaDesktop.View.Forms
             }
             if (keyData == Keys.F2)
             {
-                if (windowsUIButtonPanel1.Enabled == true)
+                if (windowsUIButtonPanel1.Buttons[0].Properties.Enabled == true)
                     WindowsUIButtonPanel1_ButtonClick(null, null);
                 bool res = base.ProcessCmdKey(ref msg, keyData);
                 return res;
             }
             if (keyData == Keys.Enter)
             {
-                if (windowsUIButtonPanel1.Enabled == true)
+                if (windowsUIButtonPanel1.Buttons[0].Properties.Enabled == true)
                     WindowsUIButtonPanel1_ButtonClick(null, null);
                 bool res = base.ProcessCmdKey(ref msg, keyData);
                 return res;
             }
             return false;
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtSenhaAntiga_EditValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

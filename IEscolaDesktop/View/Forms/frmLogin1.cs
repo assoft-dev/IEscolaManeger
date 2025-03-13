@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmLogin : XtraForm
+    public partial class frmLogin1 : XtraForm
     {
         #region Mover
         private int cX, cY;
         private bool mover;
         #endregion
 
-        IUsuarios  UserRepository;
+        IUsuarios UserRepository;
 
-        public frmLogin()
+        public frmLogin1()
         {
             InitializeComponent();
 
-            btnPasswordReset.Visible = false;
-            windowsUIButtonPanel1.Enabled = false;
+            //btnPasswordReset.Visible = false;
+            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
 
             //Mover o formulario
             PainelMover.MouseMove += Panel1_MouseMove;
@@ -40,15 +40,25 @@ namespace IEscolaDesktop.View.Forms
             // Validar Somente quando estiver tudo OK
             txtUsuarios.EditValueChanged += delegate { ChangeValudations(txtUsuarios); };
             txtSenha.EditValueChanged += delegate { ChangeValudations(txtSenha); };
+            pictureEdit1.Click += PictureEdit1_Click;
 
             lblReservado.Click += LblReservado_Click;
 
-             // Instancias das classe referente
-             UserRepository = new UsuariosRepository();
+            // Instancias das classe referente
+            UserRepository = new UsuariosRepository();
             UserRepository.DoGetCount<Usuarios>();
 
             txtUsuarios.EditValue = "admin";
             txtSenha.EditValue = "0000";
+        }
+
+        private void PictureEdit1_Click(object sender, System.EventArgs e)
+        {
+            using (var frm = new frmUsuarioHelps(frmUsuarioHelps.TelaHelps.Login))
+            {
+                var r = new OpenFormsDialog(this, null, frm);
+                r.ShowDialog();
+            }
         }
 
         private void LblReservado_Click(object sender, System.EventArgs e)
@@ -57,7 +67,7 @@ namespace IEscolaDesktop.View.Forms
             {
                 var r = new OpenFormsDialog(this, null, frm);
                 r.ShowDialog();
-            }           
+            }
         }
 
         private void ChangeValudations(Control controlValues)
@@ -76,19 +86,19 @@ namespace IEscolaDesktop.View.Forms
                                 if (txtUsuarios.Text.Contains("@"))
                                 {
                                     if (EmailValidade.GetIstance().IsValidEmail(txtUsuarios.Text))
-                                        windowsUIButtonPanel1.Enabled = true;
+                                        windowsUIButtonPanel1.Buttons[0].Properties.Enabled = true;
                                     else
-                                        windowsUIButtonPanel1.Enabled = false;
+                                        windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                                 }
                             }
                             else
                             {
-                                windowsUIButtonPanel1.Enabled = false;
+                                windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                             }
                         }
                         else
                         {
-                            windowsUIButtonPanel1.Enabled = false;
+                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                         }
                     }
 
@@ -98,34 +108,34 @@ namespace IEscolaDesktop.View.Forms
                         if (!string.IsNullOrWhiteSpace(txtUsuarios.Text))
                         {
                             if (txtSenha.Text.Length > 3)
-                                windowsUIButtonPanel1.Enabled = true;
+                                windowsUIButtonPanel1.Buttons[0].Properties.Enabled = true;
                             else
-                                windowsUIButtonPanel1.Enabled = false;
+                                windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
 
                             if (txtUsuarios.Text.Contains("@"))
                             {
                                 if (EmailValidade.GetIstance().IsValidEmail(txtUsuarios.Text))
-                                    windowsUIButtonPanel1.Enabled = true;
+                                    windowsUIButtonPanel1.Buttons[0].Properties.Enabled = true;
                                 else
-                                    windowsUIButtonPanel1.Enabled = false;
+                                    windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                             }
                         }
                         else
                         {
-                            windowsUIButtonPanel1.Enabled = false;
+                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                         }
                     }
                     else
                     {
-                        windowsUIButtonPanel1.Enabled = false;
+                        windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
                     }
                 }
                 else
-                    windowsUIButtonPanel1.Enabled = false;
+                    windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
             }
             else
             {
-                windowsUIButtonPanel1.Enabled = false;
+                windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
             }
         }
 
@@ -143,7 +153,7 @@ namespace IEscolaDesktop.View.Forms
             if (txtSenha.Properties.UseSystemPasswordChar)
                 txtSenha.Properties.UseSystemPasswordChar = false;
             else
-                txtSenha.Properties.UseSystemPasswordChar= true;
+                txtSenha.Properties.UseSystemPasswordChar = true;
         }
 
         // Login
@@ -159,12 +169,12 @@ namespace IEscolaDesktop.View.Forms
                     await LoginForms();
                 else
                     CloseForms();
-            }     
+            }
         }
 
         private static void CloseForms()
         {
-            var result = Mensagens.Display("Sair", 
+            var result = Mensagens.Display("Sair",
                                            "Queres realmente sair do sistema?",
                                            MessageBoxButtons.YesNo,
                                            MessageBoxIcon.Question);
@@ -186,7 +196,7 @@ namespace IEscolaDesktop.View.Forms
             txtUsuarios.Focus();
         }
 
-        private async  Task LoginForms()
+        private async Task LoginForms()
         {
             Cursor = Cursors.WaitCursor;
 
@@ -205,13 +215,13 @@ namespace IEscolaDesktop.View.Forms
                             var frm = new frmMenu(result.Permission);
 
                             this.Hide();
-                            frm.ShowDialog();              
+                            frm.ShowDialog();
 
                             frm.FormClosed += delegate
                             {
                                 foreach (Form item in Application.OpenForms)
                                 {
-                                    if (item.Name == typeof(frmLogin).Name)
+                                    if (item.Name == typeof(frmLogin1).Name)
                                     {
                                         item.Show();
                                     }
@@ -265,7 +275,7 @@ namespace IEscolaDesktop.View.Forms
         }
 
         private bool Validadacao()
-        {  
+        {
             if (string.IsNullOrWhiteSpace(txtUsuarios.Text))
             {
                 MessageBox.Show("Coloque o seu Email por favor");
@@ -273,7 +283,7 @@ namespace IEscolaDesktop.View.Forms
                 txtUsuarios.Focus();
                 return false;
             }
-            if(string.IsNullOrWhiteSpace(txtSenha.Text)) 
+            if (string.IsNullOrWhiteSpace(txtSenha.Text))
             {
                 MessageBox.Show("Coloque sua senha por favor");
                 txtSenha.SelectAll();
@@ -290,7 +300,7 @@ namespace IEscolaDesktop.View.Forms
                     txtUsuarios.Focus();
                     return false;
                 }
-            }        
+            }
             return true;
         }
 
@@ -310,7 +320,7 @@ namespace IEscolaDesktop.View.Forms
             }
             if (keyData == Keys.Enter)
             {
-                if (windowsUIButtonPanel1.Enabled)
+                if (windowsUIButtonPanel1.Buttons[0].Properties.Enabled)
                     WindowsUIButtonPanel1_ButtonClick(null, null);
 
                 bool res = base.ProcessCmdKey(ref msg, keyData);
@@ -341,16 +351,6 @@ namespace IEscolaDesktop.View.Forms
         {
             if (e.Button == MouseButtons.Left)
                 mover = false;
-        }
-
-        private void groupControl1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, System.EventArgs e)
-        {
-
         }
 
         protected override CreateParams CreateParams

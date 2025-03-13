@@ -1,6 +1,6 @@
 ﻿namespace IEscolaDesktop.View.Forms
 {
-    partial class frmUsuariosReservado
+    partial class frmUsuarioHelps
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtDescricao = new System.Windows.Forms.RichTextBox();
+            this.txtTitulos = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.SuspendLayout();
@@ -39,8 +39,8 @@
             // 
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F)});
-            this.tablePanel1.Controls.Add(this.richTextBox1);
-            this.tablePanel1.Controls.Add(this.labelControl1);
+            this.tablePanel1.Controls.Add(this.txtDescricao);
+            this.tablePanel1.Controls.Add(this.txtTitulos);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel1.Location = new System.Drawing.Point(0, 0);
             this.tablePanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -52,41 +52,41 @@
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
             // 
-            // richTextBox1
+            // txtDescricao
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(16)))));
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tablePanel1.SetColumn(this.richTextBox1, 0);
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.ForeColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(14, 45);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.richTextBox1.Name = "richTextBox1";
-            this.tablePanel1.SetRow(this.richTextBox1, 1);
-            this.richTextBox1.Size = new System.Drawing.Size(336, 410);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "A ASINFORPREST\n\nÉ uma empresa especialista em desenvolvimento de softwares e outr" +
+            this.txtDescricao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(16)))));
+            this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tablePanel1.SetColumn(this.txtDescricao, 0);
+            this.txtDescricao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescricao.ForeColor = System.Drawing.Color.White;
+            this.txtDescricao.Location = new System.Drawing.Point(14, 56);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDescricao.Name = "txtDescricao";
+            this.tablePanel1.SetRow(this.txtDescricao, 1);
+            this.txtDescricao.Size = new System.Drawing.Size(336, 399);
+            this.txtDescricao.TabIndex = 1;
+            this.txtDescricao.Text = "A ASINFORPREST\n\nÉ uma empresa especialista em desenvolvimento de softwares e outr" +
     "os serviços espericias";
             // 
-            // labelControl1
+            // txtTitulos
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Appearance.Options.UseTextOptions = true;
-            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.tablePanel1.SetColumn(this.labelControl1, 0);
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(14, 12);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl1.Name = "labelControl1";
-            this.tablePanel1.SetRow(this.labelControl1, 0);
-            this.labelControl1.Size = new System.Drawing.Size(336, 29);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Termos e Condições";
+            this.txtTitulos.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitulos.Appearance.ForeColor = System.Drawing.Color.White;
+            this.txtTitulos.Appearance.Options.UseFont = true;
+            this.txtTitulos.Appearance.Options.UseForeColor = true;
+            this.txtTitulos.Appearance.Options.UseTextOptions = true;
+            this.txtTitulos.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.tablePanel1.SetColumn(this.txtTitulos, 0);
+            this.txtTitulos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTitulos.Location = new System.Drawing.Point(14, 12);
+            this.txtTitulos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTitulos.Name = "txtTitulos";
+            this.tablePanel1.SetRow(this.txtTitulos, 0);
+            this.txtTitulos.Size = new System.Drawing.Size(336, 40);
+            this.txtTitulos.TabIndex = 0;
+            this.txtTitulos.Text = "Termos e Condições";
             // 
-            // frmUsuariosReservado
+            // frmUsuarioHelps
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(16)))));
             this.Appearance.Options.UseBackColor = true;
@@ -95,7 +95,7 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.tablePanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmUsuariosReservado";
+            this.Name = "frmUsuarioHelps";
             this.Size = new System.Drawing.Size(364, 468);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
@@ -107,7 +107,7 @@
         #endregion
 
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private DevExpress.XtraEditors.LabelControl txtTitulos;
+        private System.Windows.Forms.RichTextBox txtDescricao;
     }
 }

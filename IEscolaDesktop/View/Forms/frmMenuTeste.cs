@@ -225,7 +225,7 @@
         {
             foreach (Form item in Application.OpenForms)
             {
-                if (item.Name == (typeof(frmLogin)).Name)
+                if (item.Name == (typeof(frmLogin1)).Name)
                 {
                     item.Show();
                 }

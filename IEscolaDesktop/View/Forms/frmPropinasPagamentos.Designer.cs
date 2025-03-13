@@ -170,6 +170,7 @@
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
             this.tablePanel1.SetRow(this.gridControl1, 1);
+            this.tablePanel1.SetRowSpan(this.gridControl1, 2);
             this.gridControl1.Size = new System.Drawing.Size(547, 340);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -181,6 +182,7 @@
             // 
             // gridView1
             // 
+            this.gridView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPropinasPagamentosID,
             this.colDescricao,
@@ -188,13 +190,14 @@
             this.colPropinasConfig,
             this.colEstudanteID,
             this.colEstudantes});
-            this.gridView1.DetailHeight = 284;
+            this.gridView1.DetailHeight = 300;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 1;
             this.gridView1.GroupPanelText = "Pesquise Aqui";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsDetail.SmartDetailHeight = true;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colEstudanteID, DevExpress.Data.ColumnSortOrder.Ascending)});
