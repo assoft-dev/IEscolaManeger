@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBiblioteca_PedidosAdd));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl23 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -190,7 +190,7 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 30.39982F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 582.8F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 80.80003F)});
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 66.80003F)});
             this.tablePanel1.Size = new System.Drawing.Size(738, 711);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
@@ -203,10 +203,10 @@
             this.panelControl23.Controls.Add(this.tablePanel5);
             this.panelControl23.Controls.Add(this.tablePanel2);
             this.panelControl23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl23.Location = new System.Drawing.Point(13, 35);
+            this.panelControl23.Location = new System.Drawing.Point(13, 42);
             this.panelControl23.Name = "panelControl23";
             this.tablePanel1.SetRow(this.panelControl23, 1);
-            this.panelControl23.Size = new System.Drawing.Size(712, 601);
+            this.panelControl23.Size = new System.Drawing.Size(712, 589);
             this.panelControl23.TabIndex = 9;
             // 
             // gridControl1
@@ -216,7 +216,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 312);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(708, 181);
+            this.gridControl1.Size = new System.Drawing.Size(708, 169);
             this.gridControl1.TabIndex = 11;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -381,7 +381,7 @@
             this.groupControl6.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl6.Location = new System.Drawing.Point(13, 224);
             this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.groupControl6.Padding = new System.Windows.Forms.Padding(3);
             this.tablePanel3.SetRow(this.groupControl6, 4);
             this.groupControl6.Size = new System.Drawing.Size(313, 48);
             this.groupControl6.TabIndex = 13;
@@ -410,7 +410,7 @@
             this.groupControl3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl3.Location = new System.Drawing.Point(13, 118);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.groupControl3.Padding = new System.Windows.Forms.Padding(3);
             this.tablePanel3.SetRow(this.groupControl3, 2);
             this.groupControl3.Size = new System.Drawing.Size(313, 49);
             this.groupControl3.TabIndex = 12;
@@ -438,7 +438,7 @@
             this.groupControl5.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl5.Location = new System.Drawing.Point(13, 171);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.groupControl5.Padding = new System.Windows.Forms.Padding(3);
             this.tablePanel3.SetRow(this.groupControl5, 3);
             this.groupControl5.Size = new System.Drawing.Size(313, 49);
             this.groupControl5.TabIndex = 12;
@@ -497,7 +497,7 @@
             this.groupControl4.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl4.Location = new System.Drawing.Point(13, 12);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.groupControl4.Padding = new System.Windows.Forms.Padding(3);
             this.tablePanel3.SetRow(this.groupControl4, 0);
             this.groupControl4.Size = new System.Drawing.Size(313, 49);
             this.groupControl4.TabIndex = 13;
@@ -525,7 +525,7 @@
             this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl2.Location = new System.Drawing.Point(13, 65);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.groupControl2.Padding = new System.Windows.Forms.Padding(3);
             this.tablePanel3.SetRow(this.groupControl2, 1);
             this.groupControl2.Size = new System.Drawing.Size(313, 49);
             this.groupControl2.TabIndex = 12;
@@ -589,7 +589,7 @@
             this.groupControl9.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl9.Location = new System.Drawing.Point(13, 220);
             this.groupControl9.Name = "groupControl9";
-            this.groupControl9.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.groupControl9.Padding = new System.Windows.Forms.Padding(3);
             this.tablePanel4.SetRow(this.groupControl9, 4);
             this.groupControl9.Size = new System.Drawing.Size(305, 52);
             this.groupControl9.TabIndex = 11;
@@ -618,7 +618,7 @@
             this.groupControl8.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl8.Location = new System.Drawing.Point(13, 118);
             this.groupControl8.Name = "groupControl8";
-            this.groupControl8.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.groupControl8.Padding = new System.Windows.Forms.Padding(3);
             this.tablePanel4.SetRow(this.groupControl8, 2);
             this.groupControl8.Size = new System.Drawing.Size(305, 49);
             this.groupControl8.TabIndex = 12;
@@ -647,7 +647,7 @@
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl1.Location = new System.Drawing.Point(13, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.groupControl1.Padding = new System.Windows.Forms.Padding(3);
             this.tablePanel4.SetRow(this.groupControl1, 0);
             this.groupControl1.Size = new System.Drawing.Size(305, 49);
             this.groupControl1.TabIndex = 12;
@@ -663,7 +663,7 @@
             this.txtEstudantes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtEstudantes.Properties.DataSource = this.estudantesBindingSource;
-            this.txtEstudantes.Properties.DisplayMember = "FullName";
+            this.txtEstudantes.Properties.DisplayMember = "Inscricoes.FullName";
             this.txtEstudantes.Properties.NullText = "[Selecione o estudante por favor]";
             this.txtEstudantes.Properties.PopupView = this.gridLookUpEdit1View;
             this.txtEstudantes.Properties.ValueMember = "EstudantesID";
@@ -804,7 +804,7 @@
             this.groupControl7.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.groupControl7.Location = new System.Drawing.Point(13, 65);
             this.groupControl7.Name = "groupControl7";
-            this.groupControl7.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.groupControl7.Padding = new System.Windows.Forms.Padding(3);
             this.tablePanel4.SetRow(this.groupControl7, 1);
             this.groupControl7.Size = new System.Drawing.Size(305, 49);
             this.groupControl7.TabIndex = 11;
@@ -836,7 +836,7 @@
             this.tablePanel2.Controls.Add(this.panelControl1);
             this.tablePanel2.Controls.Add(this.labelControl2);
             this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tablePanel2.Location = new System.Drawing.Point(2, 493);
+            this.tablePanel2.Location = new System.Drawing.Point(2, 481);
             this.tablePanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablePanel2.Name = "tablePanel2";
             this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
@@ -963,10 +963,10 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 16);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tablePanel1.SetRow(this.tableLayoutPanel1, 0);
@@ -981,11 +981,11 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnClose.FillColor = System.Drawing.Color.Transparent;
             this.btnClose.IconColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(654, 2);
+            this.btnClose.Location = new System.Drawing.Point(653, 2);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.PressedColor = System.Drawing.Color.Transparent;
-            this.btnClose.Size = new System.Drawing.Size(53, 14);
+            this.btnClose.Size = new System.Drawing.Size(54, 14);
             this.btnClose.TabIndex = 0;
             // 
             // panel1
@@ -1020,23 +1020,23 @@
             // 
             // windowsUIButtonPanel1
             // 
-            windowsUIButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions4.Image")));
-            windowsUIButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions5.Image")));
-            windowsUIButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions6.SvgImage")));
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
+            windowsUIButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions2.Image")));
+            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
             this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Cancelar", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Cancelar", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.ContentAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 640);
+            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 635);
             this.windowsUIButtonPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
             this.tablePanel1.SetRow(this.windowsUIButtonPanel1, 2);
-            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(710, 58);
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(710, 63);
             this.windowsUIButtonPanel1.TabIndex = 8;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
             // 

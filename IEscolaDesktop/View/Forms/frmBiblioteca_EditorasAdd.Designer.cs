@@ -97,7 +97,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 40.39982F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 582.8F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 88F)});
-            this.tablePanel1.Size = new System.Drawing.Size(565, 494);
+            this.tablePanel1.Size = new System.Drawing.Size(479, 494);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
             // 
@@ -116,7 +116,7 @@
             this.tablePanel2.Controls.Add(this.labelControl6);
             this.tablePanel2.Controls.Add(this.panelControl8);
             this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel2.Location = new System.Drawing.Point(15, 53);
+            this.tablePanel2.Location = new System.Drawing.Point(14, 52);
             this.tablePanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablePanel2.Name = "tablePanel2";
             this.tablePanel1.SetRow(this.tablePanel2, 1);
@@ -131,7 +131,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 90.96F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 20.6F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 25.52F)});
-            this.tablePanel2.Size = new System.Drawing.Size(535, 339);
+            this.tablePanel2.Size = new System.Drawing.Size(451, 341);
             this.tablePanel2.TabIndex = 2;
             this.tablePanel2.UseSkinIndents = true;
             // 
@@ -147,7 +147,7 @@
             this.panelControl10.Name = "panelControl10";
             this.panelControl10.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tablePanel2.SetRow(this.panelControl10, 7);
-            this.panelControl10.Size = new System.Drawing.Size(507, 54);
+            this.panelControl10.Size = new System.Drawing.Size(423, 54);
             this.panelControl10.TabIndex = 14;
             // 
             // txtPais
@@ -168,7 +168,7 @@
             this.txtPais.Properties.NullText = "[Selecione a o pais por favor]";
             this.txtPais.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtPais.Properties.ValueMember = "PaisID";
-            this.txtPais.Size = new System.Drawing.Size(464, 51);
+            this.txtPais.Size = new System.Drawing.Size(380, 51);
             this.txtPais.TabIndex = 8;
             // 
             // paisBindingSource
@@ -180,7 +180,7 @@
             this.btnBuscarGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarGrupos.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnBuscarGrupos.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBuscarGrupos.ImageOptions.SvgImage")));
-            this.btnBuscarGrupos.Location = new System.Drawing.Point(464, 0);
+            this.btnBuscarGrupos.Location = new System.Drawing.Point(380, 0);
             this.btnBuscarGrupos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarGrupos.Name = "btnBuscarGrupos";
             this.btnBuscarGrupos.Size = new System.Drawing.Size(40, 51);
@@ -197,7 +197,7 @@
             this.panelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl4.Name = "panelControl4";
             this.tablePanel2.SetRow(this.panelControl4, 5);
-            this.panelControl4.Size = new System.Drawing.Size(507, 39);
+            this.panelControl4.Size = new System.Drawing.Size(423, 39);
             this.panelControl4.TabIndex = 13;
             // 
             // panelControl2
@@ -209,7 +209,7 @@
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.panelControl2.Size = new System.Drawing.Size(507, 39);
+            this.panelControl2.Size = new System.Drawing.Size(423, 39);
             this.panelControl2.TabIndex = 12;
             // 
             // txtComentarios
@@ -220,7 +220,7 @@
             this.txtComentarios.Name = "txtComentarios";
             this.txtComentarios.Properties.AutoHeight = false;
             this.txtComentarios.Properties.NullValuePrompt = "Alguns comentarios simples";
-            this.txtComentarios.Size = new System.Drawing.Size(504, 36);
+            this.txtComentarios.Size = new System.Drawing.Size(420, 36);
             this.txtComentarios.TabIndex = 1;
             // 
             // labelControl1
@@ -245,7 +245,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tablePanel2.SetRow(this.panelControl1, 3);
-            this.panelControl1.Size = new System.Drawing.Size(507, 45);
+            this.panelControl1.Size = new System.Drawing.Size(423, 45);
             this.panelControl1.TabIndex = 12;
             // 
             // txtDescricao
@@ -256,7 +256,7 @@
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Properties.AutoHeight = false;
             this.txtDescricao.Properties.NullValuePrompt = "Descrição descreva aqui";
-            this.txtDescricao.Size = new System.Drawing.Size(504, 42);
+            this.txtDescricao.Size = new System.Drawing.Size(420, 42);
             this.txtDescricao.TabIndex = 0;
             // 
             // labelControl2
@@ -292,7 +292,7 @@
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tablePanel2.SetRow(this.panelControl3, 1);
-            this.panelControl3.Size = new System.Drawing.Size(507, 34);
+            this.panelControl3.Size = new System.Drawing.Size(423, 34);
             this.panelControl3.TabIndex = 12;
             // 
             // txtCodigo
@@ -306,7 +306,7 @@
             this.txtCodigo.Properties.AutoHeight = false;
             this.txtCodigo.Properties.NullValuePrompt = "Codigo Interno";
             this.txtCodigo.Properties.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(504, 31);
+            this.txtCodigo.Size = new System.Drawing.Size(420, 31);
             this.txtCodigo.TabIndex = 8;
             // 
             // labelControl6
@@ -329,7 +329,7 @@
             this.panelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl8.Name = "panelControl8";
             this.tablePanel2.SetRow(this.panelControl8, 9);
-            this.panelControl8.Size = new System.Drawing.Size(507, 11);
+            this.panelControl8.Size = new System.Drawing.Size(423, 13);
             this.panelControl8.TabIndex = 13;
             // 
             // tableLayoutPanel1
@@ -338,16 +338,16 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 18);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tablePanel1.SetRow(this.tableLayoutPanel1, 0);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(535, 26);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(451, 26);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btnClose
@@ -356,7 +356,7 @@
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FillColor = System.Drawing.Color.Transparent;
             this.btnClose.IconColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(494, 2);
+            this.btnClose.Location = new System.Drawing.Point(410, 2);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.PressedColor = System.Drawing.Color.Transparent;
@@ -371,7 +371,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(256, 22);
+            this.panel1.Size = new System.Drawing.Size(209, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -406,11 +406,11 @@
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(15, 396);
+            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 397);
             this.windowsUIButtonPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
             this.tablePanel1.SetRow(this.windowsUIButtonPanel1, 2);
-            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(535, 84);
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(451, 84);
             this.windowsUIButtonPanel1.TabIndex = 8;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
             // 
@@ -421,7 +421,7 @@
             this.Controls.Add(this.tablePanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmBiblioteca_EditorasAdd";
-            this.Size = new System.Drawing.Size(565, 494);
+            this.Size = new System.Drawing.Size(479, 494);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();

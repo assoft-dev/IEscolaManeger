@@ -98,7 +98,7 @@ namespace IEscolaDesktop.View.Forms
 
         private async void LeituraInicial()
         {
-            DataOriginalList = await DataRepository.GetAll();
+            DataOriginalList = await DataRepository.GetAllinclud();
             municipiosBindingSource.DataSource = DataOriginalList;
         }
 

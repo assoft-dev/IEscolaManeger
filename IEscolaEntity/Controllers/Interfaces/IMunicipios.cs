@@ -9,5 +9,6 @@ namespace IEscolaEntity.Controllers.Interfaces
 {
     public interface IMunicipios: ITransationRepository, IGeneric<Municipios>
     {
+        Task<List<Municipios>> GetAllinclud();
     }
 }

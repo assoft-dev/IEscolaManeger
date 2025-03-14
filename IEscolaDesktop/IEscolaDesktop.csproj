@@ -506,6 +506,7 @@
     </Compile>
     <Compile Include="View\Helps\AutoCompleteExtension.cs" />
     <Compile Include="View\Helps\GlobalArquivos.cs" />
+    <Compile Include="View\Helps\GlobalDateTimeExtension.cs" />
     <Compile Include="View\Helps\GlobalException.cs" />
     <Compile Include="View\Helps\GlobalOpenUserControl.cs" />
     <Compile Include="View\Helps\GlobalReport.cs" />

@@ -26,11 +26,11 @@ namespace IEscolaDesktop.View.Forms
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
 
 
-            txtMeses.EditValueChanged += delegate { ChangeValudations(txtMeses); };
-            txtInicio.EditValueChanged += delegate { ChangeValudations(txtInicio); };
-            txtTermina.EditValueChanged += delegate { ChangeValudations(txtTermina); };
+            txtMeses.EditValueChanged += delegate { GetMes((int) txtMeses.EditValue, txtAno.EditValue); ChangeValudations(txtMeses); };
+            //txtInicio.EditValueChanged += delegate { ChangeValudations(txtInicio); };
+            //txtTermina.EditValueChanged += delegate { ChangeValudations(txtTermina); };
             txtExcedente.EditValueChanged += delegate { ChangeValudations(txtExcedente); };
-            txtAno.EditValueChanged += delegate { ChangeValudations(txtAno); };
+            txtAno.EditValueChanged += delegate { GetMes((int)txtMeses.EditValue, txtAno.EditValue); ChangeValudations(txtAno); };
             txtValor.EditValueChanged += delegate { ChangeValudations(txtValor); };
             
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
@@ -59,11 +59,24 @@ namespace IEscolaDesktop.View.Forms
             this.Load += FrmPropinasConfigAdd_Load;
 
             txtMeses.Properties.NullText = mes;
+            txtAno.Properties.NullText = anos;
+
+            txtInicio.Value = DateTime.Now.StartOfMonth().Day;
+            txtTermina.Value = DateTime.Now.EndOfMonth().Day;
+        }
+
+        private void GetMes(int Mes, object Anos)
+        {
+            var data = new DateTime(AnosBuscar.GetAno(Anos), Mes, 1);
+
+            txtInicio.Value = data.StartOfMonth().Day;
+            txtTermina.Value = data.EndOfMonth().Day;
         }
 
         private void FrmPropinasConfigAdd_Load(object sender, EventArgs e)
         {
             txtMeses.Properties.DataSource = Enum.GetValues(typeof(Meses));
+            txtAno.Properties.DataSource = Enum.GetValues(typeof(Anos));
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -131,7 +144,7 @@ namespace IEscolaDesktop.View.Forms
                     Meses = (Meses) txtMeses.EditValue,
                     Excedente = Convert.ToInt32(txtExcedente.Value),
                     Valor = (decimal) txtValor.EditValue,
-                    Ano = Convert.ToInt32(txtAno.Value), 
+                    Ano = (Anos) txtAno.EditValue,
                 };
 
                 if (ID != 0)
@@ -153,8 +166,9 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => x.Meses.ToString() == txtMeses.Text &&
-                                                           x.Ano == Convert.ToInt32(txtAno.Value), null);
+            var dataResult = await DataRepository.Get(x => x.Meses == (Meses) txtMeses.EditValue &&
+                                                           x.Ano == (Anos) txtAno.EditValue &&
+                                                           x.Valor == txtValor.Value, null);
 
             if (dataResult != null)
             {
@@ -171,6 +185,17 @@ namespace IEscolaDesktop.View.Forms
 
                         return true;
                     } 
+                }
+                else
+                {
+                    Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Error);
+
+                    txtMeses.SelectAll();
+                    txtMeses.ShowPopup();
+
+                    return true;
                 }
             }
             return false;
@@ -205,6 +230,7 @@ namespace IEscolaDesktop.View.Forms
             }
         }
         private string mes = "[Selecione o Mês por favor]";
+        private string anos = "[Selecione o ano por favor]";
         private void ChangeValudations(Control control)
         {
             if (control != null)
@@ -214,7 +240,8 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtMeses.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtValor.Text) || txtValor.Value == 0))
+                        if (!(string.IsNullOrWhiteSpace(txtValor.Text) || txtValor.Value == 0) &&
+                             (string.IsNullOrWhiteSpace(txtAno.Text) || txtAno.Text == anos))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -228,7 +255,8 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtValor.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == mes))
+                        if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == mes) &&
+                            (string.IsNullOrWhiteSpace(txtAno.Text) || txtAno.Text == anos))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -240,7 +268,8 @@ namespace IEscolaDesktop.View.Forms
                 else
                 {
                     if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == mes) &&
-                         !(string.IsNullOrWhiteSpace(txtValor.Text) || txtValor.Value == 0))
+                        (string.IsNullOrWhiteSpace(txtAno.Text) || txtAno.Text == anos) &&
+                        !(string.IsNullOrWhiteSpace(txtValor.Text) || txtValor.Value == 0))
                     {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                     }

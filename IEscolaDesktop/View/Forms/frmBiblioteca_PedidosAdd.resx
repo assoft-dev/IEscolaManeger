@@ -120,49 +120,10 @@
   <metadata name="pedidosOrdemsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>629, 16</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="windowsUIButtonImageOptions4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAwdEVYdFRpdGxlAERCO1NvdXJjZTtTdG9yO2RhdGFz
-        b3VyY2U7RGF0YWJhc2U7QWRkO05ldyL7+ssAAAFpSURBVFhH7ZWxSgNBGIRT2At2voGFRZ5BtNS8hqVM
-        lcZCyRPY+SaCjcW0IunyEk4TIYWQk4G7kOyeq7e35CwsPrj7b3dm4HbuRlVVjYYkGuybaLBvooGIbQ5F
-        nIm4EfEo4lnEQsS7iM8aX3vmZ17jtd7jvRut0OenAKcibkW8iqgy8V5rWCvySQWYiJi3COZirUnokwpQ
-        0rxhHvqkAixbBPqyDH1SAVYtAn1ZhT5/OsDgr2DwQzh4Dacirgp+iKw1DX1SAXwG3kTciTjv8Sn2XmtY
-        q9MZ2G7Bh4gXEQ8irkVciDgRcSTioMbXnvmZ13it93hvo9OpBYPXcN0i0Jd16JMKULIBzd818kkFKFZD
-        613eP1UNvp/NZp5taAtQrIa5AYrVMDdAsRqWCNCFSKstQD1LBsj9G+6Y/Za2ALkNKBYgt4bFApicGkZa
-        JjDcef/fnYGGYxHjuopda+g946wAfQjFa/4DJAN8AcBJeZcJuRAyAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="windowsUIButtonImageOptions5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABJ0RVh0VGl0
-        bGUAU2F2ZTtTYXZlQXM7th0eIgAAAO9JREFUWEftlNsNwyAMRbNTF8gCDNAtMgN/naUL8BexSTehcgUI
-        MBBbPKJKWDqK5Dq+p3ltxphtFkKqXUhlANdDQ6MIwh+hBBpsQUiFerbv/3kqEQ2+nm/TkbMQHkkggeDY
-        Ulfhjh0JOBqKHA63rLcAOdzO0QS01hROWEgNZwkQixU+SgBC/CuWC3dvB0sgc7lzOIGchA+3u3kCxAoF
-        QokofKbAL9x+HX04YB/W/gIF4J77veEVAHoKVGsJsAVGsgRYAq2V7vtvgdpvpUrPWQJL4ErgkxkuLqNU
-        eg5k1ASOnERHYPdRFLgD1JgNaszmCzGWOlV6hwVPAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <assembly alias="DevExpress.Data.v24.2" name="DevExpress.Data.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="windowsUIButtonImageOptions6.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjIsIFZlcnNpb249MjQuMi4z
-        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
-        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAKoBAAAC77u/
-        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgeD0iMHB4IiB5PSIwcHgi
-        IHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
-        MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWw6c3Bh
-        Y2U9InByZXNlcnZlIiBpZD0iTGF5ZXIxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAz
-        MiAzMiI+DQogIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+CgkJLlJlZAoJCXsKCQkJZmlsbDojRDExQzFD
-        OwoJCQlmb250LWZhbWlseTonZHgtZm9udC1pY29ucyc7CgkJCWZvbnQtc2l6ZTozMnB4OwoJCX0KCTwv
-        c3R5bGU+DQogIDx0ZXh0IHg9IjBweCIgeT0iMzJweCIgY2xhc3M9IlJlZCI+7rOJPC90ZXh0Pg0KPC9z
-        dmc+Cw==
-</value>
-  </data>
   <metadata name="estudantesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>239, 17</value>
   </metadata>
+  <assembly alias="DevExpress.Data.v24.2" name="DevExpress.Data.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="btnestudantes.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjIsIFZlcnNpb249MjQuMi4z
@@ -175,6 +136,45 @@
         MiAzMiI+DQogIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+CgkJLlJlZAoJCXsKCQkJZmlsbDojRDExQzFD
         OwoJCQlmb250LWZhbWlseTonZHgtZm9udC1pY29ucyc7CgkJCWZvbnQtc2l6ZTozMnB4OwoJCX0KCTwv
         c3R5bGU+DQogIDx0ZXh0IHg9IjBweCIgeT0iMzJweCIgY2xhc3M9IlJlZCI+7p2sPC90ZXh0Pg0KPC9z
+        dmc+Cw==
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="windowsUIButtonImageOptions1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAwdEVYdFRpdGxlAERCO1NvdXJjZTtTdG9yO2RhdGFz
+        b3VyY2U7RGF0YWJhc2U7QWRkO05ldyL7+ssAAAFpSURBVFhH7ZWxSgNBGIRT2At2voGFRZ5BtNS8hqVM
+        lcZCyRPY+SaCjcW0IunyEk4TIYWQk4G7kOyeq7e35CwsPrj7b3dm4HbuRlVVjYYkGuybaLBvooGIbQ5F
+        nIm4EfEo4lnEQsS7iM8aX3vmZ17jtd7jvRut0OenAKcibkW8iqgy8V5rWCvySQWYiJi3COZirUnokwpQ
+        0rxhHvqkAixbBPqyDH1SAVYtAn1ZhT5/OsDgr2DwQzh4Dacirgp+iKw1DX1SAXwG3kTciTjv8Sn2XmtY
+        q9MZ2G7Bh4gXEQ8irkVciDgRcSTioMbXnvmZ13it93hvo9OpBYPXcN0i0Jd16JMKULIBzd818kkFKFZD
+        613eP1UNvp/NZp5taAtQrIa5AYrVMDdAsRqWCNCFSKstQD1LBsj9G+6Y/Za2ALkNKBYgt4bFApicGkZa
+        JjDcef/fnYGGYxHjuopda+g946wAfQjFa/4DJAN8AcBJeZcJuRAyAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="windowsUIButtonImageOptions2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABJ0RVh0VGl0
+        bGUAU2F2ZTtTYXZlQXM7th0eIgAAAO9JREFUWEftlNsNwyAMRbNTF8gCDNAtMgN/naUL8BexSTehcgUI
+        MBBbPKJKWDqK5Dq+p3ltxphtFkKqXUhlANdDQ6MIwh+hBBpsQUiFerbv/3kqEQ2+nm/TkbMQHkkggeDY
+        Ulfhjh0JOBqKHA63rLcAOdzO0QS01hROWEgNZwkQixU+SgBC/CuWC3dvB0sgc7lzOIGchA+3u3kCxAoF
+        QokofKbAL9x+HX04YB/W/gIF4J77veEVAHoKVGsJsAVGsgRYAq2V7vtvgdpvpUrPWQJL4ErgkxkuLqNU
+        eg5k1ASOnERHYPdRFLgD1JgNaszmCzGWOlV6hwVPAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="windowsUIButtonImageOptions3.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI0LjIsIFZlcnNpb249MjQuMi4z
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAKoBAAAC77u/
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgeD0iMHB4IiB5PSIwcHgi
+        IHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv
+        MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWw6c3Bh
+        Y2U9InByZXNlcnZlIiBpZD0iTGF5ZXIxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAz
+        MiAzMiI+DQogIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+CgkJLlJlZAoJCXsKCQkJZmlsbDojRDExQzFD
+        OwoJCQlmb250LWZhbWlseTonZHgtZm9udC1pY29ucyc7CgkJCWZvbnQtc2l6ZTozMnB4OwoJCX0KCTwv
+        c3R5bGU+DQogIDx0ZXh0IHg9IjBweCIgeT0iMzJweCIgY2xhc3M9IlJlZCI+7rOJPC90ZXh0Pg0KPC9z
         dmc+Cw==
 </value>
   </data>

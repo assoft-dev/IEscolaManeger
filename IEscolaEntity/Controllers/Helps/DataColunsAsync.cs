@@ -125,6 +125,7 @@
                      typeof(Meses),
                      typeof(DisciplinasComponentesType),
                      typeof(AbilitacoesLiterarias),
+                     typeof(Anos),
                 };
                 return primary.Contains(t);
             }

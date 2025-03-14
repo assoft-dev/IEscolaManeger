@@ -160,6 +160,7 @@
     <Compile Include="Models\EstudantesAuditoria.cs" />
     <Compile Include="Models\Grupos.cs" />
     <Compile Include="Models\Helps\AbilitacoesLiterarias.cs" />
+    <Compile Include="Models\Helps\Anos.cs" />
     <Compile Include="Models\Helps\DisciplinasComponentes.cs" />
     <Compile Include="Models\Helps\Disponibilidade.cs" />
     <Compile Include="Models\Helps\DocType.cs" />

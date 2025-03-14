@@ -49,7 +49,6 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.txtAno = new DevExpress.XtraEditors.SpinEdit();
             this.txtValor = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -58,6 +57,7 @@
             this.txtTitulo = new DevExpress.XtraEditors.LabelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.txtAno = new DevExpress.XtraEditors.LookUpEdit();
             this.provinciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
@@ -78,10 +78,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAno.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValor.Properties)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAno.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.provinciasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -197,7 +197,7 @@
             0,
             0,
             0});
-            this.txtTermina.Location = new System.Drawing.Point(265, 0);
+            this.txtTermina.Location = new System.Drawing.Point(257, 0);
             this.txtTermina.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTermina.Name = "txtTermina";
             this.txtTermina.Properties.AutoHeight = false;
@@ -205,7 +205,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtTermina.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtTermina.Properties.NullValuePrompt = "Horas de Entrada";
-            this.txtTermina.Size = new System.Drawing.Size(221, 38);
+            this.txtTermina.Properties.ReadOnly = true;
+            this.txtTermina.Size = new System.Drawing.Size(229, 38);
             this.txtTermina.TabIndex = 7;
             // 
             // txtInicio
@@ -224,6 +225,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtInicio.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtInicio.Properties.NullValuePrompt = "Horas de Entrada";
+            this.txtInicio.Properties.ReadOnly = true;
             this.txtInicio.Size = new System.Drawing.Size(223, 38);
             this.txtInicio.TabIndex = 0;
             // 
@@ -234,15 +236,17 @@
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.tablePanel2.SetRow(this.labelControl1, 2);
-            this.labelControl1.Size = new System.Drawing.Size(40, 13);
+            this.labelControl1.Size = new System.Drawing.Size(294, 13);
             this.labelControl1.TabIndex = 16;
-            this.labelControl1.Text = "Meses *";
+            this.labelControl1.Text = "Meses *                                                                          " +
+    "Ano: *";
             // 
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl1, 0);
             this.panelControl1.Controls.Add(this.txtMeses);
+            this.panelControl1.Controls.Add(this.txtAno);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(14, 91);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -254,7 +258,7 @@
             // 
             // txtMeses
             // 
-            this.txtMeses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeses.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtMeses.Location = new System.Drawing.Point(0, 0);
             this.txtMeses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMeses.Name = "txtMeses";
@@ -262,7 +266,7 @@
             this.txtMeses.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtMeses.Properties.NullText = "[Selecione o Mês por favor]";
-            this.txtMeses.Size = new System.Drawing.Size(486, 43);
+            this.txtMeses.Size = new System.Drawing.Size(223, 43);
             this.txtMeses.TabIndex = 0;
             // 
             // labelControl3
@@ -331,7 +335,6 @@
             // 
             this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl5, 0);
-            this.panelControl5.Controls.Add(this.txtAno);
             this.panelControl5.Controls.Add(this.txtValor);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl5.Location = new System.Drawing.Point(14, 316);
@@ -342,28 +345,9 @@
             this.panelControl5.Size = new System.Drawing.Size(491, 41);
             this.panelControl5.TabIndex = 13;
             // 
-            // txtAno
-            // 
-            this.txtAno.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtAno.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtAno.Location = new System.Drawing.Point(258, 0);
-            this.txtAno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAno.Name = "txtAno";
-            this.txtAno.Properties.AutoHeight = false;
-            this.txtAno.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtAno.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.txtAno.Properties.NullValuePrompt = "Horas de Saida";
-            this.txtAno.Size = new System.Drawing.Size(228, 36);
-            this.txtAno.TabIndex = 7;
-            // 
             // txtValor
             // 
-            this.txtValor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtValor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtValor.EditValue = new decimal(new int[] {
             0,
             0,
@@ -377,7 +361,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtValor.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtValor.Properties.NullValuePrompt = "Horas de Saida";
-            this.txtValor.Size = new System.Drawing.Size(233, 36);
+            this.txtValor.Size = new System.Drawing.Size(486, 36);
             this.txtValor.TabIndex = 0;
             // 
             // labelControl5
@@ -387,10 +371,9 @@
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
             this.tablePanel2.SetRow(this.labelControl5, 8);
-            this.labelControl5.Size = new System.Drawing.Size(285, 13);
+            this.labelControl5.Size = new System.Drawing.Size(33, 13);
             this.labelControl5.TabIndex = 16;
-            this.labelControl5.Text = "Valor:                                                                           " +
-    "  Ano ";
+            this.labelControl5.Text = "Valor: ";
             // 
             // tableLayoutPanel1
             // 
@@ -398,7 +381,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -431,7 +414,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(244, 22);
+            this.panel1.Size = new System.Drawing.Size(242, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -474,6 +457,25 @@
             this.windowsUIButtonPanel1.TabIndex = 8;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
             // 
+            // txtAno
+            // 
+            this.txtAno.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtAno.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtAno.Location = new System.Drawing.Point(257, 0);
+            this.txtAno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Properties.AutoHeight = false;
+            this.txtAno.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtAno.Properties.NullText = "";
+            this.txtAno.Properties.NullValuePrompt = "Horas de Saida";
+            this.txtAno.Size = new System.Drawing.Size(229, 43);
+            this.txtAno.TabIndex = 7;
+            // 
             // provinciasBindingSource
             // 
             this.provinciasBindingSource.DataSource = typeof(IEscolaEntity.Models.Provincias);
@@ -506,11 +508,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtAno.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValor.Properties)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAno.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.provinciasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -542,7 +544,7 @@
         private DevExpress.XtraEditors.SpinEdit txtExcedente;
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraEditors.SpinEdit txtValor;
-        private DevExpress.XtraEditors.SpinEdit txtAno;
         private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LookUpEdit txtAno;
     }
 }

@@ -11,7 +11,11 @@
         public string Referencias { get; set; }
         public string Detalhes { get; set; }
 
+
         public int ProvinciasID { get; set; }
+
+        [Ignore]
+        public Provincias provincias { get; set; }
 
         [Reference] public List<ProvinciasMunicipios> ProvinciasMunicipios { get; set; }
     }

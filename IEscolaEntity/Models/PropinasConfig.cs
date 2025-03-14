@@ -14,7 +14,7 @@ namespace IEscolaEntity.Models
         public int Termina { get; set; }
         public int Excedente { get; set; }
         public decimal Valor { get; set; }
-        public int Ano { get; set; }
+        public Anos Ano { get; set; }
 
         [Reference] public List<PropinasPagamentos> PropinasPagamentos { get; set; }
     }
