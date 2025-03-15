@@ -303,6 +303,12 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<Professores>.AsyncColuns(Db);
             DataColunsAsync<ProfessoresDisciplinas>.AsyncColuns(Db);
             DataColunsAsync<ProfessoresCategorias>.AsyncColuns(Db);
+
+
+            DataColunsAsync<Entidade>.AsyncColuns(Db);
+            DataColunsAsync<EntidadeConvenios>.AsyncColuns(Db);
+
+
         }
     }
 }

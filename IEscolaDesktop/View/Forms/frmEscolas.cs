@@ -11,19 +11,19 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmEscolaConvenio : XtraUserControl
+    public partial class frmEscolas : XtraUserControl
     {
-        IEntidadeConvenios DataRepository = null;
+        IEntidades DataRepository = null;
 
-        List<EntidadeConvenios>  DataOriginalList;
+        List<Entidade>  DataOriginalList;
 
         AlertControl alert = null;
 
-        public frmEscolaConvenio()
+        public frmEscolas()
         {
             InitializeComponent();
-            DataRepository = new EntidadeConvenioRepository();
-            DataOriginalList = new List<EntidadeConvenios>();
+            DataRepository = new EntidadeRepository();
+            DataOriginalList = new List<Entidade>();
 
             LeituraInicial();
 
@@ -34,6 +34,7 @@ namespace IEscolaDesktop.View.Forms
             gridControl1.DoubleClick += GridControl1_DoubleClick;
 
             // Menu de Contexto
+
             #region Menu Populat
             MenuPrinciapl.Opening += ContextMenuStrip1_Opening;
             gridControl1.ContextMenuStrip = MenuPrinciapl;
@@ -67,7 +68,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmEscolaConvenioAdd(null));
+                   new frmEscolasAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();
@@ -77,10 +78,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = entidadeConveniosBindingSource.Current as EntidadeConvenios;
+                var result = entidadeBindingSource.Current as Entidade;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmEscolaConvenioAdd(result ?? null));
+                    new frmEscolasAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -90,16 +91,16 @@ namespace IEscolaDesktop.View.Forms
         private void LeituraFilter()
         {
             var data = DataOriginalList.FindAll(x => x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.EntidadeConvenioEstado.ToString().ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.Entidade.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.CursoClasseDisciplina.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
-            entidadeConveniosBindingSource.DataSource = data;
+                                                     x.AssinaturaDirector.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                     x.AssinaturaSubDirector.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                     x.ProvinciasMunicipios.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
+            entidadeBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
             DataOriginalList = await DataRepository.GetAllinclud();
-            entidadeConveniosBindingSource.DataSource = DataOriginalList;
+            entidadeBindingSource.DataSource = DataOriginalList;
 
             if (DataOriginalList.Count > 0)
             {
@@ -134,7 +135,7 @@ namespace IEscolaDesktop.View.Forms
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = entidadeConveniosBindingSource.Current as EntidadeConvenios;
+                    var result = entidadeBindingSource.Current as Entidade;
                     try
                     {
                         if (result != null)

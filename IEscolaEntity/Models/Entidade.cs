@@ -22,7 +22,6 @@ namespace IEscolaEntity.Models
 
         public string Header1 { get; set; }
         public string Header2 { get; set; }
-        public string Header3 { get; set; }
 
         public string EscolaCodigo { get; set; }
         public EscolaEstatuto Estatuto { get; set; }

@@ -39,7 +39,7 @@
             btnSalas.Click += delegate { OpenForms(new frmSalas()); };
             btnCursos.Click += delegate { OpenForms(new frmCursos()); };
 
-            btnEscola.Click += delegate { OpenForms(new frmEscola()); };
+            btnEscola.Click += delegate { OpenForms(new frmEscolas()); };
             btnEscolaConvenio.Click += delegate { OpenForms(new frmEscolaConvenio()); };
 
 
@@ -194,7 +194,7 @@
                     }
 
                     // Escola
-                    else if (control.Name.Equals(typeof(frmEscola).Name))
+                    else if (control.Name.Equals(typeof(frmEscolas).Name))
                     {
                         this.Text = "Escola - [Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
