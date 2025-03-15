@@ -3,6 +3,7 @@ using IEscolaEntity.Models.Biblioteca;
 using IEscolaEntity.Models.Helps;
 using ServiceStack.OrmLite;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -188,15 +189,26 @@ namespace IEscolaEntity.Controllers.Helps
             #endregion
 
             #region Provincias
-            var provincia = new UsuariosLogs
-            {
-                Data = DateTime.Now,
-                Descricao = "Dados Iniciais",
-                Local = "Local",
-                UsuariosID = (int)userID,
-                UsuariosLogsID = 0
-            };
-            await db.SaveAsync(logs);
+            var provincia = new List<Provincias>();
+            provincia.Add(new Provincias {   Referencias = "LUANDA", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.LA, });
+            provincia.Add(new Provincias {   Referencias = "BENGUELA", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.BE, });
+            provincia.Add(new Provincias {   Referencias = "CABINDA", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.CA, });
+            provincia.Add(new Provincias {   Referencias = "MOXICO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.MO, });
+            provincia.Add(new Provincias {   Referencias = "MOXICO LESTE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.ML, });
+            provincia.Add(new Provincias {   Referencias = "MOXICO OESTE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.MO, });
+            provincia.Add(new Provincias {   Referencias = "CUBANGO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.CO, });
+            provincia.Add(new Provincias {   Referencias = "CUANDO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.CD, });
+            provincia.Add(new Provincias {   Referencias = "LUNDA NORTE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.LN, });
+            provincia.Add(new Provincias {   Referencias = "LUNDA SUL", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.LS, });
+            provincia.Add(new Provincias {   Referencias = "CUANZA NORTE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.CN, });
+            provincia.Add(new Provincias {   Referencias = "CUANZA SUL", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.CS, });
+            provincia.Add(new Provincias {   Referencias = "BENGO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.BA, });
+            provincia.Add(new Provincias {   Referencias = "ICOLE BENGO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.IC, });
+            provincia.Add(new Provincias {   Referencias = "MALANJE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.MA, });
+            provincia.Add(new Provincias {   Referencias = "UIGE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.UI, });
+            provincia.Add(new Provincias {   Referencias = "ZAIRE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.ZA, });
+            provincia.Add(new Provincias {   Referencias = "NAMIBE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.NA,  });
+            await db.SaveAsync(provincia);
             #endregion
         }
 

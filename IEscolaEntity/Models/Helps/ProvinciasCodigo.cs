@@ -24,5 +24,15 @@ namespace IEscolaEntity.Models.Helps
         ZR = 16,
         HA = 17,
         CA = 18,
+        MO = 19,
+        CO = 20,
+        CD = 21,
+        CS = 22,
+        BA = 23,
+        IC = 24,
+        MA = 25,
+        UI = 26,
+        ZA = 27,
+        NA = 28,
     }
 }
