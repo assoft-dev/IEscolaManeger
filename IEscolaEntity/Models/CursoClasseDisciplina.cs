@@ -41,5 +41,6 @@ namespace IEscolaEntity.Models
         }
 
         [Reference] public List<DisciplinasProgramas> disciplinasProgramas { get; set; }
+        [Reference] public List<EntidadeConvenios> EntidadeConvenios { get; set; }
     }
 }

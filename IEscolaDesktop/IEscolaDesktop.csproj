@@ -96,6 +96,18 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\frmEscolaConvenioAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmEscolaConvenioAdd.Designer.cs">
+      <DependentUpon>frmEscolaConvenioAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmEscolaConvenio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmEscolaConvenio.Designer.cs">
+      <DependentUpon>frmEscolaConvenio.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmLogin1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -599,6 +611,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\frmEscolaConvenioAdd.resx">
+      <DependentUpon>frmEscolaConvenioAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmEscolaConvenio.resx">
+      <DependentUpon>frmEscolaConvenio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmLogin1.resx">
       <DependentUpon>frmLogin1.cs</DependentUpon>
     </EmbeddedResource>

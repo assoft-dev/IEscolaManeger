@@ -126,6 +126,8 @@
                      typeof(DisciplinasComponentesType),
                      typeof(AbilitacoesLiterarias),
                      typeof(Anos),
+                     typeof(EscolaEstatuto),
+                     typeof(EntidadeConvenioEstado),
                 };
                 return primary.Contains(t);
             }

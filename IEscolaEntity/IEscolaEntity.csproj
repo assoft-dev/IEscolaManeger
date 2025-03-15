@@ -73,7 +73,7 @@
   <ItemGroup>
     <Compile Include="Controllers\Helps\DataColunsAsync.cs" />
     <Compile Include="Controllers\Helps\DataConnectionConfig.cs" />
-    <Compile Include="Controllers\Helps\DataConnections.cs" />
+    <Compile Include="Controllers\Helps\DataMigrateConnections.cs" />
     <Compile Include="Controllers\Helps\DataTimeExtension.cs" />
     <Compile Include="Controllers\Helps\EmailValidade.cs" />
     <Compile Include="Controllers\Helps\EstadoTransations.cs" />
@@ -90,6 +90,8 @@
     <Compile Include="Controllers\Interfaces\ICursos.cs" />
     <Compile Include="Controllers\Interfaces\IDisciplina.cs" />
     <Compile Include="Controllers\Interfaces\IDisciplinaPrograma.cs" />
+    <Compile Include="Controllers\Interfaces\IEntidadeConvenios.cs" />
+    <Compile Include="Controllers\Interfaces\IEntidades.cs" />
     <Compile Include="Controllers\Interfaces\IEstudantes.cs" />
     <Compile Include="Controllers\Interfaces\IGeneric.cs" />
     <Compile Include="Controllers\Interfaces\IGrupos.cs" />
@@ -123,6 +125,8 @@
     <Compile Include="Controllers\Repository\CursosRepository.cs" />
     <Compile Include="Controllers\Repository\DisciplinaProgramaRepository.cs" />
     <Compile Include="Controllers\Repository\DisciplinaRepository.cs" />
+    <Compile Include="Controllers\Repository\EntidadeConvenioRepository.cs" />
+    <Compile Include="Controllers\Repository\EntidadeRepository.cs" />
     <Compile Include="Controllers\Repository\EstudantesIncricoesRepository.cs" />
     <Compile Include="Controllers\Repository\EstudantesRepository.cs" />
     <Compile Include="Controllers\Repository\GenericRepository.cs" />
@@ -156,6 +160,8 @@
     <Compile Include="Models\Cursos.cs" />
     <Compile Include="Models\Disciplinas.cs" />
     <Compile Include="Models\DisciplinasProgramas.cs" />
+    <Compile Include="Models\Entidade.cs" />
+    <Compile Include="Models\EntidadeConvenios.cs" />
     <Compile Include="Models\Estudantes.cs" />
     <Compile Include="Models\EstudantesAuditoria.cs" />
     <Compile Include="Models\Grupos.cs" />
@@ -164,6 +170,8 @@
     <Compile Include="Models\Helps\DisciplinasComponentes.cs" />
     <Compile Include="Models\Helps\Disponibilidade.cs" />
     <Compile Include="Models\Helps\DocType.cs" />
+    <Compile Include="Models\Helps\EntidadeConvenioEstado.cs" />
+    <Compile Include="Models\Helps\EscolaEstatuto.cs" />
     <Compile Include="Models\Helps\Escolaridade.cs" />
     <Compile Include="Models\Helps\Estado.cs" />
     <Compile Include="Models\Helps\EstadoCivil.cs" />

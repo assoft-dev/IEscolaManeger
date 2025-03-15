@@ -39,6 +39,9 @@
             btnSalas.Click += delegate { OpenForms(new frmSalas()); };
             btnCursos.Click += delegate { OpenForms(new frmCursos()); };
 
+            btnEscola.Click += delegate { OpenForms(new frmEscola()); };
+            btnEscolaConvenio.Click += delegate { OpenForms(new frmEscolaConvenio()); };
+
 
             // Biblioteca
             btnCategoria_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Categorias()); };
@@ -189,6 +192,20 @@
                         this.Text = "Disciplina/Programa - [Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
+
+                    // Escola
+                    else if (control.Name.Equals(typeof(frmEscola).Name))
+                    {
+                        this.Text = "Escola - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    // Escola / Convenio
+                    else if (control.Name.Equals(typeof(frmEscolaConvenio).Name))
+                    {
+                        this.Text = "Escola/Convénio - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+
                     #endregion
 
                     #region Bibliotecas
@@ -369,6 +386,11 @@
                     item.Show();
                 }
             }
+        }
+
+        private void fluentDesignFormContainer1_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

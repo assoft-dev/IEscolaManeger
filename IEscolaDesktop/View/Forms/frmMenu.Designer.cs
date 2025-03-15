@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -90,6 +90,7 @@
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTema = new DevExpress.XtraBars.BarToggleSwitchItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
@@ -103,7 +104,9 @@
             this.btnGrupo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnUsuariosLog = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnPermissio = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnTema = new DevExpress.XtraBars.BarToggleSwitchItem();
+            this.btnEscola = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnEscolaConvenio = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator10 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -118,6 +121,7 @@
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
             this.fluentDesignFormContainer1.Size = new System.Drawing.Size(905, 816);
             this.fluentDesignFormContainer1.TabIndex = 0;
+            this.fluentDesignFormContainer1.Click += new System.EventHandler(this.fluentDesignFormContainer1_Click);
             // 
             // accordionControl1
             // 
@@ -159,8 +163,11 @@
             // accordionControlElement5
             // 
             this.accordionControlElement5.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.btnTurma,
+            this.btnEscola,
+            this.btnEscolaConvenio,
+            this.accordionControlSeparator10,
             this.btnCursos,
+            this.btnTurma,
             this.btnCursoClasseDisciplina,
             this.btnClasses,
             this.btnPeriodos,
@@ -558,6 +565,13 @@
             this.barButtonItem2.Id = 1;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
+            // btnTema
+            // 
+            this.btnTema.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.btnTema.Caption = "Tema: Claro";
+            this.btnTema.Id = 3;
+            this.btnTema.Name = "btnTema";
+            // 
             // fluentFormDefaultManager1
             // 
             this.fluentFormDefaultManager1.Form = this;
@@ -642,12 +656,23 @@
             this.btnPermissio.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnPermissio.Text = "Permissões";
             // 
-            // btnTema
+            // btnEscola
             // 
-            this.btnTema.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.btnTema.Caption = "Tema: Claro";
-            this.btnTema.Id = 3;
-            this.btnTema.Name = "btnTema";
+            this.btnEscola.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEscola.ImageOptions.SvgImage")));
+            this.btnEscola.Name = "btnEscola";
+            this.btnEscola.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnEscola.Text = "Escola";
+            // 
+            // btnEscolaConvenio
+            // 
+            this.btnEscolaConvenio.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEscolaConvenio.ImageOptions.SvgImage")));
+            this.btnEscolaConvenio.Name = "btnEscolaConvenio";
+            this.btnEscolaConvenio.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnEscolaConvenio.Text = "Escola Convénio";
+            // 
+            // accordionControlSeparator10
+            // 
+            this.accordionControlSeparator10.Name = "accordionControlSeparator10";
             // 
             // frmMenu
             // 
@@ -742,5 +767,8 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessorFormacao;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessorCategoria;
         private DevExpress.XtraBars.BarToggleSwitchItem btnTema;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnEscola;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnEscolaConvenio;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator10;
     }
 }

@@ -256,6 +256,9 @@ namespace IEscolaEntity.Controllers.Helps
             Db.CreateTableIfNotExists<Professores>();  
             
             Db.CreateTableIfNotExists<ProfessoresDisciplinas>();
+
+            Db.CreateTableIfNotExists<Entidade>();
+            Db.CreateTableIfNotExists<EntidadeConvenios>();
         }
 
         public void UPDATETABLE()

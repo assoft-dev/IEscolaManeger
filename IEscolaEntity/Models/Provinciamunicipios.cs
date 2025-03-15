@@ -33,5 +33,6 @@ namespace IEscolaEntity.Models
         }
 
         [Reference] public List<EstudantesInscricoes>  Inscricoes { get; set; }
+        [Reference] public List<Entidade>  Entidades { get; set; }
     }
 }
