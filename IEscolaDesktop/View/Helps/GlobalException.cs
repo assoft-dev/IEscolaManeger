@@ -8,7 +8,7 @@ namespace IEscolaDesktop.View.Helps
     {
         public static void CapturarError(Exception exe)
         {
-            var Db = new DataConnections();
+            var Db = new DataMigrateConnections();
 
             if (exe.Message.Contains("Cannot open database") ||
                      exe.Message.Contains("does not exist") ||

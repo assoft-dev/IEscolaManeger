@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace IEscolaEntity.Controllers.Helps
 {
-    public class DataConnections
+    public class DataMigrateConnections
     {
         public void InitialMetodos(DataConnectionConfig dataBaseConfig)
         {
@@ -128,7 +128,7 @@ namespace IEscolaEntity.Controllers.Helps
                     DisciplinasProgramas = true,
                     CursoClasseDisciplina = true,
                     Disciplinas = true,
-                    Professores = true       
+                    Professores = true,    
                 };
                 permissoesID = db.Insert<Permissoes>(permissoes, true);
             }
@@ -182,6 +182,18 @@ namespace IEscolaEntity.Controllers.Helps
                 Descricao = "Dados Iniciais",
                 Local = "Local",
                 UsuariosID = (int) userID,
+                UsuariosLogsID = 0
+            };
+            await db.SaveAsync(logs);
+            #endregion
+
+            #region Provincias
+            var provincia = new UsuariosLogs
+            {
+                Data = DateTime.Now,
+                Descricao = "Dados Iniciais",
+                Local = "Local",
+                UsuariosID = (int)userID,
                 UsuariosLogsID = 0
             };
             await db.SaveAsync(logs);

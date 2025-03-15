@@ -19,7 +19,7 @@ namespace IEscolaDesktop
         static void Main()
         {
             //Verificar a base de dados
-            var Db = new DataConnections();
+            var Db = new DataMigrateConnections();
             Db.InitialMetodos(new DataConnectionConfig());
             Db.UPDATETABLE();
             inicializacaoDirectory();
@@ -68,7 +68,7 @@ namespace IEscolaDesktop
         private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
             // Inicializacao dos Dados
-            var Db = new DataConnections();
+            var Db = new DataMigrateConnections();
             Db.InitialMetodos(new DataConnectionConfig());
             GlobalException.CapturarError(e.Exception);
 
