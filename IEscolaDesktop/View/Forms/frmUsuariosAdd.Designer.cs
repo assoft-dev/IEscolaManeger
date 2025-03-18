@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuariosAdd));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -42,13 +43,13 @@
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuariosAdd));
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
             this.txtGrupos = new DevExpress.XtraEditors.LookUpEdit();
             this.gruposBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnBuscarGrupos = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.txtSenha = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -80,7 +81,6 @@
             this.txtTitulo = new DevExpress.XtraEditors.LabelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            this.btnBuscarGrupos = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
@@ -165,7 +165,7 @@
             this.tablePanel2.Controls.Add(this.panelControl8);
             this.tablePanel2.Controls.Add(this.labelControl9);
             this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePanel2.Location = new System.Drawing.Point(14, 43);
+            this.tablePanel2.Location = new System.Drawing.Point(14, 52);
             this.tablePanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablePanel2.Name = "tablePanel2";
             this.tablePanel1.SetRow(this.tablePanel2, 1);
@@ -180,7 +180,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 63.5F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 35.6F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 64.4F)});
-            this.tablePanel2.Size = new System.Drawing.Size(603, 390);
+            this.tablePanel2.Size = new System.Drawing.Size(603, 360);
             this.tablePanel2.TabIndex = 2;
             this.tablePanel2.UseSkinIndents = true;
             // 
@@ -189,11 +189,11 @@
             this.panelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl9, 1);
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl9.Location = new System.Drawing.Point(305, 34);
+            this.panelControl9.Location = new System.Drawing.Point(305, 32);
             this.panelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl9.Name = "panelControl9";
             this.tablePanel2.SetRow(this.panelControl9, 1);
-            this.panelControl9.Size = new System.Drawing.Size(285, 48);
+            this.panelControl9.Size = new System.Drawing.Size(285, 43);
             this.panelControl9.TabIndex = 13;
             // 
             // panelControl10
@@ -203,11 +203,11 @@
             this.panelControl10.Controls.Add(this.txtGrupos);
             this.panelControl10.Controls.Add(this.btnBuscarGrupos);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl10.Location = new System.Drawing.Point(305, 334);
+            this.panelControl10.Location = new System.Drawing.Point(305, 307);
             this.panelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl10.Name = "panelControl10";
             this.tablePanel2.SetRow(this.panelControl10, 9);
-            this.panelControl10.Size = new System.Drawing.Size(285, 43);
+            this.panelControl10.Size = new System.Drawing.Size(285, 40);
             this.panelControl10.TabIndex = 14;
             // 
             // txtGrupos
@@ -229,14 +229,25 @@
             this.txtGrupos.Properties.DropDownRows = 10;
             this.txtGrupos.Properties.NullText = "[Selecione o Grupo por favor]";
             this.txtGrupos.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtGrupos.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.txtGrupos.Properties.ValueMember = "GruposID";
-            this.txtGrupos.Size = new System.Drawing.Size(245, 43);
+            this.txtGrupos.Size = new System.Drawing.Size(245, 40);
             this.txtGrupos.TabIndex = 8;
             // 
             // gruposBindingSource
             // 
             this.gruposBindingSource.DataSource = typeof(IEscolaEntity.Models.Grupos);
+            // 
+            // btnBuscarGrupos
+            // 
+            this.btnBuscarGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarGrupos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnBuscarGrupos.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBuscarGrupos.ImageOptions.SvgImage")));
+            this.btnBuscarGrupos.Location = new System.Drawing.Point(245, 0);
+            this.btnBuscarGrupos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarGrupos.Name = "btnBuscarGrupos";
+            this.btnBuscarGrupos.Size = new System.Drawing.Size(40, 40);
+            this.btnBuscarGrupos.TabIndex = 8;
+            this.btnBuscarGrupos.Text = "Save";
             // 
             // panelControl4
             // 
@@ -244,11 +255,11 @@
             this.tablePanel2.SetColumn(this.panelControl4, 0);
             this.panelControl4.Controls.Add(this.txtSenha);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl4.Location = new System.Drawing.Point(14, 186);
+            this.panelControl4.Location = new System.Drawing.Point(14, 171);
             this.panelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl4.Name = "panelControl4";
             this.tablePanel2.SetRow(this.panelControl4, 5);
-            this.panelControl4.Size = new System.Drawing.Size(285, 44);
+            this.panelControl4.Size = new System.Drawing.Size(285, 40);
             this.panelControl4.TabIndex = 13;
             // 
             // txtSenha
@@ -261,15 +272,16 @@
             editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
             this.txtSenha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.txtSenha.Properties.MaxLength = 32;
             this.txtSenha.Properties.NullValuePrompt = "Pasword secreta";
             this.txtSenha.Properties.UseSystemPasswordChar = true;
-            this.txtSenha.Size = new System.Drawing.Size(285, 44);
+            this.txtSenha.Size = new System.Drawing.Size(285, 40);
             this.txtSenha.TabIndex = 2;
             // 
             // labelControl1
             // 
             this.tablePanel2.SetColumn(this.labelControl1, 0);
-            this.labelControl1.Location = new System.Drawing.Point(14, 90);
+            this.labelControl1.Location = new System.Drawing.Point(14, 82);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.tablePanel2.SetRow(this.labelControl1, 2);
@@ -283,11 +295,11 @@
             this.tablePanel2.SetColumn(this.panelControl1, 0);
             this.panelControl1.Controls.Add(this.txtFirstName);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(14, 112);
+            this.panelControl1.Location = new System.Drawing.Point(14, 103);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
             this.tablePanel2.SetRow(this.panelControl1, 3);
-            this.panelControl1.Size = new System.Drawing.Size(285, 44);
+            this.panelControl1.Size = new System.Drawing.Size(285, 40);
             this.panelControl1.TabIndex = 12;
             // 
             // txtFirstName
@@ -298,7 +310,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Properties.AutoHeight = false;
             this.txtFirstName.Properties.NullValuePrompt = "Primeiro Nome";
-            this.txtFirstName.Size = new System.Drawing.Size(285, 44);
+            this.txtFirstName.Size = new System.Drawing.Size(285, 40);
             this.txtFirstName.TabIndex = 0;
             // 
             // panelControl2
@@ -307,11 +319,11 @@
             this.tablePanel2.SetColumn(this.panelControl2, 1);
             this.panelControl2.Controls.Add(this.txtLastName);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(305, 112);
+            this.panelControl2.Location = new System.Drawing.Point(305, 103);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
             this.tablePanel2.SetRow(this.panelControl2, 3);
-            this.panelControl2.Size = new System.Drawing.Size(285, 44);
+            this.panelControl2.Size = new System.Drawing.Size(285, 40);
             this.panelControl2.TabIndex = 12;
             // 
             // txtLastName
@@ -322,13 +334,13 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Properties.AutoHeight = false;
             this.txtLastName.Properties.NullValuePrompt = "Segundo Nome";
-            this.txtLastName.Size = new System.Drawing.Size(285, 44);
+            this.txtLastName.Size = new System.Drawing.Size(285, 40);
             this.txtLastName.TabIndex = 1;
             // 
             // labelControl2
             // 
             this.tablePanel2.SetColumn(this.labelControl2, 1);
-            this.labelControl2.Location = new System.Drawing.Point(305, 90);
+            this.labelControl2.Location = new System.Drawing.Point(305, 82);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.tablePanel2.SetRow(this.labelControl2, 2);
@@ -339,7 +351,7 @@
             // labelControl3
             // 
             this.tablePanel2.SetColumn(this.labelControl3, 0);
-            this.labelControl3.Location = new System.Drawing.Point(14, 14);
+            this.labelControl3.Location = new System.Drawing.Point(14, 13);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
             this.tablePanel2.SetRow(this.labelControl3, 0);
@@ -353,25 +365,25 @@
             this.tablePanel2.SetColumn(this.panelControl3, 0);
             this.panelControl3.Controls.Add(this.txtCodigo);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(14, 34);
+            this.panelControl3.Location = new System.Drawing.Point(14, 32);
             this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl3.Name = "panelControl3";
             this.tablePanel2.SetRow(this.panelControl3, 1);
-            this.panelControl3.Size = new System.Drawing.Size(285, 48);
+            this.panelControl3.Size = new System.Drawing.Size(285, 43);
             this.panelControl3.TabIndex = 12;
             // 
             // txtCodigo
             // 
             this.txtCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCodigo.EditValue = "";
             this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(0, 0);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Properties.AutoHeight = false;
             this.txtCodigo.Properties.NullText = "Código Interno";
-            this.txtCodigo.Properties.NullValuePrompt = "Codigo Interno";
             this.txtCodigo.Properties.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(285, 48);
+            this.txtCodigo.Size = new System.Drawing.Size(285, 43);
             this.txtCodigo.TabIndex = 8;
             // 
             // panelControl5
@@ -380,11 +392,11 @@
             this.tablePanel2.SetColumn(this.panelControl5, 1);
             this.panelControl5.Controls.Add(this.txtSenhaRepetir);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(305, 186);
+            this.panelControl5.Location = new System.Drawing.Point(305, 171);
             this.panelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl5.Name = "panelControl5";
             this.tablePanel2.SetRow(this.panelControl5, 5);
-            this.panelControl5.Size = new System.Drawing.Size(285, 44);
+            this.panelControl5.Size = new System.Drawing.Size(285, 40);
             this.panelControl5.TabIndex = 13;
             // 
             // txtSenhaRepetir
@@ -397,15 +409,16 @@
             editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
             this.txtSenhaRepetir.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.txtSenhaRepetir.Properties.MaxLength = 32;
             this.txtSenhaRepetir.Properties.NullValuePrompt = "Senha secreta (Repetir)";
             this.txtSenhaRepetir.Properties.UseSystemPasswordChar = true;
-            this.txtSenhaRepetir.Size = new System.Drawing.Size(285, 44);
+            this.txtSenhaRepetir.Size = new System.Drawing.Size(285, 40);
             this.txtSenhaRepetir.TabIndex = 3;
             // 
             // labelControl4
             // 
             this.tablePanel2.SetColumn(this.labelControl4, 0);
-            this.labelControl4.Location = new System.Drawing.Point(14, 164);
+            this.labelControl4.Location = new System.Drawing.Point(14, 150);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
             this.tablePanel2.SetRow(this.labelControl4, 4);
@@ -416,7 +429,7 @@
             // labelControl5
             // 
             this.tablePanel2.SetColumn(this.labelControl5, 1);
-            this.labelControl5.Location = new System.Drawing.Point(305, 164);
+            this.labelControl5.Location = new System.Drawing.Point(305, 150);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
             this.tablePanel2.SetRow(this.labelControl5, 4);
@@ -430,11 +443,11 @@
             this.tablePanel2.SetColumn(this.panelControl6, 0);
             this.panelControl6.Controls.Add(this.txtEmail);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl6.Location = new System.Drawing.Point(14, 261);
+            this.panelControl6.Location = new System.Drawing.Point(14, 240);
             this.panelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl6.Name = "panelControl6";
             this.tablePanel2.SetRow(this.panelControl6, 7);
-            this.panelControl6.Size = new System.Drawing.Size(285, 43);
+            this.panelControl6.Size = new System.Drawing.Size(285, 39);
             this.panelControl6.TabIndex = 13;
             // 
             // txtEmail
@@ -445,13 +458,13 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Properties.AutoHeight = false;
             this.txtEmail.Properties.NullValuePrompt = "Email - Pessoal/Empresa";
-            this.txtEmail.Size = new System.Drawing.Size(285, 43);
+            this.txtEmail.Size = new System.Drawing.Size(285, 39);
             this.txtEmail.TabIndex = 4;
             // 
             // labelControl6
             // 
             this.tablePanel2.SetColumn(this.labelControl6, 0);
-            this.labelControl6.Location = new System.Drawing.Point(14, 239);
+            this.labelControl6.Location = new System.Drawing.Point(14, 219);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
             this.tablePanel2.SetRow(this.labelControl6, 6);
@@ -462,7 +475,7 @@
             // labelControl7
             // 
             this.tablePanel2.SetColumn(this.labelControl7, 1);
-            this.labelControl7.Location = new System.Drawing.Point(305, 239);
+            this.labelControl7.Location = new System.Drawing.Point(305, 219);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl7.Name = "labelControl7";
             this.tablePanel2.SetRow(this.labelControl7, 6);
@@ -475,11 +488,11 @@
             this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl7, 1);
             this.panelControl7.Controls.Add(this.txtData);
-            this.panelControl7.Location = new System.Drawing.Point(305, 261);
+            this.panelControl7.Location = new System.Drawing.Point(305, 240);
             this.panelControl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl7.Name = "panelControl7";
             this.tablePanel2.SetRow(this.panelControl7, 7);
-            this.panelControl7.Size = new System.Drawing.Size(285, 43);
+            this.panelControl7.Size = new System.Drawing.Size(285, 39);
             this.panelControl7.TabIndex = 13;
             // 
             // txtData
@@ -500,13 +513,13 @@
             this.txtData.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtData.Properties.MaskSettings.Set("mask", "");
             this.txtData.Properties.NullValuePrompt = "Primeiro Nome";
-            this.txtData.Size = new System.Drawing.Size(285, 43);
+            this.txtData.Size = new System.Drawing.Size(285, 39);
             this.txtData.TabIndex = 5;
             // 
             // labelControl8
             // 
             this.tablePanel2.SetColumn(this.labelControl8, 0);
-            this.labelControl8.Location = new System.Drawing.Point(14, 312);
+            this.labelControl8.Location = new System.Drawing.Point(14, 286);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl8.Name = "labelControl8";
             this.tablePanel2.SetRow(this.labelControl8, 8);
@@ -520,11 +533,11 @@
             this.tablePanel2.SetColumn(this.panelControl8, 0);
             this.panelControl8.Controls.Add(this.txtEstado);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl8.Location = new System.Drawing.Point(14, 334);
+            this.panelControl8.Location = new System.Drawing.Point(14, 307);
             this.panelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl8.Name = "panelControl8";
             this.tablePanel2.SetRow(this.panelControl8, 9);
-            this.panelControl8.Size = new System.Drawing.Size(285, 43);
+            this.panelControl8.Size = new System.Drawing.Size(285, 40);
             this.panelControl8.TabIndex = 13;
             // 
             // txtEstado
@@ -538,14 +551,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtEstado.Properties.NullText = "[Selecione o estado por favor]";
             this.txtEstado.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtEstado.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.txtEstado.Size = new System.Drawing.Size(285, 43);
+            this.txtEstado.Size = new System.Drawing.Size(285, 40);
             this.txtEstado.TabIndex = 6;
             // 
             // labelControl9
             // 
             this.tablePanel2.SetColumn(this.labelControl9, 1);
-            this.labelControl9.Location = new System.Drawing.Point(305, 312);
+            this.labelControl9.Location = new System.Drawing.Point(305, 286);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl9.Name = "labelControl9";
             this.tablePanel2.SetRow(this.labelControl9, 8);
@@ -559,10 +571,10 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tablePanel1.SetRow(this.tableLayoutPanel1, 0);
@@ -593,7 +605,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(296, 22);
+            this.panel1.Size = new System.Drawing.Size(295, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -628,25 +640,13 @@
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 437);
+            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 416);
             this.windowsUIButtonPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
             this.tablePanel1.SetRow(this.windowsUIButtonPanel1, 2);
-            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(603, 63);
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(603, 84);
             this.windowsUIButtonPanel1.TabIndex = 8;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
-            // 
-            // btnBuscarGrupos
-            // 
-            this.btnBuscarGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarGrupos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnBuscarGrupos.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBuscarGrupos.ImageOptions.SvgImage")));
-            this.btnBuscarGrupos.Location = new System.Drawing.Point(245, 0);
-            this.btnBuscarGrupos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnBuscarGrupos.Name = "btnBuscarGrupos";
-            this.btnBuscarGrupos.Size = new System.Drawing.Size(40, 43);
-            this.btnBuscarGrupos.TabIndex = 8;
-            this.btnBuscarGrupos.Text = "Save";
             // 
             // frmUsuariosAdd
             // 

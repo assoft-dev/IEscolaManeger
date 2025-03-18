@@ -5,10 +5,6 @@
     using IEscolaDesktop.View.Helps;
     using IEscolaEntity.Models;
     using System.Windows.Forms;
-    using DevExpress.Utils.Frames;
-    using DevExpress.Skins;
-    using DevExpress.Utils.Svg;
-    using System.Drawing;
 
     public partial class frmMenu : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
@@ -16,7 +12,6 @@
         {
             InitializeComponent();
 
-            ActivarBotoes(permission);
 
             //Metodos
             this.FormClosing += FrmMenu_FormClosing;
@@ -73,19 +68,48 @@
             btnProfessorCategoria.Click += delegate { OpenForms(new frmProfessoresCategorias()); };
 
             btnTema.ItemClick += BtnTema_ItemClick;
+
+            ActivarBotoes(permission);
+
+            this.Load += FrmMenu_Load;
+        }
+
+        private void FrmMenu_Load(object sender, System.EventArgs e)
+        {
+            // Tema
+            var theme = GlobalSettingManeger.Read(SettingsKey.DefaultPalette, SettingsSession.USERPROFILE);
+
+            if (!string.IsNullOrWhiteSpace(theme))
+            {
+                if (theme.Contains("OfficeWhite"))
+                {
+                    btnTema.Caption = "Tema: Claro";
+                    btnTema.Checked = false;
+                }
+                else
+                {
+                    btnTema.Caption = "Tema: Escuro";
+                    btnTema.Checked = true;
+                }
+            }
         }
 
         private void BtnTema_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!btnTema.Checked)
             {
-                // Current skin/palette is dark
+                // Current skin/palette is dark        
+                btnTema.Caption = "Tema: Claro";
                 UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.WXI.OfficeWhite);
+                GlobalSettingManeger.Write(SettingsKey.DefaultPalette, SkinSvgPalette.WXI.OfficeWhite, SettingsSession.USERPROFILE);
             }
             else
             {
                 // Current skin/palette is light
+
+                btnTema.Caption = "Tema: Escuro";
                 UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.WXI.Sharpness);
+                GlobalSettingManeger.Write(SettingsKey.DefaultPalette, SkinSvgPalette.WXI.Sharpness, SettingsSession.USERPROFILE);
             }
         }
 
@@ -96,7 +120,6 @@
             {
                 if (control != null)
                 {
-
                     #region Sistemas
                     if (control.Name.Equals(typeof(frmUsuarios).Name))
                     {
@@ -386,11 +409,6 @@
                     item.Show();
                 }
             }
-        }
-
-        private void fluentDesignFormContainer1_Click(object sender, System.EventArgs e)
-        {
-
         }
     }
 }

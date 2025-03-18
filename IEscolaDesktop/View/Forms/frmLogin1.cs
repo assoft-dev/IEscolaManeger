@@ -237,7 +237,6 @@ namespace IEscolaDesktop.View.Forms
                                               MessageBoxIcon.Error);
 
                             btnPasswordReset.Visible = true;
-
                             Limpar();
 
                             break;
@@ -247,21 +246,30 @@ namespace IEscolaDesktop.View.Forms
                                               MessageBoxIcon.Error);
                             Limpar();
                             break;
-                        case UsuariosRetorno.Initial:
+                        case UsuariosRetorno.PrimeiraVez:
 
                             #region Chamar a alteração de Senhas
                             var frmUserForm = OpenFormsDialog.ShowForm(this, null,
-                                                    new frmUsuarioPasswordChage());
+                                                    new frmUsuarioPassword(result));
                             #endregion
 
                             break;
-                        case UsuariosRetorno.PrimeiraVez:
+                        case UsuariosRetorno.Initial:
                             break;
                         case UsuariosRetorno.Permissoes_Invalida:
+                            Mensagens.Display("Usuario: Sem Permissão",
+                                              "Queira por favor contactar o Admin do Sistema para Ajustar o seu nivel de Acesso",
+                                              MessageBoxIcon.Error);
                             break;
                         case UsuariosRetorno.Agrupamento_Invalida:
+                            Mensagens.Display("Usuario: Sem Grupo",
+                                             "Queira por favor contactar o Admin do Sistema para Ajustar o Grupo",
+                                             MessageBoxIcon.Error);
                             break;
                         case UsuariosRetorno.Desativado_Temp:
+                            Mensagens.Display("Usuario: Desativado Temporariamente",
+                                              "Infelizmente não podemos deixa-lo entrar em nosso Sistema por estar Desativado Temporariamente",
+                                            MessageBoxIcon.Error);
                             break;
                         default:
                             break;

@@ -121,7 +121,6 @@
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
             this.fluentDesignFormContainer1.Size = new System.Drawing.Size(905, 816);
             this.fluentDesignFormContainer1.TabIndex = 0;
-            this.fluentDesignFormContainer1.Click += new System.EventHandler(this.fluentDesignFormContainer1_Click);
             // 
             // accordionControl1
             // 

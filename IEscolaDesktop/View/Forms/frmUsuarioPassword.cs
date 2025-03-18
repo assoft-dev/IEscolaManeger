@@ -2,23 +2,20 @@
 using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
+using IEscolaEntity.Models.ViewModels;
 using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmUsuarioPasswordChage : XtraUserControl
+    public partial class frmUsuarioPassword : XtraUserControl
     {
         private IUsuarios UsuariosRepository;
-
-        public frmUsuarioPasswordChage()
-        {
-            InicialiacaoComponentes();
-        }
-        public frmUsuarioPasswordChage(long UserID)
+        public frmUsuarioPassword(UsuariosViewModels UserID)
         {
             InicialiacaoComponentes();
 
-
+            txtUsuarios.Text = UserID.Email;
+            txtUsuarioID.Text = UserID.UsuariosID.ToString();
         }
 
         private void InicialiacaoComponentes()
@@ -27,17 +24,10 @@ namespace IEscolaDesktop.View.Forms
             UsuariosRepository = new UsuariosRepository();
 
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
-
-            // Activação
-            txtUsuarios.EditValueChanged += delegate { ChangeValudations(txtUsuarios); };
-
-            txtSenhaAntiga.EditValueChanged += delegate { ChangeValudations(txtSenhaAntiga); };
             txtSenhaNova.EditValueChanged += delegate { ChangeValudations(txtSenhaNova); };
             txtSenhaNovaRepetir.EditValueChanged += delegate { ChangeValudations(txtSenhaNovaRepetir); };
 
             windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
-
-            txtSenhaAntiga.ButtonClick += delegate { GetViewPassowrd(txtSenhaAntiga); };
             txtSenhaNova.ButtonClick += delegate { GetViewPassowrd(txtSenhaNova); };
             txtSenhaNovaRepetir.ButtonClick += delegate { GetViewPassowrd(txtSenhaNovaRepetir); };
         }
@@ -55,7 +45,6 @@ namespace IEscolaDesktop.View.Forms
             txtUsuarios.Text = string.Empty;
             txtSenhaNova.Text = string.Empty;
             txtSenhaNovaRepetir.Text = string.Empty;
-            txtSenhaAntiga.Text = string.Empty;
             txtUsuarios.Focus();
         }
 
@@ -66,11 +55,11 @@ namespace IEscolaDesktop.View.Forms
                 if (e.Button.Properties.Tag.Equals("0"))
                 {
                     var result = await UsuariosRepository.ChangePassword_Mode1(txtUsuarios.Text.Trim(),
-                                                                               txtSenhaAntiga.Text.Trim(),
                                                                                txtSenhaNova.Text.Trim());
                     if (result)
                     {
-                        Mensagens.Display("Alteração de credencias", "As alterações foram feitas com sucesso!");
+                        Mensagens.Display("Alteração de credencias", "As alterações foram feitas com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnClose.DialogResult = DialogResult.OK;
                     }
                     else
                         Mensagens.Display("Alteração de credencias",
@@ -85,60 +74,13 @@ namespace IEscolaDesktop.View.Forms
         private void ChangeValudations(Control control)
         {
             if (control != null)
-            {
-                #region Usuarios
-                if (control.Name.Equals(txtUsuarios.Name))
-                {
-                    if (!string.IsNullOrWhiteSpace(txtUsuarios.Text))
-                    {
-                        if (!string.IsNullOrWhiteSpace(txtSenhaAntiga.Text) &&
-                            !string.IsNullOrWhiteSpace(txtSenhaNova.Text) &&
-                            !string.IsNullOrWhiteSpace(txtSenhaNovaRepetir.Text))
-                        {
-                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = true;
-                        }
-                        else
-                        {
-                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
-                        }                         
-                    }
-                    else
-                    {
-                        windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;      
-                    }
-                }
-                #endregion
-
-                #region Senha-Antiga     
-                else if (control.Name.Equals(txtSenhaAntiga.Name))
-                {
-                    if (!string.IsNullOrWhiteSpace(txtSenhaAntiga.Text))
-                    {
-                        if (!string.IsNullOrWhiteSpace(txtUsuarios.Text) &&
-                            !string.IsNullOrWhiteSpace(txtSenhaNova.Text) &&
-                            !string.IsNullOrWhiteSpace(txtSenhaNovaRepetir.Text))
-                        {
-                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = true;
-                        }
-                        else
-                        {
-                            windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
-                        }
-                    }
-                    else
-                    {
-                        windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
-                    }
-                }
-                #endregion  
-                
+            {               
                 #region Senha-Nova       
-                else if (control.Name.Equals(txtSenhaNova.Name))
+                if (control.Name.Equals(txtSenhaNova.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtSenhaNova.Text))
                     {
                         if (!string.IsNullOrWhiteSpace(txtUsuarios.Text) &&
-                            !string.IsNullOrWhiteSpace(txtSenhaAntiga.Text) &&
                             !string.IsNullOrWhiteSpace(txtSenhaNovaRepetir.Text))
                         {
                             Comparacao_Senhas(txtSenhaNova);
@@ -161,7 +103,6 @@ namespace IEscolaDesktop.View.Forms
                     if (!string.IsNullOrWhiteSpace(txtSenhaNovaRepetir.Text))
                     {
                         if (!string.IsNullOrWhiteSpace(txtUsuarios.Text) &&
-                            !string.IsNullOrWhiteSpace(txtSenhaAntiga.Text) &&
                             !string.IsNullOrWhiteSpace(txtSenhaNova.Text))
                         {
                             Comparacao_Senhas(txtSenhaNovaRepetir);
@@ -208,12 +149,6 @@ namespace IEscolaDesktop.View.Forms
             {
                 Mensagens.Display("Validação", "Por favor coloque seu usuário (Email) por favor!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUsuarios.Focus();
-                return false;
-            }
-            if (string.IsNullOrWhiteSpace(txtSenhaAntiga.Text))
-            {
-                Mensagens.Display("Validação", "Por favor coloque sua senha (PIN) por favor!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSenhaAntiga.Focus();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtSenhaNova.Text))
@@ -268,11 +203,6 @@ namespace IEscolaDesktop.View.Forms
                 return res;
             }
             return false;
-        }
-
-        private void txtSenhaNova_EditValueChanged(object sender, System.EventArgs e)
-        {
-
         }
     }
 }

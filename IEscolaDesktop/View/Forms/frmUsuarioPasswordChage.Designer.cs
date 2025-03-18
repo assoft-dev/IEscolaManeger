@@ -58,16 +58,10 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtSenhaNovaRepetir = new DevExpress.XtraEditors.ButtonEdit();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtSenhaAntiga = new DevExpress.XtraEditors.ButtonEdit();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtSenhaNova = new DevExpress.XtraEditors.ButtonEdit();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -78,11 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuarios.Properties)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNovaRepetir.Properties)).BeginInit();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaAntiga.Properties)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNova.Properties)).BeginInit();
-            this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,13 +109,10 @@
             this.panelControl1.Controls.Add(this.panel8);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.txtSenhaNovaRepetir);
-            this.panelControl1.Controls.Add(this.panel6);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.txtSenhaAntiga);
-            this.panelControl1.Controls.Add(this.panel2);
             this.panelControl1.Controls.Add(this.labelControl2);
             this.panelControl1.Controls.Add(this.txtSenhaNova);
-            this.panelControl1.Controls.Add(this.panel4);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(14, 51);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -183,7 +171,7 @@
             this.txtUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsuarios.Name = "txtUsuarios";
             this.txtUsuarios.Properties.AutoHeight = false;
-            this.txtUsuarios.Properties.NullValuePrompt = "Email de registo";
+            this.txtUsuarios.Properties.NullValuePrompt = "Email de registo / Ususario";
             this.txtUsuarios.Size = new System.Drawing.Size(302, 30);
             this.txtUsuarios.TabIndex = 0;
             // 
@@ -228,7 +216,7 @@
             // txtSenhaNovaRepetir
             // 
             this.txtSenhaNovaRepetir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSenhaNovaRepetir.Location = new System.Drawing.Point(14, 243);
+            this.txtSenhaNovaRepetir.Location = new System.Drawing.Point(14, 247);
             this.txtSenhaNovaRepetir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSenhaNovaRepetir.Name = "txtSenhaNovaRepetir";
             this.txtSenhaNovaRepetir.Properties.AutoHeight = false;
@@ -239,26 +227,6 @@
             this.txtSenhaNovaRepetir.Properties.UseSystemPasswordChar = true;
             this.txtSenhaNovaRepetir.Size = new System.Drawing.Size(302, 30);
             this.txtSenhaNovaRepetir.TabIndex = 3;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(19, 243);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(299, 33);
-            this.panel6.TabIndex = 17;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel7.Location = new System.Drawing.Point(7, 76);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(314, 25);
-            this.panel7.TabIndex = 7;
             // 
             // labelControl1
             // 
@@ -284,26 +252,6 @@
             this.txtSenhaAntiga.Size = new System.Drawing.Size(302, 30);
             this.txtSenhaAntiga.TabIndex = 1;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(19, 98);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(299, 33);
-            this.panel2.TabIndex = 14;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel3.Location = new System.Drawing.Point(7, 76);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(314, 25);
-            this.panel3.TabIndex = 7;
-            // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(30, 154);
@@ -327,26 +275,7 @@
             this.txtSenhaNova.Properties.UseSystemPasswordChar = true;
             this.txtSenhaNova.Size = new System.Drawing.Size(302, 30);
             this.txtSenhaNova.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(19, 173);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(299, 33);
-            this.panel4.TabIndex = 11;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel5.Location = new System.Drawing.Point(7, 76);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(314, 25);
-            this.panel5.TabIndex = 7;
+            this.txtSenhaNova.EditValueChanged += new System.EventHandler(this.txtSenhaNova_EditValueChanged);
             // 
             // windowsUIButtonPanel1
             // 
@@ -412,11 +341,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuarios.Properties)).EndInit();
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNovaRepetir.Properties)).EndInit();
-            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaAntiga.Properties)).EndInit();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNova.Properties)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -431,16 +357,10 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.ButtonEdit txtSenhaNovaRepetir;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.ButtonEdit txtSenhaAntiga;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.ButtonEdit txtSenhaNova;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
         private DevExpress.XtraEditors.TextEdit txtUsuarios;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.Panel panel8;

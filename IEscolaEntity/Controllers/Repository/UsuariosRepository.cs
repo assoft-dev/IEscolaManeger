@@ -5,6 +5,7 @@ using IEscolaEntity.Models.Helps;
 using IEscolaEntity.Models.ViewModels;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.Legacy;
+using System;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,10 +14,23 @@ namespace IEscolaEntity.Controllers.Repository
 {
     public class UsuariosRepository : GenericRepository<Usuarios>, IUsuarios
     {
-        IDbConnection dbConnection;
-        public UsuariosRepository()
+        public async Task<bool> ChangePassword_Mode1(string EmailUser, string SenhaNova)
         {
-            dbConnection = DataConnectionConfig.Conection().OpenDbConnection();
+            var senha2 = MD5Create.GetMD5Hash(SenhaNova);
+
+            var user = await DbConection.SingleAsync<Usuarios>(x => (x.Email == EmailUser));
+            if (user == null)
+                return false;
+            else
+            {
+                user.Senha = senha2;
+                var result = await DbConection.UpdateOnlyFieldsAsync<Usuarios>(user, x => x.Senha);
+
+                if (result > 0)
+                    return true;
+                else
+                    return false;
+            }
         }
 
         public async Task<bool> ChangePassword_Mode1(string EmailUser, string SenhaAntiga, string SenhaNova)
@@ -24,15 +38,23 @@ namespace IEscolaEntity.Controllers.Repository
             var senha1 = MD5Create.GetMD5Hash(SenhaAntiga);
             var senha2 = MD5Create.GetMD5Hash(SenhaNova);
 
-            var user = await dbConnection.SingleAsync<Usuarios>(x => (x.Email == EmailUser || 
+            var user = await DbConection.SingleAsync<Usuarios>(x => (x.Email == EmailUser || 
                                                                       x.FirstName == EmailUser ||
                                                                       x.LastName == EmailUser) &&
-                                                                     x.Senha == senha1);
+                                                                      x.Senha == senha1);
             if (user == null)
                 return false;
             else
             {
-                var result =   await dbConnection.UpdateAsync<Usuarios>( new Usuarios { Senha = senha2 } );
+                user.Senha = senha2;
+                var result =   await DbConection.UpdateOnlyFieldsAsync<Usuarios>(user, x=> x.Senha);
+
+                await DbConection.InsertAsync<UsuariosLogs>(new UsuariosLogs { 
+                     Data = DateTime.Now,
+                     Descricao = "ALTERADA DA SENHA NO PONTO INICIAL",
+                     Local = "lOGIN",
+                     UsuariosID = user.UsuariosID,
+                });
 
                 if (result > 0)
                     return true;
@@ -48,9 +70,9 @@ namespace IEscolaEntity.Controllers.Repository
             usuarios.Senha = md;
 
             if (usuarios.UsuariosID == 0)
-                return await dbConnection.SaveAsync<Usuarios>(usuarios);
+                return await DbConection.SaveAsync<Usuarios>(usuarios);
             else
-                return await dbConnection.UpdateAsync<Usuarios>(usuarios) > 0;
+                return await DbConection.UpdateAsync<Usuarios>(usuarios) > 0;
         }
 
         public async Task<UsuariosViewModels> Login(string Email, string Senha)
@@ -59,17 +81,18 @@ namespace IEscolaEntity.Controllers.Repository
 
             var md = MD5Create.GetMD5Hash(Senha);
 
-            var user = await dbConnection.SingleAsync<Usuarios>(x => (x.Email == Email || x.FirstName == Email || x.LastName == Email) &&
+            var user = await DbConection.SingleAsync<Usuarios>(x => (x.Email == Email || x.FirstName == Email || x.LastName == Email) &&
                                                                       x.Senha == md);
             if (user != null)
             {
                 usuariosViewModels = new UsuariosViewModels
                 {
                     UsuariosID = user.UsuariosID,
-                    FullName = user.FullName,
+                    FullName = user.FullName,   
+                    Email = user.Email,
                 };
 
-                var grupos = await dbConnection.LoadSelectAsync<Grupos>(x => x.GruposID == user.GruposID);
+                var grupos = await DbConection.LoadSelectAsync<Grupos>(x => x.GruposID == user.GruposID);
 
                 if (grupos != null)
                 {
@@ -79,21 +102,33 @@ namespace IEscolaEntity.Controllers.Repository
                         // Nao tem permissoes para entrar
                         usuariosViewModels.Permission = permissiones;
 
-                        // Retorno do usuario case Estado
-                        switch (user.Estado)
+                        // Retorno do Usuario Caso Logs
+                        var logs = await DbConection.SingleAsync<UsuariosLogs>(x => x.UsuariosID == user.UsuariosID);
+                        if (logs == null)
                         {
-                            case Estado.Activado:
-                                usuariosViewModels.usuariosRetorno = UsuariosRetorno.Valido;
-                                break;
-                            case Estado.Desativado:
-                                usuariosViewModels.usuariosRetorno = UsuariosRetorno.Desativado;
-                                break;
-                            case Estado.Desativado_Temp:
-                                usuariosViewModels.usuariosRetorno = UsuariosRetorno.Desativado_Temp;
-                                break;
-                            default:
-                                usuariosViewModels.usuariosRetorno = UsuariosRetorno.Initial;
-                                break;
+                            usuariosViewModels.usuariosRetorno = UsuariosRetorno.PrimeiraVez;
+                        }
+                        else
+                        {
+                            // Retorno do usuario case Estado
+                            switch (user.Estado)
+                            {
+                                case Estado.Activado:
+                                    usuariosViewModels.usuariosRetorno = UsuariosRetorno.Valido;
+                                    break;
+                                case Estado.Desativado:
+                                    usuariosViewModels.usuariosRetorno = UsuariosRetorno.Desativado;
+                                    break;
+                                case Estado.Desativado_Temp:
+                                    usuariosViewModels.usuariosRetorno = UsuariosRetorno.Desativado_Temp;
+                                    break;
+                                case Estado.Excluido:
+                                    usuariosViewModels.usuariosRetorno = UsuariosRetorno.Excluido;
+                                    break;
+                                default:
+                                    usuariosViewModels.usuariosRetorno = UsuariosRetorno.Initial;
+                                    break;
+                            }
                         }
                     }
                     else

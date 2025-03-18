@@ -26,8 +26,11 @@ namespace IEscolaDesktop.View.Forms
             permissionRepository = new PermissionsRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
+            
+            
             txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
             txtPermissioes.EditValueChanged += delegate { ChangeValudations(txtPermissioes); };
+            txtComentarios.EditValueChanged += delegate { ChangeValudations(txtComentarios); };
 
             btnBuscarGrupos.Click += BtnBuscarGrupos_Click;
 
@@ -53,6 +56,8 @@ namespace IEscolaDesktop.View.Forms
             }
 
             this.Load += FrmUsuariosAdd_Load;
+
+            txtPermissioes.Properties.NullText = "[Selecione a permissão por favor]";
         }
 
         private void BtnBuscarGrupos_Click(object sender, EventArgs e)
@@ -123,8 +128,6 @@ namespace IEscolaDesktop.View.Forms
 
         private async void Guardar()
         {
-
-
             if (!await ValidationDatabase())
             {
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
@@ -205,50 +208,69 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+        private string permissions = "[Selecione a permissão por favor]";
+
         private void ChangeValudations(Control control)
         {
             if (control != null)
             {
-                #region FirstName
+                #region DESCRICAO
                 if (control.Name.Equals(txtDescricao.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
                     {
                         if (!string.IsNullOrWhiteSpace(txtComentarios.Text) &&
-                            !(string.IsNullOrWhiteSpace(txtPermissioes.Text) || txtPermissioes.Text == "[Selecione a permissão por favor]"))
-                        { 
+                            !(string.IsNullOrWhiteSpace(txtPermissioes.Text) || txtPermissioes.Text == permissions))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        }
-                        else {
+                        else 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                        }
                     }
-                    else {
+                    else 
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                    }
                 }
                 #endregion
 
-                #region Grupos
-                if (control.Name.Equals(txtPermissioes.Name))
+                #region Comentarios
+                else if (control.Name.Equals(txtComentarios.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtComentarios.Text))
+                    {
+                        if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
+                            !(string.IsNullOrWhiteSpace(txtPermissioes.Text) || txtPermissioes.Text == permissions))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Permissoa
+                else if (control.Name.Equals(txtPermissioes.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtPermissioes.Text))
                     {
-                        if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
-                        {
+                        if (!(string.IsNullOrWhiteSpace(txtDescricao.Text)) &&
+                            !(string.IsNullOrWhiteSpace(txtComentarios.Text)))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        }
                         else
-                        {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                        }
                     }
                     else
-                    {
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                    }
                 }
                 #endregion
+
+                else
+                {
+                    if (!(string.IsNullOrWhiteSpace(txtDescricao.Text)) &&
+                        !(string.IsNullOrWhiteSpace(txtComentarios.Text)) &&
+                        !(string.IsNullOrWhiteSpace(txtPermissioes.Text) || txtPermissioes.Text == permissions))
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
             }
             else
             {
@@ -256,7 +278,6 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
-       
         #region Teclas
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -282,5 +303,6 @@ namespace IEscolaDesktop.View.Forms
             return false;
         }
         #endregion
+
     }
 }

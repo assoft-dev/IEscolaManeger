@@ -30,6 +30,8 @@ namespace IEscolaDesktop.View.Forms
             txtAssinaturaDr.EditValueChanged += delegate { ChangeValudations(txtAssinaturaDr); };
             txtAssinaturaSub.EditValueChanged += delegate { ChangeValudations(txtAssinaturaSub); };
             txtRodape.EditValueChanged += delegate { ChangeValudations(txtRodape); };
+            txtNIF.EditValueChanged += delegate { ChangeValudations(txtNIF); };
+            txtEstadoEScola.EditValueChanged += delegate { ChangeValudations(txtEstadoEScola); };
             txtProvinciaMunicipio.EditValueChanged += delegate { ChangeValudations(txtProvinciaMunicipio); };
 
             btnProvincia.Click += BtnBuscarGrupos_Click;
@@ -150,7 +152,7 @@ namespace IEscolaDesktop.View.Forms
                     Header2 = txtRodape.Text.Trim(),
                     Descricao = txtDescricao.Text.Trim(),
                     EscolaCodigo = txtNIF.Text.Trim(),
-                    FazemTeste = txtFazemTestes.IsOn,
+                    FazemTeste = txtFazemTestes.IsOn, 
                     ProvinciaMunicipioID = (int) txtProvinciaMunicipio.EditValue,
                 };
 
@@ -206,7 +208,7 @@ namespace IEscolaDesktop.View.Forms
             txtRodape.Text = string.Empty; 
             
             txtTitulo.Text = "[Novo]";
-            txtAssinaturaDr.Focus();
+            txtDescricao.Focus();
         }
 
         private void ChangeValidationCodigo()
@@ -351,7 +353,7 @@ namespace IEscolaDesktop.View.Forms
 
                 else
                 {
-                    if (!string.IsNullOrWhiteSpace(txtAssinaturaDr.Text) &&
+                    if (!(string.IsNullOrWhiteSpace(txtAssinaturaDr.Text)) &&
                         !(string.IsNullOrWhiteSpace(txtNIF.Text)) &&
                         !(string.IsNullOrWhiteSpace(txtDescricao.Text)) &&
                         !string.IsNullOrWhiteSpace(txtAssinaturaSub.Text) &&
@@ -393,5 +395,10 @@ namespace IEscolaDesktop.View.Forms
             return false;
         }
         #endregion
+
+        private void txtNIF_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

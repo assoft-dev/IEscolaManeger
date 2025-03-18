@@ -56,6 +56,12 @@ namespace IEscolaEntity.Models
         public bool ProfessoresDisciplinas { get; set; }
         public bool ProfessoresCategorias { get; set; }
 
+        [Default(0)]
+        public bool Escola { get; set; }
+
+        [Default(0)]
+        public bool EscolaConvenio { get; set; }
+
 
         [Reference] public List<Grupos> grupos { get; set; }
     }

@@ -462,6 +462,12 @@
     <Compile Include="View\Forms\frmTurmas.Designer.cs">
       <DependentUpon>frmTurmas.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmUsuarioPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmUsuarioPassword.Designer.cs">
+      <DependentUpon>frmUsuarioPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmUsuariosLogs.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -534,6 +540,7 @@
     <Compile Include="View\Helps\GlobalException.cs" />
     <Compile Include="View\Helps\GlobalOpenUserControl.cs" />
     <Compile Include="View\Helps\GlobalReport.cs" />
+    <Compile Include="View\Helps\GlobalSettingManeger.cs" />
     <Compile Include="View\Helps\GlobalthemeConfig.cs" />
     <Compile Include="View\Helps\GlobalThemeMember.cs" />
     <Compile Include="View\Helps\GraphicsExtensions.cs" />
@@ -805,6 +812,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmTurmas.resx">
       <DependentUpon>frmTurmas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmUsuarioPassword.resx">
+      <DependentUpon>frmUsuarioPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmUsuariosLogs.resx">
       <DependentUpon>frmUsuariosLogs.cs</DependentUpon>

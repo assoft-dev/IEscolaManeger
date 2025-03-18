@@ -37,6 +37,7 @@
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.txtEntidade = new DevExpress.XtraEditors.LookUpEdit();
+            this.entidadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnEntidade = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
             this.txtCursoClasseDesciplinas = new DevExpress.XtraEditors.LookUpEdit();
@@ -60,7 +61,6 @@
             this.txtTitulo = new DevExpress.XtraEditors.LabelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            this.entidadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
@@ -68,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEntidade.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entidadeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
             this.panelControl10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCursoClasseDesciplinas.Properties)).BeginInit();
@@ -85,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.entidadeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -135,10 +135,10 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 56.63F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 31.55F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 69.52F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 35.3F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 70.65F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 40.96F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 77.98F)});
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 40.6F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 66.41F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 38.84F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 79.04F)});
             this.tablePanel2.Size = new System.Drawing.Size(537, 494);
             this.tablePanel2.TabIndex = 2;
             this.tablePanel2.UseSkinIndents = true;
@@ -150,12 +150,12 @@
             this.panelControl5.Controls.Add(this.txtEntidade);
             this.panelControl5.Controls.Add(this.btnEntidade);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(14, 412);
+            this.panelControl5.Location = new System.Drawing.Point(14, 411);
             this.panelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl5.Name = "panelControl5";
             this.panelControl5.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl5, 9);
-            this.panelControl5.Size = new System.Drawing.Size(509, 69);
+            this.panelControl5.Size = new System.Drawing.Size(509, 70);
             this.panelControl5.TabIndex = 14;
             // 
             // txtEntidade
@@ -175,8 +175,12 @@
             this.txtEntidade.Properties.NullText = "* [Selecione a Disciplina [Curso => Claase => Disciplina]";
             this.txtEntidade.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtEntidade.Properties.ValueMember = "EntidadeID";
-            this.txtEntidade.Size = new System.Drawing.Size(464, 64);
+            this.txtEntidade.Size = new System.Drawing.Size(464, 65);
             this.txtEntidade.TabIndex = 8;
+            // 
+            // entidadeBindingSource
+            // 
+            this.entidadeBindingSource.DataSource = typeof(IEscolaEntity.Models.Entidade);
             // 
             // btnEntidade
             // 
@@ -186,7 +190,7 @@
             this.btnEntidade.Location = new System.Drawing.Point(464, 0);
             this.btnEntidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEntidade.Name = "btnEntidade";
-            this.btnEntidade.Size = new System.Drawing.Size(40, 64);
+            this.btnEntidade.Size = new System.Drawing.Size(40, 65);
             this.btnEntidade.TabIndex = 9;
             this.btnEntidade.Text = "Save";
             // 
@@ -197,12 +201,12 @@
             this.panelControl10.Controls.Add(this.txtCursoClasseDesciplinas);
             this.panelControl10.Controls.Add(this.btnBuscarGrupos);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl10.Location = new System.Drawing.Point(14, 306);
+            this.panelControl10.Location = new System.Drawing.Point(14, 311);
             this.panelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl10.Name = "panelControl10";
             this.panelControl10.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl10, 7);
-            this.panelControl10.Size = new System.Drawing.Size(509, 63);
+            this.panelControl10.Size = new System.Drawing.Size(509, 59);
             this.panelControl10.TabIndex = 14;
             // 
             // txtCursoClasseDesciplinas
@@ -222,7 +226,7 @@
             this.txtCursoClasseDesciplinas.Properties.NullText = "* [Selecione a Disciplina [Curso => Claase => Disciplina]";
             this.txtCursoClasseDesciplinas.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtCursoClasseDesciplinas.Properties.ValueMember = "CursoClasseDisciplinaID";
-            this.txtCursoClasseDesciplinas.Size = new System.Drawing.Size(464, 58);
+            this.txtCursoClasseDesciplinas.Size = new System.Drawing.Size(464, 54);
             this.txtCursoClasseDesciplinas.TabIndex = 8;
             // 
             // cursoClasseDisciplinaBindingSource
@@ -237,7 +241,7 @@
             this.btnBuscarGrupos.Location = new System.Drawing.Point(464, 0);
             this.btnBuscarGrupos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarGrupos.Name = "btnBuscarGrupos";
-            this.btnBuscarGrupos.Size = new System.Drawing.Size(40, 58);
+            this.btnBuscarGrupos.Size = new System.Drawing.Size(40, 54);
             this.btnBuscarGrupos.TabIndex = 8;
             this.btnBuscarGrupos.Text = "Save";
             // 
@@ -258,11 +262,12 @@
             // 
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl2.Controls.Add(this.txtEstado);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.panelControl2.Size = new System.Drawing.Size(509, 52);
+            this.panelControl2.Size = new System.Drawing.Size(509, 62);
             this.panelControl2.TabIndex = 14;
             // 
             // txtEstado
@@ -277,7 +282,7 @@
             this.txtEstado.Properties.DropDownRows = 10;
             this.txtEstado.Properties.NullText = "* [Selecione a Disciplina [Curso => Claase => Disciplina]";
             this.txtEstado.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtEstado.Size = new System.Drawing.Size(504, 47);
+            this.txtEstado.Size = new System.Drawing.Size(504, 57);
             this.txtEstado.TabIndex = 8;
             // 
             // labelControl1
@@ -323,9 +328,9 @@
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.tablePanel2.SetRow(this.labelControl2, 4);
-            this.labelControl2.Size = new System.Drawing.Size(35, 13);
+            this.labelControl2.Size = new System.Drawing.Size(43, 13);
             this.labelControl2.TabIndex = 16;
-            this.labelControl2.Text = "Estado";
+            this.labelControl2.Text = "Estado *";
             // 
             // labelControl3
             // 
@@ -369,7 +374,7 @@
             // labelControl6
             // 
             this.tablePanel2.SetColumn(this.labelControl6, 0);
-            this.labelControl6.Location = new System.Drawing.Point(14, 281);
+            this.labelControl6.Location = new System.Drawing.Point(14, 283);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
             this.tablePanel2.SetRow(this.labelControl6, 6);
@@ -384,9 +389,9 @@
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
             this.tablePanel2.SetRow(this.labelControl4, 8);
-            this.labelControl4.Size = new System.Drawing.Size(46, 13);
+            this.labelControl4.Size = new System.Drawing.Size(54, 13);
             this.labelControl4.TabIndex = 16;
-            this.labelControl4.Text = "Entidade";
+            this.labelControl4.Text = "* Entidade";
             // 
             // tableLayoutPanel1
             // 
@@ -394,7 +399,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -427,12 +432,12 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(254, 22);
+            this.panel1.Size = new System.Drawing.Size(253, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(152, 4);
+            this.txtTitulo.Location = new System.Drawing.Point(103, 4);
             this.txtTitulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(70, 13);
@@ -445,9 +450,9 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(5, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Escola - Vinculos";
+            this.label1.Text = "Escola - Vinculos: ";
             // 
             // windowsUIButtonPanel1
             // 
@@ -470,10 +475,6 @@
             this.windowsUIButtonPanel1.TabIndex = 8;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
             // 
-            // entidadeBindingSource
-            // 
-            this.entidadeBindingSource.DataSource = typeof(IEscolaEntity.Models.Entidade);
-            // 
             // frmEscolaConvenioAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,6 +491,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtEntidade.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entidadeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
             this.panelControl10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtCursoClasseDesciplinas.Properties)).EndInit();
@@ -508,7 +510,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.entidadeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

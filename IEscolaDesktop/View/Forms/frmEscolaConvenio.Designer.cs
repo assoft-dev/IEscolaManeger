@@ -42,16 +42,8 @@
             this.txtPesquisar = new DevExpress.XtraEditors.ButtonEdit();
             this.btnNovo = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.MenuPrinciapl = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnAtualizar = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnApagar = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.entidadeConveniosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colEntidadeConveniosID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescricao = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDataSolicitacao = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,15 +53,23 @@
             this.colCursosClasseDisciplinasID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCursoClasseDisciplina = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.MenuPrinciapl = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnAtualizar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnApagar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPesquisar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entidadeConveniosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.MenuPrinciapl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.entidadeConveniosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -178,6 +178,10 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // entidadeConveniosBindingSource
+            // 
+            this.entidadeConveniosBindingSource.DataSource = typeof(IEscolaEntity.Models.EntidadeConvenios);
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -199,6 +203,77 @@
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
+            // colEntidadeConveniosID
+            // 
+            this.colEntidadeConveniosID.Caption = "Código";
+            this.colEntidadeConveniosID.FieldName = "EntidadeConveniosID";
+            this.colEntidadeConveniosID.Name = "colEntidadeConveniosID";
+            this.colEntidadeConveniosID.Visible = true;
+            this.colEntidadeConveniosID.VisibleIndex = 0;
+            this.colEntidadeConveniosID.Width = 78;
+            // 
+            // colDescricao
+            // 
+            this.colDescricao.Caption = "Referência";
+            this.colDescricao.FieldName = "Descricao";
+            this.colDescricao.Name = "colDescricao";
+            this.colDescricao.Visible = true;
+            this.colDescricao.VisibleIndex = 1;
+            this.colDescricao.Width = 116;
+            // 
+            // colDataSolicitacao
+            // 
+            this.colDataSolicitacao.Caption = "D. Solicitação";
+            this.colDataSolicitacao.FieldName = "DataSolicitacao";
+            this.colDataSolicitacao.Name = "colDataSolicitacao";
+            this.colDataSolicitacao.Visible = true;
+            this.colDataSolicitacao.VisibleIndex = 5;
+            this.colDataSolicitacao.Width = 122;
+            // 
+            // colEntidadeConvenioEstado
+            // 
+            this.colEntidadeConvenioEstado.Caption = "Estado";
+            this.colEntidadeConvenioEstado.FieldName = "EntidadeConvenioEstado";
+            this.colEntidadeConvenioEstado.Name = "colEntidadeConvenioEstado";
+            this.colEntidadeConvenioEstado.Visible = true;
+            this.colEntidadeConvenioEstado.VisibleIndex = 2;
+            // 
+            // colEntidadeID
+            // 
+            this.colEntidadeID.FieldName = "EntidadeID";
+            this.colEntidadeID.Name = "colEntidadeID";
+            this.colEntidadeID.Width = 73;
+            // 
+            // colEntidade
+            // 
+            this.colEntidade.Caption = "Escola";
+            this.colEntidade.FieldName = "Entidade.Descricao";
+            this.colEntidade.Name = "colEntidade";
+            this.colEntidade.Visible = true;
+            this.colEntidade.VisibleIndex = 3;
+            this.colEntidade.Width = 72;
+            // 
+            // colCursosClasseDisciplinasID
+            // 
+            this.colCursosClasseDisciplinasID.Caption = "Curso/Classe/Disciplina";
+            this.colCursosClasseDisciplinasID.FieldName = "CursoClasseDisciplina.Descricao";
+            this.colCursosClasseDisciplinasID.Name = "colCursosClasseDisciplinasID";
+            this.colCursosClasseDisciplinasID.Visible = true;
+            this.colCursosClasseDisciplinasID.VisibleIndex = 4;
+            this.colCursosClasseDisciplinasID.Width = 160;
+            // 
+            // colCursoClasseDisciplina
+            // 
+            this.colCursoClasseDisciplina.FieldName = "CursoClasseDisciplina";
+            this.colCursoClasseDisciplina.Name = "colCursoClasseDisciplina";
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.FieldName = "CursoClasseDisciplina.Descricao";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
+            this.gridColumn1.Width = 81;
+            // 
             // repositoryItemCheckEdit1
             // 
             this.repositoryItemCheckEdit1.AutoHeight = false;
@@ -216,40 +291,40 @@
             this.btnRelatorios,
             this.btnReportdatabase});
             this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(230, 168);
+            this.MenuPrinciapl.Size = new System.Drawing.Size(252, 168);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(229, 38);
+            this.btnAtualizar.Size = new System.Drawing.Size(251, 38);
             this.btnAtualizar.Text = "Editar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(248, 6);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
             this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(229, 38);
+            this.btnApagar.Size = new System.Drawing.Size(251, 38);
             this.btnApagar.Text = "Apagar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(248, 6);
             // 
             // btnRelatorios
             // 
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(229, 38);
+            this.btnRelatorios.Size = new System.Drawing.Size(251, 38);
             this.btnRelatorios.Text = "Relatórios";
             // 
             // btnReportdatabase
@@ -257,85 +332,8 @@
             this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
             this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
+            this.btnReportdatabase.Size = new System.Drawing.Size(251, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
-            // 
-            // entidadeConveniosBindingSource
-            // 
-            this.entidadeConveniosBindingSource.DataSource = typeof(IEscolaEntity.Models.EntidadeConvenios);
-            // 
-            // colEntidadeConveniosID
-            // 
-            this.colEntidadeConveniosID.Caption = "Codigo";
-            this.colEntidadeConveniosID.FieldName = "EntidadeConveniosID";
-            this.colEntidadeConveniosID.Name = "colEntidadeConveniosID";
-            this.colEntidadeConveniosID.Visible = true;
-            this.colEntidadeConveniosID.VisibleIndex = 0;
-            this.colEntidadeConveniosID.Width = 53;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.Caption = "Referencia";
-            this.colDescricao.FieldName = "Descricao";
-            this.colDescricao.Name = "colDescricao";
-            this.colDescricao.Visible = true;
-            this.colDescricao.VisibleIndex = 1;
-            this.colDescricao.Width = 104;
-            // 
-            // colDataSolicitacao
-            // 
-            this.colDataSolicitacao.FieldName = "DataSolicitacao";
-            this.colDataSolicitacao.Name = "colDataSolicitacao";
-            this.colDataSolicitacao.Visible = true;
-            this.colDataSolicitacao.VisibleIndex = 7;
-            this.colDataSolicitacao.Width = 57;
-            // 
-            // colEntidadeConvenioEstado
-            // 
-            this.colEntidadeConvenioEstado.FieldName = "EntidadeConvenioEstado";
-            this.colEntidadeConvenioEstado.Name = "colEntidadeConvenioEstado";
-            this.colEntidadeConvenioEstado.Visible = true;
-            this.colEntidadeConvenioEstado.VisibleIndex = 2;
-            this.colEntidadeConvenioEstado.Width = 57;
-            // 
-            // colEntidadeID
-            // 
-            this.colEntidadeID.FieldName = "EntidadeID";
-            this.colEntidadeID.Name = "colEntidadeID";
-            this.colEntidadeID.Visible = true;
-            this.colEntidadeID.VisibleIndex = 3;
-            this.colEntidadeID.Width = 57;
-            // 
-            // colEntidade
-            // 
-            this.colEntidade.FieldName = "Entidade";
-            this.colEntidade.Name = "colEntidade";
-            this.colEntidade.Visible = true;
-            this.colEntidade.VisibleIndex = 4;
-            this.colEntidade.Width = 57;
-            // 
-            // colCursosClasseDisciplinasID
-            // 
-            this.colCursosClasseDisciplinasID.Caption = "Curso/Provincia/Classe";
-            this.colCursosClasseDisciplinasID.FieldName = "CursoClasseDisciplina.Descricao";
-            this.colCursosClasseDisciplinasID.Name = "colCursosClasseDisciplinasID";
-            this.colCursosClasseDisciplinasID.Visible = true;
-            this.colCursosClasseDisciplinasID.VisibleIndex = 5;
-            this.colCursosClasseDisciplinasID.Width = 57;
-            // 
-            // colCursoClasseDisciplina
-            // 
-            this.colCursoClasseDisciplina.FieldName = "CursoClasseDisciplina";
-            this.colCursoClasseDisciplina.Name = "colCursoClasseDisciplina";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.FieldName = "CursoClasseDisciplina.Descricao";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.ReadOnly = true;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 6;
-            this.gridColumn1.Width = 77;
             // 
             // frmEscolaConvenio
             // 
@@ -350,10 +348,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtPesquisar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entidadeConveniosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.MenuPrinciapl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.entidadeConveniosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

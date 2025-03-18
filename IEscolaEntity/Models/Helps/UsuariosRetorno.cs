@@ -13,5 +13,6 @@ namespace IEscolaEntity.Models.Helps
         Permissoes_Invalida = 5,
         Agrupamento_Invalida = 6,
         Desativado_Temp = 7,
+        Excluido = 8,
     }
 }

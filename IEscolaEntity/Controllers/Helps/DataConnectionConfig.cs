@@ -26,7 +26,7 @@ namespace IEscolaEntity.Controllers.Helps
             connectionString.InitialCatalog = DataBase;
             connectionString.ConnectTimeout = TimeOut;
             connectionString.MaxPoolSize = 255;
-            //connectionString.TrustServerCertificate = TruestConection;
+            connectionString.MultipleActiveResultSets = true;
         }
 
         public static OrmLiteConnectionFactory Conection()

@@ -139,19 +139,20 @@
         {
             if (!await ValidationDatabase())
             {
+                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
+
                 // save Data
-                var data = new Usuarios
-                {
-                    UsuariosID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue,
-                    FirstName = txtFirstName.Text.Trim(),
-                    LastName = txtLastName.Text.Trim(),
-                    Email = txtEmail.Text.Trim(),
-                    Senha = txtSenha.Text.Trim(),
-                    Data = txtData.DateTime,
-                    Estado = (Estado)txtEstado.EditValue,
-                    GruposID = (int)txtGrupos.EditValue,
-                    ImagemURL = null,
-                };
+                Usuarios data = new Usuarios();
+
+                data.UsuariosID = ID;
+                data.FirstName = txtFirstName.Text.Trim();
+                data.LastName = txtLastName.Text.Trim();
+                data.Email = txtEmail.Text.Trim();
+                data.Senha = txtSenha.Text.Trim();
+                data.Data = txtData.DateTime;
+                data.Estado = (Estado)txtEstado.EditValue;
+                data.GruposID = (int)txtGrupos.EditValue;
+                    data.ImagemURL = null;
 
                 var dataResult = await usuariosRepository.GuardarUser(data);
 
@@ -185,7 +186,17 @@
                         txtEmail.Focus();
 
                         return true;
-                    }
+                    }return false;
+                }
+                else
+                {
+                    Mensagens.Display("Duplicação de Email", "Este Email já temos em nossa base de Dados!",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Error);
+
+                    txtEmail.SelectAll();
+                    txtEmail.Focus();
+                    return true;
                 }
             }
             return false;

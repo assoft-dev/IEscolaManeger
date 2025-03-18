@@ -18,20 +18,17 @@ namespace IEscolaDesktop
         [STAThread]
         static void Main()
         {
-            //Verificar a base de dados
-            var Db = new DataMigrateConnections();
-            Db.InitialMetodos(new DataConnectionConfig());
-            Db.UPDATETABLE();
+            IniciarBaseDados();
             inicializacaoDirectory();
+            InicializarSettings();
+            InicializarThemas();
+
 
             Application.ThreadException += Application_ThreadException;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            WindowsFormsSettings.TrackWindowsAccentColor = DevExpress.Utils.DefaultBoolean.True;
-            WindowsFormsSettings.EnableMdiFormSkins();
-            UserLookAndFeel.Default.SetSkinStyle(SkinStyle.WXI);
-            //DevExpress.UserSkins.BonusSkins.Register();
+           
 
             Mutex mutex = new Mutex(true, name: "{Escola - F1056557-EDEF-4A8B-8AC7-7D5D659FA2C7}");
 
@@ -39,20 +36,51 @@ namespace IEscolaDesktop
             {
                 Application.Run(new frmTelaInicial());
             }
-            else {
+            else
+            {
                 mutex.Close();
 
-                Mensagens.Display("[IEscola - já em Execução]", "\nDesculpe mais a sua Aplicação Já esta em Execução\nTente verificar na barra de baixo do windows (Menu inicial)", 
+                Mensagens.Display("[IEscola - já em Execução]", "\nDesculpe mais a sua Aplicação Já esta em Execução\nTente verificar na barra de baixo do windows (Menu inicial)",
                           MessageBoxButtons.OK,
                           MessageBoxIcon.Error);
                 Application.Exit();
             }
         }
 
+        private static void InicializarThemas()
+        {
+            //UserLookAndFeel.Default.SetSkinStyle(SkinStyle.WXI);
+            //DevExpress.UserSkins.BonusSkins.Register();
+
+            var skin2 = GlobalSettingManeger.Read(SettingsKey.DefaultPalette, SettingsSession.USERPROFILE);
+
+            if (skin2.Equals("Sharpness"))
+                UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.WXI.Sharpness);
+            else
+                UserLookAndFeel.Default.SetSkinStyle(SkinSvgPalette.WXI.OfficeWhite);
+
+            WindowsFormsSettings.TrackWindowsAccentColor = DevExpress.Utils.DefaultBoolean.True;
+            WindowsFormsSettings.EnableMdiFormSkins();
+        }
+
+        private static void InicializarSettings()
+        {
+            new IniSerializationData().SetIniSerializar();
+        }
+
+        private static void IniciarBaseDados()
+        {
+            //Verificar a base de dados
+            var Db = new DataMigrateConnections();
+            Db.InitialMetodos(new DataConnectionConfig());
+            Db.UPDATETABLE();
+        }
+
         private static void inicializacaoDirectory()
         {
             var caminho = new ArrayList
             {
+                @"C:\\ISOFTComercial\\Config\\",
                 @"C:\\GYM-System\\Usuarios",
                 @"C:\\GYM-System\\Professores",
                 @"C:\\GYM-System\\Estudantes",

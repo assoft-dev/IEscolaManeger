@@ -30,6 +30,10 @@ namespace IEscolaDesktop.View.Forms
 
             if (permissoes != null) {
 
+
+                //Inicializar o Forms
+                txtTitulo.Text = "[Edição]";
+
                 //Geral
                 cbList.Checked = permissoes.List;
                 cbAtualizar.Checked = permissoes.Update;
@@ -77,9 +81,17 @@ namespace IEscolaDesktop.View.Forms
                 txtDisciplinaProgramas.Checked = permissoes.DisciplinasProgramas;
                 txtProfessores.Checked = permissoes.Professores;
                 txtProfessoresAreFormacao.Checked = permissoes.ProfessorAreaFormacao;
-                txtProfessoresDisciplinas.Checked = permissoes.ProfessoresDisciplinas;
-                txtCategorias.Checked = permissoes.Categorias;
+
+                txtEscola.Checked = permissoes.Escola;
+                txtEscolaConvenio.Checked = permissoes.EscolaConvenio;
             }
+            else
+            {
+                txtTitulo.Text = "[Novo]";
+                windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
+            }
+
         }
 
         private void BtnBuscarGrupos_Click(object sender, EventArgs e)
@@ -199,6 +211,9 @@ namespace IEscolaDesktop.View.Forms
                 ProfessorAreaFormacao = txtProfessoresAreFormacao.Checked ,
                 ProfessoresDisciplinas = txtProfessoresDisciplinas.Checked,
                 ProfessoresCategorias = txtCategorias.Checked,
+
+                Escola = txtEscola.Checked,
+                EscolaConvenio = txtEscolaConvenio.Checked,
             };
 
             IsValidate = ID != 0 ? await permissionRepository.Guardar(data, X => X.PermissoeID == ID) > 0 :
