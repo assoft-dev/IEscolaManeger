@@ -96,6 +96,18 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\frmProfessoresNotificaoesAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresNotificaoesAdd.Designer.cs">
+      <DependentUpon>frmProfessoresNotificaoesAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresNotificacoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmProfessoresNotificacoes.Designer.cs">
+      <DependentUpon>frmProfessoresNotificacoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmEscolasAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -630,6 +642,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\frmProfessoresNotificaoesAdd.resx">
+      <DependentUpon>frmProfessoresNotificaoesAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmProfessoresNotificacoes.resx">
+      <DependentUpon>frmProfessoresNotificacoes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmEscolasAdd.resx">
       <DependentUpon>frmEscolasAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -900,6 +918,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.EstudantesInscricoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Municipios.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Notificacoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Permissoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.ProfessorAreaFormacao.datasource" />

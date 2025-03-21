@@ -36,6 +36,7 @@
 
             btnEscola.Click += delegate { OpenForms(new frmEscolas()); };
             btnEscolaConvenio.Click += delegate { OpenForms(new frmEscolaConvenio()); };
+            btnProfessoresNotif.Click += delegate { OpenForms(new frmProfessoresNotificacoes()); };
 
 
             // Biblioteca
@@ -324,6 +325,11 @@
                     else if (control.Name.Equals(typeof(frmProfessoresCategorias).Name))
                     {
                         this.Text = "P/Categorias -[Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+                    else if (control.Name.Equals(typeof(frmProfessoresNotificacoes).Name))
+                    {
+                        this.Text = "P/Notificações -[Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
                     #endregion

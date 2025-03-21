@@ -98,6 +98,7 @@
     <Compile Include="Controllers\Interfaces\IEstudantesInscricoes.cs" />
     <Compile Include="Controllers\Interfaces\Ilogs.cs" />
     <Compile Include="Controllers\Interfaces\IMunicipios.cs" />
+    <Compile Include="Controllers\Interfaces\INotificacoes.cs" />
     <Compile Include="Controllers\Interfaces\IPeriodos.cs" />
     <Compile Include="Controllers\Interfaces\IPermissions.cs" />
     <Compile Include="Controllers\Interfaces\IProfessores.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Controllers\Repository\GruposRepository.cs" />
     <Compile Include="Controllers\Repository\LogsRepository.cs" />
     <Compile Include="Controllers\Repository\MunicipiosRepository.cs" />
+    <Compile Include="Controllers\Repository\NotificacoesRepository.cs" />
     <Compile Include="Controllers\Repository\PeriodosRepository.cs" />
     <Compile Include="Controllers\Repository\PermissionsRepository.cs" />
     <Compile Include="Controllers\Repository\ProfessoresAreaFormacaoRepository.cs" />

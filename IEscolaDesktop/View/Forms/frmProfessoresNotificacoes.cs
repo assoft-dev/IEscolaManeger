@@ -11,19 +11,19 @@ using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmProfessoresDisciplina : XtraUserControl
+    public partial class frmProfessoresNotificacoes : XtraUserControl
     {
-        INotificacoes DataRepository = null;
+        IDisciplinaPrograma DataRepository = null;
 
-        List<Notificacoes>  DataOriginalList;
+        List<DisciplinasProgramas>  DataOriginalList;
 
         AlertControl alert = null;
 
-        public frmProfessoresDisciplina()
+        public frmProfessoresNotificacoes()
         {
             InitializeComponent();
-            DataRepository = new NotificacoesRepository();
-            DataOriginalList = new List<Notificacoes>();
+            DataRepository = new DisciplinaProgramaRepository();
+            DataOriginalList = new List<DisciplinasProgramas>();
 
             LeituraInicial();
 
@@ -67,7 +67,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmProfessoresNotificaoesAdd(null));
+                   new frmDisciplinaProgramasAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();
@@ -77,10 +77,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = notificacoesBindingSource.Current as Notificacoes;
+                var result = disciplinasProgramasBindingSource.Current as DisciplinasProgramas;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmProfessoresNotificaoesAdd(result ?? null));
+                    new frmDisciplinaProgramasAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -89,15 +89,18 @@ namespace IEscolaDesktop.View.Forms
 
         private void LeituraFilter()
         {
-            var data = DataOriginalList.FindAll(x => x.Professores.FullName.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
-            notificacoesBindingSource.DataSource = data;
+            var data = DataOriginalList.FindAll(x => x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                     x.Titulo.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                     x.Lei.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                     x.CursoClasseDisciplina.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                     x.Comentario.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
+            disciplinasProgramasBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
-            DataOriginalList = await DataRepository.GetAll();
-            notificacoesBindingSource.DataSource = DataOriginalList;
+            DataOriginalList = await DataRepository.GetAllinclud();
+            disciplinasProgramasBindingSource.DataSource = DataOriginalList;
 
             if (DataOriginalList.Count > 0)
             {
@@ -132,7 +135,7 @@ namespace IEscolaDesktop.View.Forms
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = notificacoesBindingSource.Current as Notificacoes;
+                    var result = disciplinasProgramasBindingSource.Current as DisciplinasProgramas;
                     try
                     {
                         if (result != null)
