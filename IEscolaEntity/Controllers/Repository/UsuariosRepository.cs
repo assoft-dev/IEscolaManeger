@@ -27,7 +27,16 @@ namespace IEscolaEntity.Controllers.Repository
                 var result = await DbConection.UpdateOnlyFieldsAsync<Usuarios>(user, x => x.Senha);
 
                 if (result > 0)
+                {
+                    await DbConection.InsertAsync<UsuariosLogs>(new UsuariosLogs
+                    {
+                        Data = DateTime.Now,
+                        Descricao = "ALTERADA DA SENHA NO PONTO INICIAL",
+                        Local = "lOGIN",
+                        UsuariosID = user.UsuariosID,
+                    });
                     return true;
+                }
                 else
                     return false;
             }
@@ -51,7 +60,7 @@ namespace IEscolaEntity.Controllers.Repository
 
                 await DbConection.InsertAsync<UsuariosLogs>(new UsuariosLogs { 
                      Data = DateTime.Now,
-                     Descricao = "ALTERADA DA SENHA NO PONTO INICIAL",
+                     Descricao = "ALTERADA DA SENHA NO PONTO INICIAL (Change password)",
                      Local = "lOGIN",
                      UsuariosID = user.UsuariosID,
                 });

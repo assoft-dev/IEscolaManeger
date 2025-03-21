@@ -36,42 +36,32 @@
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
-            this.btnClasse = new DevExpress.XtraEditors.SimpleButton();
             this.txtCLasse = new DevExpress.XtraEditors.LookUpEdit();
             this.classesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnCurso = new DevExpress.XtraEditors.SimpleButton();
             this.txtCurso = new DevExpress.XtraEditors.LookUpEdit();
             this.cursosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnDisciplina = new DevExpress.XtraEditors.SimpleButton();
             this.txtDisciplina = new DevExpress.XtraEditors.LookUpEdit();
             this.disciplinasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.txtComponentes = new DevExpress.XtraEditors.LookUpEdit();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtTitulo = new DevExpress.XtraEditors.LabelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.btnClasse = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
@@ -80,25 +70,20 @@
             this.panelControl10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCLasse.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource)).BeginInit();
-            this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCurso.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDisciplina.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplinasBindingSource)).BeginInit();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtComponentes.Properties)).BeginInit();
-            this.panel8.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -163,32 +148,21 @@
             // 
             this.panelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl10, 0);
-            this.panelControl10.Controls.Add(this.btnClasse);
             this.panelControl10.Controls.Add(this.txtCLasse);
-            this.panelControl10.Controls.Add(this.panel18);
+            this.panelControl10.Controls.Add(this.btnClasse);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl10.Location = new System.Drawing.Point(14, 199);
             this.panelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl10.Name = "panelControl10";
+            this.panelControl10.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl10, 5);
             this.panelControl10.Size = new System.Drawing.Size(509, 53);
             this.panelControl10.TabIndex = 14;
             // 
-            // btnClasse
-            // 
-            this.btnClasse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClasse.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClasse.ImageOptions.SvgImage")));
-            this.btnClasse.Location = new System.Drawing.Point(457, 11);
-            this.btnClasse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClasse.Name = "btnClasse";
-            this.btnClasse.Size = new System.Drawing.Size(40, 34);
-            this.btnClasse.TabIndex = 8;
-            this.btnClasse.Text = "Save";
-            // 
             // txtCLasse
             // 
-            this.txtCLasse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCLasse.Location = new System.Drawing.Point(1, 8);
+            this.txtCLasse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCLasse.Location = new System.Drawing.Point(0, 0);
             this.txtCLasse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCLasse.Name = "txtCLasse";
             this.txtCLasse.Properties.AutoHeight = false;
@@ -203,44 +177,24 @@
             this.txtCLasse.Properties.NullText = "[Selecione a Classe por favor]";
             this.txtCLasse.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtCLasse.Properties.ValueMember = "ClasseID";
-            this.txtCLasse.Size = new System.Drawing.Size(454, 34);
+            this.txtCLasse.Size = new System.Drawing.Size(464, 48);
             this.txtCLasse.TabIndex = 8;
             // 
             // classesBindingSource
             // 
             this.classesBindingSource.DataSource = typeof(IEscolaEntity.Models.Classes);
             // 
-            // panel18
-            // 
-            this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel18.Controls.Add(this.panel19);
-            this.panel18.Location = new System.Drawing.Point(9, 11);
-            this.panel18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(490, 35);
-            this.panel18.TabIndex = 6;
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel19.Location = new System.Drawing.Point(7, 76);
-            this.panel19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(314, 25);
-            this.panel19.TabIndex = 7;
-            // 
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl1, 0);
-            this.panelControl1.Controls.Add(this.btnCurso);
             this.panelControl1.Controls.Add(this.txtCurso);
-            this.panelControl1.Controls.Add(this.panel2);
+            this.panelControl1.Controls.Add(this.btnCurso);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(14, 121);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl1, 3);
             this.panelControl1.Size = new System.Drawing.Size(509, 50);
             this.panelControl1.TabIndex = 14;
@@ -248,18 +202,20 @@
             // btnCurso
             // 
             this.btnCurso.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCurso.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCurso.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCurso.ImageOptions.SvgImage")));
-            this.btnCurso.Location = new System.Drawing.Point(457, 8);
+            this.btnCurso.Location = new System.Drawing.Point(464, 0);
             this.btnCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCurso.Name = "btnCurso";
-            this.btnCurso.Size = new System.Drawing.Size(40, 35);
+            this.btnCurso.Size = new System.Drawing.Size(40, 45);
             this.btnCurso.TabIndex = 8;
             this.btnCurso.Text = "Save";
+            this.btnCurso.Click += new System.EventHandler(this.btnCurso_Click);
             // 
             // txtCurso
             // 
-            this.txtCurso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCurso.Location = new System.Drawing.Point(1, 7);
+            this.txtCurso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCurso.Location = new System.Drawing.Point(0, 0);
             this.txtCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCurso.Name = "txtCurso";
             this.txtCurso.Properties.AutoHeight = false;
@@ -275,32 +231,12 @@
             this.txtCurso.Properties.NullText = "[Selecione o Curso por favor]";
             this.txtCurso.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtCurso.Properties.ValueMember = "CursosID";
-            this.txtCurso.Size = new System.Drawing.Size(454, 34);
+            this.txtCurso.Size = new System.Drawing.Size(464, 45);
             this.txtCurso.TabIndex = 8;
             // 
             // cursosBindingSource
             // 
             this.cursosBindingSource.DataSource = typeof(IEscolaEntity.Models.Cursos);
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Location = new System.Drawing.Point(9, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(490, 35);
-            this.panel2.TabIndex = 6;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel5.Location = new System.Drawing.Point(7, 76);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(314, 25);
-            this.panel5.TabIndex = 7;
             // 
             // labelControl1
             // 
@@ -340,48 +276,28 @@
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl3, 0);
             this.panelControl3.Controls.Add(this.txtCodigo);
-            this.panelControl3.Controls.Add(this.panel3);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(14, 53);
             this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl3, 1);
             this.panelControl3.Size = new System.Drawing.Size(509, 37);
             this.panelControl3.TabIndex = 12;
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCodigo.EditValue = "";
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(0, 3);
+            this.txtCodigo.Location = new System.Drawing.Point(0, 0);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Properties.AutoHeight = false;
             this.txtCodigo.Properties.NullValuePrompt = "Codigo Interno";
             this.txtCodigo.Properties.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(495, 25);
+            this.txtCodigo.Size = new System.Drawing.Size(504, 32);
             this.txtCodigo.TabIndex = 8;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(9, 6);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(490, 27);
-            this.panel3.TabIndex = 6;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel4.Location = new System.Drawing.Point(7, 76);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(314, 25);
-            this.panel4.TabIndex = 7;
             // 
             // labelControl4
             // 
@@ -398,13 +314,13 @@
             // 
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl2, 0);
-            this.panelControl2.Controls.Add(this.btnDisciplina);
             this.panelControl2.Controls.Add(this.txtDisciplina);
-            this.panelControl2.Controls.Add(this.panel6);
+            this.panelControl2.Controls.Add(this.btnDisciplina);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(14, 284);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl2, 7);
             this.panelControl2.Size = new System.Drawing.Size(509, 50);
             this.panelControl2.TabIndex = 14;
@@ -412,18 +328,19 @@
             // btnDisciplina
             // 
             this.btnDisciplina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDisciplina.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDisciplina.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDisciplina.ImageOptions.SvgImage")));
-            this.btnDisciplina.Location = new System.Drawing.Point(457, 10);
+            this.btnDisciplina.Location = new System.Drawing.Point(466, 0);
             this.btnDisciplina.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDisciplina.Name = "btnDisciplina";
-            this.btnDisciplina.Size = new System.Drawing.Size(38, 33);
+            this.btnDisciplina.Size = new System.Drawing.Size(38, 45);
             this.btnDisciplina.TabIndex = 8;
             this.btnDisciplina.Text = "Save";
             // 
             // txtDisciplina
             // 
-            this.txtDisciplina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDisciplina.Location = new System.Drawing.Point(1, 7);
+            this.txtDisciplina.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDisciplina.Location = new System.Drawing.Point(0, 0);
             this.txtDisciplina.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDisciplina.Name = "txtDisciplina";
             this.txtDisciplina.Properties.AutoHeight = false;
@@ -439,32 +356,13 @@
             this.txtDisciplina.Properties.NullText = "[Selecione a Disciplina por favor]";
             this.txtDisciplina.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtDisciplina.Properties.ValueMember = "DisciplinasID";
-            this.txtDisciplina.Size = new System.Drawing.Size(454, 34);
+            this.txtDisciplina.Size = new System.Drawing.Size(466, 45);
             this.txtDisciplina.TabIndex = 8;
+            this.txtDisciplina.EditValueChanged += new System.EventHandler(this.txtDisciplina_EditValueChanged);
             // 
             // disciplinasBindingSource
             // 
             this.disciplinasBindingSource.DataSource = typeof(IEscolaEntity.Models.Disciplinas);
-            // 
-            // panel6
-            // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(9, 10);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(490, 35);
-            this.panel6.TabIndex = 6;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel7.Location = new System.Drawing.Point(7, 76);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(314, 25);
-            this.panel7.TabIndex = 7;
             // 
             // labelControl5
             // 
@@ -482,19 +380,19 @@
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl4, 0);
             this.panelControl4.Controls.Add(this.txtComponentes);
-            this.panelControl4.Controls.Add(this.panel8);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(14, 365);
             this.panelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl4, 9);
             this.panelControl4.Size = new System.Drawing.Size(509, 50);
             this.panelControl4.TabIndex = 14;
             // 
             // txtComponentes
             // 
-            this.txtComponentes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtComponentes.Location = new System.Drawing.Point(1, 7);
+            this.txtComponentes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtComponentes.Location = new System.Drawing.Point(0, 0);
             this.txtComponentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtComponentes.Name = "txtComponentes";
             this.txtComponentes.Properties.AutoHeight = false;
@@ -503,28 +401,8 @@
             this.txtComponentes.Properties.DropDownRows = 10;
             this.txtComponentes.Properties.NullText = "[Selecione a Componente por favor]";
             this.txtComponentes.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtComponentes.Size = new System.Drawing.Size(494, 34);
+            this.txtComponentes.Size = new System.Drawing.Size(504, 45);
             this.txtComponentes.TabIndex = 8;
-            // 
-            // panel8
-            // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(9, 10);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(490, 35);
-            this.panel8.TabIndex = 6;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel9.Location = new System.Drawing.Point(7, 76);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(314, 25);
-            this.panel9.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -532,7 +410,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -610,6 +488,18 @@
             this.windowsUIButtonPanel1.TabIndex = 8;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
             // 
+            // btnClasse
+            // 
+            this.btnClasse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClasse.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClasse.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnClasse.ImageOptions.SvgImage")));
+            this.btnClasse.Location = new System.Drawing.Point(464, 0);
+            this.btnClasse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClasse.Name = "btnClasse";
+            this.btnClasse.Size = new System.Drawing.Size(40, 48);
+            this.btnClasse.TabIndex = 8;
+            this.btnClasse.Text = "Save";
+            // 
             // frmCursoClasseDisciplinaAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -627,25 +517,20 @@
             this.panelControl10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtCLasse.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classesBindingSource)).EndInit();
-            this.panel18.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtCurso.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).EndInit();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtDisciplina.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplinasBindingSource)).EndInit();
-            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtComponentes.Properties)).EndInit();
-            this.panel8.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -668,31 +553,21 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.TextEdit txtCodigo;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private DevExpress.XtraEditors.PanelControl panelControl10;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Panel panel19;
         private DevExpress.XtraEditors.LookUpEdit txtCLasse;
-        private DevExpress.XtraEditors.SimpleButton btnClasse;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btnCurso;
         private DevExpress.XtraEditors.LookUpEdit txtCurso;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.SimpleButton btnDisciplina;
         private DevExpress.XtraEditors.LookUpEdit txtDisciplina;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.LookUpEdit txtComponentes;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.BindingSource cursosBindingSource;
         private System.Windows.Forms.BindingSource classesBindingSource;
         private System.Windows.Forms.BindingSource disciplinasBindingSource;
+        private DevExpress.XtraEditors.SimpleButton btnClasse;
     }
 }

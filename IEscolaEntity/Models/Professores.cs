@@ -2,6 +2,7 @@
 using IEscolaEntity.Models.Helps;
 using ServiceStack.DataAnnotations;
 using System;
+using System.Collections.Generic;
 
 namespace IEscolaEntity.Models
 {
@@ -25,5 +26,7 @@ namespace IEscolaEntity.Models
         [ForeignKey(typeof(ProfessorAreaFormacao))]
         public int ProfessorAreaFormacaoID { get; set; }
         [Reference] public ProfessorAreaFormacao ProfessorAreaFormacao { get; set; }
+
+        [Reference] public List<Notificacoes> Notificacoes { get; set; }
     }
 }

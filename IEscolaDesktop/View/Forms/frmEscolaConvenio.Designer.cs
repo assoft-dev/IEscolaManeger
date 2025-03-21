@@ -196,12 +196,15 @@
             this.gridColumn1});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupCount = 1;
             this.gridView1.GroupPanelText = "Pesquise Aqui";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDescricao, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colEntidadeConveniosID
             // 
@@ -227,7 +230,7 @@
             this.colDataSolicitacao.FieldName = "DataSolicitacao";
             this.colDataSolicitacao.Name = "colDataSolicitacao";
             this.colDataSolicitacao.Visible = true;
-            this.colDataSolicitacao.VisibleIndex = 5;
+            this.colDataSolicitacao.VisibleIndex = 4;
             this.colDataSolicitacao.Width = 122;
             // 
             // colEntidadeConvenioEstado
@@ -236,7 +239,7 @@
             this.colEntidadeConvenioEstado.FieldName = "EntidadeConvenioEstado";
             this.colEntidadeConvenioEstado.Name = "colEntidadeConvenioEstado";
             this.colEntidadeConvenioEstado.Visible = true;
-            this.colEntidadeConvenioEstado.VisibleIndex = 2;
+            this.colEntidadeConvenioEstado.VisibleIndex = 1;
             // 
             // colEntidadeID
             // 
@@ -250,7 +253,7 @@
             this.colEntidade.FieldName = "Entidade.Descricao";
             this.colEntidade.Name = "colEntidade";
             this.colEntidade.Visible = true;
-            this.colEntidade.VisibleIndex = 3;
+            this.colEntidade.VisibleIndex = 2;
             this.colEntidade.Width = 72;
             // 
             // colCursosClasseDisciplinasID
@@ -259,7 +262,7 @@
             this.colCursosClasseDisciplinasID.FieldName = "CursoClasseDisciplina.Descricao";
             this.colCursosClasseDisciplinasID.Name = "colCursosClasseDisciplinasID";
             this.colCursosClasseDisciplinasID.Visible = true;
-            this.colCursosClasseDisciplinasID.VisibleIndex = 4;
+            this.colCursosClasseDisciplinasID.VisibleIndex = 3;
             this.colCursosClasseDisciplinasID.Width = 160;
             // 
             // colCursoClasseDisciplina

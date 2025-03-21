@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarioPassword));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -41,12 +39,12 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+            this.txtUsuarios = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,11 +53,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSenhaNova = new DevExpress.XtraEditors.ButtonEdit();
             this.txtSenhaNovaRepetir = new DevExpress.XtraEditors.ButtonEdit();
-            this.txtUsuarios = new DevExpress.XtraEditors.LabelControl();
             this.txtUsuarioID = new DevExpress.XtraEditors.LabelControl();
+            this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
@@ -70,6 +69,7 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNova.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNovaRepetir.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -91,54 +91,6 @@
             this.tablePanel1.Size = new System.Drawing.Size(364, 396);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
-            // 
-            // windowsUIButtonPanel1
-            // 
-            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
-            windowsUIButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions2.Image")));
-            this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Validação", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "0", -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Cancelar", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "1", -1, false)});
-            this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
-            this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 304);
-            this.windowsUIButtonPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
-            this.tablePanel1.SetRow(this.windowsUIButtonPanel1, 2);
-            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(336, 79);
-            this.windowsUIButtonPanel1.TabIndex = 4;
-            this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
-            // 
-            // panel1
-            // 
-            this.tablePanel1.SetColumn(this.panel1, 0);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(14, 12);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.tablePanel1.SetRow(this.panel1, 0);
-            this.panel1.Size = new System.Drawing.Size(336, 35);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(285, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(51, 35);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // panelControl1
             // 
@@ -176,6 +128,17 @@
             this.tablePanel2.Size = new System.Drawing.Size(324, 235);
             this.tablePanel2.TabIndex = 24;
             this.tablePanel2.UseSkinIndents = true;
+            // 
+            // txtUsuarios
+            // 
+            this.tablePanel2.SetColumn(this.txtUsuarios, 0);
+            this.txtUsuarios.Location = new System.Drawing.Point(14, 202);
+            this.txtUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsuarios.Name = "txtUsuarios";
+            this.tablePanel2.SetRow(this.txtUsuarios, 6);
+            this.txtUsuarios.Size = new System.Drawing.Size(61, 13);
+            this.txtUsuarios.TabIndex = 10;
+            this.txtUsuarios.Text = "Senha Nova";
             // 
             // panelControl3
             // 
@@ -282,17 +245,6 @@
             this.txtSenhaNovaRepetir.Size = new System.Drawing.Size(296, 45);
             this.txtSenhaNovaRepetir.TabIndex = 3;
             // 
-            // txtUsuarios
-            // 
-            this.tablePanel2.SetColumn(this.txtUsuarios, 0);
-            this.txtUsuarios.Location = new System.Drawing.Point(14, 202);
-            this.txtUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtUsuarios.Name = "txtUsuarios";
-            this.tablePanel2.SetRow(this.txtUsuarios, 6);
-            this.txtUsuarios.Size = new System.Drawing.Size(61, 13);
-            this.txtUsuarios.TabIndex = 10;
-            this.txtUsuarios.Text = "Senha Nova";
-            // 
             // txtUsuarioID
             // 
             this.tablePanel2.SetColumn(this.txtUsuarioID, 0);
@@ -305,6 +257,54 @@
             this.txtUsuarioID.Text = "Senha Nova";
             this.txtUsuarioID.Visible = false;
             // 
+            // windowsUIButtonPanel1
+            // 
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
+            windowsUIButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions2.Image")));
+            this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Validação", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "0", -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Cancelar", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, "1", -1, false)});
+            this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
+            this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(14, 304);
+            this.windowsUIButtonPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
+            this.tablePanel1.SetRow(this.windowsUIButtonPanel1, 2);
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(336, 79);
+            this.windowsUIButtonPanel1.TabIndex = 4;
+            this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
+            // 
+            // panel1
+            // 
+            this.tablePanel1.SetColumn(this.panel1, 0);
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(14, 12);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.tablePanel1.SetRow(this.panel1, 0);
+            this.panel1.Size = new System.Drawing.Size(336, 35);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.Red;
+            this.btnClose.Location = new System.Drawing.Point(285, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(51, 35);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
             // frmUsuarioPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,7 +315,6 @@
             this.Size = new System.Drawing.Size(364, 396);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
@@ -329,6 +328,7 @@
             this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNova.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNovaRepetir.Properties)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

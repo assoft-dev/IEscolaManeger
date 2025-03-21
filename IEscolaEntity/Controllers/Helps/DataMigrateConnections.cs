@@ -83,7 +83,6 @@ namespace IEscolaEntity.Controllers.Helps
 
         public async void CREATEMIGRATION(IDbConnection db)
         {
-
             var permissions = db.Select<Permissoes>();
             var permissoesID = 0L;
             var gruposID = 0L;
@@ -259,6 +258,7 @@ namespace IEscolaEntity.Controllers.Helps
 
             Db.CreateTableIfNotExists<Entidade>();
             Db.CreateTableIfNotExists<EntidadeConvenios>();
+            Db.CreateTableIfNotExists<Notificacoes>();
         }
 
         public void UPDATETABLE()
@@ -307,8 +307,7 @@ namespace IEscolaEntity.Controllers.Helps
 
             DataColunsAsync<Entidade>.AsyncColuns(Db);
             DataColunsAsync<EntidadeConvenios>.AsyncColuns(Db);
-
-
+            DataColunsAsync<Notificacoes>.AsyncColuns(Db);
         }
     }
 }

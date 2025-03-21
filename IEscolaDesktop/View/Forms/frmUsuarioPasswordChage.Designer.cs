@@ -54,8 +54,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuarios = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtSenhaNovaRepetir = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -70,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuarios.Properties)).BeginInit();
-            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNovaRepetir.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaAntiga.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNova.Properties)).BeginInit();
@@ -106,7 +103,6 @@
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Controls.Add(this.txtUsuarios);
             this.panelControl1.Controls.Add(this.labelControl4);
-            this.panelControl1.Controls.Add(this.panel8);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.txtSenhaNovaRepetir);
             this.panelControl1.Controls.Add(this.labelControl1);
@@ -183,26 +179,6 @@
             this.labelControl4.Size = new System.Drawing.Size(40, 13);
             this.labelControl4.TabIndex = 19;
             this.labelControl4.Text = "Usuário";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(19, 26);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(299, 31);
-            this.panel8.TabIndex = 20;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel9.Location = new System.Drawing.Point(7, 76);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(314, 25);
-            this.panel9.TabIndex = 7;
             // 
             // labelControl3
             // 
@@ -339,7 +315,6 @@
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuarios.Properties)).EndInit();
-            this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNovaRepetir.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaAntiga.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSenhaNova.Properties)).EndInit();
@@ -363,8 +338,6 @@
         private DevExpress.XtraEditors.ButtonEdit txtSenhaNova;
         private DevExpress.XtraEditors.TextEdit txtUsuarios;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

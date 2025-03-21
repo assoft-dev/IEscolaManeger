@@ -182,6 +182,7 @@
     <Compile Include="Models\Helps\Meses.cs" />
     <Compile Include="Models\Helps\ModelsEntityBase.cs" />
     <Compile Include="Models\Helps\Nacionalidade.cs" />
+    <Compile Include="Models\Helps\NotificacoesCatater.cs" />
     <Compile Include="Models\Helps\PedidosDocuments.cs" />
     <Compile Include="Models\Helps\PedidosEstado.cs" />
     <Compile Include="Models\Helps\PedidosPagamentos.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="Models\Helps\UsuariosRetorno.cs" />
     <Compile Include="Models\EstudantesInscricoes.cs" />
     <Compile Include="Models\Municipios.cs" />
+    <Compile Include="Models\Notificacoes.cs" />
     <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\ProfessorAreaFormacao.cs" />

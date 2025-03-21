@@ -31,9 +31,8 @@ namespace IEscolaEntity.Controllers.Helps
 
         public static OrmLiteConnectionFactory Conection()
         {
-            var dbFactory = new OrmLiteConnectionFactory(connectionString.ConnectionString,
+            return new OrmLiteConnectionFactory(connectionString.ConnectionString,
                                                          SqlServerDialect.Provider);
-            return dbFactory;
         }
     }
 

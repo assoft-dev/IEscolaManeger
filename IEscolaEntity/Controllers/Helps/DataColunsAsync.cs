@@ -128,6 +128,7 @@
                      typeof(Anos),
                      typeof(EscolaEstatuto),
                      typeof(EntidadeConvenioEstado),
+                     typeof(NotificacoesCatater),
                 };
                 return primary.Contains(t);
             }

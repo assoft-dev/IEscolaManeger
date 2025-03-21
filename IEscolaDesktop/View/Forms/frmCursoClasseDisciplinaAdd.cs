@@ -399,5 +399,15 @@ namespace IEscolaDesktop.View.Forms
             return false;
         }
         #endregion
+
+        private void btnCurso_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDisciplina_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
