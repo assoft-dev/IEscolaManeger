@@ -1,5 +1,8 @@
-﻿using ServiceStack.DataAnnotations;
+﻿using IEscolaEntity.Controllers.Helps;
+using ServiceStack.DataAnnotations;
 using System;
+using System.Drawing;
+using System.IO;
 
 namespace IEscolaEntity.Models.Helps
 {
@@ -43,6 +46,7 @@ namespace IEscolaEntity.Models.Helps
         //Informacao Final
         public bool IsActived { get; set; }
         public DateTime DataFicha { get; set; }
+
         public string ImagemURL { get; set; }
     }
 }

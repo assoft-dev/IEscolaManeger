@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
+using Guna.UI2.WinForms;
 using IEscolaDesktop.View.Helps;
 using IEscolaDesktop.View.ReportForms;
 using IEscolaEntity.Controllers.Helps;
@@ -23,6 +24,7 @@ namespace IEscolaDesktop.View.Forms
 
         IProfessoresCategorias professoresCategorias;
         IProfessoresAreaFormacao professoresAreaFormacaoRepository;
+        private string FolderImagem = @"C:\\asinforprest\\IEscola\\Professores\\";
 
         bool IsValidate = false;
 
@@ -95,6 +97,7 @@ namespace IEscolaDesktop.View.Forms
                 txtDataExpiracao.EditValue = usuarios.DataExpiracao;
                 txtTipoDocumentos.EditValue = usuarios.DocType;
                 txtDocumento.EditValue = usuarios.Documento;
+                txtNumeroAgente.EditValue = usuarios.NumeroAgente;
 
                 txtCategoria.EditValue = usuarios.ProfessorCategoriaID;
                 txtAreaFormacao.EditValue = usuarios.ProfessorAreaFormacaoID;
@@ -109,6 +112,7 @@ namespace IEscolaDesktop.View.Forms
                 txtDuracao.EditValue = usuarios.AreaData;
 
                 txtImagemURL.Text = usuarios.ImagemURL;
+                pictureEdit1.Image = usuarios.Imagens;
 
                 txtEscolaridade.EditValue = usuarios.Escolaridade;
                 txtHabilitacoesLiterarias.EditValue = usuarios.abilitacoesLiterarias;
@@ -159,6 +163,7 @@ namespace IEscolaDesktop.View.Forms
             txtLocalEmissao.Properties.NullText = localemissao;
             txtTipoDocumentos.Properties.NullText = tipodoc;
             txtProvinciaMunicipio.Properties.NullText = municipioprovincia;
+            txtProvinciasFormacao.Properties.NullText = provinciaFormacao;
 
             this.Load += FrmUsuariosAdd_Load;
         }
@@ -176,7 +181,6 @@ namespace IEscolaDesktop.View.Forms
         private void PictureEdit1_MouseClick(object sender, MouseEventArgs e)
         {
             var fileStream = xtraOpenFileDialog1.ShowDialog();
-            xtraOpenFileDialog1.FileName = string.Empty;
             xtraOpenFileDialog1.RestoreDirectory = true;
 
 
@@ -304,12 +308,27 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+        private string GuardarImagem()
+        {
+            if (pictureEdit1.Image != null)
+            {
+                var guidvalues = Guid.NewGuid() + ".jpg";
+                pictureEdit1.Image.Save(FolderImagem + guidvalues);
+                return guidvalues;
+            }
+            else
+                return null;
+        }
+
         private async void Guardar()
         {
             if (!await ValidationDatabase())
             {
-                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
+                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int) txtCodigo.EditValue;
                 var codigo = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? await DataRepository.GetQR() : txtCodigoUnico.Text;
+
+                //Gerir Imagens
+                var imagens = GuardarImagem();
 
                 // save Data
                 var data = new Professores
@@ -350,7 +369,7 @@ namespace IEscolaDesktop.View.Forms
                     IsActived = txtIsActived.Checked,
                     DataFicha = DateTime.Now,
                     DataNascimento =  txtDataNascimento.DateTime,              
-                    ImagemURL = txtImagemURL.Text,   
+                    ImagemURL = imagens,   
 
                     Codigo = (string)codigo
                 };
@@ -448,8 +467,8 @@ namespace IEscolaDesktop.View.Forms
             txtData.EditValue = DateTime.Now;
 
             txtDocumento.EditValue = string.Empty;
-            txtDocumentoRecenciamnto.EditValue = string.Empty;
             txtIsActived.EditValue = string.Empty;
+            pictureEdit1.Image = null;
 
             txtEscola.EditValue = string.Empty;
             txtDuracao.EditValue = string.Empty;
@@ -457,6 +476,7 @@ namespace IEscolaDesktop.View.Forms
             txtCodigo.EditValue = string.Empty;
             txtCodigoUnico.EditValue = string.Empty;
             txtImagemURL.Text = string.Empty;
+            txtNumeroAgente.Text = string.Empty;
             pictureEdit1.Image = null;
 
             txtCodigo.Text = string.Empty;
@@ -489,6 +509,7 @@ namespace IEscolaDesktop.View.Forms
         private string areaformacao = "[Selecione a sua Area de Formação por favor]";           
         private string escolaridade = "[Selecione o nivel de escolaridade por favor]";
         private string habilitacoesliterarias = "[Selecione sua Habilitações lit. por favor]";
+        private string provinciaFormacao = "[Selecione a provincia em que se fez a formação por favor]";
 
         private void ChangeValudations(Control control)
         {
@@ -508,7 +529,8 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                                                        !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
+                             !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
                             !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) &&
@@ -533,7 +555,7 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
-
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
@@ -563,6 +585,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                                                 !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
@@ -590,6 +613,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                                                    !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
@@ -615,7 +639,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
-
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                                                           !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
@@ -643,7 +667,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
-
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                                                           !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
@@ -672,7 +696,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
 
-
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                                                           !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
@@ -705,7 +729,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                       
+                       !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
                             !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
@@ -733,7 +757,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                             !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
                             !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
@@ -758,7 +782,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
-
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
@@ -787,7 +811,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
-
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
@@ -818,6 +842,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtLastName.Text)  &&
                              !string.IsNullOrWhiteSpace(txtBI.Text)        &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text)   &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                                                     !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
@@ -846,6 +871,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
@@ -874,6 +900,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
@@ -903,6 +930,38 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
+                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
+                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
+                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
+                             !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) &&
+                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao))
+
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
+                #endregion
+
+                #region Tipo-Documento
+                else if (control.Name.Equals(txtProvinciasFormacao.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
+                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
+                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
+                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc) &&
+                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
+                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
+                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                              !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
@@ -930,6 +989,7 @@ namespace IEscolaDesktop.View.Forms
                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
+                            !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                             !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&

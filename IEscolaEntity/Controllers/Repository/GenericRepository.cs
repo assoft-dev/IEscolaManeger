@@ -20,7 +20,7 @@ namespace IEscolaEntity.Controllers.Repository
         public GenericRepository()
         {
             if (DbConection == null)
-                this.DbConection = DataConnectionConfig.Conection().OpenDbConnection();            
+                this.DbConection = new DataConnectionConfig().ConectionDb().OpenDbConnection();            
         }
 
         ~ GenericRepository()

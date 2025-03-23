@@ -63,6 +63,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +78,7 @@
     <Compile Include="Controllers\Helps\DataTimeExtension.cs" />
     <Compile Include="Controllers\Helps\EmailValidade.cs" />
     <Compile Include="Controllers\Helps\EstadoTransations.cs" />
+    <Compile Include="Controllers\Helps\GraphicsExtensions.cs" />
     <Compile Include="Controllers\Helps\MD5Create.cs" />
     <Compile Include="Controllers\Interfaces\Biblioteca\IAutores.cs" />
     <Compile Include="Controllers\Interfaces\Biblioteca\ICategorias.cs" />
@@ -215,7 +217,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Applications\" />
-    <Folder Include="Models\Pagamento\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

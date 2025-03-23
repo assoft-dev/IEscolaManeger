@@ -553,8 +553,6 @@
     <Compile Include="View\Helps\GlobalOpenUserControl.cs" />
     <Compile Include="View\Helps\GlobalReport.cs" />
     <Compile Include="View\Helps\GlobalSettingManeger.cs" />
-    <Compile Include="View\Helps\GlobalthemeConfig.cs" />
-    <Compile Include="View\Helps\GlobalThemeMember.cs" />
     <Compile Include="View\Helps\GraphicsExtensions.cs" />
     <Compile Include="View\Helps\Messagens.cs" />
     <Compile Include="View\Helps\OpenFormsDialog.cs">

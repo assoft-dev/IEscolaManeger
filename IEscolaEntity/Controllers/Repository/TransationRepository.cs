@@ -20,7 +20,7 @@ namespace IEscolaEntity.Controllers.Repository
         #region Construtores
         public TransationRepository()
         {
-            this.DbConection = DataConnectionConfig.Conection().OpenDbConnection();
+            this.DbConection = new DataConnectionConfig().ConectionDb().OpenDbConnection();
         }
 
         public async Task TaskExecutes(Func<Task> func)

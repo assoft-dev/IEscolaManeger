@@ -18,12 +18,7 @@ namespace IEscolaEntity.Controllers.Helps
         {
             /// teste Inicial de Conexao
             if (DbConection == null)
-                this.DbConection = DataConnectionConfig.Conection().OpenDbConnection();
-        }
-
-        public void InitialMetodos()
-        {
-            CREATEDATABASE();
+                this.DbConection = new DataConnectionConfig().ConectionDb().OpenDbConnection();
         }
 
         public bool CREATEDATABASE()
@@ -31,6 +26,7 @@ namespace IEscolaEntity.Controllers.Helps
             try
             {
                 OpenConection();
+                UPDATETABLE();
             }
             catch (Exception error)
             {
@@ -55,17 +51,20 @@ namespace IEscolaEntity.Controllers.Helps
 
                     //Migracao Primaria
                     CREATEMIGRATION();
-
-                    new DataConnectionConfig();
                 }
                 else if (error.Message.Contains("error: 26"))
                 {
-                    var Db = DataConnectionConfig.Conection().OpenDbConnection();
+                    DbConection.ExecuteSql("if(db_id('IEscola_Gest') IS NULL) CREATE DATABASE [IEscola_Gest]");
+                    DbConection.ChangeDatabase("IEscola_Gest");
 
-                    Db.ExecuteSql("if(db_id('IEscola_Gest') IS NULL) CREATE DATABASE [IEscola_Gest]");
-                    Db.ChangeDatabase("IEscola_Gest");
                     //Erro da instancia de SQL
-                    Db.ExecuteSql("if(db_id('IEscola_Gest') IS NULL) CREATE DATABASE [IEscola_Gest]");
+                    DbConection.ExecuteSql("if(db_id('IEscola_Gest') IS NULL) CREATE DATABASE [IEscola_Gest]");
+
+                    //Criar as Tabelas
+                    CREATETABLE();
+
+                    //Migracao Primaria
+                    CREATEMIGRATION();
                 }
                 else if (error.Message.Contains("Invalid object name"))
                 {
@@ -75,6 +74,7 @@ namespace IEscolaEntity.Controllers.Helps
                            error.Message.Contains("SQL Server service has been paused"))
                 {
                     //Inicia o servidor por intermedio do SQL SERVER
+
                 }
                 //MessageBox.Show("Alguns procedimentos teram mesmo que ser feitos manualamente \n(Fornecedor_Caixa FornecedorCaixa_FornecedorCaixaID (Eliminar))" +
                 //                                                                               "(FacturaOrdem     FaturasNotaEntregaFaturasID (Eliminar)) \n\n\n" + "2)	Retirar Chave Primaria nas Tabelas (FacturaArmazem, NotaEntrega, ReciboPagamento) 3)  FaturaAmrazemOrdem Retirar a Nota NotaEntrega\n\n" + exe.Message, "Tabelas/Colunas", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -87,7 +87,7 @@ namespace IEscolaEntity.Controllers.Helps
             return true;
         }
 
-        public async void CREATEMIGRATION()
+        private async void CREATEMIGRATION()
         {
             var permissions = DbConection.Select<Permissoes>();
             var permissoesID = 0L;
@@ -217,7 +217,7 @@ namespace IEscolaEntity.Controllers.Helps
             #endregion
         }
 
-        public void CREATETABLE()
+        private void CREATETABLE()
         {
             //Verificacao das tabelas apenas
             DbConection.CreateTableIfNotExists<Permissoes>();

@@ -77,6 +77,9 @@ namespace IEscolaDesktop.View.Forms
             // Leitura dos Grupos
             var dataResult = await paisRepository.GetAll();
             professoresBindingSource.DataSource = dataResult;
+
+            txtCaracter.Properties.DataSource = Enum.GetValues(typeof(NotificacoesCatater));
+
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)

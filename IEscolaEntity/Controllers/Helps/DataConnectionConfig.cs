@@ -29,7 +29,7 @@ namespace IEscolaEntity.Controllers.Helps
             connectionString.MultipleActiveResultSets = true;
         }
 
-        public static OrmLiteConnectionFactory Conection()
+        public OrmLiteConnectionFactory ConectionDb()
         {
             return new OrmLiteConnectionFactory(connectionString.ConnectionString,
                                                          SqlServerDialect.Provider);

@@ -17,9 +17,9 @@ namespace IEscolaEntity.Controllers.Repository
 
         private async Task<string> GetListaUnik()
         {
-            var sql1 = DbConection.From<EstudantesInscricoes>().OrderByDescending(x => x.InscricaoID);
+            var sql1 = DbConection.From<Professores>().OrderByDescending(x => x.ProfessoresID);
 
-            var result = await DbConection.SingleAsync<EstudantesInscricoes>(sql1);
+            var result = await DbConection.SingleAsync<Professores>(sql1);
 
             if (result != null)
             {

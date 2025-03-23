@@ -96,7 +96,7 @@ namespace IEscolaDesktop.View.Helps
 
     public static class GlobalSettingManeger
     {
-        private static string Path = new FileInfo(@"C:\ISOFTComercial\Config\SettingsEscola.ini").FullName;
+        private static string Path = new FileInfo(@"C:\asinforprest\IEscola\Config\SettingsEscola.ini").FullName;
         static string EXE = Assembly.GetExecutingAssembly().GetName().Name;
 
         [DllImport("kernel32", CharSet = CharSet.Unicode)]

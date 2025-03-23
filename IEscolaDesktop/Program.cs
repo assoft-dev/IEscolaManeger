@@ -49,9 +49,6 @@ namespace IEscolaDesktop
 
         private static void InicializarThemas()
         {
-            //UserLookAndFeel.Default.SetSkinStyle(SkinStyle.WXI);
-            //DevExpress.UserSkins.BonusSkins.Register();
-
             var skin2 = GlobalSettingManeger.Read(SettingsKey.DefaultPalette, SettingsSession.USERPROFILE);
 
             if (skin2.Equals("Sharpness"))
@@ -72,18 +69,17 @@ namespace IEscolaDesktop
         {
             //Verificar a base de dados
             var Db = new DataMigrateConnections();
-            Db.InitialMetodos();
-            Db.UPDATETABLE();
+            Db.CREATEDATABASE();
         }
 
         private static void inicializacaoDirectory()
         {
             var caminho = new ArrayList
             {
-                @"C:\\ISOFTComercial\\Config\\",
-                @"C:\\GYM-System\\Usuarios",
-                @"C:\\GYM-System\\Professores",
-                @"C:\\GYM-System\\Estudantes",
+                @"C:\\asinforprest\\IEscola\\Config\\",
+                @"C:\\asinforprest\\IEscola\\Usuarios",
+                @"C:\\asinforprest\\IEscola\\Professores",
+                @"C:\\asinforprest\\IEscola\\Estudantes",
             };
 
             foreach (string item in caminho)
@@ -97,7 +93,7 @@ namespace IEscolaDesktop
         {
             // Inicializacao dos Dados
             var Db = new DataMigrateConnections();
-            Db.InitialMetodos();
+            Db.CREATEDATABASE();
             GlobalException.CapturarError(e.Exception);
 
             Mensagens.Display("Global Exceptions", e.Exception.Message);
