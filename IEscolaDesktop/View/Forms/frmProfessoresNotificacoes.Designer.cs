@@ -42,16 +42,17 @@
             this.txtPesquisar = new DevExpress.XtraEditors.ButtonEdit();
             this.btnNovo = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.disciplinasProgramasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.notificacoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colDisciplinasProgramasID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTitulo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNotificacoesID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescricao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colComentario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colData = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLei = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCursoClasseDisciplinaID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCursoClasseDisciplina = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHora = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCatater = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDuracao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colVisualizado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProfessoresID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProfessores = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.MenuPrinciapl = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAtualizar = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPesquisar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplinasProgramasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notificacoesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.MenuPrinciapl.SuspendLayout();
@@ -162,7 +163,7 @@
             // gridControl1
             // 
             this.tablePanel1.SetColumn(this.gridControl1, 0);
-            this.gridControl1.DataSource = this.disciplinasProgramasBindingSource;
+            this.gridControl1.DataSource = this.notificacoesBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Location = new System.Drawing.Point(14, 72);
@@ -177,93 +178,105 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // disciplinasProgramasBindingSource
+            // notificacoesBindingSource
             // 
-            this.disciplinasProgramasBindingSource.DataSource = typeof(IEscolaEntity.Models.DisciplinasProgramas);
+            this.notificacoesBindingSource.DataSource = typeof(IEscolaEntity.Models.Notificacoes);
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colDisciplinasProgramasID,
-            this.colTitulo,
+            this.colNotificacoesID,
             this.colDescricao,
-            this.colComentario,
             this.colData,
-            this.colLei,
-            this.colCursoClasseDisciplinaID,
-            this.colCursoClasseDisciplina});
+            this.colHora,
+            this.colCatater,
+            this.colDuracao,
+            this.colVisualizado,
+            this.colProfessoresID,
+            this.colProfessores});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupCount = 1;
             this.gridView1.GroupPanelText = "Pesquise Aqui";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colProfessoresID, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
-            // colDisciplinasProgramasID
+            // colNotificacoesID
             // 
-            this.colDisciplinasProgramasID.Caption = "Codigo";
-            this.colDisciplinasProgramasID.FieldName = "DisciplinasProgramasID";
-            this.colDisciplinasProgramasID.Name = "colDisciplinasProgramasID";
-            this.colDisciplinasProgramasID.Visible = true;
-            this.colDisciplinasProgramasID.VisibleIndex = 0;
-            this.colDisciplinasProgramasID.Width = 57;
-            // 
-            // colTitulo
-            // 
-            this.colTitulo.FieldName = "Titulo";
-            this.colTitulo.Name = "colTitulo";
-            this.colTitulo.Visible = true;
-            this.colTitulo.VisibleIndex = 2;
-            this.colTitulo.Width = 66;
+            this.colNotificacoesID.Caption = "Código";
+            this.colNotificacoesID.FieldName = "NotificacoesID";
+            this.colNotificacoesID.Name = "colNotificacoesID";
+            this.colNotificacoesID.Visible = true;
+            this.colNotificacoesID.VisibleIndex = 0;
+            this.colNotificacoesID.Width = 55;
             // 
             // colDescricao
             // 
+            this.colDescricao.Caption = "Descrição";
             this.colDescricao.FieldName = "Descricao";
             this.colDescricao.Name = "colDescricao";
             this.colDescricao.Visible = true;
-            this.colDescricao.VisibleIndex = 3;
-            this.colDescricao.Width = 78;
-            // 
-            // colComentario
-            // 
-            this.colComentario.FieldName = "Comentario";
-            this.colComentario.Name = "colComentario";
-            this.colComentario.Visible = true;
-            this.colComentario.VisibleIndex = 4;
-            this.colComentario.Width = 62;
+            this.colDescricao.VisibleIndex = 1;
+            this.colDescricao.Width = 65;
             // 
             // colData
             // 
             this.colData.FieldName = "Data";
             this.colData.Name = "colData";
             this.colData.Visible = true;
-            this.colData.VisibleIndex = 5;
-            this.colData.Width = 62;
+            this.colData.VisibleIndex = 2;
+            this.colData.Width = 65;
             // 
-            // colLei
+            // colHora
             // 
-            this.colLei.FieldName = "Lei";
-            this.colLei.Name = "colLei";
-            this.colLei.Visible = true;
-            this.colLei.VisibleIndex = 6;
-            this.colLei.Width = 57;
+            this.colHora.FieldName = "Hora";
+            this.colHora.Name = "colHora";
+            this.colHora.Visible = true;
+            this.colHora.VisibleIndex = 3;
+            this.colHora.Width = 65;
             // 
-            // colCursoClasseDisciplinaID
+            // colCatater
             // 
-            this.colCursoClasseDisciplinaID.Caption = "Curso/Classe/Disciplina";
-            this.colCursoClasseDisciplinaID.FieldName = "CursoClasseDisciplina.Descricao";
-            this.colCursoClasseDisciplinaID.Name = "colCursoClasseDisciplinaID";
-            this.colCursoClasseDisciplinaID.Visible = true;
-            this.colCursoClasseDisciplinaID.VisibleIndex = 1;
-            this.colCursoClasseDisciplinaID.Width = 137;
+            this.colCatater.FieldName = "Catater";
+            this.colCatater.Name = "colCatater";
+            this.colCatater.Visible = true;
+            this.colCatater.VisibleIndex = 4;
+            this.colCatater.Width = 65;
             // 
-            // colCursoClasseDisciplina
+            // colDuracao
             // 
-            this.colCursoClasseDisciplina.FieldName = "CursoClasseDisciplina";
-            this.colCursoClasseDisciplina.Name = "colCursoClasseDisciplina";
-            this.colCursoClasseDisciplina.Width = 72;
+            this.colDuracao.FieldName = "Duracao";
+            this.colDuracao.Name = "colDuracao";
+            this.colDuracao.Visible = true;
+            this.colDuracao.VisibleIndex = 5;
+            this.colDuracao.Width = 65;
+            // 
+            // colVisualizado
+            // 
+            this.colVisualizado.FieldName = "Visualizado";
+            this.colVisualizado.Name = "colVisualizado";
+            this.colVisualizado.Visible = true;
+            this.colVisualizado.VisibleIndex = 6;
+            this.colVisualizado.Width = 65;
+            // 
+            // colProfessoresID
+            // 
+            this.colProfessoresID.Caption = "Professor";
+            this.colProfessoresID.FieldName = "Professores.FullName";
+            this.colProfessoresID.Name = "colProfessoresID";
+            this.colProfessoresID.Visible = true;
+            this.colProfessoresID.VisibleIndex = 7;
+            // 
+            // colProfessores
+            // 
+            this.colProfessores.FieldName = "Professores";
+            this.colProfessores.Name = "colProfessores";
+            this.colProfessores.Width = 74;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -282,40 +295,40 @@
             this.btnRelatorios,
             this.btnReportdatabase});
             this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(230, 168);
+            this.MenuPrinciapl.Size = new System.Drawing.Size(252, 168);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(229, 38);
+            this.btnAtualizar.Size = new System.Drawing.Size(251, 38);
             this.btnAtualizar.Text = "Editar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(248, 6);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
             this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(229, 38);
+            this.btnApagar.Size = new System.Drawing.Size(251, 38);
             this.btnApagar.Text = "Apagar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(248, 6);
             // 
             // btnRelatorios
             // 
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(229, 38);
+            this.btnRelatorios.Size = new System.Drawing.Size(251, 38);
             this.btnRelatorios.Text = "Relatórios";
             // 
             // btnReportdatabase
@@ -323,7 +336,7 @@
             this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
             this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
+            this.btnReportdatabase.Size = new System.Drawing.Size(251, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
             // frmProfessoresNotificacoes
@@ -339,7 +352,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtPesquisar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplinasProgramasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notificacoesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.MenuPrinciapl.ResumeLayout(false);
@@ -365,14 +378,15 @@
         private DevExpress.XtraEditors.SimpleButton btnNovo;
         private DevExpress.XtraEditors.SimpleButton btnXLS;
         private DevExpress.XtraEditors.SimpleButton btnPDF;
-        private System.Windows.Forms.BindingSource disciplinasProgramasBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colDisciplinasProgramasID;
-        private DevExpress.XtraGrid.Columns.GridColumn colTitulo;
+        private System.Windows.Forms.BindingSource notificacoesBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colNotificacoesID;
         private DevExpress.XtraGrid.Columns.GridColumn colDescricao;
-        private DevExpress.XtraGrid.Columns.GridColumn colComentario;
         private DevExpress.XtraGrid.Columns.GridColumn colData;
-        private DevExpress.XtraGrid.Columns.GridColumn colLei;
-        private DevExpress.XtraGrid.Columns.GridColumn colCursoClasseDisciplinaID;
-        private DevExpress.XtraGrid.Columns.GridColumn colCursoClasseDisciplina;
+        private DevExpress.XtraGrid.Columns.GridColumn colHora;
+        private DevExpress.XtraGrid.Columns.GridColumn colCatater;
+        private DevExpress.XtraGrid.Columns.GridColumn colDuracao;
+        private DevExpress.XtraGrid.Columns.GridColumn colVisualizado;
+        private DevExpress.XtraGrid.Columns.GridColumn colProfessoresID;
+        private DevExpress.XtraGrid.Columns.GridColumn colProfessores;
     }
 }

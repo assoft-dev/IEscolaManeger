@@ -72,7 +72,7 @@ namespace IEscolaDesktop
         {
             //Verificar a base de dados
             var Db = new DataMigrateConnections();
-            Db.InitialMetodos(new DataConnectionConfig());
+            Db.InitialMetodos();
             Db.UPDATETABLE();
         }
 
@@ -97,7 +97,7 @@ namespace IEscolaDesktop
         {
             // Inicializacao dos Dados
             var Db = new DataMigrateConnections();
-            Db.InitialMetodos(new DataConnectionConfig());
+            Db.InitialMetodos();
             GlobalException.CapturarError(e.Exception);
 
             Mensagens.Display("Global Exceptions", e.Exception.Message);

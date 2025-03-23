@@ -24,7 +24,7 @@ namespace IEscolaEntity.Controllers.Repository
             else
             {
                 user.Senha = senha2;
-                var result = await DbConection.UpdateOnlyAsync<Usuarios>(user, x => x.Senha);
+                var result = await DbConection.UpdateAsync<Usuarios>(user);
 
                 if (result > 0)
                 {
@@ -56,7 +56,7 @@ namespace IEscolaEntity.Controllers.Repository
             else
             {
                 user.Senha = senha2;
-                var result =   await DbConection.UpdateOnlyAsync<Usuarios>(user, x=> x.Senha);
+                var result =   await DbConection.UpdateAsync<Usuarios>(user);
 
                 await DbConection.InsertAsync<UsuariosLogs>(new UsuariosLogs { 
                      Data = DateTime.Now,

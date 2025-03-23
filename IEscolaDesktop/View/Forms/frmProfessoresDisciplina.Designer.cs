@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProfessoresDisciplina));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXLS = new DevExpress.XtraEditors.SimpleButton();
@@ -51,15 +51,12 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
-            this.notificacoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.colNotificacoesID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDescricao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colData = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHora = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCatater = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDuracao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colVisualizado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.professoresDisciplinasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colProfessoresDisciplinasID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProfessoresID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCursoClasseDisciplinaID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCursoClasseDisciplina = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.MenuPrinciapl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.notificacoesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professoresDisciplinasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -140,9 +137,9 @@
             this.txtPesquisar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Properties.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.txtPesquisar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtPesquisar.Properties.NullValuePrompt = "Pesquise Aqui [Professores / Disciplina]";
             this.txtPesquisar.Size = new System.Drawing.Size(660, 37);
             this.txtPesquisar.TabIndex = 0;
@@ -162,7 +159,7 @@
             // gridControl1
             // 
             this.tablePanel1.SetColumn(this.gridControl1, 0);
-            this.gridControl1.DataSource = this.notificacoesBindingSource;
+            this.gridControl1.DataSource = this.professoresDisciplinasBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Location = new System.Drawing.Point(14, 72);
@@ -180,14 +177,11 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colNotificacoesID,
-            this.colDescricao,
-            this.colData,
-            this.colHora,
-            this.colCatater,
-            this.colDuracao,
-            this.colVisualizado,
-            this.colProfessoresID});
+            this.colProfessoresDisciplinasID,
+            this.colProfessoresID,
+            this.colCursoClasseDisciplinaID,
+            this.colCursoClasseDisciplina,
+            this.gridColumn1});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 1;
@@ -197,7 +191,7 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colProfessoresID, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn1, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // repositoryItemCheckEdit1
             // 
@@ -216,40 +210,40 @@
             this.btnRelatorios,
             this.btnReportdatabase});
             this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(230, 168);
+            this.MenuPrinciapl.Size = new System.Drawing.Size(252, 168);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(229, 38);
+            this.btnAtualizar.Size = new System.Drawing.Size(251, 38);
             this.btnAtualizar.Text = "Editar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(248, 6);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
             this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(229, 38);
+            this.btnApagar.Size = new System.Drawing.Size(251, 38);
             this.btnApagar.Text = "Apagar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(248, 6);
             // 
             // btnRelatorios
             // 
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(229, 38);
+            this.btnRelatorios.Size = new System.Drawing.Size(251, 38);
             this.btnRelatorios.Text = "Relatórios";
             // 
             // btnReportdatabase
@@ -257,80 +251,54 @@
             this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
             this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
+            this.btnReportdatabase.Size = new System.Drawing.Size(251, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
-            // notificacoesBindingSource
+            // professoresDisciplinasBindingSource
             // 
-            this.notificacoesBindingSource.DataSource = typeof(IEscolaEntity.Models.Notificacoes);
+            this.professoresDisciplinasBindingSource.DataSource = typeof(IEscolaEntity.Models.ProfessoresDisciplinas);
             // 
-            // colNotificacoesID
+            // colProfessoresDisciplinasID
             // 
-            this.colNotificacoesID.Caption = "Código";
-            this.colNotificacoesID.FieldName = "NotificacoesID";
-            this.colNotificacoesID.Name = "colNotificacoesID";
-            this.colNotificacoesID.Visible = true;
-            this.colNotificacoesID.VisibleIndex = 0;
-            this.colNotificacoesID.Width = 65;
-            // 
-            // colDescricao
-            // 
-            this.colDescricao.Caption = "Referências";
-            this.colDescricao.FieldName = "Descricao";
-            this.colDescricao.Name = "colDescricao";
-            this.colDescricao.Visible = true;
-            this.colDescricao.VisibleIndex = 1;
-            this.colDescricao.Width = 133;
-            // 
-            // colData
-            // 
-            this.colData.FieldName = "Data";
-            this.colData.Name = "colData";
-            this.colData.Visible = true;
-            this.colData.VisibleIndex = 2;
-            this.colData.Width = 133;
-            // 
-            // colHora
-            // 
-            this.colHora.FieldName = "Hora";
-            this.colHora.Name = "colHora";
-            this.colHora.Visible = true;
-            this.colHora.VisibleIndex = 3;
-            this.colHora.Width = 133;
-            // 
-            // colCatater
-            // 
-            this.colCatater.FieldName = "Catater";
-            this.colCatater.Name = "colCatater";
-            this.colCatater.Visible = true;
-            this.colCatater.VisibleIndex = 6;
-            this.colCatater.Width = 102;
-            // 
-            // colDuracao
-            // 
-            this.colDuracao.Caption = "Duração";
-            this.colDuracao.FieldName = "Duracao";
-            this.colDuracao.Name = "colDuracao";
-            this.colDuracao.Visible = true;
-            this.colDuracao.VisibleIndex = 4;
-            this.colDuracao.Width = 236;
-            // 
-            // colVisualizado
-            // 
-            this.colVisualizado.FieldName = "Visualizado";
-            this.colVisualizado.Name = "colVisualizado";
-            this.colVisualizado.Visible = true;
-            this.colVisualizado.VisibleIndex = 5;
-            this.colVisualizado.Width = 73;
+            this.colProfessoresDisciplinasID.FieldName = "ProfessoresDisciplinasID";
+            this.colProfessoresDisciplinasID.Name = "colProfessoresDisciplinasID";
+            this.colProfessoresDisciplinasID.Visible = true;
+            this.colProfessoresDisciplinasID.VisibleIndex = 0;
+            this.colProfessoresDisciplinasID.Width = 153;
             // 
             // colProfessoresID
             // 
-            this.colProfessoresID.Caption = "Professor";
-            this.colProfessoresID.FieldName = "Professores.FullName";
+            this.colProfessoresID.FieldName = "ProfessoresID";
             this.colProfessoresID.Name = "colProfessoresID";
             this.colProfessoresID.Visible = true;
             this.colProfessoresID.VisibleIndex = 1;
-            this.colProfessoresID.Width = 116;
+            this.colProfessoresID.Width = 153;
+            // 
+            // colCursoClasseDisciplinaID
+            // 
+            this.colCursoClasseDisciplinaID.FieldName = "CursoClasseDisciplinaID";
+            this.colCursoClasseDisciplinaID.Name = "colCursoClasseDisciplinaID";
+            this.colCursoClasseDisciplinaID.Visible = true;
+            this.colCursoClasseDisciplinaID.VisibleIndex = 2;
+            this.colCursoClasseDisciplinaID.Width = 168;
+            // 
+            // colCursoClasseDisciplina
+            // 
+            this.colCursoClasseDisciplina.FieldName = "CursoClasseDisciplina.Descricao";
+            this.colCursoClasseDisciplina.Name = "colCursoClasseDisciplina";
+            this.colCursoClasseDisciplina.Visible = true;
+            this.colCursoClasseDisciplina.VisibleIndex = 3;
+            this.colCursoClasseDisciplina.Width = 145;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Professor";
+            this.gridColumn1.FieldName = "Professores.FullName";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 4;
+            this.gridColumn1.Width = 148;
             // 
             // frmProfessoresDisciplina
             // 
@@ -350,7 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.MenuPrinciapl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.notificacoesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professoresDisciplinasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,14 +341,11 @@
         private DevExpress.XtraEditors.SimpleButton btnNovo;
         private DevExpress.XtraEditors.SimpleButton btnXLS;
         private DevExpress.XtraEditors.SimpleButton btnPDF;
-        private System.Windows.Forms.BindingSource notificacoesBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colNotificacoesID;
-        private DevExpress.XtraGrid.Columns.GridColumn colDescricao;
-        private DevExpress.XtraGrid.Columns.GridColumn colData;
-        private DevExpress.XtraGrid.Columns.GridColumn colHora;
-        private DevExpress.XtraGrid.Columns.GridColumn colCatater;
-        private DevExpress.XtraGrid.Columns.GridColumn colDuracao;
-        private DevExpress.XtraGrid.Columns.GridColumn colVisualizado;
+        private System.Windows.Forms.BindingSource professoresDisciplinasBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colProfessoresDisciplinasID;
         private DevExpress.XtraGrid.Columns.GridColumn colProfessoresID;
+        private DevExpress.XtraGrid.Columns.GridColumn colCursoClasseDisciplinaID;
+        private DevExpress.XtraGrid.Columns.GridColumn colCursoClasseDisciplina;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

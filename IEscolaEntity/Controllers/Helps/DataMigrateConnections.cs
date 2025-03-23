@@ -12,7 +12,16 @@ namespace IEscolaEntity.Controllers.Helps
 {
     public class DataMigrateConnections
     {
-        public void InitialMetodos(DataConnectionConfig dataBaseConfig)
+        private IDbConnection DbConection = null;
+
+        public void OpenConection()
+        {
+            /// teste Inicial de Conexao
+            if (DbConection == null)
+                this.DbConection = DataConnectionConfig.Conection().OpenDbConnection();
+        }
+
+        public void InitialMetodos()
         {
             CREATEDATABASE();
         }
@@ -21,8 +30,7 @@ namespace IEscolaEntity.Controllers.Helps
         {
             try
             {
-                /// teste Inicial de Conexao
-                DataConnectionConfig.Conection().OpenDbConnection();
+                OpenConection();
             }
             catch (Exception error)
             {
@@ -38,17 +46,15 @@ namespace IEscolaEntity.Controllers.Helps
                     DataConnectionConfig.connectionString.InitialCatalog = "master";
                     DataConnectionConfig.connectionString.IntegratedSecurity = true;
 
-                    var Db = DataConnectionConfig.Conection().OpenDbConnection();
-
-                    Db.ExecuteSql("if(db_id('IEscola_Gest') IS NULL) CREATE DATABASE [IEscola_Gest]");
-                    Db.ConnectionString.Replace("master", "IEscola_Gest");
-                    Db.ChangeDatabase("IEscola_Gest");
+                    DbConection.ExecuteSql("if(db_id('IEscola_Gest') IS NULL) CREATE DATABASE [IEscola_Gest]");
+                    DbConection.ConnectionString.Replace("master", "IEscola_Gest");
+                    DbConection.ChangeDatabase("IEscola_Gest");
 
                     //Criar as Tabelas
-                    CREATETABLE(Db);
+                    CREATETABLE();
 
                     //Migracao Primaria
-                    CREATEMIGRATION(Db);
+                    CREATEMIGRATION();
 
                     new DataConnectionConfig();
                 }
@@ -81,9 +87,9 @@ namespace IEscolaEntity.Controllers.Helps
             return true;
         }
 
-        public async void CREATEMIGRATION(IDbConnection db)
+        public async void CREATEMIGRATION()
         {
-            var permissions = db.Select<Permissoes>();
+            var permissions = DbConection.Select<Permissoes>();
             var permissoesID = 0L;
             var gruposID = 0L;
 
@@ -130,12 +136,12 @@ namespace IEscolaEntity.Controllers.Helps
                     Disciplinas = true,
                     Professores = true,    
                 };
-                permissoesID = db.Insert<Permissoes>(permissoes, true);
+                permissoesID = DbConection.Insert<Permissoes>(permissoes, true);
             }
             #endregion
                 
             #region Grupos
-            var grupos = db.Select<Grupos>();
+            var grupos = DbConection.Select<Grupos>();
 
             if (grupos.Count == 0)
             {
@@ -148,12 +154,12 @@ namespace IEscolaEntity.Controllers.Helps
                 else
                     r.PermissionID = (int)permissoesID;
 
-                gruposID = db.Insert<Grupos>(r);
+                gruposID = DbConection.Insert<Grupos>(r);
             }
             #endregion
 
             #region Usuarios
-            var user = db.Select<Usuarios>();
+            var user = DbConection.Select<Usuarios>();
 
             long userID = 0;
 
@@ -167,7 +173,7 @@ namespace IEscolaEntity.Controllers.Helps
                 usuarios.Data = DateTime.Now;
                 usuarios.Estado = Estado.Activado;
                 usuarios.GruposID = gruposID == 0 ? grupos.FirstOrDefault().PermissionID : (int)gruposID;
-                userID = await db.InsertAsync(usuarios);
+                userID = await DbConection.InsertAsync(usuarios);
             }
             else
             {
@@ -184,7 +190,7 @@ namespace IEscolaEntity.Controllers.Helps
                 UsuariosID = (int) userID,
                 UsuariosLogsID = 0
             };
-            await db.SaveAsync(logs);
+            await DbConection.SaveAsync(logs);
             #endregion
 
             #region Provincias
@@ -207,107 +213,104 @@ namespace IEscolaEntity.Controllers.Helps
             provincia.Add(new Provincias {   Referencias = "UIGE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.UI, });
             provincia.Add(new Provincias {   Referencias = "ZAIRE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.ZA, });
             provincia.Add(new Provincias {   Referencias = "NAMIBE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.NA,  });
-            await db.SaveAsync(provincia);
+            await DbConection.SaveAsync(provincia);
             #endregion
         }
 
-        public void CREATETABLE(IDbConnection Db)
+        public void CREATETABLE()
         {
             //Verificacao das tabelas apenas
-            Db.CreateTableIfNotExists<Permissoes>();
-            Db.CreateTableIfNotExists<Grupos>();
-            Db.CreateTableIfNotExists<Usuarios>();
-            Db.CreateTableIfNotExists<UsuariosLogs>();
+            DbConection.CreateTableIfNotExists<Permissoes>();
+            DbConection.CreateTableIfNotExists<Grupos>();
+            DbConection.CreateTableIfNotExists<Usuarios>();
+            DbConection.CreateTableIfNotExists<UsuariosLogs>();
 
-            Db.CreateTableIfNotExists<Provincias>();
-            Db.CreateTableIfNotExists<Municipios>();
-            Db.CreateTableIfNotExists<ProvinciasMunicipios>();
+            DbConection.CreateTableIfNotExists<Provincias>();
+            DbConection.CreateTableIfNotExists<Municipios>();
+            DbConection.CreateTableIfNotExists<ProvinciasMunicipios>();
 
 
-            Db.CreateTableIfNotExists<Salas>();
-            Db.CreateTableIfNotExists<Cursos>();
-            Db.CreateTableIfNotExists<Classes>();
-            Db.CreateTableIfNotExists<Periodos>();
-            Db.CreateTableIfNotExists<Turmas>();
+            DbConection.CreateTableIfNotExists<Salas>();
+            DbConection.CreateTableIfNotExists<Cursos>();
+            DbConection.CreateTableIfNotExists<Classes>();
+            DbConection.CreateTableIfNotExists<Periodos>();
+            DbConection.CreateTableIfNotExists<Turmas>();
 
-            Db.CreateTableIfNotExists<EstudantesInscricoes>();
-            Db.CreateTableIfNotExists<Estudantes>();
+            DbConection.CreateTableIfNotExists<EstudantesInscricoes>();
+            DbConection.CreateTableIfNotExists<Estudantes>();
 
-            Db.CreateTableIfNotExists<Pais>();
-            Db.CreateTableIfNotExists<Autores>();
-            Db.CreateTableIfNotExists<Categorias>();
-            Db.CreateTableIfNotExists<Editores>();
-            Db.CreateTableIfNotExists<Livros>();
-            Db.CreateTableIfNotExists<Pedidos>();
-            Db.CreateTableIfNotExists<PedidosOrdems>();
+            DbConection.CreateTableIfNotExists<Pais>();
+            DbConection.CreateTableIfNotExists<Autores>();
+            DbConection.CreateTableIfNotExists<Categorias>();
+            DbConection.CreateTableIfNotExists<Editores>();
+            DbConection.CreateTableIfNotExists<Livros>();
+            DbConection.CreateTableIfNotExists<Pedidos>();
+            DbConection.CreateTableIfNotExists<PedidosOrdems>();
 
-            Db.CreateTableIfNotExists<PropinasConfig>();
-            Db.CreateTableIfNotExists<PropinasPagamentos>();
-            Db.CreateTableIfNotExists<PropinasRecibos>();
-            
-            Db.CreateTableIfNotExists<Disciplinas>();
-            Db.CreateTableIfNotExists<CursoClasseDisciplina>();
-            Db.CreateTableIfNotExists<DisciplinasProgramas>();
+            DbConection.CreateTableIfNotExists<PropinasConfig>();
+            DbConection.CreateTableIfNotExists<PropinasPagamentos>();
+            DbConection.CreateTableIfNotExists<PropinasRecibos>();
 
-            Db.CreateTableIfNotExists<ProfessorAreaFormacao>(); 
-            
-            Db.CreateTableIfNotExists<ProfessoresCategorias>();
-            Db.CreateTableIfNotExists<Professores>();  
-            
-            Db.CreateTableIfNotExists<ProfessoresDisciplinas>();
+            DbConection.CreateTableIfNotExists<Disciplinas>();
+            DbConection.CreateTableIfNotExists<CursoClasseDisciplina>();
+            DbConection.CreateTableIfNotExists<DisciplinasProgramas>();
 
-            Db.CreateTableIfNotExists<Entidade>();
-            Db.CreateTableIfNotExists<EntidadeConvenios>();
-            Db.CreateTableIfNotExists<Notificacoes>();
+            DbConection.CreateTableIfNotExists<ProfessorAreaFormacao>();
+
+            DbConection.CreateTableIfNotExists<ProfessoresCategorias>();
+            DbConection.CreateTableIfNotExists<Professores>();
+
+            DbConection.CreateTableIfNotExists<ProfessoresDisciplinas>();
+
+            DbConection.CreateTableIfNotExists<Entidade>();
+            DbConection.CreateTableIfNotExists<EntidadeConvenios>();
+            DbConection.CreateTableIfNotExists<Notificacoes>();
         }
 
         public void UPDATETABLE()
         {
-            var Db = DataConnectionConfig.Conection().OpenDbConnection();
-
-            DataColunsAsync<Permissoes>.AsyncColuns(Db);
-            DataColunsAsync<Grupos>.AsyncColuns(Db);
-            DataColunsAsync<Usuarios>.AsyncColuns(Db);
-            DataColunsAsync<UsuariosLogs>.AsyncColuns(Db);
-            DataColunsAsync<Provincias>.AsyncColuns(Db);
-            DataColunsAsync<Municipios>.AsyncColuns(Db);
-            DataColunsAsync<ProvinciasMunicipios>.AsyncColuns(Db);
+            DataColunsAsync<Permissoes>.AsyncColuns(DbConection);
+            DataColunsAsync<Grupos>.AsyncColuns(DbConection);
+            DataColunsAsync<Usuarios>.AsyncColuns(DbConection);
+            DataColunsAsync<UsuariosLogs>.AsyncColuns(DbConection);
+            DataColunsAsync<Provincias>.AsyncColuns(DbConection);
+            DataColunsAsync<Municipios>.AsyncColuns(DbConection);
+            DataColunsAsync<ProvinciasMunicipios>.AsyncColuns(DbConection);
 
 
-            DataColunsAsync<Salas>.AsyncColuns(Db);
-            DataColunsAsync<Cursos>.AsyncColuns(Db);
-            DataColunsAsync<Classes>.AsyncColuns(Db);
-            DataColunsAsync<Periodos>.AsyncColuns(Db);
-            DataColunsAsync<Turmas>.AsyncColuns(Db);
+            DataColunsAsync<Salas>.AsyncColuns(DbConection);
+            DataColunsAsync<Cursos>.AsyncColuns(DbConection);
+            DataColunsAsync<Classes>.AsyncColuns(DbConection);
+            DataColunsAsync<Periodos>.AsyncColuns(DbConection);
+            DataColunsAsync<Turmas>.AsyncColuns(DbConection);
 
-            DataColunsAsync<EstudantesInscricoes>.AsyncColuns(Db);
-            DataColunsAsync<Estudantes>.AsyncColuns(Db);
+            DataColunsAsync<EstudantesInscricoes>.AsyncColuns(DbConection);
+            DataColunsAsync<Estudantes>.AsyncColuns(DbConection);
 
-            DataColunsAsync<Pais>.AsyncColuns(Db);
-            DataColunsAsync<Autores>.AsyncColuns(Db);
-            DataColunsAsync<Categorias>.AsyncColuns(Db);
-            DataColunsAsync<Editores>.AsyncColuns(Db);
-            DataColunsAsync<Livros>.AsyncColuns(Db);
-            DataColunsAsync<Pedidos>.AsyncColuns(Db);
-            DataColunsAsync<PedidosOrdems>.AsyncColuns(Db);
+            DataColunsAsync<Pais>.AsyncColuns(DbConection);
+            DataColunsAsync<Autores>.AsyncColuns(DbConection);
+            DataColunsAsync<Categorias>.AsyncColuns(DbConection);
+            DataColunsAsync<Editores>.AsyncColuns(DbConection);
+            DataColunsAsync<Livros>.AsyncColuns(DbConection);
+            DataColunsAsync<Pedidos>.AsyncColuns(DbConection);
+            DataColunsAsync<PedidosOrdems>.AsyncColuns(DbConection);
 
-            DataColunsAsync<PropinasConfig>.AsyncColuns(Db);
-            DataColunsAsync<PropinasPagamentos>.AsyncColuns(Db);
-            DataColunsAsync<PropinasRecibos>.AsyncColuns(Db);
+            DataColunsAsync<PropinasConfig>.AsyncColuns(DbConection);
+            DataColunsAsync<PropinasPagamentos>.AsyncColuns(DbConection);
+            DataColunsAsync<PropinasRecibos>.AsyncColuns(DbConection);
 
-            DataColunsAsync<Disciplinas>.AsyncColuns(Db);
-            DataColunsAsync<CursoClasseDisciplina>.AsyncColuns(Db);
-            DataColunsAsync<DisciplinasProgramas>.AsyncColuns(Db);
+            DataColunsAsync<Disciplinas>.AsyncColuns(DbConection);
+            DataColunsAsync<CursoClasseDisciplina>.AsyncColuns(DbConection);
+            DataColunsAsync<DisciplinasProgramas>.AsyncColuns(DbConection);
 
-            DataColunsAsync<ProfessorAreaFormacao>.AsyncColuns(Db);
-            DataColunsAsync<Professores>.AsyncColuns(Db);
-            DataColunsAsync<ProfessoresDisciplinas>.AsyncColuns(Db);
-            DataColunsAsync<ProfessoresCategorias>.AsyncColuns(Db);
+            DataColunsAsync<ProfessorAreaFormacao>.AsyncColuns(DbConection);
+            DataColunsAsync<Professores>.AsyncColuns(DbConection);
+            DataColunsAsync<ProfessoresDisciplinas>.AsyncColuns(DbConection);
+            DataColunsAsync<ProfessoresCategorias>.AsyncColuns(DbConection);
 
-
-            DataColunsAsync<Entidade>.AsyncColuns(Db);
-            DataColunsAsync<EntidadeConvenios>.AsyncColuns(Db);
-            DataColunsAsync<Notificacoes>.AsyncColuns(Db);
+            DataColunsAsync<Entidade>.AsyncColuns(DbConection);
+            DataColunsAsync<EntidadeConvenios>.AsyncColuns(DbConection);
+            DataColunsAsync<Notificacoes>.AsyncColuns(DbConection);
         }
     }
 }

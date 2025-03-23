@@ -19,7 +19,8 @@ namespace IEscolaEntity.Controllers.Repository
         #region Contrutores da Classe
         public GenericRepository()
         {
-            this.DbConection = DataConnectionConfig.Conection().OpenDbConnection();
+            if (DbConection == null)
+                this.DbConection = DataConnectionConfig.Conection().OpenDbConnection();            
         }
 
         ~ GenericRepository()
@@ -42,7 +43,6 @@ namespace IEscolaEntity.Controllers.Repository
         #endregion
 
         #region Listagem Geral
-
         public async Task<bool> Get(Expression<Func<T, bool>> Filter)
         {
             var result = await DbConection.ExistsAsync<T>(Filter);

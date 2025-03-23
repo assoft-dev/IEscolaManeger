@@ -13,17 +13,17 @@ namespace IEscolaDesktop.View.Forms
 {
     public partial class frmProfessoresNotificacoes : XtraUserControl
     {
-        IDisciplinaPrograma DataRepository = null;
+        INotificacoes DataRepository = null;
 
-        List<DisciplinasProgramas>  DataOriginalList;
+        List<Notificacoes>  DataOriginalList;
 
         AlertControl alert = null;
 
         public frmProfessoresNotificacoes()
         {
             InitializeComponent();
-            DataRepository = new DisciplinaProgramaRepository();
-            DataOriginalList = new List<DisciplinasProgramas>();
+            DataRepository = new NotificacoesRepository();
+            DataOriginalList = new List<Notificacoes>();
 
             LeituraInicial();
 
@@ -67,7 +67,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmDisciplinaProgramasAdd(null));
+                   new frmProfessoresNotificaoesAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();
@@ -77,10 +77,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = disciplinasProgramasBindingSource.Current as DisciplinasProgramas;
+                var result = notificacoesBindingSource.Current as Notificacoes;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmDisciplinaProgramasAdd(result ?? null));
+                    new frmProfessoresNotificaoesAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -90,17 +90,15 @@ namespace IEscolaDesktop.View.Forms
         private void LeituraFilter()
         {
             var data = DataOriginalList.FindAll(x => x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.Titulo.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.Lei.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.CursoClasseDisciplina.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
-                                                     x.Comentario.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
-            disciplinasProgramasBindingSource.DataSource = data;
+                                                     x.Catater.ToString().ToUpper().Contains(txtPesquisar.Text.ToUpper()) ||
+                                                     x.Professores.FullName.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
+            notificacoesBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
-            DataOriginalList = await DataRepository.GetAllinclud();
-            disciplinasProgramasBindingSource.DataSource = DataOriginalList;
+            DataOriginalList = await DataRepository.GetAll();
+            notificacoesBindingSource.DataSource = DataOriginalList;
 
             if (DataOriginalList.Count > 0)
             {
@@ -135,7 +133,7 @@ namespace IEscolaDesktop.View.Forms
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = disciplinasProgramasBindingSource.Current as DisciplinasProgramas;
+                    var result = notificacoesBindingSource.Current as Notificacoes;
                     try
                     {
                         if (result != null)

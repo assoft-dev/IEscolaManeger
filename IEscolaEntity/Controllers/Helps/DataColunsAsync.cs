@@ -8,6 +8,7 @@
 
     public class DataColunsAsync<T>
     {
+        public IDbConnection DbConection = null;
         public static void AsyncColuns(IDbConnection db)
         {
             //Adicionar se nao existe tabelas
