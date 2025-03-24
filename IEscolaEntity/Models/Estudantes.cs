@@ -1,8 +1,11 @@
-﻿using IEscolaEntity.Models.Biblioteca;
+﻿using IEscolaEntity.Controllers.Helps;
+using IEscolaEntity.Models.Biblioteca;
 using IEscolaEntity.Models.Helps;
 using ServiceStack.DataAnnotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
+using System.IO;
 
 namespace IEscolaEntity.Models
 {
@@ -28,10 +31,30 @@ namespace IEscolaEntity.Models
         [Reference] public EstudantesInscricoes Inscricoes { get; set; }
 
 
-
-
         [Reference] public List<Pedidos> Pedidos { get; set; }
 
         [Reference] public List<PropinasPagamentos> PropinasPagamentos { get; set; }
+
+
+        [Ignore]
+        public Image Imagens
+        {
+            get
+            {
+                if (Inscricoes != null)
+                {
+                    if (Inscricoes.ImagemURL != null)
+                    {
+                        var caminho = @"C:\\asinforprest\\IEscola\\Estudantes\\" + Inscricoes.ImagemURL;
+                        if (File.Exists(caminho))
+                            return GraphicsExtensions.MakeCircleImage(Image.FromFile(caminho));
+                        else return null;
+                    }
+                    else
+                        return null;
+                }
+                return null;            
+            }
+        }
     }
 }

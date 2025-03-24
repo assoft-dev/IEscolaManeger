@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -298,6 +299,8 @@ namespace IEscolaDesktop.View.Forms
 
                     if (apagar)
                     {
+                        PagarImagem();
+
                         Mensagens.Display("Apagar Dados",
                                           "Dados apagados com exito",
                                           MessageBoxButtons.OK,
@@ -306,6 +309,17 @@ namespace IEscolaDesktop.View.Forms
                     }
                 }
             }
+        }
+
+        private void PagarImagem()
+        {
+            if (!string.IsNullOrWhiteSpace(txtImagemURL.Text))
+            {
+                var caminho = FolderImagem + txtImagemURL.Text;
+
+                if (File.Exists(caminho))
+                    File.Delete(caminho);
+            };
         }
 
         private string GuardarImagem()

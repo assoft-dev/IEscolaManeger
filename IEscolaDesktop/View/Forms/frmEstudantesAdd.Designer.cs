@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstudantesAdd));
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstudantesAdd));
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
@@ -442,8 +442,10 @@
             // 
             // pictureEdit1
             // 
+            this.pictureEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureEdit1.Location = new System.Drawing.Point(186, 5);
             this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.NullText = "Selecione uma Imagem";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
@@ -452,7 +454,7 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl2, 0);
@@ -461,7 +463,7 @@
             this.panelControl2.Location = new System.Drawing.Point(14, 213);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl2.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl2, 4);
             this.panelControl2.Size = new System.Drawing.Size(323, 37);
             this.panelControl2.TabIndex = 18;
@@ -475,12 +477,12 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Properties.AutoHeight = false;
             this.txtFirstName.Properties.NullValuePrompt = "Escreva o Nome por favor";
-            this.txtFirstName.Size = new System.Drawing.Size(320, 34);
+            this.txtFirstName.Size = new System.Drawing.Size(318, 32);
             this.txtFirstName.TabIndex = 8;
             // 
             // panelControl1
             // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl1, 0);
@@ -489,7 +491,7 @@
             this.panelControl1.Location = new System.Drawing.Point(14, 460);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl1, 12);
             this.panelControl1.Size = new System.Drawing.Size(323, 40);
             this.panelControl1.TabIndex = 14;
@@ -506,7 +508,7 @@
             this.txtSexo.Properties.DropDownRows = 10;
             this.txtSexo.Properties.NullText = "[Selecione o seu genero por favor]";
             this.txtSexo.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtSexo.Size = new System.Drawing.Size(320, 37);
+            this.txtSexo.Size = new System.Drawing.Size(318, 35);
             this.txtSexo.TabIndex = 8;
             // 
             // labelControl1
@@ -554,7 +556,7 @@
             // 
             // panelControl3
             // 
-            this.panelControl3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl3.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl3.Appearance.Options.UseBackColor = true;
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl3, 0);
@@ -563,7 +565,7 @@
             this.panelControl3.Location = new System.Drawing.Point(14, 156);
             this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl3, 2);
             this.panelControl3.Size = new System.Drawing.Size(323, 35);
             this.panelControl3.TabIndex = 12;
@@ -579,7 +581,7 @@
             this.txtCodigo.Properties.AutoHeight = false;
             this.txtCodigo.Properties.NullValuePrompt = "Codigo Interno";
             this.txtCodigo.Properties.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(320, 32);
+            this.txtCodigo.Size = new System.Drawing.Size(318, 30);
             this.txtCodigo.TabIndex = 8;
             // 
             // labelControl5
@@ -623,7 +625,7 @@
             // 
             // panelControl7
             // 
-            this.panelControl7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl7.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl7.Appearance.Options.UseBackColor = true;
             this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl7, 0);
@@ -633,7 +635,7 @@
             this.panelControl7.Location = new System.Drawing.Point(14, 395);
             this.panelControl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl7.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl7, 10);
             this.panelControl7.Size = new System.Drawing.Size(323, 38);
             this.panelControl7.TabIndex = 14;
@@ -656,7 +658,7 @@
             this.txtProvinciaMunicipio.Properties.NullText = "[Selecione a provincias por favor]";
             this.txtProvinciaMunicipio.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtProvinciaMunicipio.Properties.ValueMember = "ProvinciasMunicipiosID";
-            this.txtProvinciaMunicipio.Size = new System.Drawing.Size(280, 35);
+            this.txtProvinciaMunicipio.Size = new System.Drawing.Size(278, 33);
             this.txtProvinciaMunicipio.TabIndex = 8;
             // 
             // provinciasMunicipiosBindingSource
@@ -668,16 +670,16 @@
             this.btnProvinciaMunicipios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProvinciaMunicipios.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnProvinciaMunicipios.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnProvinciaMunicipios.ImageOptions.SvgImage")));
-            this.btnProvinciaMunicipios.Location = new System.Drawing.Point(280, 0);
+            this.btnProvinciaMunicipios.Location = new System.Drawing.Point(278, 0);
             this.btnProvinciaMunicipios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProvinciaMunicipios.Name = "btnProvinciaMunicipios";
-            this.btnProvinciaMunicipios.Size = new System.Drawing.Size(40, 35);
+            this.btnProvinciaMunicipios.Size = new System.Drawing.Size(40, 33);
             this.btnProvinciaMunicipios.TabIndex = 8;
             this.btnProvinciaMunicipios.Text = "Save";
             // 
             // panelControl8
             // 
-            this.panelControl8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl8.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl8.Appearance.Options.UseBackColor = true;
             this.panelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl8, 1);
@@ -686,7 +688,7 @@
             this.panelControl8.Location = new System.Drawing.Point(343, 213);
             this.panelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl8.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl8, 4);
             this.panelControl8.Size = new System.Drawing.Size(323, 37);
             this.panelControl8.TabIndex = 18;
@@ -700,7 +702,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Properties.AutoHeight = false;
             this.txtLastName.Properties.NullValuePrompt = "Escreva aqui o Segundo nome";
-            this.txtLastName.Size = new System.Drawing.Size(320, 34);
+            this.txtLastName.Size = new System.Drawing.Size(318, 32);
             this.txtLastName.TabIndex = 8;
             // 
             // labelControl9
@@ -720,17 +722,18 @@
             // 
             // panelControl9
             // 
-            this.panelControl9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl9.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl9.Appearance.Options.UseBackColor = true;
             this.panelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl9, 0);
             this.panelControl9.Controls.Add(this.txtBI);
+            this.panelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl9.Location = new System.Drawing.Point(14, 275);
             this.panelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl9.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl9, 6);
-            this.panelControl9.Size = new System.Drawing.Size(323, 34);
+            this.panelControl9.Size = new System.Drawing.Size(323, 35);
             this.panelControl9.TabIndex = 18;
             // 
             // txtBI
@@ -742,12 +745,12 @@
             this.txtBI.Name = "txtBI";
             this.txtBI.Properties.AutoHeight = false;
             this.txtBI.Properties.NullValuePrompt = "Descreva o BI";
-            this.txtBI.Size = new System.Drawing.Size(320, 31);
+            this.txtBI.Size = new System.Drawing.Size(318, 30);
             this.txtBI.TabIndex = 8;
             // 
             // panelControl12
             // 
-            this.panelControl12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl12.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl12.Appearance.Options.UseBackColor = true;
             this.panelControl12.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl12, 0);
@@ -756,7 +759,7 @@
             this.panelControl12.Location = new System.Drawing.Point(14, 334);
             this.panelControl12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl12.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl12, 8);
             this.panelControl12.Size = new System.Drawing.Size(323, 36);
             this.panelControl12.TabIndex = 18;
@@ -773,12 +776,12 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtNacionalidade.Properties.NullText = "[Selecione sua nacionalidade por favor]";
             this.txtNacionalidade.Properties.PopupSizeable = false;
-            this.txtNacionalidade.Size = new System.Drawing.Size(320, 33);
+            this.txtNacionalidade.Size = new System.Drawing.Size(318, 31);
             this.txtNacionalidade.TabIndex = 8;
             // 
             // panelControl13
             // 
-            this.panelControl13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl13.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl13.Appearance.Options.UseBackColor = true;
             this.panelControl13.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl13, 1);
@@ -787,7 +790,7 @@
             this.panelControl13.Location = new System.Drawing.Point(343, 334);
             this.panelControl13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl13.Name = "panelControl13";
-            this.panelControl13.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl13.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl13, 8);
             this.panelControl13.Size = new System.Drawing.Size(323, 36);
             this.panelControl13.TabIndex = 18;
@@ -802,7 +805,7 @@
             this.txtIdade.Properties.AutoHeight = false;
             this.txtIdade.Properties.NullValuePrompt = "Descreva aqui a idade";
             this.txtIdade.Properties.ReadOnly = true;
-            this.txtIdade.Size = new System.Drawing.Size(320, 33);
+            this.txtIdade.Size = new System.Drawing.Size(318, 31);
             this.txtIdade.TabIndex = 8;
             // 
             // labelControl10
@@ -833,7 +836,7 @@
             // 
             // panelControl5
             // 
-            this.panelControl5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl5.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl5.Appearance.Options.UseBackColor = true;
             this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl5, 1);
@@ -842,7 +845,7 @@
             this.panelControl5.Location = new System.Drawing.Point(343, 460);
             this.panelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl5.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl5, 12);
             this.panelControl5.Size = new System.Drawing.Size(323, 40);
             this.panelControl5.TabIndex = 14;
@@ -859,7 +862,7 @@
             this.txtEstadoCivil.Properties.DropDownRows = 10;
             this.txtEstadoCivil.Properties.NullText = "[Selecione o estado Civil por favor]";
             this.txtEstadoCivil.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtEstadoCivil.Size = new System.Drawing.Size(320, 37);
+            this.txtEstadoCivil.Size = new System.Drawing.Size(318, 35);
             this.txtEstadoCivil.TabIndex = 8;
             // 
             // labelControl8
@@ -890,7 +893,7 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl6.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl6.Appearance.Options.UseBackColor = true;
             this.panelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl6, 0);
@@ -900,7 +903,7 @@
             this.panelControl6.Location = new System.Drawing.Point(14, 526);
             this.panelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl6.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl6, 14);
             this.panelControl6.Size = new System.Drawing.Size(323, 43);
             this.panelControl6.TabIndex = 18;
@@ -914,21 +917,21 @@
             this.txtNomePai.Name = "txtNomePai";
             this.txtNomePai.Properties.AutoHeight = false;
             this.txtNomePai.Properties.NullValuePrompt = "Descreva aqui o nome do seu Pai";
-            this.txtNomePai.Size = new System.Drawing.Size(265, 40);
+            this.txtNomePai.Size = new System.Drawing.Size(263, 38);
             this.txtNomePai.TabIndex = 8;
             // 
             // txtPaiVive
             // 
             this.txtPaiVive.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtPaiVive.Location = new System.Drawing.Point(265, 0);
+            this.txtPaiVive.Location = new System.Drawing.Point(263, 0);
             this.txtPaiVive.Name = "txtPaiVive";
             this.txtPaiVive.Properties.Caption = "Vive?";
-            this.txtPaiVive.Size = new System.Drawing.Size(55, 40);
+            this.txtPaiVive.Size = new System.Drawing.Size(55, 38);
             this.txtPaiVive.TabIndex = 8;
             // 
             // panelControl10
             // 
-            this.panelControl10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl10.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl10.Appearance.Options.UseBackColor = true;
             this.panelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl10, 1);
@@ -938,7 +941,7 @@
             this.panelControl10.Location = new System.Drawing.Point(343, 526);
             this.panelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl10.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl10, 14);
             this.panelControl10.Size = new System.Drawing.Size(323, 43);
             this.panelControl10.TabIndex = 18;
@@ -952,31 +955,32 @@
             this.txtNomeMae.Name = "txtNomeMae";
             this.txtNomeMae.Properties.AutoHeight = false;
             this.txtNomeMae.Properties.NullValuePrompt = "Descreva aqui o nome da Mãe";
-            this.txtNomeMae.Size = new System.Drawing.Size(268, 40);
+            this.txtNomeMae.Size = new System.Drawing.Size(266, 38);
             this.txtNomeMae.TabIndex = 8;
             // 
             // txtMaeVive
             // 
             this.txtMaeVive.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtMaeVive.Location = new System.Drawing.Point(268, 0);
+            this.txtMaeVive.Location = new System.Drawing.Point(266, 0);
             this.txtMaeVive.Name = "txtMaeVive";
             this.txtMaeVive.Properties.Caption = "Vive?";
-            this.txtMaeVive.Size = new System.Drawing.Size(52, 40);
+            this.txtMaeVive.Size = new System.Drawing.Size(52, 38);
             this.txtMaeVive.TabIndex = 8;
             // 
             // panelControl11
             // 
-            this.panelControl11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl11.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl11.Appearance.Options.UseBackColor = true;
             this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl11, 1);
             this.panelControl11.Controls.Add(this.txtDataNascimento);
+            this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl11.Location = new System.Drawing.Point(343, 275);
             this.panelControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl11.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl11, 6);
-            this.panelControl11.Size = new System.Drawing.Size(323, 34);
+            this.panelControl11.Size = new System.Drawing.Size(323, 35);
             this.panelControl11.TabIndex = 18;
             // 
             // txtDataNascimento
@@ -997,7 +1001,7 @@
             this.txtDataNascimento.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtDataNascimento.Properties.MaskSettings.Set("mask", "");
             this.txtDataNascimento.Properties.NullValuePrompt = "Descreva a turma!...";
-            this.txtDataNascimento.Size = new System.Drawing.Size(320, 31);
+            this.txtDataNascimento.Size = new System.Drawing.Size(318, 30);
             this.txtDataNascimento.TabIndex = 8;
             // 
             // labelControl4
@@ -1015,7 +1019,7 @@
             // 
             // panelControl37
             // 
-            this.panelControl37.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl37.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl37.Appearance.Options.UseBackColor = true;
             this.panelControl37.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl37, 1);
@@ -1024,7 +1028,7 @@
             this.panelControl37.Location = new System.Drawing.Point(343, 156);
             this.panelControl37.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl37.Name = "panelControl37";
-            this.panelControl37.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl37.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel2.SetRow(this.panelControl37, 2);
             this.panelControl37.Size = new System.Drawing.Size(323, 35);
             this.panelControl37.TabIndex = 12;
@@ -1040,7 +1044,7 @@
             this.txtCodigoUnico.Properties.AutoHeight = false;
             this.txtCodigoUnico.Properties.NullValuePrompt = "Codigo Interno";
             this.txtCodigoUnico.Properties.ReadOnly = true;
-            this.txtCodigoUnico.Size = new System.Drawing.Size(320, 32);
+            this.txtCodigoUnico.Size = new System.Drawing.Size(318, 30);
             this.txtCodigoUnico.TabIndex = 8;
             // 
             // labelControl39
@@ -1095,7 +1099,6 @@
             this.tablePanel3.Controls.Add(this.panelControl15);
             this.tablePanel3.Controls.Add(this.labelControl14);
             this.tablePanel3.Controls.Add(this.labelControl15);
-            this.tablePanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel3.Location = new System.Drawing.Point(0, 0);
             this.tablePanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tablePanel3.Name = "tablePanel3";
@@ -1104,26 +1107,26 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 66.15F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 31.06F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 74.32F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 22.89F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 72.11F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 25.25F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 33.81F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 73.67F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 12.77F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 38.74F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 73.33F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 36.03F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 60.92F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 38.85F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 64.85F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 41.27F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 76.52F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 34.17F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 82.01F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 13.19F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 30.8F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 69.74F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 95.57F)});
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 86.9F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 78.41F)});
             this.tablePanel3.Size = new System.Drawing.Size(679, 582);
             this.tablePanel3.TabIndex = 3;
             this.tablePanel3.UseSkinIndents = true;
             // 
             // panelControl14
             // 
-            this.panelControl14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl14.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl14.Appearance.Options.UseBackColor = true;
             this.panelControl14.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl14, 0);
@@ -1132,7 +1135,7 @@
             this.panelControl14.Location = new System.Drawing.Point(14, 34);
             this.panelControl14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl14.Name = "panelControl14";
-            this.panelControl14.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl14.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl14, 1);
             this.panelControl14.Size = new System.Drawing.Size(323, 38);
             this.panelControl14.TabIndex = 18;
@@ -1146,7 +1149,7 @@
             this.txtResidencia.Name = "txtResidencia";
             this.txtResidencia.Properties.AutoHeight = false;
             this.txtResidencia.Properties.NullValuePrompt = "Escreva aqui a Residencia";
-            this.txtResidencia.Size = new System.Drawing.Size(320, 35);
+            this.txtResidencia.Size = new System.Drawing.Size(318, 33);
             this.txtResidencia.TabIndex = 8;
             // 
             // labelControl16
@@ -1177,18 +1180,18 @@
             // 
             // panelControl25
             // 
-            this.panelControl25.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl25.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl25.Appearance.Options.UseBackColor = true;
             this.panelControl25.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl25, 0);
             this.panelControl25.Controls.Add(this.txtDocumento);
             this.panelControl25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl25.Location = new System.Drawing.Point(14, 380);
+            this.panelControl25.Location = new System.Drawing.Point(14, 387);
             this.panelControl25.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl25.Name = "panelControl25";
-            this.panelControl25.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl25.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl25, 12);
-            this.panelControl25.Size = new System.Drawing.Size(323, 38);
+            this.panelControl25.Size = new System.Drawing.Size(323, 48);
             this.panelControl25.TabIndex = 18;
             // 
             // txtDocumento
@@ -1202,7 +1205,7 @@
             this.txtDocumento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDocumento.Properties.NullValuePrompt = "Selecione o caminho da imagem frente";
-            this.txtDocumento.Size = new System.Drawing.Size(320, 35);
+            this.txtDocumento.Size = new System.Drawing.Size(318, 43);
             this.txtDocumento.TabIndex = 8;
             // 
             // labelControl19
@@ -1223,11 +1226,11 @@
             this.labelControl20.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl20.Appearance.Options.UseFont = true;
             this.tablePanel3.SetColumn(this.labelControl20, 0);
-            this.labelControl20.Location = new System.Drawing.Point(14, 144);
+            this.labelControl20.Location = new System.Drawing.Point(14, 146);
             this.labelControl20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl20.Name = "labelControl20";
             this.tablePanel3.SetRow(this.labelControl20, 4);
-            this.labelControl20.Size = new System.Drawing.Size(79, 11);
+            this.labelControl20.Size = new System.Drawing.Size(79, 13);
             this.labelControl20.TabIndex = 16;
             this.labelControl20.Text = "Email - Outlook";
             // 
@@ -1236,28 +1239,28 @@
             this.labelControl21.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl21.Appearance.Options.UseFont = true;
             this.tablePanel3.SetColumn(this.labelControl21, 1);
-            this.labelControl21.Location = new System.Drawing.Point(343, 144);
+            this.labelControl21.Location = new System.Drawing.Point(343, 146);
             this.labelControl21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl21.Name = "labelControl21";
             this.tablePanel3.SetRow(this.labelControl21, 4);
-            this.labelControl21.Size = new System.Drawing.Size(88, 11);
+            this.labelControl21.Size = new System.Drawing.Size(88, 13);
             this.labelControl21.TabIndex = 16;
             this.labelControl21.Text = "Email - Facebook";
             // 
             // panelControl26
             // 
-            this.panelControl26.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl26.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl26.Appearance.Options.UseBackColor = true;
             this.panelControl26.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl26, 1);
             this.panelControl26.Controls.Add(this.txtDocumentoRecenciamnto);
             this.panelControl26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl26.Location = new System.Drawing.Point(343, 380);
+            this.panelControl26.Location = new System.Drawing.Point(343, 387);
             this.panelControl26.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl26.Name = "panelControl26";
-            this.panelControl26.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl26.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl26, 12);
-            this.panelControl26.Size = new System.Drawing.Size(323, 38);
+            this.panelControl26.Size = new System.Drawing.Size(323, 48);
             this.panelControl26.TabIndex = 18;
             // 
             // txtDocumentoRecenciamnto
@@ -1271,7 +1274,7 @@
             this.txtDocumentoRecenciamnto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtDocumentoRecenciamnto.Properties.NullValuePrompt = "Selecione o caminho da Imagem";
-            this.txtDocumentoRecenciamnto.Size = new System.Drawing.Size(320, 35);
+            this.txtDocumentoRecenciamnto.Size = new System.Drawing.Size(318, 43);
             this.txtDocumentoRecenciamnto.TabIndex = 8;
             // 
             // labelControl22
@@ -1289,19 +1292,20 @@
             // 
             // panelControl27
             // 
-            this.panelControl27.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl27.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl27.Appearance.Options.UseBackColor = true;
             this.panelControl27.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl27, 0);
             this.panelControl27.Controls.Add(this.txtCurso);
             this.panelControl27.Controls.Add(this.btnCurso);
             this.panelControl27.Controls.Add(this.simpleButton2);
-            this.panelControl27.Location = new System.Drawing.Point(14, 468);
+            this.panelControl27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl27.Location = new System.Drawing.Point(14, 467);
             this.panelControl27.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl27.Name = "panelControl27";
-            this.panelControl27.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl27.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl27, 15);
-            this.panelControl27.Size = new System.Drawing.Size(323, 40);
+            this.panelControl27.Size = new System.Drawing.Size(323, 52);
             this.panelControl27.TabIndex = 14;
             // 
             // txtCurso
@@ -1323,7 +1327,7 @@
             this.txtCurso.Properties.NullText = "[Selecione o Curso por favor]";
             this.txtCurso.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.txtCurso.Properties.ValueMember = "CursosID";
-            this.txtCurso.Size = new System.Drawing.Size(280, 37);
+            this.txtCurso.Size = new System.Drawing.Size(278, 47);
             this.txtCurso.TabIndex = 8;
             // 
             // cursosBindingSource
@@ -1335,10 +1339,10 @@
             this.btnCurso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCurso.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCurso.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCurso.ImageOptions.SvgImage")));
-            this.btnCurso.Location = new System.Drawing.Point(280, 0);
+            this.btnCurso.Location = new System.Drawing.Point(278, 0);
             this.btnCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCurso.Name = "btnCurso";
-            this.btnCurso.Size = new System.Drawing.Size(40, 37);
+            this.btnCurso.Size = new System.Drawing.Size(40, 47);
             this.btnCurso.TabIndex = 9;
             this.btnCurso.Text = "Save";
             // 
@@ -1355,16 +1359,17 @@
             // 
             // panelControl28
             // 
-            this.panelControl28.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl28.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl28.Appearance.Options.UseBackColor = true;
             this.panelControl28.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl28, 0);
             this.panelControl28.Controls.Add(this.txtLocalEmissao);
             this.panelControl28.Controls.Add(this.simpleButton3);
+            this.panelControl28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl28.Location = new System.Drawing.Point(14, 246);
             this.panelControl28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl28.Name = "panelControl28";
-            this.panelControl28.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl28.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl28, 8);
             this.panelControl28.Size = new System.Drawing.Size(323, 43);
             this.panelControl28.TabIndex = 14;
@@ -1381,7 +1386,7 @@
             this.txtLocalEmissao.Properties.DropDownRows = 10;
             this.txtLocalEmissao.Properties.NullText = "[Selecione o local por favor]";
             this.txtLocalEmissao.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtLocalEmissao.Size = new System.Drawing.Size(280, 40);
+            this.txtLocalEmissao.Size = new System.Drawing.Size(278, 38);
             this.txtLocalEmissao.TabIndex = 8;
             // 
             // simpleButton3
@@ -1389,16 +1394,16 @@
             this.simpleButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Right;
             this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(280, 0);
+            this.simpleButton3.Location = new System.Drawing.Point(278, 0);
             this.simpleButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(40, 40);
+            this.simpleButton3.Size = new System.Drawing.Size(40, 38);
             this.simpleButton3.TabIndex = 8;
             this.simpleButton3.Text = "Save";
             // 
             // panelControl29
             // 
-            this.panelControl29.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl29.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl29.Appearance.Options.UseBackColor = true;
             this.panelControl29.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl29, 1);
@@ -1407,7 +1412,7 @@
             this.panelControl29.Location = new System.Drawing.Point(343, 34);
             this.panelControl29.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl29.Name = "panelControl29";
-            this.panelControl29.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl29.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl29, 1);
             this.panelControl29.Size = new System.Drawing.Size(323, 38);
             this.panelControl29.TabIndex = 18;
@@ -1421,7 +1426,7 @@
             this.txtenderco.Name = "txtenderco";
             this.txtenderco.Properties.AutoHeight = false;
             this.txtenderco.Properties.NullValuePrompt = "Escreva aqui o Endereço";
-            this.txtenderco.Size = new System.Drawing.Size(320, 35);
+            this.txtenderco.Size = new System.Drawing.Size(318, 33);
             this.txtenderco.TabIndex = 8;
             // 
             // labelControl24
@@ -1439,17 +1444,18 @@
             // 
             // panelControl30
             // 
-            this.panelControl30.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl30.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl30.Appearance.Options.UseBackColor = true;
             this.panelControl30.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl30, 0);
             this.panelControl30.Controls.Add(this.txtContactos);
+            this.panelControl30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl30.Location = new System.Drawing.Point(14, 96);
             this.panelControl30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl30.Name = "panelControl30";
-            this.panelControl30.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl30.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl30, 3);
-            this.panelControl30.Size = new System.Drawing.Size(323, 43);
+            this.panelControl30.Size = new System.Drawing.Size(323, 44);
             this.panelControl30.TabIndex = 18;
             // 
             // txtContactos
@@ -1464,22 +1470,23 @@
             this.txtContactos.Properties.MaskSettings.Set("mask", "000-000-000");
             this.txtContactos.Properties.NullValuePrompt = "Descreva aqui o Contacto";
             this.txtContactos.Properties.UseMaskAsDisplayFormat = true;
-            this.txtContactos.Size = new System.Drawing.Size(320, 40);
+            this.txtContactos.Size = new System.Drawing.Size(318, 39);
             this.txtContactos.TabIndex = 8;
             // 
             // panelControl31
             // 
-            this.panelControl31.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl31.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl31.Appearance.Options.UseBackColor = true;
             this.panelControl31.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl31, 1);
             this.panelControl31.Controls.Add(this.txtCelular);
+            this.panelControl31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl31.Location = new System.Drawing.Point(343, 96);
             this.panelControl31.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl31.Name = "panelControl31";
-            this.panelControl31.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl31.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl31, 3);
-            this.panelControl31.Size = new System.Drawing.Size(323, 43);
+            this.panelControl31.Size = new System.Drawing.Size(323, 44);
             this.panelControl31.TabIndex = 18;
             // 
             // txtCelular
@@ -1493,22 +1500,23 @@
             this.txtCelular.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.txtCelular.Properties.MaskSettings.Set("mask", "000-000-000");
             this.txtCelular.Properties.NullValuePrompt = "Descreva aqui o contacto";
-            this.txtCelular.Size = new System.Drawing.Size(320, 40);
+            this.txtCelular.Size = new System.Drawing.Size(318, 39);
             this.txtCelular.TabIndex = 8;
             // 
             // panelControl32
             // 
-            this.panelControl32.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl32.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl32.Appearance.Options.UseBackColor = true;
             this.panelControl32.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl32, 0);
             this.panelControl32.Controls.Add(this.txtEmail);
-            this.panelControl32.Location = new System.Drawing.Point(14, 159);
+            this.panelControl32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl32.Location = new System.Drawing.Point(14, 166);
             this.panelControl32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl32.Name = "panelControl32";
-            this.panelControl32.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl32.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl32, 5);
-            this.panelControl32.Size = new System.Drawing.Size(323, 42);
+            this.panelControl32.Size = new System.Drawing.Size(323, 43);
             this.panelControl32.TabIndex = 18;
             // 
             // txtEmail
@@ -1520,22 +1528,23 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Properties.AutoHeight = false;
             this.txtEmail.Properties.NullValuePrompt = "Descreva aqui seu Email";
-            this.txtEmail.Size = new System.Drawing.Size(320, 39);
+            this.txtEmail.Size = new System.Drawing.Size(318, 38);
             this.txtEmail.TabIndex = 8;
             // 
             // panelControl33
             // 
-            this.panelControl33.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl33.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl33.Appearance.Options.UseBackColor = true;
             this.panelControl33.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl33, 1);
             this.panelControl33.Controls.Add(this.txtEmailFacebook);
-            this.panelControl33.Location = new System.Drawing.Point(343, 159);
+            this.panelControl33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl33.Location = new System.Drawing.Point(343, 166);
             this.panelControl33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl33.Name = "panelControl33";
-            this.panelControl33.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl33.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl33, 5);
-            this.panelControl33.Size = new System.Drawing.Size(323, 42);
+            this.panelControl33.Size = new System.Drawing.Size(323, 43);
             this.panelControl33.TabIndex = 18;
             // 
             // txtEmailFacebook
@@ -1547,7 +1556,7 @@
             this.txtEmailFacebook.Name = "txtEmailFacebook";
             this.txtEmailFacebook.Properties.AutoHeight = false;
             this.txtEmailFacebook.Properties.NullValuePrompt = "Descreva aqui seu Email \' Facebook";
-            this.txtEmailFacebook.Size = new System.Drawing.Size(320, 39);
+            this.txtEmailFacebook.Size = new System.Drawing.Size(318, 38);
             this.txtEmailFacebook.TabIndex = 8;
             // 
             // labelControl25
@@ -1565,16 +1574,17 @@
             // 
             // panelControl35
             // 
-            this.panelControl35.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl35.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl35.Appearance.Options.UseBackColor = true;
             this.panelControl35.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl35, 1);
             this.panelControl35.Controls.Add(this.txtDataEmissao);
             this.panelControl35.Controls.Add(this.txtDataExpiracao);
+            this.panelControl35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl35.Location = new System.Drawing.Point(343, 246);
             this.panelControl35.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl35.Name = "panelControl35";
-            this.panelControl35.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl35.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl35, 8);
             this.panelControl35.Size = new System.Drawing.Size(323, 43);
             this.panelControl35.TabIndex = 18;
@@ -1597,14 +1607,14 @@
             this.txtDataEmissao.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtDataEmissao.Properties.MaskSettings.Set("mask", "");
             this.txtDataEmissao.Properties.NullValuePrompt = "Descreva aqui a pratileira";
-            this.txtDataEmissao.Size = new System.Drawing.Size(126, 40);
+            this.txtDataEmissao.Size = new System.Drawing.Size(126, 38);
             this.txtDataEmissao.TabIndex = 8;
             // 
             // txtDataExpiracao
             // 
             this.txtDataExpiracao.Dock = System.Windows.Forms.DockStyle.Right;
             this.txtDataExpiracao.EditValue = null;
-            this.txtDataExpiracao.Location = new System.Drawing.Point(129, 0);
+            this.txtDataExpiracao.Location = new System.Drawing.Point(130, 0);
             this.txtDataExpiracao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDataExpiracao.Name = "txtDataExpiracao";
             this.txtDataExpiracao.Properties.AutoHeight = false;
@@ -1618,7 +1628,7 @@
             this.txtDataExpiracao.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtDataExpiracao.Properties.MaskSettings.Set("mask", "");
             this.txtDataExpiracao.Properties.NullValuePrompt = "Posição";
-            this.txtDataExpiracao.Size = new System.Drawing.Size(191, 40);
+            this.txtDataExpiracao.Size = new System.Drawing.Size(188, 38);
             this.txtDataExpiracao.TabIndex = 8;
             // 
             // labelControl27
@@ -1639,7 +1649,7 @@
             this.labelControl28.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl28.Appearance.Options.UseFont = true;
             this.tablePanel3.SetColumn(this.labelControl28, 0);
-            this.labelControl28.Location = new System.Drawing.Point(14, 359);
+            this.labelControl28.Location = new System.Drawing.Point(14, 367);
             this.labelControl28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl28.Name = "labelControl28";
             this.tablePanel3.SetRow(this.labelControl28, 11);
@@ -1649,17 +1659,18 @@
             // 
             // panelControl15
             // 
-            this.panelControl15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelControl15.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl15.Appearance.Options.UseBackColor = true;
             this.panelControl15.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel3.SetColumn(this.panelControl15, 0);
             this.panelControl15.Controls.Add(this.txtTipoDocumentos);
+            this.panelControl15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl15.Location = new System.Drawing.Point(14, 316);
             this.panelControl15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl15.Name = "panelControl15";
-            this.panelControl15.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.panelControl15.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.tablePanel3.SetRow(this.panelControl15, 10);
-            this.panelControl15.Size = new System.Drawing.Size(323, 35);
+            this.panelControl15.Size = new System.Drawing.Size(323, 45);
             this.panelControl15.TabIndex = 18;
             // 
             // txtTipoDocumentos
@@ -1673,7 +1684,7 @@
             this.txtTipoDocumentos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtTipoDocumentos.Properties.NullText = "[Selecione o tipo de Doc por favor]";
-            this.txtTipoDocumentos.Size = new System.Drawing.Size(320, 32);
+            this.txtTipoDocumentos.Size = new System.Drawing.Size(318, 40);
             this.txtTipoDocumentos.TabIndex = 8;
             // 
             // labelControl14
@@ -1681,7 +1692,7 @@
             this.labelControl14.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl14.Appearance.Options.UseFont = true;
             this.tablePanel3.SetColumn(this.labelControl14, 1);
-            this.labelControl14.Location = new System.Drawing.Point(343, 359);
+            this.labelControl14.Location = new System.Drawing.Point(343, 367);
             this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl14.Name = "labelControl14";
             this.tablePanel3.SetRow(this.labelControl14, 11);
@@ -1694,7 +1705,7 @@
             this.labelControl15.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl15.Appearance.Options.UseFont = true;
             this.tablePanel3.SetColumn(this.labelControl15, 0);
-            this.labelControl15.Location = new System.Drawing.Point(14, 449);
+            this.labelControl15.Location = new System.Drawing.Point(14, 448);
             this.labelControl15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl15.Name = "labelControl15";
             this.tablePanel3.SetRow(this.labelControl15, 14);
@@ -2313,7 +2324,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -2346,7 +2357,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(428, 22);
+            this.panel1.Size = new System.Drawing.Size(427, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
