@@ -385,7 +385,7 @@ namespace IEscolaDesktop.View.Forms
                     DataNascimento =  txtDataNascimento.DateTime,              
                     ImagemURL = imagens,   
 
-                    Codigo = (string)codigo
+                    Codigo = (string) codigo
                 };
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.ProfessoresID == ID) > 0 :

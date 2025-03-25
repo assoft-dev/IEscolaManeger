@@ -198,10 +198,12 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task LoginForms()
         {
-            Cursor = Cursors.WaitCursor;
+            this.windowsUIButtonPanel1.Enabled = false;
 
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 if (Validadacao())
                 {
                     var result = await UserRepository.Login(txtUsuarios.Text, txtSenha.Text);
@@ -279,6 +281,7 @@ namespace IEscolaDesktop.View.Forms
             finally
             {
                 Cursor = Cursors.Default;
+                windowsUIButtonPanel1.Enabled = true;
             }
         }
 

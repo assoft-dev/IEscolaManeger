@@ -1,6 +1,9 @@
-﻿using IEscolaEntity.Models.Helps;
+﻿using IEscolaEntity.Controllers.Helps;
+using IEscolaEntity.Models.Helps;
 using ServiceStack.DataAnnotations;
 using System;
+using System.Drawing;
+using System.IO;
 
 namespace IEscolaEntity.Models
 {
@@ -31,5 +34,24 @@ namespace IEscolaEntity.Models
         public FAZES FAZES { get; set; }
         public bool AdicionalFichaInscricao { get; set; }
         public bool AdicionalCertificados { get; set; }
+
+
+        [Ignore]
+        public Image Imagens
+        {
+            get
+            {
+                if (ImagemURL != null)
+                {
+                    var caminho = @"C:\\asinforprest\\IEscola\\Estudantes\\" + ImagemURL;
+                    if (File.Exists(caminho))
+                        return GraphicsExtensions.MakeCircleImage(Image.FromFile(caminho));
+                    else return null;
+                }
+                else
+                    return null;
+            }
+        }
+
     }
 }

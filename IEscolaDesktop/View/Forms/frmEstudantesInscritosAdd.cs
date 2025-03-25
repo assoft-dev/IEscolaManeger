@@ -11,6 +11,7 @@ using IEscolaEntity.Models.Helps;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,6 +22,8 @@ namespace IEscolaDesktop.View.Forms
         IEstudantesInscricoes DataRepository;
         IProvinciasMunicipios provinciasMunicipiosRepository;
         ICursos cursosRepository;
+        private string FolderImagem = @"C:\\asinforprest\\IEscola\\Estudantes\\";
+
 
         bool IsValidate = false;
 
@@ -178,7 +181,6 @@ namespace IEscolaDesktop.View.Forms
         private void PictureEdit1_MouseClick(object sender, MouseEventArgs e)
         {
             var fileStream = xtraOpenFileDialog1.ShowDialog();
-            xtraOpenFileDialog1.FileName = string.Empty;
             xtraOpenFileDialog1.RestoreDirectory = true;
 
 
@@ -202,7 +204,6 @@ namespace IEscolaDesktop.View.Forms
         private void TxtImagemURL_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             var fileStream = xtraOpenFileDialog1.ShowDialog();
-            xtraOpenFileDialog1.FileName = string.Empty;
             xtraOpenFileDialog1.RestoreDirectory = true;
 
             if (fileStream == DialogResult.OK)
@@ -260,6 +261,14 @@ namespace IEscolaDesktop.View.Forms
             txtFazes.Properties.DataSource = Enum.GetValues(typeof(FAZES));
             txtLocalEmissao.Properties.DataSource = Enum.GetValues(typeof(ProvinciasLocal));
             txtProvinciaOrigem.Properties.DataSource = Enum.GetValues(typeof(ProvinciasLocal));
+
+
+            if (string.IsNullOrWhiteSpace(txtCodigoUnico.Text))
+                txtFazes.ItemIndex = 1;
+            else
+            {
+                txtFazes.Enabled = true;
+            }
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -310,12 +319,38 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+        private void PagarImagem()
+        {
+            if (!string.IsNullOrWhiteSpace(txtImagemURL.Text))
+            {
+                var caminho = FolderImagem + txtImagemURL.Text;
+
+                if (File.Exists(caminho))
+                    File.Delete(caminho);
+            };
+        }
+
+        private string GuardarImagem()
+        {
+            if (pictureEdit1.Image != null)
+            {
+                var guidvalues = Guid.NewGuid() + ".jpg";
+                pictureEdit1.Image.Save(FolderImagem + guidvalues);
+                return guidvalues;
+            }
+            else
+                return null;
+        }
+
         private async void Guardar()
         {
             if (!await ValidationDatabase())
             {
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
                 var codigo = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? await DataRepository.GetQR() : txtCodigoUnico.Text;
+
+                //Gerir Imagens
+                var imagens = GuardarImagem();
 
                 // save Data
                 var data = new EstudantesInscricoes
@@ -361,7 +396,7 @@ namespace IEscolaDesktop.View.Forms
 
                     DataNascimento =  txtDataNascimento.DateTime,              
 
-                    ImagemURL = txtImagemURL.Text, 
+                    ImagemURL = imagens, 
 
                     FAZES = (FAZES)txtFazes.EditValue,
                     AdicionalFichaInscricao = (bool)txtFichaInscricao.Checked,
@@ -483,6 +518,8 @@ namespace IEscolaDesktop.View.Forms
             txtCodigoUnico.EditValue = string.Empty;
             txtImagemURL.Text = string.Empty;
             pictureEdit1.Image = null;
+
+            txtFazes.Enabled = false;
 
             txtCodigo.Text = string.Empty;
             txtTitulo.Text = "[Novo]";

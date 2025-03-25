@@ -10,6 +10,7 @@ using IEscolaEntity.Models.Helps;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +21,7 @@ namespace IEscolaDesktop.View.Forms
         IEstudantesInscricoes DataRepository;
         IProvinciasMunicipios provinciasMunicipiosRepository;
         ICursos cursosRepository;
+        private string FolderImagem = @"C:\\asinforprest\\IEscola\\Estudantes\\";
 
         bool IsValidate = false;
 
@@ -111,6 +113,8 @@ namespace IEscolaDesktop.View.Forms
                 txtCertificadoAnexo.EditValue = usuarios.Inscricoes.AdicionalCertificados;
                 txtImagemURL.Text = usuarios.Inscricoes.ImagemURL;
 
+                pictureEdit1.Image = usuarios.Inscricoes.Imagens;
+
                 txtCodigo.EditValue = usuarios.Inscricoes.InscricaoID;
                 txtCodigoUnico.EditValue = usuarios.Codigo;
                 txtFirstName.Focus();
@@ -164,6 +168,8 @@ namespace IEscolaDesktop.View.Forms
             this.Load += FrmUsuariosAdd_Load;
         }
 
+
+
         private void BtnCurso_Click(object sender, EventArgs e)
         {
             // Buscar Grupos
@@ -177,7 +183,6 @@ namespace IEscolaDesktop.View.Forms
         private void PictureEdit1_MouseClick(object sender, MouseEventArgs e)
         {
             var fileStream = xtraOpenFileDialog1.ShowDialog();
-            xtraOpenFileDialog1.FileName = string.Empty;
             xtraOpenFileDialog1.RestoreDirectory = true;
 
 
@@ -201,7 +206,6 @@ namespace IEscolaDesktop.View.Forms
         private void TxtImagemURL_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             var fileStream = xtraOpenFileDialog1.ShowDialog();
-            xtraOpenFileDialog1.FileName = string.Empty;
             xtraOpenFileDialog1.RestoreDirectory = true;
 
             if (fileStream == DialogResult.OK)
@@ -309,12 +313,41 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+
+        private void PagarImagem()
+        {
+            if (!string.IsNullOrWhiteSpace(txtImagemURL.Text))
+            {
+                var caminho = FolderImagem + txtImagemURL.Text;
+
+                if (File.Exists(caminho))
+                    File.Delete(caminho);
+            };
+        }
+
+        private string GuardarImagem()
+        {
+            if (pictureEdit1.Image != null)
+            {
+                var guidvalues = Guid.NewGuid() + ".jpg";
+                pictureEdit1.Image.Save(FolderImagem + guidvalues);
+                return guidvalues;
+            }
+            else
+                return null;
+        }
+
         private async void Guardar()
         {
             if (!await ValidationDatabase())
             {
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
                 var codigo = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? await DataRepository.GetQR() : txtCodigoUnico.Text;
+
+
+
+                //Gerir Imagens
+                var imagens = GuardarImagem();
 
                 // save Data
                 var data = new EstudantesInscricoes
@@ -360,8 +393,7 @@ namespace IEscolaDesktop.View.Forms
 
                     DataNascimento =  txtDataNascimento.DateTime,              
 
-                    ImagemURL = txtImagemURL.Text, 
-
+                    ImagemURL = imagens, 
                     FAZES = (FAZES)txtFazes.EditValue,
                     AdicionalFichaInscricao = (bool)txtFichaInscricao.Checked,
                     AdicionalCertificados = (bool)txtCertificadoAnexo.Checked,
@@ -477,7 +509,6 @@ namespace IEscolaDesktop.View.Forms
 
             txtFichaInscricao.EditValue = string.Empty;
             txtCertificadoAnexo.EditValue = string.Empty;
-
             txtCodigo.EditValue = string.Empty;
             txtCodigoUnico.EditValue = string.Empty;
             txtImagemURL.Text = string.Empty;
@@ -967,5 +998,10 @@ namespace IEscolaDesktop.View.Forms
             return false;
         }
         #endregion
+
+        private void navigationPane1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

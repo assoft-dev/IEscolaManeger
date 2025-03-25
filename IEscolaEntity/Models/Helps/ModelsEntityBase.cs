@@ -47,6 +47,8 @@ namespace IEscolaEntity.Models.Helps
         public bool IsActived { get; set; }
         public DateTime DataFicha { get; set; }
 
+
         public string ImagemURL { get; set; }
+
     }
 }

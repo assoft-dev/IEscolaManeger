@@ -42,6 +42,7 @@
             this.txtPesquisar = new DevExpress.XtraEditors.ButtonEdit();
             this.btnNovo = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.estudantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colInscricaoID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFullName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -88,6 +89,9 @@
             this.colCodigo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTurmas = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Perfil = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.MenuPrinciapl = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAtualizar = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,17 +100,16 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
-            this.estudantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.colTurmas = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPesquisar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estudantesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.MenuPrinciapl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.estudantesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -208,12 +211,17 @@
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemCheckEdit1});
+            this.repositoryItemCheckEdit1,
+            this.repositoryItemPictureEdit1});
             this.tablePanel1.SetRow(this.gridControl1, 1);
             this.gridControl1.Size = new System.Drawing.Size(1186, 608);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // estudantesBindingSource
+            // 
+            this.estudantesBindingSource.DataSource = typeof(IEscolaEntity.Models.Estudantes);
             // 
             // gridView1
             // 
@@ -263,7 +271,8 @@
             this.colCodigo,
             this.colFirstName,
             this.colLastName,
-            this.colTurmas});
+            this.colTurmas,
+            this.Perfil});
             this.gridView1.DetailHeight = 225;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupPanelText = "Pesquise Aqui";
@@ -570,8 +579,6 @@
             this.colCodigo.Caption = "Código";
             this.colCodigo.FieldName = "Codigo";
             this.colCodigo.Name = "colCodigo";
-            this.colCodigo.Visible = true;
-            this.colCodigo.VisibleIndex = 0;
             this.colCodigo.Width = 71;
             // 
             // colFirstName
@@ -585,6 +592,30 @@
             this.colLastName.FieldName = "LastName";
             this.colLastName.Name = "colLastName";
             this.colLastName.Width = 230;
+            // 
+            // colTurmas
+            // 
+            this.colTurmas.Caption = "Turma";
+            this.colTurmas.FieldName = "Turmas.Descricao";
+            this.colTurmas.Name = "colTurmas";
+            this.colTurmas.Visible = true;
+            this.colTurmas.VisibleIndex = 15;
+            this.colTurmas.Width = 82;
+            // 
+            // Perfil
+            // 
+            this.Perfil.Caption = "Perfil";
+            this.Perfil.ColumnEdit = this.repositoryItemPictureEdit1;
+            this.Perfil.FieldName = "Inscricoes.Imagens";
+            this.Perfil.Name = "Perfil";
+            this.Perfil.Visible = true;
+            this.Perfil.VisibleIndex = 0;
+            // 
+            // repositoryItemPictureEdit1
+            // 
+            this.repositoryItemPictureEdit1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -647,19 +678,6 @@
             this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
-            // estudantesBindingSource
-            // 
-            this.estudantesBindingSource.DataSource = typeof(IEscolaEntity.Models.Estudantes);
-            // 
-            // colTurmas
-            // 
-            this.colTurmas.Caption = "Turma";
-            this.colTurmas.FieldName = "Turmas.Descricao";
-            this.colTurmas.Name = "colTurmas";
-            this.colTurmas.Visible = true;
-            this.colTurmas.VisibleIndex = 15;
-            this.colTurmas.Width = 82;
-            // 
             // frmEstudantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -673,10 +691,11 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtPesquisar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.estudantesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.MenuPrinciapl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.estudantesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -746,5 +765,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colFullName;
         private System.Windows.Forms.BindingSource estudantesBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colTurmas;
+        private DevExpress.XtraGrid.Columns.GridColumn Perfil;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
     }
 }
