@@ -117,6 +117,9 @@ namespace IEscolaDesktop.View.Forms
 
                 txtCodigo.EditValue = usuarios.InscricaoID;
                 txtCodigoUnico.EditValue = usuarios.Codigo;
+
+                pictureEdit1.Image = usuarios.Imagens;
+
                 txtFirstName.Focus();
             }
             else {
@@ -166,6 +169,9 @@ namespace IEscolaDesktop.View.Forms
             txtProvinciaMunicipio.Properties.NullText = municipioprovincia;
 
             this.Load += FrmUsuariosAdd_Load;
+
+            if (string.IsNullOrWhiteSpace(txtCodigoUnico.Text))
+                txtFazes.ItemIndex = 0;
         }
 
         private void BtnCurso_Click(object sender, EventArgs e)
@@ -520,6 +526,7 @@ namespace IEscolaDesktop.View.Forms
             pictureEdit1.Image = null;
 
             txtFazes.Enabled = false;
+            txtFazes.ItemIndex = 1;
 
             txtCodigo.Text = string.Empty;
             txtTitulo.Text = "[Novo]";
