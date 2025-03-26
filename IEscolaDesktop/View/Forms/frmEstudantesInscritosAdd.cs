@@ -577,7 +577,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                             !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -606,7 +606,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                             !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -634,7 +634,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                                //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -662,7 +662,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                                //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -691,7 +691,7 @@ namespace IEscolaDesktop.View.Forms
                                                           !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                                //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -720,7 +720,7 @@ namespace IEscolaDesktop.View.Forms
                                                           !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                               !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                               //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -750,7 +750,7 @@ namespace IEscolaDesktop.View.Forms
                                                           !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                                //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
 
@@ -781,7 +781,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                                //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -810,7 +810,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                                //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
 
@@ -839,7 +839,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtNomeMae.Text)   &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text)   &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                                 !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                                 //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
 
@@ -868,7 +868,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtNomeMae.Text) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                                !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                                //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
 
@@ -897,7 +897,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
-                                 !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                                 //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
 
@@ -926,7 +926,7 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtBI.Text) &&
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
-                             !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                             //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                              !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao))
 
@@ -953,7 +953,7 @@ namespace IEscolaDesktop.View.Forms
                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
-                            !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                            //!(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
                             !(string.IsNullOrWhiteSpace(txtGrauParentesco.Text) || txtGrauParentesco.Text == grauparentesco) &&
                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao))
 

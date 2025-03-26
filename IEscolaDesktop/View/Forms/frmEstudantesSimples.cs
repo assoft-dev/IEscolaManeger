@@ -6,6 +6,7 @@ using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
 using IEscolaEntity.Models.Helps;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,6 +18,7 @@ namespace IEscolaDesktop.View.Forms
         ITurmas turmasRepository;
         IEstudantesInscricoes inscricoesRepositorio;
         bool IsValidate = false;
+        private string FolderImagem = @"C:\\asinforprest\\IEscola\\Estudantes\\";
 
         public frmEstudantesSimples(Estudantes usuarios = null)
         {
@@ -39,6 +41,9 @@ namespace IEscolaDesktop.View.Forms
             txtInscritos_.Properties.NullText = estudantesinscritos;
             txtTurmas.Properties.NullText = turma;
             txtEstadoEstudantes.Properties.NullText = estudanteestado;
+            txtFazes.Properties.NullText = fazes;
+
+            this.Load += FrmUsuariosAdd_Load; 
 
             if (usuarios != null) {     
                 
@@ -58,7 +63,6 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
             }
 
-            this.Load += FrmUsuariosAdd_Load; 
         }
 
         private void BtnBuscarGrupos_Click(object sender, EventArgs e)
@@ -91,6 +95,7 @@ namespace IEscolaDesktop.View.Forms
             turmasBindingSource.DataSource = dataResult1;
 
             txtEstadoEstudantes.Properties.DataSource = Enum.GetValues(typeof(EstadoEstudantes));
+            txtFazes.Properties.DataSource = Enum.GetValues(typeof(FAZES));
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -142,6 +147,29 @@ namespace IEscolaDesktop.View.Forms
             }     
         }
 
+        private void PagarImagem()
+        {
+            if (!string.IsNullOrWhiteSpace(txtImagemURL.Text))
+            {
+                var caminho = FolderImagem + txtImagemURL.Text;
+
+                if (File.Exists(caminho))
+                    File.Delete(caminho);
+            };
+        }
+
+        private string GuardarImagem()
+        {
+            if (pictureEdit1.Image != null)
+            {
+                var guidvalues = Guid.NewGuid() + ".jpg";
+                pictureEdit1.Image.Save(FolderImagem + guidvalues);
+                return guidvalues;
+            }
+            else
+                return null;
+        }
+
         private async void Guardar()
         {
 
@@ -151,15 +179,28 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
                 var codigo = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? await DataRepository.GetQR() : txtCodigo2.Text;
 
+
+                //Gerir Imagens
+                var imagens = GuardarImagem();
+
                 // save Data
                 var data = new Estudantes
                 {                    
                     Codigo = codigo,
                     EstudantesID = ID,
                     InscricoesID = (int) txtInscritos_.EditValue,
-                    TurmaID = (int) txtTurmas.EditValue, 
+                    TurmaID = (int) txtTurmas.EditValue,
                     EstadoEstudantes = (EstadoEstudantes) txtEstadoEstudantes.EditValue,
-                }; 
+                };
+
+                var inscri = estudantesInscricoesBindingSource.Current as EstudantesInscricoes;
+
+                if (inscri != null) {
+                    inscri.ImagemURL = imagens;
+                    inscri.FAZES = (FAZES) txtFazes.EditValue;
+                }
+
+                inscricoesRepositorio.DoUpdate<EstudantesInscricoes>(inscri);
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.EstudantesID == ID) > 0 :
                                        await DataRepository.Guardar(data, true);
@@ -199,6 +240,9 @@ namespace IEscolaDesktop.View.Forms
                     } 
                 }
             }
+
+            //Faze 2
+
             return false;
         }
 
@@ -226,21 +270,24 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
-        private string estudantesinscritos = "* [Selecione o Professor da disciplina por favor";
+        private string estudantesinscritos = "* [Selecione o Inscrito por favor";
         private string turma = "* [Selecione a turma por favor]";
         private string estudanteestado = "* [Selecione o estado do mesmo por favor]";
+        private string fazes = "* [Selecione a faze por favor]";
 
         private void ChangeValudations(Control control)
         {
             if (control != null)
             {
 
-                #region Inscritos
+                #region Turma
                 if (control.Name.Equals(txtTurmas.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtTurmas.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtInscritos_.Text) || txtInscritos_.Text == estudantesinscritos))
+                        if (!(string.IsNullOrWhiteSpace(txtInscritos_.Text) || txtInscritos_.Text == estudantesinscritos) &&
+                            !(string.IsNullOrWhiteSpace(txtEstadoEstudantes.Text) || txtEstadoEstudantes.Text == estudanteestado) && 
+                            !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes))
                         { 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -254,12 +301,14 @@ namespace IEscolaDesktop.View.Forms
                 }
                 #endregion
 
-                #region Turmas
-                else if (control.Name.Equals(txtInscritos_.Name))
+                #region Estados Estudantes
+                else if (control.Name.Equals(txtEstadoEstudantes.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtInscritos_.Text))
+                    if (!string.IsNullOrWhiteSpace(txtEstadoEstudantes.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma))
+                        if (!(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma) &&
+                            !(string.IsNullOrWhiteSpace(txtInscritos_.Text) || txtInscritos_.Text == estudantesinscritos) &&
+                            !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -275,12 +324,14 @@ namespace IEscolaDesktop.View.Forms
                 }
                 #endregion
 
-                #region Estados Estudantes
+                #region Inscricao
                 else if (control.Name.Equals(txtInscritos_.Name))
                 {
                     if (!string.IsNullOrWhiteSpace(txtInscritos_.Text))
                     {
-                        if (!(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma))
+                        if (!(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma) &&
+                            !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes) &&
+                            !(string.IsNullOrWhiteSpace(txtEstadoEstudantes.Text) || txtEstadoEstudantes.Text == estudanteestado))
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         }
@@ -288,6 +339,25 @@ namespace IEscolaDesktop.View.Forms
                         {
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                         }
+                    }
+                    else
+                    {
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                    }
+                }
+                #endregion
+
+                #region Fazes
+                else if (control.Name.Equals(txtFazes.Name))
+                {
+                    if (!string.IsNullOrWhiteSpace(txtFazes.Text))
+                    {
+                        if (!(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma) &&
+                            !(string.IsNullOrWhiteSpace(txtEstadoEstudantes.Text) || txtEstadoEstudantes.Text == estudanteestado) &&
+                            !(string.IsNullOrWhiteSpace(txtInscritos_.Text) || txtInscritos_.Text == estudantesinscritos))
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        else
+                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                     }
                     else
                     {
@@ -300,7 +370,9 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (
                         !(string.IsNullOrWhiteSpace(txtInscritos_.Text) || txtInscritos_.Text == estudantesinscritos) &&
-                        !(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma))
+                        !(string.IsNullOrWhiteSpace(txtTurmas.Text) || txtTurmas.Text == turma) &&
+                        !(string.IsNullOrWhiteSpace(txtEstadoEstudantes.Text) || txtEstadoEstudantes.Text == estudanteestado) &&
+                        !(string.IsNullOrWhiteSpace(txtFazes.Text) || txtFazes.Text == fazes))
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                     else
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
