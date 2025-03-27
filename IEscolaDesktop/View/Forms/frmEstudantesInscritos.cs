@@ -16,6 +16,7 @@ namespace IEscolaDesktop.View.Forms
     public partial class frmEstudantesInscritos : XtraUserControl
     {
         IEstudantesInscricoes dataRepository;
+        IEstudantes EstudanteRepository;
 
         List<EstudantesInscricoes>  UsuariosOriginalList;
 
@@ -25,6 +26,7 @@ namespace IEscolaDesktop.View.Forms
         {
             InitializeComponent();
             dataRepository = new EstudantesIncricoesRepository();
+            EstudanteRepository = new EstudantesRepository();
             UsuariosOriginalList = new List<EstudantesInscricoes>();
 
             LeituraInicial();
@@ -57,10 +59,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = estudantesInscricoesBindingSource.Current as Estudantes;
+                var result = estudantesInscricoesBindingSource.Current as EstudantesInscricoes;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmEstudantesSimples(result ?? null));
+                    new frmEstudantesSimples(result));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -122,6 +124,18 @@ namespace IEscolaDesktop.View.Forms
                 btnRelatorios.Enabled = false;
                 btnReportdatabase.Enabled = false;
                 btnMatricular.Enabled = false;
+            }
+
+            //Verificar se Este estudante Ja esta em estudante
+            var inscri = estudantesInscricoesBindingSource.Current as EstudantesInscricoes;
+
+            if (inscri != null)
+            {
+                 var t = EstudanteRepository.DoGetCount<Estudantes>(x => x.InscricoesID == inscri.InscricaoID);
+                if (t > 0)
+                    btnMatricular.Enabled = false;
+                else
+                    btnMatricular.Enabled = true;
             }
         }
 

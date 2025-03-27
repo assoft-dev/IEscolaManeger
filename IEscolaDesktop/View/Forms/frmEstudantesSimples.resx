@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="windowsUIButtonImageOptions16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="windowsUIButtonImageOptions3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAwdEVYdFRpdGxlAERCO1NvdXJjZTtTdG9yO2RhdGFz
@@ -131,7 +131,7 @@
         JjDcef/fnYGGYxHjuopda+g946wAfQjFa/4DJAN8AcBJeZcJuRAyAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="windowsUIButtonImageOptions17.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="windowsUIButtonImageOptions4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABJ0RVh0VGl0
         bGUAU2F2ZTtTYXZlQXM7th0eIgAAAO9JREFUWEftlNsNwyAMRbNTF8gCDNAtMgN/naUL8BexSTehcgUI
@@ -139,20 +139,6 @@
         Ulfhjh0JOBqKHA63rLcAOdzO0QS01hROWEgNZwkQixU+SgBC/CuWC3dvB0sgc7lzOIGchA+3u3kCxAoF
         QokofKbAL9x+HX04YB/W/gIF4J77veEVAHoKVGsJsAVGsgRYAq2V7vtvgdpvpUrPWQJL4ErgkxkuLqNU
         eg5k1ASOnERHYPdRFLgD1JgNaszmCzGWOlV6hwVPAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="windowsUIButtonImageOptions18.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAvdEVYdFRpdGxlAERCO1NvdXJjZTtTdG9yO2RhdGFz
-        b3VyY2U7RGF0YWJhc2U7RGVsZXRlHRRPyAAAAaRJREFUWEfNlbFKA0EURVNY2Al2/oGIhZUfICPpjP+w
-        jaU8kISAgQg2lnb+iWBj8VqRdPsTvibCFkJWrsyGYXZ2srtv2bU4sMy8ufdC5k5GeZ6PhqS00Delhb4p
-        LQiTy4EwXQjTrTC9CNObMKXC9CVMPxZ8Yw17mMEszuDsVsv32RXgVJjuhelDmPKW4Cw0oFXyiQWYCNMq
-        INgWaE18n1iALs0LVr5PLMA6IKBl7fvEAmQBAS2Z7/OvAwz+Ewx+CQev4UyYrjp8iKA1831iAXAHPoVp
-        KUxG8RTjLDSg1egOuC34FqZ3YXoWphthuhSmY2E6FKY9C76xhj3MYBZncLbQadSCwWu4CQho2fg+sQBd
-        NqCg1xq+CtOTQ681hPl+mphxmpg7q3fi1xB7mKkKoKnhtTXP0sTkaWKmVvPBMZ/aPcyMQwE0NTxPEzO3
-        BgV/ITzzgvmuAE15tEYLP0TAfIHZUADtv+GyIkTJvCqApgF1QmzNqwJoa6gOANrWcJd5KURVAHAkTGe2
-        irVrWGFe/xJqUddQS+gh8vbjD1EXuE9xCPcp/gUEaLCCVAVQOAAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="turmasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

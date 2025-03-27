@@ -955,6 +955,7 @@
     <Folder Include="View\UserControllers\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Document\Detalhes.txt" />
     <Content Include="Document\Login.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

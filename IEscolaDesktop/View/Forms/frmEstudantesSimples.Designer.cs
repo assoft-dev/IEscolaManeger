@@ -29,12 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions16 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstudantesSimples));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions17 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions18 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+            this.panelControl20 = new DevExpress.XtraEditors.PanelControl();
+            this.txtFazes = new DevExpress.XtraEditors.LookUpEdit();
+            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.txtImagemURL = new DevExpress.XtraEditors.ButtonEdit();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
             this.txtTurmas = new DevExpress.XtraEditors.LookUpEdit();
             this.turmasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -49,15 +53,17 @@
             this.colBI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colContacto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdade = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colImagens = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.btnInscricoes = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.txtCodigo2 = new DevExpress.XtraEditors.TextEdit();
-            this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.txtEstadoEstudantes = new DevExpress.XtraEditors.LookUpEdit();
@@ -67,18 +73,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTitulo = new DevExpress.XtraEditors.LabelControl();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.txtImagemURL = new DevExpress.XtraEditors.ButtonEdit();
-            this.colImagens = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
-            this.panelControl20 = new DevExpress.XtraEditors.PanelControl();
-            this.txtFazes = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
             this.tablePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl20)).BeginInit();
+            this.panelControl20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFazes.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+            this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImagemURL.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
             this.panelControl10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTurmas.Properties)).BeginInit();
@@ -90,24 +95,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInscritos_.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estudantesInscricoesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEstadoEstudantes.Properties)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
-            this.panelControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtImagemURL.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl20)).BeginInit();
-            this.panelControl20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFazes.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -166,6 +163,77 @@
             this.tablePanel2.Size = new System.Drawing.Size(555, 595);
             this.tablePanel2.TabIndex = 2;
             this.tablePanel2.UseSkinIndents = true;
+            // 
+            // panelControl20
+            // 
+            this.panelControl20.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.panelControl20.Appearance.Options.UseBackColor = true;
+            this.panelControl20.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tablePanel2.SetColumn(this.panelControl20, 0);
+            this.panelControl20.Controls.Add(this.txtFazes);
+            this.panelControl20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl20.Location = new System.Drawing.Point(14, 527);
+            this.panelControl20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelControl20.Name = "panelControl20";
+            this.panelControl20.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.tablePanel2.SetRow(this.panelControl20, 10);
+            this.panelControl20.Size = new System.Drawing.Size(527, 55);
+            this.panelControl20.TabIndex = 15;
+            // 
+            // txtFazes
+            // 
+            this.txtFazes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFazes.Location = new System.Drawing.Point(0, 0);
+            this.txtFazes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFazes.Name = "txtFazes";
+            this.txtFazes.Properties.AutoHeight = false;
+            this.txtFazes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtFazes.Properties.DropDownRows = 10;
+            this.txtFazes.Properties.NullText = "[Selecione a Faze por favor]";
+            this.txtFazes.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            this.txtFazes.Size = new System.Drawing.Size(522, 50);
+            this.txtFazes.TabIndex = 8;
+            // 
+            // panelControl5
+            // 
+            this.panelControl5.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.panelControl5.Appearance.Options.UseBackColor = true;
+            this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tablePanel2.SetColumn(this.panelControl5, 1);
+            this.panelControl5.Controls.Add(this.txtImagemURL);
+            this.panelControl5.Controls.Add(this.pictureEdit1);
+            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl5.Location = new System.Drawing.Point(13, 12);
+            this.panelControl5.Name = "panelControl5";
+            this.tablePanel2.SetRow(this.panelControl5, 0);
+            this.panelControl5.Size = new System.Drawing.Size(529, 131);
+            this.panelControl5.TabIndex = 20;
+            // 
+            // txtImagemURL
+            // 
+            this.txtImagemURL.Location = new System.Drawing.Point(18, 95);
+            this.txtImagemURL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtImagemURL.Name = "txtImagemURL";
+            this.txtImagemURL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtImagemURL.Size = new System.Drawing.Size(176, 22);
+            this.txtImagemURL.TabIndex = 20;
+            this.txtImagemURL.Visible = false;
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureEdit1.Location = new System.Drawing.Point(390, 3);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit1.Properties.NullText = "Selecione uma Imagem";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.pictureEdit1.Size = new System.Drawing.Size(133, 124);
+            this.pictureEdit1.TabIndex = 0;
             // 
             // panelControl10
             // 
@@ -329,6 +397,20 @@
             this.colIdade.VisibleIndex = 4;
             this.colIdade.Width = 116;
             // 
+            // colImagens
+            // 
+            this.colImagens.ColumnEdit = this.repositoryItemPictureEdit1;
+            this.colImagens.FieldName = "Imagens";
+            this.colImagens.Name = "colImagens";
+            this.colImagens.Visible = true;
+            this.colImagens.VisibleIndex = 5;
+            // 
+            // repositoryItemPictureEdit1
+            // 
+            this.repositoryItemPictureEdit1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            // 
             // btnInscricoes
             // 
             this.btnInscricoes.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -372,7 +454,6 @@
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl3, 0);
             this.panelControl3.Controls.Add(this.txtCodigo2);
-            this.panelControl3.Controls.Add(this.txtCodigo);
             this.panelControl3.Controls.Add(this.panel3);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(14, 176);
@@ -384,31 +465,17 @@
             // 
             // txtCodigo2
             // 
-            this.txtCodigo2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtCodigo2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCodigo2.EditValue = "";
             this.txtCodigo2.Enabled = false;
-            this.txtCodigo2.Location = new System.Drawing.Point(256, 0);
+            this.txtCodigo2.Location = new System.Drawing.Point(0, 0);
             this.txtCodigo2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCodigo2.Name = "txtCodigo2";
             this.txtCodigo2.Properties.AutoHeight = false;
             this.txtCodigo2.Properties.NullValuePrompt = "Codigo Interno";
             this.txtCodigo2.Properties.ReadOnly = true;
-            this.txtCodigo2.Size = new System.Drawing.Size(271, 47);
+            this.txtCodigo2.Size = new System.Drawing.Size(527, 47);
             this.txtCodigo2.TabIndex = 9;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtCodigo.EditValue = "";
-            this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(0, 0);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Properties.AutoHeight = false;
-            this.txtCodigo.Properties.NullValuePrompt = "Codigo Interno";
-            this.txtCodigo.Properties.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(250, 47);
-            this.txtCodigo.TabIndex = 8;
             // 
             // panel3
             // 
@@ -443,6 +510,19 @@
             this.labelControl6.Size = new System.Drawing.Size(45, 13);
             this.labelControl6.TabIndex = 16;
             this.labelControl6.Text = "* Turmas";
+            // 
+            // labelControl32
+            // 
+            this.labelControl32.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl32.Appearance.Options.UseFont = true;
+            this.tablePanel2.SetColumn(this.labelControl32, 0);
+            this.labelControl32.Location = new System.Drawing.Point(14, 505);
+            this.labelControl32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl32.Name = "labelControl32";
+            this.tablePanel2.SetRow(this.labelControl32, 9);
+            this.labelControl32.Size = new System.Drawing.Size(36, 13);
+            this.labelControl32.TabIndex = 16;
+            this.labelControl32.Text = "* Fazes";
             // 
             // labelControl1
             // 
@@ -494,7 +574,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.06509F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.93491F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -551,14 +631,12 @@
             // 
             // windowsUIButtonPanel1
             // 
-            windowsUIButtonImageOptions16.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions16.Image")));
-            windowsUIButtonImageOptions17.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions17.Image")));
-            windowsUIButtonImageOptions18.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions18.Image")));
+            windowsUIButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions3.Image")));
+            windowsUIButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions4.Image")));
             this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions16, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions17, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions18, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUISeparator()});
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -569,104 +647,6 @@
             this.windowsUIButtonPanel1.Size = new System.Drawing.Size(555, 84);
             this.windowsUIButtonPanel1.TabIndex = 8;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
-            // 
-            // panelControl5
-            // 
-            this.panelControl5.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panelControl5.Appearance.Options.UseBackColor = true;
-            this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.tablePanel2.SetColumn(this.panelControl5, 1);
-            this.panelControl5.Controls.Add(this.txtImagemURL);
-            this.panelControl5.Controls.Add(this.pictureEdit1);
-            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl5.Location = new System.Drawing.Point(13, 12);
-            this.panelControl5.Name = "panelControl5";
-            this.tablePanel2.SetRow(this.panelControl5, 0);
-            this.panelControl5.Size = new System.Drawing.Size(529, 131);
-            this.panelControl5.TabIndex = 20;
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureEdit1.Location = new System.Drawing.Point(390, 3);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.NullText = "Selecione uma Imagem";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.pictureEdit1.Size = new System.Drawing.Size(133, 124);
-            this.pictureEdit1.TabIndex = 0;
-            // 
-            // txtImagemURL
-            // 
-            this.txtImagemURL.Location = new System.Drawing.Point(18, 95);
-            this.txtImagemURL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtImagemURL.Name = "txtImagemURL";
-            this.txtImagemURL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtImagemURL.Size = new System.Drawing.Size(176, 22);
-            this.txtImagemURL.TabIndex = 20;
-            this.txtImagemURL.Visible = false;
-            // 
-            // colImagens
-            // 
-            this.colImagens.ColumnEdit = this.repositoryItemPictureEdit1;
-            this.colImagens.FieldName = "Imagens";
-            this.colImagens.Name = "colImagens";
-            this.colImagens.Visible = true;
-            this.colImagens.VisibleIndex = 5;
-            // 
-            // repositoryItemPictureEdit1
-            // 
-            this.repositoryItemPictureEdit1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
-            this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            // 
-            // panelControl20
-            // 
-            this.panelControl20.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panelControl20.Appearance.Options.UseBackColor = true;
-            this.panelControl20.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.tablePanel2.SetColumn(this.panelControl20, 0);
-            this.panelControl20.Controls.Add(this.txtFazes);
-            this.panelControl20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl20.Location = new System.Drawing.Point(14, 527);
-            this.panelControl20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelControl20.Name = "panelControl20";
-            this.panelControl20.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.tablePanel2.SetRow(this.panelControl20, 10);
-            this.panelControl20.Size = new System.Drawing.Size(527, 55);
-            this.panelControl20.TabIndex = 15;
-            // 
-            // txtFazes
-            // 
-            this.txtFazes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFazes.Location = new System.Drawing.Point(0, 0);
-            this.txtFazes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtFazes.Name = "txtFazes";
-            this.txtFazes.Properties.AutoHeight = false;
-            this.txtFazes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtFazes.Properties.DropDownRows = 10;
-            this.txtFazes.Properties.NullText = "[Selecione a Faze por favor]";
-            this.txtFazes.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtFazes.Size = new System.Drawing.Size(522, 50);
-            this.txtFazes.TabIndex = 8;
-            // 
-            // labelControl32
-            // 
-            this.labelControl32.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl32.Appearance.Options.UseFont = true;
-            this.tablePanel2.SetColumn(this.labelControl32, 0);
-            this.labelControl32.Location = new System.Drawing.Point(14, 505);
-            this.labelControl32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl32.Name = "labelControl32";
-            this.tablePanel2.SetRow(this.labelControl32, 9);
-            this.labelControl32.Size = new System.Drawing.Size(36, 13);
-            this.labelControl32.TabIndex = 16;
-            this.labelControl32.Text = "* Fazes";
             // 
             // frmEstudantesSimples
             // 
@@ -681,6 +661,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
             this.tablePanel2.ResumeLayout(false);
             this.tablePanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl20)).EndInit();
+            this.panelControl20.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtFazes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+            this.panelControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtImagemURL.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
             this.panelControl10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtTurmas.Properties)).EndInit();
@@ -692,10 +679,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInscritos_.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estudantesInscricoesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -703,14 +690,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
-            this.panelControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtImagemURL.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl20)).EndInit();
-            this.panelControl20.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtFazes.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -729,7 +708,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.TextEdit txtCodigo;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private DevExpress.XtraEditors.PanelControl panelControl4;

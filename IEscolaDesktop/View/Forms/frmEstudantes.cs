@@ -111,7 +111,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmEstudantesInscritosAdd(null));
+                   new frmEstudantesAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();

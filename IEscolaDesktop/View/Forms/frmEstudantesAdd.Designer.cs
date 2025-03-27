@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstudantesAdd));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -128,23 +128,20 @@
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.navigationPage3 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tablePanel4 = new DevExpress.Utils.Layout.TablePanel();
+            this.txtCertificadoAnexo = new DevExpress.XtraEditors.CheckEdit();
+            this.txtFichaInscricao = new DevExpress.XtraEditors.CheckEdit();
+            this.txtIsActived = new DevExpress.XtraEditors.CheckEdit();
             this.panelControl16 = new DevExpress.XtraEditors.PanelControl();
             this.txtEscolaOrigem = new DevExpress.XtraEditors.TextEdit();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
-            this.txtFichaInscricao = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl20 = new DevExpress.XtraEditors.PanelControl();
-            this.txtFazes = new DevExpress.XtraEditors.LookUpEdit();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl21 = new DevExpress.XtraEditors.PanelControl();
             this.txtProvinciaOrigem = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl22 = new DevExpress.XtraEditors.PanelControl();
             this.txtEscolaMedia = new DevExpress.XtraEditors.SpinEdit();
-            this.txtIsActived = new DevExpress.XtraEditors.CheckEdit();
             this.panelControl34 = new DevExpress.XtraEditors.PanelControl();
             this.txtMedia = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
@@ -153,7 +150,6 @@
             this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
-            this.txtCertificadoAnexo = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl38 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl18 = new DevExpress.XtraEditors.PanelControl();
@@ -268,20 +264,18 @@
             this.navigationPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel4)).BeginInit();
             this.tablePanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCertificadoAnexo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFichaInscricao.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIsActived.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).BeginInit();
             this.panelControl16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEscolaOrigem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFichaInscricao.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl20)).BeginInit();
-            this.panelControl20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFazes.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).BeginInit();
             this.panelControl21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaOrigem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl22)).BeginInit();
             this.panelControl22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEscolaMedia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIsActived.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl34)).BeginInit();
             this.panelControl34.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMedia.Properties)).BeginInit();
@@ -289,7 +283,6 @@
             this.panelControl36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDataFicha.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDataFicha.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCertificadoAnexo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl18)).BeginInit();
             this.panelControl18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtGrauParentesco.Properties)).BeginInit();
@@ -1723,8 +1716,6 @@
             this.tablePanel4.Controls.Add(this.labelControl26);
             this.tablePanel4.Controls.Add(this.labelControl29);
             this.tablePanel4.Controls.Add(this.labelControl31);
-            this.tablePanel4.Controls.Add(this.labelControl32);
-            this.tablePanel4.Controls.Add(this.panelControl20);
             this.tablePanel4.Controls.Add(this.panelControl21);
             this.tablePanel4.Controls.Add(this.labelControl33);
             this.tablePanel4.Controls.Add(this.panelControl22);
@@ -1761,6 +1752,57 @@
             this.tablePanel4.Size = new System.Drawing.Size(679, 582);
             this.tablePanel4.TabIndex = 4;
             this.tablePanel4.UseSkinIndents = true;
+            // 
+            // txtCertificadoAnexo
+            // 
+            this.tablePanel4.SetColumn(this.txtCertificadoAnexo, 1);
+            this.txtCertificadoAnexo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCertificadoAnexo.EditValue = "";
+            this.txtCertificadoAnexo.Location = new System.Drawing.Point(343, 398);
+            this.txtCertificadoAnexo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCertificadoAnexo.Name = "txtCertificadoAnexo";
+            this.txtCertificadoAnexo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.txtCertificadoAnexo.Properties.Appearance.Options.UseBackColor = true;
+            this.txtCertificadoAnexo.Properties.AutoHeight = false;
+            this.txtCertificadoAnexo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.txtCertificadoAnexo.Properties.Caption = "Presente?";
+            this.tablePanel4.SetRow(this.txtCertificadoAnexo, 11);
+            this.txtCertificadoAnexo.Size = new System.Drawing.Size(323, 38);
+            this.txtCertificadoAnexo.TabIndex = 8;
+            // 
+            // txtFichaInscricao
+            // 
+            this.tablePanel4.SetColumn(this.txtFichaInscricao, 0);
+            this.txtFichaInscricao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFichaInscricao.EditValue = "";
+            this.txtFichaInscricao.Location = new System.Drawing.Point(14, 398);
+            this.txtFichaInscricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFichaInscricao.Name = "txtFichaInscricao";
+            this.txtFichaInscricao.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.txtFichaInscricao.Properties.Appearance.Options.UseBackColor = true;
+            this.txtFichaInscricao.Properties.AutoHeight = false;
+            this.txtFichaInscricao.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.txtFichaInscricao.Properties.Caption = "Presente?";
+            this.tablePanel4.SetRow(this.txtFichaInscricao, 11);
+            this.txtFichaInscricao.Size = new System.Drawing.Size(323, 38);
+            this.txtFichaInscricao.TabIndex = 8;
+            // 
+            // txtIsActived
+            // 
+            this.tablePanel4.SetColumn(this.txtIsActived, 0);
+            this.txtIsActived.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtIsActived.EditValue = "";
+            this.txtIsActived.Location = new System.Drawing.Point(14, 237);
+            this.txtIsActived.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIsActived.Name = "txtIsActived";
+            this.txtIsActived.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.txtIsActived.Properties.Appearance.Options.UseBackColor = true;
+            this.txtIsActived.Properties.AutoHeight = false;
+            this.txtIsActived.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.txtIsActived.Properties.Caption = "Activado";
+            this.tablePanel4.SetRow(this.txtIsActived, 7);
+            this.txtIsActived.Size = new System.Drawing.Size(323, 38);
+            this.txtIsActived.TabIndex = 8;
             // 
             // panelControl16
             // 
@@ -1816,23 +1858,6 @@
             this.labelControl26.TabIndex = 16;
             this.labelControl26.Text = "Media";
             // 
-            // txtFichaInscricao
-            // 
-            this.tablePanel4.SetColumn(this.txtFichaInscricao, 0);
-            this.txtFichaInscricao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFichaInscricao.EditValue = "";
-            this.txtFichaInscricao.Location = new System.Drawing.Point(14, 398);
-            this.txtFichaInscricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtFichaInscricao.Name = "txtFichaInscricao";
-            this.txtFichaInscricao.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.txtFichaInscricao.Properties.Appearance.Options.UseBackColor = true;
-            this.txtFichaInscricao.Properties.AutoHeight = false;
-            this.txtFichaInscricao.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.txtFichaInscricao.Properties.Caption = "Presente?";
-            this.tablePanel4.SetRow(this.txtFichaInscricao, 11);
-            this.txtFichaInscricao.Size = new System.Drawing.Size(323, 38);
-            this.txtFichaInscricao.TabIndex = 8;
-            // 
             // labelControl29
             // 
             this.labelControl29.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1858,63 +1883,6 @@
             this.labelControl31.Size = new System.Drawing.Size(32, 13);
             this.labelControl31.TabIndex = 16;
             this.labelControl31.Text = "Media";
-            // 
-            // labelControl32
-            // 
-            this.labelControl32.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl32.Appearance.Options.UseFont = true;
-            this.tablePanel4.SetColumn(this.labelControl32, 0);
-            this.labelControl32.Location = new System.Drawing.Point(14, 284);
-            this.labelControl32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl32.Name = "labelControl32";
-            this.tablePanel4.SetRow(this.labelControl32, 8);
-            this.labelControl32.Size = new System.Drawing.Size(28, 13);
-            this.labelControl32.TabIndex = 16;
-            this.labelControl32.Text = "Fazes";
-            // 
-            // panelControl20
-            // 
-            this.panelControl20.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panelControl20.Appearance.Options.UseBackColor = true;
-            this.panelControl20.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.tablePanel4.SetColumn(this.panelControl20, 0);
-            this.panelControl20.Controls.Add(this.txtFazes);
-            this.panelControl20.Controls.Add(this.simpleButton5);
-            this.panelControl20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl20.Location = new System.Drawing.Point(14, 307);
-            this.panelControl20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelControl20.Name = "panelControl20";
-            this.panelControl20.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.tablePanel4.SetRow(this.panelControl20, 9);
-            this.panelControl20.Size = new System.Drawing.Size(323, 51);
-            this.panelControl20.TabIndex = 14;
-            // 
-            // txtFazes
-            // 
-            this.txtFazes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFazes.Location = new System.Drawing.Point(0, 0);
-            this.txtFazes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtFazes.Name = "txtFazes";
-            this.txtFazes.Properties.AutoHeight = false;
-            this.txtFazes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtFazes.Properties.DropDownRows = 10;
-            this.txtFazes.Properties.NullText = "[Selecione o local por favor]";
-            this.txtFazes.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtFazes.Size = new System.Drawing.Size(278, 46);
-            this.txtFazes.TabIndex = 8;
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
-            this.simpleButton5.Location = new System.Drawing.Point(278, 0);
-            this.simpleButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(40, 46);
-            this.simpleButton5.TabIndex = 8;
-            this.simpleButton5.Text = "Save";
             // 
             // panelControl21
             // 
@@ -1998,23 +1966,6 @@
             this.txtEscolaMedia.Size = new System.Drawing.Size(318, 42);
             this.txtEscolaMedia.TabIndex = 8;
             // 
-            // txtIsActived
-            // 
-            this.tablePanel4.SetColumn(this.txtIsActived, 0);
-            this.txtIsActived.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtIsActived.EditValue = "";
-            this.txtIsActived.Location = new System.Drawing.Point(14, 237);
-            this.txtIsActived.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtIsActived.Name = "txtIsActived";
-            this.txtIsActived.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.txtIsActived.Properties.Appearance.Options.UseBackColor = true;
-            this.txtIsActived.Properties.AutoHeight = false;
-            this.txtIsActived.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.txtIsActived.Properties.Caption = "Activado";
-            this.tablePanel4.SetRow(this.txtIsActived, 7);
-            this.txtIsActived.Size = new System.Drawing.Size(323, 38);
-            this.txtIsActived.TabIndex = 8;
-            // 
             // panelControl34
             // 
             this.panelControl34.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -2056,10 +2007,10 @@
             this.labelControl34.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl34.Appearance.Options.UseFont = true;
             this.tablePanel4.SetColumn(this.labelControl34, 1);
-            this.labelControl34.Location = new System.Drawing.Point(343, 284);
+            this.labelControl34.Location = new System.Drawing.Point(343, 120);
             this.labelControl34.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl34.Name = "labelControl34";
-            this.tablePanel4.SetRow(this.labelControl34, 8);
+            this.tablePanel4.SetRow(this.labelControl34, 3);
             this.labelControl34.Size = new System.Drawing.Size(53, 13);
             this.labelControl34.TabIndex = 16;
             this.labelControl34.Text = "Data Ficha";
@@ -2072,12 +2023,12 @@
             this.tablePanel4.SetColumn(this.panelControl36, 1);
             this.panelControl36.Controls.Add(this.txtDataFicha);
             this.panelControl36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl36.Location = new System.Drawing.Point(343, 307);
+            this.panelControl36.Location = new System.Drawing.Point(343, 139);
             this.panelControl36.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl36.Name = "panelControl36";
             this.panelControl36.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.tablePanel4.SetRow(this.panelControl36, 9);
-            this.panelControl36.Size = new System.Drawing.Size(323, 51);
+            this.tablePanel4.SetRow(this.panelControl36, 4);
+            this.panelControl36.Size = new System.Drawing.Size(323, 47);
             this.panelControl36.TabIndex = 18;
             // 
             // txtDataFicha
@@ -2098,7 +2049,7 @@
             this.txtDataFicha.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtDataFicha.Properties.MaskSettings.Set("mask", "");
             this.txtDataFicha.Properties.NullValuePrompt = "Descreva aqui a pratileira";
-            this.txtDataFicha.Size = new System.Drawing.Size(318, 46);
+            this.txtDataFicha.Size = new System.Drawing.Size(318, 42);
             this.txtDataFicha.TabIndex = 8;
             // 
             // labelControl35
@@ -2141,32 +2092,15 @@
             this.labelControl30.TabIndex = 16;
             this.labelControl30.Text = "Certificado Anexado";
             // 
-            // txtCertificadoAnexo
-            // 
-            this.tablePanel4.SetColumn(this.txtCertificadoAnexo, 1);
-            this.txtCertificadoAnexo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCertificadoAnexo.EditValue = "";
-            this.txtCertificadoAnexo.Location = new System.Drawing.Point(343, 398);
-            this.txtCertificadoAnexo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCertificadoAnexo.Name = "txtCertificadoAnexo";
-            this.txtCertificadoAnexo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.txtCertificadoAnexo.Properties.Appearance.Options.UseBackColor = true;
-            this.txtCertificadoAnexo.Properties.AutoHeight = false;
-            this.txtCertificadoAnexo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.txtCertificadoAnexo.Properties.Caption = "Presente?";
-            this.tablePanel4.SetRow(this.txtCertificadoAnexo, 11);
-            this.txtCertificadoAnexo.Size = new System.Drawing.Size(323, 38);
-            this.txtCertificadoAnexo.TabIndex = 8;
-            // 
             // labelControl18
             // 
             this.labelControl18.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl18.Appearance.Options.UseFont = true;
             this.tablePanel4.SetColumn(this.labelControl18, 0);
-            this.labelControl18.Location = new System.Drawing.Point(14, 451);
+            this.labelControl18.Location = new System.Drawing.Point(14, 284);
             this.labelControl18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl18.Name = "labelControl18";
-            this.tablePanel4.SetRow(this.labelControl18, 12);
+            this.tablePanel4.SetRow(this.labelControl18, 8);
             this.labelControl18.Size = new System.Drawing.Size(73, 13);
             this.labelControl18.TabIndex = 16;
             this.labelControl18.Text = "Encarregado...";
@@ -2176,10 +2110,10 @@
             this.labelControl38.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl38.Appearance.Options.UseFont = true;
             this.tablePanel4.SetColumn(this.labelControl38, 1);
-            this.labelControl38.Location = new System.Drawing.Point(343, 451);
+            this.labelControl38.Location = new System.Drawing.Point(343, 284);
             this.labelControl38.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl38.Name = "labelControl38";
-            this.tablePanel4.SetRow(this.labelControl38, 12);
+            this.tablePanel4.SetRow(this.labelControl38, 8);
             this.labelControl38.Size = new System.Drawing.Size(82, 13);
             this.labelControl38.TabIndex = 16;
             this.labelControl38.Text = "Grau Parentesco";
@@ -2193,12 +2127,12 @@
             this.panelControl18.Controls.Add(this.txtGrauParentesco);
             this.panelControl18.Controls.Add(this.simpleButton1);
             this.panelControl18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl18.Location = new System.Drawing.Point(343, 479);
+            this.panelControl18.Location = new System.Drawing.Point(343, 307);
             this.panelControl18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl18.Name = "panelControl18";
             this.panelControl18.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.tablePanel4.SetRow(this.panelControl18, 13);
-            this.panelControl18.Size = new System.Drawing.Size(323, 57);
+            this.tablePanel4.SetRow(this.panelControl18, 9);
+            this.panelControl18.Size = new System.Drawing.Size(323, 51);
             this.panelControl18.TabIndex = 14;
             // 
             // txtGrauParentesco
@@ -2213,7 +2147,7 @@
             this.txtGrauParentesco.Properties.DropDownRows = 10;
             this.txtGrauParentesco.Properties.NullText = "[Selecione o grau parentesco]";
             this.txtGrauParentesco.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtGrauParentesco.Size = new System.Drawing.Size(278, 52);
+            this.txtGrauParentesco.Size = new System.Drawing.Size(278, 46);
             this.txtGrauParentesco.TabIndex = 8;
             // 
             // simpleButton1
@@ -2224,7 +2158,7 @@
             this.simpleButton1.Location = new System.Drawing.Point(278, 0);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(40, 52);
+            this.simpleButton1.Size = new System.Drawing.Size(40, 46);
             this.simpleButton1.TabIndex = 8;
             this.simpleButton1.Text = "Save";
             // 
@@ -2236,12 +2170,12 @@
             this.tablePanel4.SetColumn(this.panelControl19, 0);
             this.panelControl19.Controls.Add(this.txtEncarregado);
             this.panelControl19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl19.Location = new System.Drawing.Point(14, 479);
+            this.panelControl19.Location = new System.Drawing.Point(14, 307);
             this.panelControl19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl19.Name = "panelControl19";
             this.panelControl19.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.tablePanel4.SetRow(this.panelControl19, 13);
-            this.panelControl19.Size = new System.Drawing.Size(323, 57);
+            this.tablePanel4.SetRow(this.panelControl19, 9);
+            this.panelControl19.Size = new System.Drawing.Size(323, 51);
             this.panelControl19.TabIndex = 18;
             // 
             // txtEncarregado
@@ -2253,7 +2187,7 @@
             this.txtEncarregado.Name = "txtEncarregado";
             this.txtEncarregado.Properties.AutoHeight = false;
             this.txtEncarregado.Properties.NullValuePrompt = "Escreva aqui a descrição dos Encarregados";
-            this.txtEncarregado.Size = new System.Drawing.Size(318, 52);
+            this.txtEncarregado.Size = new System.Drawing.Size(318, 46);
             this.txtEncarregado.TabIndex = 8;
             // 
             // tableLayoutPanel1
@@ -2262,7 +2196,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -2295,7 +2229,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(427, 22);
+            this.panel1.Size = new System.Drawing.Size(426, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -2319,14 +2253,14 @@
             // 
             // windowsUIButtonPanel1
             // 
-            windowsUIButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions1.SvgImage")));
-            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
-            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
+            windowsUIButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions4.SvgImage")));
+            windowsUIButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions5.SvgImage")));
+            windowsUIButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions6.SvgImage")));
             this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2453,20 +2387,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel4)).EndInit();
             this.tablePanel4.ResumeLayout(false);
             this.tablePanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCertificadoAnexo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFichaInscricao.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIsActived.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).EndInit();
             this.panelControl16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtEscolaOrigem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFichaInscricao.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl20)).EndInit();
-            this.panelControl20.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtFazes.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).EndInit();
             this.panelControl21.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaOrigem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl22)).EndInit();
             this.panelControl22.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtEscolaMedia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIsActived.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl34)).EndInit();
             this.panelControl34.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtMedia.Properties)).EndInit();
@@ -2474,7 +2406,6 @@
             this.panelControl36.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtDataFicha.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDataFicha.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCertificadoAnexo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl18)).EndInit();
             this.panelControl18.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtGrauParentesco.Properties)).EndInit();
@@ -2586,10 +2517,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl26;
         private DevExpress.XtraEditors.LabelControl labelControl29;
         private DevExpress.XtraEditors.LabelControl labelControl31;
-        private DevExpress.XtraEditors.LabelControl labelControl32;
-        private DevExpress.XtraEditors.PanelControl panelControl20;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.LookUpEdit txtFazes;
         private DevExpress.XtraEditors.PanelControl panelControl21;
         private DevExpress.XtraEditors.LabelControl labelControl33;
         private DevExpress.XtraEditors.PanelControl panelControl22;

@@ -1,5 +1,6 @@
 ﻿using ServiceStack.DataAnnotations;
 using System.Collections.Generic;
+using System.Text;
 
 namespace IEscolaEntity.Models
 {
@@ -11,6 +12,26 @@ namespace IEscolaEntity.Models
 
         [Required]
         public string Descricao { get; set; }
+
+
+        [Ignore]
+        public string Detalhes { 
+            get 
+            {
+                var deta =new StringBuilder();
+
+                if (Cursos != null) 
+                    deta.Append("[ " + Cursos.Descricao);
+
+                if (Classes != null)
+                    deta.Append(" / " + Classes.Descricao);
+
+                if (Periodos != null)
+                    deta.Append(" / " + Periodos.Descricao + " ]");
+
+                return deta.ToString();
+            }
+        }
 
 
         public int Quantidade { get; set; }
