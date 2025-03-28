@@ -514,7 +514,7 @@ namespace IEscolaDesktop.View.Forms
 
         private string localemissao = "[Selecione o local por favor]";
         private string tipodoc = "[Selecione o tipo de Doc por favor]";
-        private string provinciaOrigem = "[Selecione a provincia de onde vem por favor]";
+        //private string provinciaOrigem = "[Selecione a provincia de onde vem por favor]";
         private string nacionalidade = "[Selecione a Nacionalidade por Favor]";
         private string sexo = "[Selecione o seu Genero por favor]";
         private string estadocivil = "[Selecione o estado civil por favor]";

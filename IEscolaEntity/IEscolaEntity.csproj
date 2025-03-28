@@ -114,6 +114,7 @@
     <Compile Include="Controllers\Interfaces\IProvinciasMunicipios.cs" />
     <Compile Include="Controllers\Interfaces\ISalas.cs" />
     <Compile Include="Controllers\Interfaces\ITransationRepository.cs" />
+    <Compile Include="Controllers\Interfaces\ITrimestre.cs" />
     <Compile Include="Controllers\Interfaces\ITurmas.cs" />
     <Compile Include="Controllers\Interfaces\IUsuarios.cs" />
     <Compile Include="Controllers\Repository\Biblioteca\AutoresRepository.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Controllers\Repository\ProvinciasRepository.cs" />
     <Compile Include="Controllers\Repository\SalasRepository.cs" />
     <Compile Include="Controllers\Repository\TransationRepository.cs" />
+    <Compile Include="Controllers\Repository\TrimestreRepository.cs" />
     <Compile Include="Controllers\Repository\TurmasRepository.cs" />
     <Compile Include="Controllers\Repository\UsuariosRepository.cs" />
     <Compile Include="Models\Biblioteca\Autor.cs" />
@@ -197,6 +199,7 @@
     <Compile Include="Models\EstudantesInscricoes.cs" />
     <Compile Include="Models\Municipios.cs" />
     <Compile Include="Models\Notificacoes.cs" />
+    <Compile Include="Models\Pautas_Trimestres.cs" />
     <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\ProfessorAreaFormacao.cs" />
