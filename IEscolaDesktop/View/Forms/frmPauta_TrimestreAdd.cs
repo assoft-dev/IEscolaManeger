@@ -12,20 +12,26 @@ namespace IEscolaDesktop.View.Forms
 {
     public partial class frmPauta_TrimestreAdd : XtraUserControl
     {
-        IPeriodos DataRepository;
+        ITrimestre DataRepository;
 
         bool IsValidate = false;
 
-        public frmPauta_TrimestreAdd(Periodos usuarios = null)
+        public frmPauta_TrimestreAdd(Pautas_Trimestres usuarios = null)
         {
             InitializeComponent();
 
-            DataRepository = new PeriodosRepository();
+            DataRepository = new TrimestreRepository();
 
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
             txtDescricao.EditValueChanged += delegate { ChangeValudations(txtDescricao); };
+            txtPeriodoFim.EditValueChanged += delegate { ChangeValudations(txtPeriodoFim); };
+            txtPeriodoInicio.EditValueChanged += delegate { ChangeValudations(txtPeriodoInicio); };
+            txtTolerancia.EditValueChanged += delegate { ChangeValudations(txtTolerancia); };
             
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
+
+            txtPeriodoFim.DateTime = DateTime.Now;
+            txtPeriodoInicio.DateTime = DateTime.Now;
 
             if (usuarios != null) {
                 
@@ -33,10 +39,12 @@ namespace IEscolaDesktop.View.Forms
                 txtTitulo.Text = "[Edição]";
 
                 txtDescricao.EditValue = usuarios.Descricao;
-                txtCodigo.EditValue = usuarios.PeriodosID;
+                txtCodigo.EditValue = usuarios.TrimestreID;
 
-                txtEntrada.TimeSpan = usuarios.Hora1;
-                txtSaida.TimeSpan = usuarios.Hora2;
+                txtPeriodoInicio.DateTime = usuarios.PeriodoInicio;
+                txtPeriodoFim.DateTime = usuarios.PeriodoFim;
+
+                txtTolerancia.Value = usuarios.Tolerancia;
 
                 txtDescricao.Focus();
             }
@@ -81,7 +89,7 @@ namespace IEscolaDesktop.View.Forms
                 if (msg == DialogResult.Yes)
                 {
                     var data = int.Parse(txtCodigo.Text);
-                    var apagar = await DataRepository.Excluir(x => x.PeriodosID == data);
+                    var apagar = await DataRepository.Excluir(x => x.TrimestreID == data);
 
                     if (apagar)
                     {
@@ -104,15 +112,16 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
-                var data = new Periodos
+                var data = new Pautas_Trimestres
                 {
-                    PeriodosID = ID,
+                    TrimestreID = ID,
                     Descricao = txtDescricao.Text.Trim(),
-                    Hora1 = (TimeSpan) txtEntrada.TimeSpan,
-                    Hora2 = (TimeSpan) txtSaida.TimeSpan,
+                    PeriodoInicio = (DateTime) txtPeriodoInicio.DateTime,
+                    PeriodoFim = (DateTime) txtPeriodoFim.DateTime,
+                    Tolerancia = Convert.ToInt32(txtTolerancia.Value), 
                 };
 
-                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.PeriodosID == ID) > 0 :
+                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.TrimestreID == ID) > 0 :
                                         await DataRepository.Guardar(data, true);
 
                 if (IsValidate)
@@ -135,7 +144,7 @@ namespace IEscolaDesktop.View.Forms
             {
                 if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
                 {
-                    if (dataResult.PeriodosID != Convert.ToInt32(txtCodigo.Text))
+                    if (dataResult.TrimestreID != Convert.ToInt32(txtCodigo.Text))
                     {
                         Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
                                      MessageBoxButtons.OK,
@@ -158,6 +167,7 @@ namespace IEscolaDesktop.View.Forms
 
             txtCodigo.Text = string.Empty;
             txtDescricao.Text = string.Empty;
+            txtTolerancia.Text = string.Empty;
             txtTitulo.Text = "[Novo]";
             txtDescricao.Focus();
         }
@@ -180,18 +190,27 @@ namespace IEscolaDesktop.View.Forms
         {
             if (control != null)
             {
-                #region FirstName
+                #region Descricao
                 if (control.Name.Equals(txtDescricao.Name))
                 {
-                    if (!string.IsNullOrWhiteSpace(txtDescricao.Text))
-                    {
+                    if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
+                        !string.IsNullOrWhiteSpace(txtPeriodoInicio.Text) &&
+                        !string.IsNullOrWhiteSpace(txtPeriodoFim.Text))
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                    }
-                    else {
+                    else 
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                    }
                 }
                 #endregion
+                else
+                {
+                    if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
+                          !string.IsNullOrWhiteSpace(txtPeriodoInicio.Text) &&
+                          !string.IsNullOrWhiteSpace(txtPeriodoFim.Text) &&
+                          !string.IsNullOrWhiteSpace(txtTolerancia.Text))
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                    else
+                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                }
             }
             else
             {

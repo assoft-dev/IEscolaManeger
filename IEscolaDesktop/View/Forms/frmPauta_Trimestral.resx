@@ -147,22 +147,9 @@
         dmc+Cw==
 </value>
   </data>
-  <metadata name="periodosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>369, 21</value>
+  <metadata name="pautasTrimestresBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>352, 21</value>
   </metadata>
-  <data name="colPeriodosID.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAgdEVYdFRpdGxlAFN1Z2dlc3Rpb247SWRlYTtMYW1w
-        O0J1bGI7aoFfAAAAAVBJREFUWEfFlUFOw0AMRdvTtJwCCapynznDPwOCLrvvGboZwRWQKAeAxVDKhq4G
-        uUql9MehOJ4miydFlv39JlImo5zzaEgahb5pFOqkGDRuUgyPKYbXFMO+Qp6ldqv0N3K7CkxTDOsUQz6D
-        9EhvUYHrFMNOWdaG9MpMEQE5zVZZcg6ZObwJzrUIjFMMz0r4f5HZMedaBGZKqJUZ51oEFkqglQXnWgQ2
-        SqCVDedaBOQb50Are861CFg+vTZcAi9KoJU3zrUILJVAK0vOtQjcKYFW5pxrERj8IvJexVfeq/jIoD+j
-        +pvgRW0U/x0f+VGWMdJzMse5HoEPZSHzznOc6xF4UhYy0nMxgXtlIfPAc5zrEegE57oEAOS/4P7iAl3g
-        XJcAgC8+dY1v7i8u0AXOdQkAmAL4VE4vtZMb8CIClcQEwArArkKeJ9znFuiDRqFvfgHIuG9GktSgxQAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="MenuPrinciapl.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>215, 21</value>
   </metadata>

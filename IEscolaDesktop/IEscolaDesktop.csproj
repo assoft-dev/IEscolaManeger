@@ -96,6 +96,18 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\frmPauta_Trimestral.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPauta_Trimestral.Designer.cs">
+      <DependentUpon>frmPauta_Trimestral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmPauta_TrimestreAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmPauta_TrimestreAdd.Designer.cs">
+      <DependentUpon>frmPauta_TrimestreAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmProfessoresNotificaoesAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -640,6 +652,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\frmPauta_Trimestral.resx">
+      <DependentUpon>frmPauta_Trimestral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmPauta_TrimestreAdd.resx">
+      <DependentUpon>frmPauta_TrimestreAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmProfessoresNotificaoesAdd.resx">
       <DependentUpon>frmProfessoresNotificaoesAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -917,6 +935,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Municipios.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Notificacoes.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.Pautas_Trimestres.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Periodos.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Permissoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.ProfessorAreaFormacao.datasource" />

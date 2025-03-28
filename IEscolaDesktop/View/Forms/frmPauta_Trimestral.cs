@@ -1,31 +1,29 @@
 ﻿using DevExpress.XtraBars.Alerter;
 using DevExpress.XtraEditors;
 using IEscolaDesktop.View.Helps;
-using IEscolaDesktop.View.ReportForms;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
     public partial class frmPauta_Trimestral : XtraUserControl
     {
-        IPeriodos DataRepository;
+        ITrimestre DataRepository;
 
-        List<Periodos>  DataOriginalList;
+        List<Pautas_Trimestres>  DataOriginalList;
 
         AlertControl alert = null;
 
         public frmPauta_Trimestral()
         {
             InitializeComponent();
-            DataRepository = new PeriodosRepository();
-            DataOriginalList = new List<Periodos>();
+            DataRepository = new TrimestreRepository();
+            DataOriginalList = new List<Pautas_Trimestres>();
 
             LeituraInicial();
 
@@ -69,7 +67,7 @@ namespace IEscolaDesktop.View.Forms
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             var forms = OpenFormsDialog.ShowForm(null,
-                   new frmPeriodosAdd(null));
+                   new frmPauta_TrimestreAdd(null));
 
             if (forms == DialogResult.None || forms == DialogResult.Cancel)
                 LeituraInicial();
@@ -79,10 +77,10 @@ namespace IEscolaDesktop.View.Forms
         {
             if (gridView1.SelectedRowsCount > 0)
             {
-                var result = periodosBindingSource.Current as Periodos;
+                var result = pautasTrimestresBindingSource.Current as Pautas_Trimestres;
 
                 var forms = OpenFormsDialog.ShowForm(null,
-                    new frmPeriodosAdd(result ?? null));
+                    new frmPauta_TrimestreAdd(result ?? null));
 
                 if (forms == DialogResult.None || forms == DialogResult.Cancel)
                     LeituraInicial();
@@ -92,13 +90,13 @@ namespace IEscolaDesktop.View.Forms
         private void LeituraFilter()
         {
             var data = DataOriginalList.FindAll(x => x.Descricao.ToUpper().Contains(txtPesquisar.Text.ToUpper()));
-            periodosBindingSource.DataSource = data;
+            pautasTrimestresBindingSource.DataSource = data;
         }
 
         private async void LeituraInicial()
         {
             DataOriginalList = await DataRepository.GetAll();
-            periodosBindingSource.DataSource = DataOriginalList;
+            pautasTrimestresBindingSource.DataSource = DataOriginalList;
         }
 
         #region Contexto Menu
@@ -124,7 +122,7 @@ namespace IEscolaDesktop.View.Forms
 
                 if (msg == DialogResult.OK)
                 {
-                    var result = periodosBindingSource.Current as Periodos;
+                    var result = pautasTrimestresBindingSource.Current as Pautas_Trimestres;
                     try
                     {
                         if (result != null)
