@@ -59,6 +59,10 @@
             this.btnProfessorFormacao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnProfessorCategoria = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator11 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.btnProfessoresNotif = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnTrimestre = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnMiniPautas = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnProvinciasMunicipios = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -109,7 +113,6 @@
             this.btnUsuariosLog = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnPermissio = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator12 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
-            this.btnProfessoresNotif = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -159,7 +162,10 @@
             this.btnProfessorFormacao,
             this.btnProfessorCategoria,
             this.accordionControlSeparator11,
-            this.btnProfessoresNotif});
+            this.btnProfessoresNotif,
+            this.accordionControlElement12,
+            this.btnTrimestre,
+            this.btnMiniPautas});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement2.ImageOptions.SvgImage")));
             this.accordionControlElement2.Name = "accordionControlElement2";
@@ -179,7 +185,6 @@
             this.btnDisciplina,
             this.btnDisciplinaPrograma,
             this.btnCursoClasseDisciplina});
-            this.accordionControlElement5.Expanded = true;
             this.accordionControlElement5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement5.ImageOptions.SvgImage")));
             this.accordionControlElement5.Name = "accordionControlElement5";
             this.accordionControlElement5.Text = "Escola";
@@ -311,6 +316,33 @@
             // accordionControlSeparator11
             // 
             this.accordionControlSeparator11.Name = "accordionControlSeparator11";
+            // 
+            // btnProfessoresNotif
+            // 
+            this.btnProfessoresNotif.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnProfessoresNotif.ImageOptions.SvgImage")));
+            this.btnProfessoresNotif.Name = "btnProfessoresNotif";
+            this.btnProfessoresNotif.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnProfessoresNotif.Text = "Professores / Notif";
+            // 
+            // accordionControlElement12
+            // 
+            this.accordionControlElement12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement12.ImageOptions.SvgImage")));
+            this.accordionControlElement12.Name = "accordionControlElement12";
+            this.accordionControlElement12.Text = "Pautas";
+            // 
+            // btnTrimestre
+            // 
+            this.btnTrimestre.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTrimestre.ImageOptions.SvgImage")));
+            this.btnTrimestre.Name = "btnTrimestre";
+            this.btnTrimestre.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnTrimestre.Text = "Trimestres";
+            // 
+            // btnMiniPautas
+            // 
+            this.btnMiniPautas.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniPautas.ImageOptions.SvgImage")));
+            this.btnMiniPautas.Name = "btnMiniPautas";
+            this.btnMiniPautas.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnMiniPautas.Text = "Mini-Pautas";
             // 
             // accordionControlElement1
             // 
@@ -686,13 +718,6 @@
             // 
             this.accordionControlSeparator12.Name = "accordionControlSeparator12";
             // 
-            // btnProfessoresNotif
-            // 
-            this.btnProfessoresNotif.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement12.ImageOptions.SvgImage")));
-            this.btnProfessoresNotif.Name = "btnProfessoresNotif";
-            this.btnProfessoresNotif.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnProfessoresNotif.Text = "Professores / Notif";
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -792,5 +817,8 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator11;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator12;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnProfessoresNotif;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnTrimestre;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnMiniPautas;
     }
 }

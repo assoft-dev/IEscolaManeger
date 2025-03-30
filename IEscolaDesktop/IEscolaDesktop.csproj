@@ -96,17 +96,17 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Forms\frmPauta_Trimestral.cs">
+    <Compile Include="View\Forms\frmMiniPauta_Trimestral.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Forms\frmPauta_Trimestral.Designer.cs">
-      <DependentUpon>frmPauta_Trimestral.cs</DependentUpon>
+    <Compile Include="View\Forms\frmMiniPauta_Trimestral.Designer.cs">
+      <DependentUpon>frmMiniPauta_Trimestral.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Forms\frmPauta_TrimestreAdd.cs">
+    <Compile Include="View\Forms\frmMiniPauta_TrimestreAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Forms\frmPauta_TrimestreAdd.Designer.cs">
-      <DependentUpon>frmPauta_TrimestreAdd.cs</DependentUpon>
+    <Compile Include="View\Forms\frmMiniPauta_TrimestreAdd.Designer.cs">
+      <DependentUpon>frmMiniPauta_TrimestreAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\frmProfessoresNotificaoesAdd.cs">
       <SubType>UserControl</SubType>
@@ -414,6 +414,18 @@
     <Compile Include="View\Forms\frmCursoClasseDisciplinaAdd.Designer.cs">
       <DependentUpon>frmCursoClasseDisciplinaAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Forms\frmMiniPautas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmMiniPautas.Designer.cs">
+      <DependentUpon>frmMiniPautas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\frmMiniPautasAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\frmMiniPautasAdd.Designer.cs">
+      <DependentUpon>frmMiniPautasAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\frmTurmasAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -652,11 +664,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Forms\frmPauta_Trimestral.resx">
-      <DependentUpon>frmPauta_Trimestral.cs</DependentUpon>
+    <EmbeddedResource Include="View\Forms\frmMiniPauta_Trimestral.resx">
+      <DependentUpon>frmMiniPauta_Trimestral.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Forms\frmPauta_TrimestreAdd.resx">
-      <DependentUpon>frmPauta_TrimestreAdd.cs</DependentUpon>
+    <EmbeddedResource Include="View\Forms\frmMiniPauta_TrimestreAdd.resx">
+      <DependentUpon>frmMiniPauta_TrimestreAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmProfessoresNotificaoesAdd.resx">
       <DependentUpon>frmProfessoresNotificaoesAdd.cs</DependentUpon>
@@ -811,6 +823,12 @@
     <EmbeddedResource Include="View\Forms\frmCursoClasseDisciplinaAdd.resx">
       <DependentUpon>frmCursoClasseDisciplinaAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmMiniPautas.resx">
+      <DependentUpon>frmMiniPautas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\frmMiniPautasAdd.resx">
+      <DependentUpon>frmMiniPautasAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\frmTurmasAdd.resx">
       <DependentUpon>frmTurmasAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -933,6 +951,7 @@
     <None Include="Properties\DataSources\IEscolaEntity.Models.Estudantes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.EstudantesInscricoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Grupos.datasource" />
+    <None Include="Properties\DataSources\IEscolaEntity.Models.MiniPautas.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Municipios.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Notificacoes.datasource" />
     <None Include="Properties\DataSources\IEscolaEntity.Models.Pautas_Trimestres.datasource" />

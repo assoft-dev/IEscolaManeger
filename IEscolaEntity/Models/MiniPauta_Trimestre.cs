@@ -1,11 +1,12 @@
-﻿using ServiceStack.DataAnnotations;
+﻿using IEscolaEntity.Models.Helps;
+using ServiceStack.DataAnnotations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IEscolaEntity.Models
 {
-    public class Pautas_Trimestres
+    public class MiniPauta_Trimestre
     {
         [AutoIncrement, Display(Name = "Código")]
         public int TrimestreID { get; set; }
@@ -22,8 +23,10 @@ namespace IEscolaEntity.Models
         [Display(Name = "Tolerância")]
         public int Tolerancia { get; set; }
 
-        [Ignore]
-        public bool Estado
+        [Display(Name = "Ano Academico")]
+        public Anos Anos { get; set; }
+
+        [Ignore] public bool Estado
         {
             get
             {
@@ -33,6 +36,6 @@ namespace IEscolaEntity.Models
             }
         }
 
-        [Reference] public List<Pautas_Mini> pautas_Minis { get; set; }
+        [Reference] public List<MiniPautas> pautas_Minis { get; set; }
     }
 }

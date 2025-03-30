@@ -4,19 +4,19 @@ using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
+using IEscolaEntity.Models.Helps;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IEscolaDesktop.View.Forms
 {
-    public partial class frmPauta_TrimestreAdd : XtraUserControl
+    public partial class frmMiniPauta_TrimestreAdd : XtraUserControl
     {
         ITrimestre DataRepository;
-
         bool IsValidate = false;
 
-        public frmPauta_TrimestreAdd(Pautas_Trimestres usuarios = null)
+        public frmMiniPauta_TrimestreAdd(MiniPauta_Trimestre usuarios = null)
         {
             InitializeComponent();
 
@@ -33,6 +33,8 @@ namespace IEscolaDesktop.View.Forms
             txtPeriodoFim.DateTime = DateTime.Now;
             txtPeriodoInicio.DateTime = DateTime.Now;
 
+            txtAno.Properties.DataSource = Enum.GetValues(typeof(Anos));
+
             if (usuarios != null) {
                 
                 //Inicializar o Forms
@@ -43,6 +45,7 @@ namespace IEscolaDesktop.View.Forms
 
                 txtPeriodoInicio.DateTime = usuarios.PeriodoInicio;
                 txtPeriodoFim.DateTime = usuarios.PeriodoFim;
+                txtAno.EditValue = usuarios.Anos;
 
                 txtTolerancia.Value = usuarios.Tolerancia;
 
@@ -53,6 +56,10 @@ namespace IEscolaDesktop.View.Forms
                 windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                 windowsUIButtonPanel1.Buttons[3].Properties.Enabled = false;
             }
+
+            txtAno.Properties.NullText = ano;
+
+
         }
 
         private void WindowsUIButtonPanel1_ButtonClick(object sender, ButtonEventArgs e)
@@ -112,13 +119,14 @@ namespace IEscolaDesktop.View.Forms
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
-                var data = new Pautas_Trimestres
+                var data = new MiniPauta_Trimestre
                 {
                     TrimestreID = ID,
                     Descricao = txtDescricao.Text.Trim(),
                     PeriodoInicio = (DateTime) txtPeriodoInicio.DateTime,
                     PeriodoFim = (DateTime) txtPeriodoFim.DateTime,
                     Tolerancia = Convert.ToInt32(txtTolerancia.Value), 
+                    Anos = (Anos) txtAno.EditValue,
                 };
 
                 IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.TrimestreID == ID) > 0 :
@@ -186,6 +194,7 @@ namespace IEscolaDesktop.View.Forms
             }
         }
 
+        private string ano = "Seleciona o ano por favor";
         private void ChangeValudations(Control control)
         {
             if (control != null)
@@ -195,7 +204,8 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
                         !string.IsNullOrWhiteSpace(txtPeriodoInicio.Text) &&
-                        !string.IsNullOrWhiteSpace(txtPeriodoFim.Text))
+                        !string.IsNullOrWhiteSpace(txtPeriodoFim.Text) &&
+                        !(string.IsNullOrWhiteSpace(txtAno.Text) && txtAno.Text == ano))
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                     else 
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -206,7 +216,8 @@ namespace IEscolaDesktop.View.Forms
                     if (!string.IsNullOrWhiteSpace(txtDescricao.Text) &&
                           !string.IsNullOrWhiteSpace(txtPeriodoInicio.Text) &&
                           !string.IsNullOrWhiteSpace(txtPeriodoFim.Text) &&
-                          !string.IsNullOrWhiteSpace(txtTolerancia.Text))
+                          !string.IsNullOrWhiteSpace(txtTolerancia.Text) &&
+                          !(string.IsNullOrWhiteSpace(txtAno.Text) && txtAno.Text == ano))
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                     else
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;

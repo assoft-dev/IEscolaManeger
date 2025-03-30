@@ -266,7 +266,8 @@ namespace IEscolaEntity.Controllers.Helps
             DbConection.CreateTableIfNotExists<EntidadeConvenios>();
             DbConection.CreateTableIfNotExists<Notificacoes>();
 
-            DbConection.CreateTableIfNotExists<Pautas_Trimestres>();
+            DbConection.CreateTableIfNotExists<MiniPauta_Trimestre>();
+            DbConection.CreateTableIfNotExists<MiniPautas>();
         }
 
         public void UPDATETABLE()
@@ -314,7 +315,8 @@ namespace IEscolaEntity.Controllers.Helps
             DataColunsAsync<EntidadeConvenios>.AsyncColuns(DbConection);
             DataColunsAsync<Notificacoes>.AsyncColuns(DbConection);
 
-            DataColunsAsync<Pautas_Trimestres>.AsyncColuns(DbConection);
+            DataColunsAsync<MiniPauta_Trimestre>.AsyncColuns(DbConection);
+            DataColunsAsync<MiniPautas>.AsyncColuns(DbConection);
         }
     }
 }

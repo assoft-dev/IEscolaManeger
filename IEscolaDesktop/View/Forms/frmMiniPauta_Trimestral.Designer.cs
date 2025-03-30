@@ -1,6 +1,6 @@
 ﻿namespace IEscolaDesktop.View.Forms
 {
-    partial class frmPauta_Trimestral
+    partial class frmMiniPauta_Trimestral
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPauta_Trimestral));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMiniPauta_Trimestral));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -42,6 +42,12 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.pautasTrimestresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colTrimestreID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescricao = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPeriodoInicio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPeriodoFim = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTolerancia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.MenuPrinciapl = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAtualizar = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,12 +56,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
-            this.colTrimestreID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDescricao = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPeriodoInicio = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPeriodoFim = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTolerancia = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAnos = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -149,7 +150,7 @@
             // 
             // pautasTrimestresBindingSource
             // 
-            this.pautasTrimestresBindingSource.DataSource = typeof(IEscolaEntity.Models.Pautas_Trimestres);
+            this.pautasTrimestresBindingSource.DataSource = typeof(IEscolaEntity.Models.MiniPauta_Trimestre);
             // 
             // gridView1
             // 
@@ -159,76 +160,18 @@
             this.colPeriodoInicio,
             this.colPeriodoFim,
             this.colTolerancia,
-            this.colEstado});
+            this.colEstado,
+            this.colAnos});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupCount = 1;
             this.gridView1.GroupPanelText = "Pesquise Aqui";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // repositoryItemCheckEdit1
-            // 
-            this.repositoryItemCheckEdit1.AutoHeight = false;
-            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
-            // 
-            // MenuPrinciapl
-            // 
-            this.MenuPrinciapl.BackColor = System.Drawing.SystemColors.Control;
-            this.MenuPrinciapl.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.MenuPrinciapl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAtualizar,
-            this.toolStripSeparator3,
-            this.btnApagar,
-            this.toolStripSeparator2,
-            this.btnRelatorios,
-            this.btnReportdatabase});
-            this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(252, 168);
-            // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
-            this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(251, 38);
-            this.btnAtualizar.Text = "Editar";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(248, 6);
-            // 
-            // btnApagar
-            // 
-            this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
-            this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(251, 38);
-            this.btnApagar.Text = "Apagar";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(248, 6);
-            // 
-            // btnRelatorios
-            // 
-            this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
-            this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(251, 38);
-            this.btnRelatorios.Text = "Relatórios";
-            // 
-            // btnReportdatabase
-            // 
-            this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
-            this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(251, 38);
-            this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colAnos, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colTrimestreID
             // 
@@ -273,13 +216,81 @@
             this.colEstado.Visible = true;
             this.colEstado.VisibleIndex = 5;
             // 
-            // frmPauta_Trimestral
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
+            // MenuPrinciapl
+            // 
+            this.MenuPrinciapl.BackColor = System.Drawing.SystemColors.Control;
+            this.MenuPrinciapl.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MenuPrinciapl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAtualizar,
+            this.toolStripSeparator3,
+            this.btnApagar,
+            this.toolStripSeparator2,
+            this.btnRelatorios,
+            this.btnReportdatabase});
+            this.MenuPrinciapl.Name = "contextMenuStrip1";
+            this.MenuPrinciapl.Size = new System.Drawing.Size(230, 168);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
+            this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(229, 38);
+            this.btnAtualizar.Text = "Editar";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
+            // 
+            // btnApagar
+            // 
+            this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
+            this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnApagar.Name = "btnApagar";
+            this.btnApagar.Size = new System.Drawing.Size(229, 38);
+            this.btnApagar.Text = "Apagar";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(226, 6);
+            // 
+            // btnRelatorios
+            // 
+            this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
+            this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnRelatorios.Name = "btnRelatorios";
+            this.btnRelatorios.Size = new System.Drawing.Size(229, 38);
+            this.btnRelatorios.Text = "Relatórios";
+            // 
+            // btnReportdatabase
+            // 
+            this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
+            this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnReportdatabase.Name = "btnReportdatabase";
+            this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
+            this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
+            // 
+            // colAnos
+            // 
+            this.colAnos.FieldName = "Anos";
+            this.colAnos.Name = "colAnos";
+            this.colAnos.Visible = true;
+            this.colAnos.VisibleIndex = 6;
+            // 
+            // frmMiniPauta_Trimestral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tablePanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmPauta_Trimestral";
+            this.Name = "frmMiniPauta_Trimestral";
             this.Size = new System.Drawing.Size(575, 425);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
@@ -317,5 +328,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPeriodoFim;
         private DevExpress.XtraGrid.Columns.GridColumn colTolerancia;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
+        private DevExpress.XtraGrid.Columns.GridColumn colAnos;
     }
 }

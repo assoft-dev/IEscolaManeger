@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Repository
 {
-    public class TrimestreRepository: GenericRepository<Pautas_Trimestres>, ITrimestre
+    public class TrimestreRepository: GenericRepository<MiniPauta_Trimestre>, ITrimestre
     {
 
     }

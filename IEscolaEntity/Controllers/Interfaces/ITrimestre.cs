@@ -2,7 +2,7 @@
 
 namespace IEscolaEntity.Controllers.Interfaces
 {
-    public interface ITrimestre: IGeneric<Pautas_Trimestres>, ITransationRepository
+    public interface ITrimestre: IGeneric<MiniPauta_Trimestre>, ITransationRepository
     {
 
     }

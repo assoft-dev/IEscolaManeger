@@ -38,6 +38,9 @@
             btnEscolaConvenio.Click += delegate { OpenForms(new frmEscolaConvenio()); };
             btnProfessoresNotif.Click += delegate { OpenForms(new frmProfessoresNotificacoes()); };
 
+            btnTrimestre.Click += delegate { OpenForms(new frmMiniPauta_Trimestral()); };
+            btnMiniPautas.Click += delegate { OpenForms(new frmMiniPautas()); };
+
 
             // Biblioteca
             btnCategoria_Biblioteca.Click += delegate { OpenForms(new frmBiblioteca_Categorias()); };
@@ -227,6 +230,20 @@
                     else if (control.Name.Equals(typeof(frmEscolaConvenio).Name))
                     {
                         this.Text = "Escola/Convénio - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+
+                    // Escola / Convenio
+                    else if (control.Name.Equals(typeof(frmMiniPauta_Trimestral).Name))
+                    {
+                        this.Text = "Trimestres - [Aberto]";
+                        new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
+                    }
+
+                    // Escola / Convenio
+                    else if (control.Name.Equals(typeof(frmMiniPautas).Name))
+                    {
+                        this.Text = "Mini-Pautas - [Aberto]";
                         new GlobalOpenUserControl(fluentDesignFormContainer1, control, null);
                     }
 

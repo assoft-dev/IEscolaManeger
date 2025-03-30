@@ -2,7 +2,7 @@
 
 namespace IEscolaEntity.Models
 {
-    public class Pautas_Mini
+    public class MiniPautas
     {
         [AutoIncrement]
         public int PautasID { get; set; }
@@ -20,9 +20,9 @@ namespace IEscolaEntity.Models
         [Reference] public Turmas Turmas { get; set; }
 
 
-        [ForeignKey(typeof(Pautas_Trimestres))]
+        [ForeignKey(typeof(MiniPauta_Trimestre))]
         public int Pautas_TrimestresID { get; set; }
-        [Reference] public Pautas_Trimestres Pautas_Trimestres { get; set; }
+        [Reference] public MiniPauta_Trimestre Pautas_Trimestres { get; set; }
 
 
         [ForeignKey(typeof(Estudantes))]

@@ -137,6 +137,7 @@
     <Compile Include="Controllers\Repository\GenericRepository.cs" />
     <Compile Include="Controllers\Repository\GruposRepository.cs" />
     <Compile Include="Controllers\Repository\LogsRepository.cs" />
+    <Compile Include="Controllers\Repository\MiniPautaRepository.cs" />
     <Compile Include="Controllers\Repository\MunicipiosRepository.cs" />
     <Compile Include="Controllers\Repository\NotificacoesRepository.cs" />
     <Compile Include="Controllers\Repository\PeriodosRepository.cs" />
@@ -200,8 +201,8 @@
     <Compile Include="Models\EstudantesInscricoes.cs" />
     <Compile Include="Models\Municipios.cs" />
     <Compile Include="Models\Notificacoes.cs" />
-    <Compile Include="Models\Pautas_Mini.cs" />
-    <Compile Include="Models\Pautas_Trimestres.cs" />
+    <Compile Include="Models\MiniPautas.cs" />
+    <Compile Include="Models\MiniPauta_Trimestre.cs" />
     <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\ProfessorAreaFormacao.cs" />
