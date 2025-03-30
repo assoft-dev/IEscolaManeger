@@ -56,5 +56,7 @@ namespace IEscolaEntity.Models
                 return null;            
             }
         }
+
+        [Reference] public List<Pautas_Mini> pautas_Minis { get; set; }
     }
 }

@@ -59,5 +59,7 @@ namespace IEscolaEntity.Models
         [Reference] public Periodos Periodos { get; set; }
 
         [Reference] public List<Estudantes> Estudantes { get; set; }
+
+        [Reference] public List<Pautas_Mini> pautas_Minis { get; set; }
     }
 }

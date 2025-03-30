@@ -1,4 +1,5 @@
 ﻿using ServiceStack.DataAnnotations;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IEscolaEntity.Models
@@ -15,5 +16,8 @@ namespace IEscolaEntity.Models
         [ForeignKey(typeof(CursoClasseDisciplina)), Display(Name = "Curso=>Classe->Disciplina")]
         public int CursoClasseDisciplinaID { get; set; }
         [Reference] public CursoClasseDisciplina CursoClasseDisciplina { get; set; }
+
+
+        [Reference] public List<Pautas_Mini> pautas_Minis { get; set; }
     }
 }

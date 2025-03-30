@@ -1,5 +1,6 @@
 ﻿using ServiceStack.DataAnnotations;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IEscolaEntity.Models
@@ -31,5 +32,7 @@ namespace IEscolaEntity.Models
                 return false;
             }
         }
+
+        [Reference] public List<Pautas_Mini> pautas_Minis { get; set; }
     }
 }

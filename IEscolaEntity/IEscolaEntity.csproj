@@ -101,6 +101,7 @@
     <Compile Include="Controllers\Interfaces\Ilogs.cs" />
     <Compile Include="Controllers\Interfaces\IMunicipios.cs" />
     <Compile Include="Controllers\Interfaces\INotificacoes.cs" />
+    <Compile Include="Controllers\Interfaces\IPautas_Mini.cs" />
     <Compile Include="Controllers\Interfaces\IPeriodos.cs" />
     <Compile Include="Controllers\Interfaces\IPermissions.cs" />
     <Compile Include="Controllers\Interfaces\IProfessores.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Models\EstudantesInscricoes.cs" />
     <Compile Include="Models\Municipios.cs" />
     <Compile Include="Models\Notificacoes.cs" />
+    <Compile Include="Models\Pautas_Mini.cs" />
     <Compile Include="Models\Pautas_Trimestres.cs" />
     <Compile Include="Models\Periodos.cs" />
     <Compile Include="Models\Permission.cs" />
