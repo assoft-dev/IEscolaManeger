@@ -35,6 +35,7 @@ namespace IEscolaDesktop.View.Forms
             gridControl1.DoubleClick += GridControl1_DoubleClick;
 
             // Menu de Contexto
+
             #region Menu Populat
             MenuPrinciapl.Opening += ContextMenuStrip1_Opening;
             gridControl1.ContextMenuStrip = MenuPrinciapl;
@@ -97,7 +98,7 @@ namespace IEscolaDesktop.View.Forms
 
         private async void LeituraInicial()
         {
-            DataOriginalList = await DataRepository.GetAll();
+            DataOriginalList = await DataRepository.GetAllinclud();
             professoresDisciplinasBindingSource.DataSource = DataOriginalList;
 
             if (DataOriginalList.Count > 0)

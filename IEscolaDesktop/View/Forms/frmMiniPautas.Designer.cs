@@ -45,17 +45,25 @@
             this.miniPautasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colPautasID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEstudantesID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPautas_TrimestresID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNPP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNPT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDivid1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAC1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNPT1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNPP1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDivid2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMT1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAC2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNPP2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMT2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNPT2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDivid3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMFD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOBS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTurmasID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPautas_TrimestresID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPautas_Trimestres = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEstudantesID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colProfessoresCursosID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.MenuPrinciapl = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAtualizar = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +72,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
+            this.colTurmasID = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -189,17 +198,26 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPautasID,
+            this.colEstudantesID,
+            this.colPautas_TrimestresID,
             this.colMAC,
             this.colNPP,
             this.colNPT,
             this.colMT,
+            this.colDivid1,
+            this.colMAC1,
+            this.colNPT1,
+            this.colNPP1,
+            this.colDivid2,
+            this.colMT1,
+            this.colMAC2,
+            this.colNPP2,
+            this.colMT2,
+            this.colNPT2,
+            this.colDivid3,
             this.colMFD,
             this.colOBS,
-            this.colTurmasID,
-            this.colPautas_TrimestresID,
-            this.colPautas_Trimestres,
-            this.colEstudantesID,
-            this.colProfessoresCursosID});
+            this.colTurmasID});
             this.gridView1.DetailHeight = 225;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 1;
@@ -211,7 +229,8 @@
             this.gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colPautas_TrimestresID, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colPautas_TrimestresID, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colEstudantesID, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colPautasID
             // 
@@ -219,55 +238,14 @@
             this.colPautasID.FieldName = "PautasID";
             this.colPautasID.Name = "colPautasID";
             // 
-            // colMAC
+            // colEstudantesID
             // 
-            this.colMAC.FieldName = "MAC";
-            this.colMAC.Name = "colMAC";
-            this.colMAC.Visible = true;
-            this.colMAC.VisibleIndex = 1;
-            // 
-            // colNPP
-            // 
-            this.colNPP.FieldName = "NPP";
-            this.colNPP.Name = "colNPP";
-            this.colNPP.Visible = true;
-            this.colNPP.VisibleIndex = 2;
-            // 
-            // colNPT
-            // 
-            this.colNPT.FieldName = "NPT";
-            this.colNPT.Name = "colNPT";
-            this.colNPT.Visible = true;
-            this.colNPT.VisibleIndex = 3;
-            // 
-            // colMT
-            // 
-            this.colMT.FieldName = "MT";
-            this.colMT.Name = "colMT";
-            this.colMT.Visible = true;
-            this.colMT.VisibleIndex = 5;
-            // 
-            // colMFD
-            // 
-            this.colMFD.FieldName = "MFD";
-            this.colMFD.Name = "colMFD";
-            this.colMFD.Visible = true;
-            this.colMFD.VisibleIndex = 4;
-            // 
-            // colOBS
-            // 
-            this.colOBS.FieldName = "OBS";
-            this.colOBS.Name = "colOBS";
-            this.colOBS.Visible = true;
-            this.colOBS.VisibleIndex = 6;
-            // 
-            // colTurmasID
-            // 
-            this.colTurmasID.Caption = "Turmas";
-            this.colTurmasID.FieldName = "TurmasID";
-            this.colTurmasID.Name = "colTurmasID";
-            this.colTurmasID.Visible = true;
-            this.colTurmasID.VisibleIndex = 7;
+            this.colEstudantesID.Caption = "Estudante";
+            this.colEstudantesID.FieldName = "Estudantes.Inscricoes.FullName";
+            this.colEstudantesID.Name = "colEstudantesID";
+            this.colEstudantesID.Visible = true;
+            this.colEstudantesID.VisibleIndex = 0;
+            this.colEstudantesID.Width = 47;
             // 
             // colPautas_TrimestresID
             // 
@@ -277,26 +255,144 @@
             this.colPautas_TrimestresID.Visible = true;
             this.colPautas_TrimestresID.VisibleIndex = 8;
             // 
-            // colPautas_Trimestres
+            // colMAC
             // 
-            this.colPautas_Trimestres.Caption = "Professor/Disciplina";
-            this.colPautas_Trimestres.FieldName = "ProfessoresDisciplinas.CursoClasseDisciplinaID";
-            this.colPautas_Trimestres.Name = "colPautas_Trimestres";
-            this.colPautas_Trimestres.Visible = true;
-            this.colPautas_Trimestres.VisibleIndex = 8;
+            this.colMAC.FieldName = "MAC";
+            this.colMAC.Name = "colMAC";
+            this.colMAC.Visible = true;
+            this.colMAC.VisibleIndex = 2;
+            this.colMAC.Width = 47;
             // 
-            // colEstudantesID
+            // colNPP
             // 
-            this.colEstudantesID.Caption = "Estudante";
-            this.colEstudantesID.FieldName = "Estudantes.Inscricoes.FullName";
-            this.colEstudantesID.Name = "colEstudantesID";
-            this.colEstudantesID.Visible = true;
-            this.colEstudantesID.VisibleIndex = 0;
+            this.colNPP.FieldName = "NPP";
+            this.colNPP.Name = "colNPP";
+            this.colNPP.Visible = true;
+            this.colNPP.VisibleIndex = 3;
+            this.colNPP.Width = 47;
             // 
-            // colProfessoresCursosID
+            // colNPT
             // 
-            this.colProfessoresCursosID.FieldName = "ProfessoresCursosID";
-            this.colProfessoresCursosID.Name = "colProfessoresCursosID";
+            this.colNPT.FieldName = "NPT";
+            this.colNPT.Name = "colNPT";
+            this.colNPT.Visible = true;
+            this.colNPT.VisibleIndex = 4;
+            this.colNPT.Width = 47;
+            // 
+            // colMT
+            // 
+            this.colMT.FieldName = "MT";
+            this.colMT.Name = "colMT";
+            this.colMT.Visible = true;
+            this.colMT.VisibleIndex = 5;
+            this.colMT.Width = 47;
+            // 
+            // colDivid1
+            // 
+            this.colDivid1.Caption = "|";
+            this.colDivid1.FieldName = "Divid1";
+            this.colDivid1.Name = "colDivid1";
+            this.colDivid1.Visible = true;
+            this.colDivid1.VisibleIndex = 6;
+            this.colDivid1.Width = 20;
+            // 
+            // colMAC1
+            // 
+            this.colMAC1.FieldName = "MAC1";
+            this.colMAC1.Name = "colMAC1";
+            this.colMAC1.Visible = true;
+            this.colMAC1.VisibleIndex = 7;
+            this.colMAC1.Width = 49;
+            // 
+            // colNPT1
+            // 
+            this.colNPT1.FieldName = "NPT1";
+            this.colNPT1.Name = "colNPT1";
+            this.colNPT1.Visible = true;
+            this.colNPT1.VisibleIndex = 8;
+            this.colNPT1.Width = 49;
+            // 
+            // colNPP1
+            // 
+            this.colNPP1.FieldName = "NPP1";
+            this.colNPP1.Name = "colNPP1";
+            this.colNPP1.Visible = true;
+            this.colNPP1.VisibleIndex = 9;
+            this.colNPP1.Width = 49;
+            // 
+            // colDivid2
+            // 
+            this.colDivid2.Caption = "|";
+            this.colDivid2.FieldName = "Divid2";
+            this.colDivid2.Name = "colDivid2";
+            this.colDivid2.Visible = true;
+            this.colDivid2.VisibleIndex = 11;
+            this.colDivid2.Width = 20;
+            // 
+            // colMT1
+            // 
+            this.colMT1.FieldName = "MT1";
+            this.colMT1.Name = "colMT1";
+            this.colMT1.Visible = true;
+            this.colMT1.VisibleIndex = 10;
+            this.colMT1.Width = 49;
+            // 
+            // colMAC2
+            // 
+            this.colMAC2.FieldName = "MAC2";
+            this.colMAC2.Name = "colMAC2";
+            this.colMAC2.Visible = true;
+            this.colMAC2.VisibleIndex = 12;
+            this.colMAC2.Width = 53;
+            // 
+            // colNPP2
+            // 
+            this.colNPP2.FieldName = "NPP2";
+            this.colNPP2.Name = "colNPP2";
+            this.colNPP2.Visible = true;
+            this.colNPP2.VisibleIndex = 13;
+            this.colNPP2.Width = 53;
+            // 
+            // colMT2
+            // 
+            this.colMT2.FieldName = "MT2";
+            this.colMT2.Name = "colMT2";
+            this.colMT2.Visible = true;
+            this.colMT2.VisibleIndex = 15;
+            this.colMT2.Width = 53;
+            // 
+            // colNPT2
+            // 
+            this.colNPT2.FieldName = "NPT2";
+            this.colNPT2.Name = "colNPT2";
+            this.colNPT2.Visible = true;
+            this.colNPT2.VisibleIndex = 14;
+            this.colNPT2.Width = 53;
+            // 
+            // colDivid3
+            // 
+            this.colDivid3.Caption = "|";
+            this.colDivid3.FieldName = "Divid3";
+            this.colDivid3.Name = "colDivid3";
+            this.colDivid3.Visible = true;
+            this.colDivid3.VisibleIndex = 16;
+            this.colDivid3.Width = 20;
+            // 
+            // colMFD
+            // 
+            this.colMFD.FieldName = "MFD";
+            this.colMFD.Name = "colMFD";
+            this.colMFD.Visible = true;
+            this.colMFD.VisibleIndex = 17;
+            this.colMFD.Width = 68;
+            // 
+            // colOBS
+            // 
+            this.colOBS.FieldName = "OBS";
+            this.colOBS.Name = "colOBS";
+            this.colOBS.Visible = true;
+            this.colOBS.VisibleIndex = 18;
+            this.colOBS.Width = 76;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -359,6 +455,14 @@
             this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
+            // colTurmasID
+            // 
+            this.colTurmasID.Caption = "Turma";
+            this.colTurmasID.FieldName = "Turmas.Descricao";
+            this.colTurmasID.Name = "colTurmasID";
+            this.colTurmasID.Visible = true;
+            this.colTurmasID.VisibleIndex = 1;
+            // 
             // frmMiniPautas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,10 +510,19 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMT;
         private DevExpress.XtraGrid.Columns.GridColumn colMFD;
         private DevExpress.XtraGrid.Columns.GridColumn colOBS;
-        private DevExpress.XtraGrid.Columns.GridColumn colTurmasID;
         private DevExpress.XtraGrid.Columns.GridColumn colPautas_TrimestresID;
-        private DevExpress.XtraGrid.Columns.GridColumn colPautas_Trimestres;
         private DevExpress.XtraGrid.Columns.GridColumn colEstudantesID;
-        private DevExpress.XtraGrid.Columns.GridColumn colProfessoresCursosID;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAC1;
+        private DevExpress.XtraGrid.Columns.GridColumn colNPT1;
+        private DevExpress.XtraGrid.Columns.GridColumn colNPP1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMT1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAC2;
+        private DevExpress.XtraGrid.Columns.GridColumn colNPP2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMT2;
+        private DevExpress.XtraGrid.Columns.GridColumn colNPT2;
+        private DevExpress.XtraGrid.Columns.GridColumn colDivid1;
+        private DevExpress.XtraGrid.Columns.GridColumn colDivid2;
+        private DevExpress.XtraGrid.Columns.GridColumn colDivid3;
+        private DevExpress.XtraGrid.Columns.GridColumn colTurmasID;
     }
 }

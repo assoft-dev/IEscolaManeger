@@ -140,7 +140,7 @@ namespace IEscolaDesktop.View.Forms
 
         private async void LeituraInicial()
         {
-            UsuariosOriginalList = await usuariosRepository.GetAll();
+            UsuariosOriginalList = await usuariosRepository.GetAllinclud();
             miniPautasBindingSource.DataSource = UsuariosOriginalList;
 
             if (UsuariosOriginalList.Count > 0)

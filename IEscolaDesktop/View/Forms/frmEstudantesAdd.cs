@@ -113,7 +113,7 @@ namespace IEscolaDesktop.View.Forms
 
                 pictureEdit1.Image = usuarios.Inscricoes.Imagens;
 
-                txtCodigo.EditValue = usuarios.Inscricoes.InscricaoID;
+                txtCodigo.EditValue = usuarios.EstudantesID;
                 txtCodigoUnico.EditValue = usuarios.Codigo;
                 txtFirstName.Focus();
             }
