@@ -13,7 +13,7 @@ namespace IEscolaEntity.Models
         public decimal NPT { get; set; }
 
         [Ignore]
-        public decimal MT { get { return (MAC * NPP * NPT) / 3; } }
+        public decimal MT { get { return (MAC + NPP + NPT) / 3; } }
 
         [Ignore] public char Divid1 { get { return '|'; } }
 
@@ -23,7 +23,7 @@ namespace IEscolaEntity.Models
         public decimal NPT1 { get; set; }
 
         [Ignore]
-        public decimal MT1 { get { return (MAC1 * NPP1 * NPT1) / 3; } }
+        public decimal MT1 { get { return (MAC1 + NPP1 + NPT1) / 3; } }
         [Ignore] public char Divid2 { get { return '|'; } }
 
         //Trimestre 3
@@ -32,11 +32,11 @@ namespace IEscolaEntity.Models
         public decimal NPT2 { get; set; }
 
         [Ignore]
-        public decimal MT2 { get { return (MAC2 * NPP2 * NPT2) / 3; } }
+        public decimal MT2 { get { return (MAC2 + NPP2 + NPT2) / 3; } }
         [Ignore] public char Divid3 { get { return '|'; } }
 
 
-        [Ignore] public decimal MFD { get { return (MT * MT1 * MT2) / 3; } }
+        [Ignore] public decimal MFD { get { return (MT + MT1 + MT2) / 3; } }
         public string OBS { get; set; }
 
 
