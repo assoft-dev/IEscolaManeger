@@ -7,5 +7,7 @@ namespace IEscolaEntity.Controllers.Interfaces
     public interface IPautas_Mini: IGeneric<MiniPautas>, ITransationRepository
     {
         Task<List<MiniPautas>> GetAllinclud();
+
+        Task<bool> GuardarList(List<MiniPautas> miniPautas);
     }
 }

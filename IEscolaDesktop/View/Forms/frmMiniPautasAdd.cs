@@ -108,30 +108,43 @@ namespace IEscolaDesktop.View.Forms
         {
             var list = new List<MiniPautas>();
 
-            foreach (var x in estudantes)
+            if (list.Count != 0)
             {
-                var data = new MiniPautas();
+                foreach (var x in estudantes)
+                {
+                    // Verificar se ja existe
+                    var DataExiste = await DataRepository.Get(y => y.EstudantesID == x.EstudantesID, null);
 
-                data.MAC = 0;
-                data.NPP = 0;
-                data.NPT = 0;
+                    if (DataExiste != null)
+                    {
+                        list.Add(DataExiste);
+                    }
+                    else
+                    {
+                        var data = new MiniPautas();
+                        data.MAC = 0;
+                        data.NPP = 0;
+                        data.NPT = 0;
 
-                data.MAC1 = 0;
-                data.NPP1 = 0;
-                data.NPT1 = 0;
+                        data.MAC1 = 0;
+                        data.NPP1 = 0;
+                        data.NPT1 = 0;
 
-                data.MAC2 = 0;
-                data.NPP2 = 0;
-                data.NPT2 = 0;
+                        data.MAC2 = 0;
+                        data.NPP2 = 0;
+                        data.NPT2 = 0;
 
-                data.ProfessoresCursosID = (professoresDisciplinasBindingSource.Current as ProfessoresDisciplinas).ProfessoresDisciplinasID;
-                data.TurmasID = x.TurmaID;
+                        data.ProfessoresCursosID = (professoresDisciplinasBindingSource.Current as ProfessoresDisciplinas).ProfessoresDisciplinasID;
+                        data.TurmasID = x.TurmaID;
 
-                data.EstudantesID = x.EstudantesID;
-                data.Estudantes = await InscricoesRepository.Get(y => y.EstudantesID == x.EstudantesID, null);
+                        data.EstudantesID = x.EstudantesID;
+                        data.Estudantes = await InscricoesRepository.Get(y => y.EstudantesID == x.EstudantesID, null);
+                        data.PautasID = 0;
 
-                list.Add(data);
-            }
+                        list.Add(data);
+                    }
+                }
+            }   
             return list;
         }
 
@@ -216,90 +229,26 @@ namespace IEscolaDesktop.View.Forms
 
         private async void Guardar()
         {
-            if (!await ValidationDatabase())
+            var IsValidate = false;
+
+            var data = miniPautasBindingSource.DataSource as List<MiniPautas>;
+
+            if (data != null)
+                IsValidate = await DataRepository.GuardarList(data);
+            else
             {
+                Mensagens.Display("Guardar Dados", "Desculpe! não temos nada para adicionar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
-                TransationRepository.DoInsert
-
-               // var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
-
-                // save Data
-                //var data = new Turmas
-                //{
-                //    TurmaID = ID,
-                //    //Descricao = (string) txtDescricao.Text.Trim(),
-
-                //    //ClassesID = (int) txtClasse.EditValue,
-                //    //CursosID = (int) txtTurma.EditValue,
-                //    //PeriodosID = (int) txtPeriodo.EditValue,
-                //    //SalasID = (int) txtSala.EditValue,
-                //};
-
-                //IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.TurmaID == ID) > 0 :
-                //                       await DataRepository.Guardar(data, true);
-
-                //if (IsValidate)
-                //{
-                //    Mensagens.Display("Guardar Dados", "Dados Guardados com muito Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    Limpar();
-                //}
-                //else
-                //    Mensagens.Display("Impossivel Guardar Dados", "Não foi possivel guardar a informação requerida",
-                //                       MessageBoxButtons.OK,
-                //                       MessageBoxIcon.Error);
-            }      
-        }
-
-        private async Task<bool> ValidationDatabase()
-        {
-            //var dataResult = await DataRepository.Get(x => (x.Descricao.ToUpper() == txtDescricao.Text.ToUpper()) &&
-            //                                               ((x.SalasID == (int) txtSala.EditValue) && 
-            //                                               (x.CursosID == (int) txtTurma.EditValue) &&
-            //                                               (x.PeriodosID == (int) txtPeriodo.EditValue) &&
-            //                                               (x.CursosID == (int)txtClasse.EditValue)), null);
-
-            //if (dataResult != null)
-            //{
-            //    if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
-            //    {
-            //        if (dataResult.TurmaID != Convert.ToInt32(txtCodigo.Text))
-            //        {
-            //            Mensagens.Display("Duplicação de Valores as Atualiar", "Já existe uma descrição na nossa base de Dados!",
-            //                         MessageBoxButtons.OK,
-            //                         MessageBoxIcon.Error);
-
-            //            txtTurma.SelectAll();
-            //            txtTurma.Focus();
-            //            return true;
-            //        }
-
-            //        // Verificar a possibilidade de atualizar com base nos valores Sala Cursos e Periodos
-            //        var dataResult2 = await DataRepository.Get(x => ((x.SalasID == (int)txtSala.EditValue) &&
-            //                                                         (x.CursosID == (int)txtTurma.EditValue) &&
-            //                                                         (x.PeriodosID == (int)txtPeriodo.EditValue) &&
-            //                                                         (x.CursosID == (int)txtClasse.EditValue)), null);
-
-            //        if (dataResult2 != null)
-            //        {
-            //            Mensagens.Display("Duplicação de Valores", "Já existe uma Turma com a descrição abaixo mencionada!",
-            //                         MessageBoxButtons.OK,
-            //                         MessageBoxIcon.Error);
-            //            return true;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Mensagens.Display("Duplicação de Valores ao Criar", "Já existe uma descrição na nossa base de Dados!",
-            //                         MessageBoxButtons.OK,
-            //                         MessageBoxIcon.Error);
-
-            //        txtClasse.SelectAll();
-            //        txtClasse.Focus();
-
-            //        return true;
-            //    }
-            //}
-            return false;
+            if (IsValidate)
+            {
+                Mensagens.Display("Guardar Dados", "Dados Guardados com muito Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpar();
+            }
+            else
+                Mensagens.Display("Impossivel Guardar Dados", "Não foi possivel guardar a informação requerida",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
         }
 
         private void Limpar()

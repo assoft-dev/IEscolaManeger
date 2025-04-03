@@ -2,6 +2,7 @@
 using IEscolaEntity.Models;
 using ServiceStack.OrmLite;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Repository
@@ -26,6 +27,25 @@ namespace IEscolaEntity.Controllers.Repository
             });
 
             return result;
+        }
+
+        public async Task<bool> GuardarList(List<MiniPautas> miniPautas)
+        {
+            var resul = false;
+            if (miniPautas != null)
+            {
+                foreach (var item in miniPautas)
+                {
+                    if (item.PautasID == 0)
+                    {
+                        await DbConection.InsertAsync<MiniPautas>(item);
+                        resul = true;
+                    }            
+                    else
+                       { await DbConection.UpdateAsync<MiniPautas>(item); resul = true; }         
+                }
+            }
+            return resul;
         }
     }
 }
