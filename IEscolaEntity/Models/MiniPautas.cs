@@ -45,11 +45,6 @@ namespace IEscolaEntity.Models
         [Reference] public Turmas Turmas { get; set; }
 
 
-        [ForeignKey(typeof(MiniPauta_Trimestre))]
-        public int Pautas_TrimestresID { get; set; }
-        [Reference] public MiniPauta_Trimestre Pautas_Trimestres { get; set; }
-
-
         [ForeignKey(typeof(Estudantes))]
         public int EstudantesID { get; set; }
         [Reference] public Estudantes Estudantes { get; set; }

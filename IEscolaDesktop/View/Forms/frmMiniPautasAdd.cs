@@ -108,43 +108,46 @@ namespace IEscolaDesktop.View.Forms
         {
             var list = new List<MiniPautas>();
 
-            if (list.Count != 0)
+            if (estudantes != null)
             {
-                foreach (var x in estudantes)
+                if (estudantes.Count != 0)
                 {
-                    // Verificar se ja existe
-                    var DataExiste = await DataRepository.Get(y => y.EstudantesID == x.EstudantesID, null);
-
-                    if (DataExiste != null)
+                    foreach (var x in estudantes)
                     {
-                        list.Add(DataExiste);
-                    }
-                    else
-                    {
-                        var data = new MiniPautas();
-                        data.MAC = 0;
-                        data.NPP = 0;
-                        data.NPT = 0;
+                        // Verificar se ja existe
+                        var DataExiste = await DataRepository.Get(y => y.EstudantesID == x.EstudantesID, null);
 
-                        data.MAC1 = 0;
-                        data.NPP1 = 0;
-                        data.NPT1 = 0;
+                        if (DataExiste != null)
+                        {
+                            list.Add(DataExiste);
+                        }
+                        else
+                        {
+                            var data = new MiniPautas();
+                            data.MAC = 0;
+                            data.NPP = 0;
+                            data.NPT = 0;
 
-                        data.MAC2 = 0;
-                        data.NPP2 = 0;
-                        data.NPT2 = 0;
+                            data.MAC1 = 0;
+                            data.NPP1 = 0;
+                            data.NPT1 = 0;
 
-                        data.ProfessoresCursosID = (professoresDisciplinasBindingSource.Current as ProfessoresDisciplinas).ProfessoresDisciplinasID;
-                        data.TurmasID = x.TurmaID;
+                            data.MAC2 = 0;
+                            data.NPP2 = 0;
+                            data.NPT2 = 0;
 
-                        data.EstudantesID = x.EstudantesID;
-                        data.Estudantes = await InscricoesRepository.Get(y => y.EstudantesID == x.EstudantesID, null);
-                        data.PautasID = 0;
+                            data.ProfessoresCursosID = (professoresDisciplinasBindingSource.Current as ProfessoresDisciplinas).ProfessoresDisciplinasID;
+                            data.TurmasID = x.TurmaID;
 
-                        list.Add(data);
+                            data.EstudantesID = x.EstudantesID;
+                            data.Estudantes = await InscricoesRepository.Get(y => y.EstudantesID == x.EstudantesID, null);
+                            data.PautasID = 0;
+
+                            list.Add(data);
+                        }
                     }
                 }
-            }   
+            }
             return list;
         }
 
@@ -292,10 +295,13 @@ namespace IEscolaDesktop.View.Forms
                 {
                     if (!string.IsNullOrWhiteSpace(txtTurma.Text))
                     {
-                        if (
-                             !(string.IsNullOrWhiteSpace(txtDisciplinas.Text) || txtDisciplinas.Text == disciplina) &&
-                             !(miniPautasBindingSource.DataSource == null))
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        if (!(string.IsNullOrWhiteSpace(txtDisciplinas.Text) || txtDisciplinas.Text == disciplina))
+                        {
+                            if (miniPautasBindingSource.DataSource == null)
+                                windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                            else
+                                windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        }
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                     }
@@ -312,7 +318,12 @@ namespace IEscolaDesktop.View.Forms
                         if (
                              !(string.IsNullOrWhiteSpace(txtTurma.Text) || txtTurma.Text == turma) &&
                              !(miniPautasBindingSource.DataSource == null))
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        {
+                            if (miniPautasBindingSource.DataSource == null)
+                                windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
+                            else
+                                windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
+                        }
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
                     }

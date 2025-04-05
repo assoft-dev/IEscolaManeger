@@ -404,7 +404,7 @@ namespace IEscolaDesktop.View.Forms
 
                     ImagemURL = imagens, 
 
-                    FAZES = (FAZES)txtFazes.EditValue,
+                    FAZES = ID == 0 ? FAZES.INSCRICÕES : (FAZES)txtFazes.EditValue,
                     AdicionalFichaInscricao = (bool)txtFichaInscricao.Checked,
                     AdicionalCertificados = (bool)txtCertificadoAnexo.Checked,
 
