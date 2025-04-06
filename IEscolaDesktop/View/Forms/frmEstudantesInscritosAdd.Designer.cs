@@ -54,7 +54,6 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.txtProvinciaMunicipio = new DevExpress.XtraEditors.LookUpEdit();
-            this.provinciasMunicipiosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnProvinciaMunicipios = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.txtLastName = new DevExpress.XtraEditors.TextEdit();
@@ -99,7 +98,6 @@
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl27 = new DevExpress.XtraEditors.PanelControl();
             this.txtCurso = new DevExpress.XtraEditors.LookUpEdit();
-            this.cursosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnCurso = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl28 = new DevExpress.XtraEditors.PanelControl();
@@ -166,6 +164,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.xtraOpenFileDialog1 = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
+            this.provinciasMunicipiosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cursosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationPane1)).BeginInit();
@@ -189,7 +189,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaMunicipio.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.provinciasMunicipiosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).BeginInit();
@@ -235,7 +234,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl27)).BeginInit();
             this.panelControl27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCurso.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl28)).BeginInit();
             this.panelControl28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLocalEmissao.Properties)).BeginInit();
@@ -296,6 +294,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEncarregado.Properties)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.provinciasMunicipiosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -504,9 +504,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
             this.tablePanel2.SetColumn(this.labelControl1, 0);
             this.labelControl1.Location = new System.Drawing.Point(14, 195);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -650,10 +648,6 @@
             this.txtProvinciaMunicipio.Size = new System.Drawing.Size(278, 33);
             this.txtProvinciaMunicipio.TabIndex = 8;
             // 
-            // provinciasMunicipiosBindingSource
-            // 
-            this.provinciasMunicipiosBindingSource.DataSource = typeof(IEscolaEntity.Models.ProvinciasMunicipios);
-            // 
             // btnProvinciaMunicipios
             // 
             this.btnProvinciaMunicipios.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -697,9 +691,7 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Appearance.Options.UseForeColor = true;
             this.tablePanel2.SetColumn(this.labelControl9, 1);
             this.labelControl9.Location = new System.Drawing.Point(343, 195);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1323,10 +1315,6 @@
             this.txtCurso.Properties.ValueMember = "CursosID";
             this.txtCurso.Size = new System.Drawing.Size(278, 36);
             this.txtCurso.TabIndex = 8;
-            // 
-            // cursosBindingSource
-            // 
-            this.cursosBindingSource.DataSource = typeof(IEscolaEntity.Models.Cursos);
             // 
             // btnCurso
             // 
@@ -2195,7 +2183,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -2228,7 +2216,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(427, 22);
+            this.panel1.Size = new System.Drawing.Size(425, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -2275,6 +2263,14 @@
             // 
             this.xtraOpenFileDialog1.FileName = "xtraOpenFileDialog1";
             // 
+            // provinciasMunicipiosBindingSource
+            // 
+            this.provinciasMunicipiosBindingSource.DataSource = typeof(IEscolaEntity.Models.ProvinciasMunicipios);
+            // 
+            // cursosBindingSource
+            // 
+            this.cursosBindingSource.DataSource = typeof(IEscolaEntity.Models.Cursos);
+            // 
             // frmEstudantesInscritosAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2307,7 +2303,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtProvinciaMunicipio.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.provinciasMunicipiosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtLastName.Properties)).EndInit();
@@ -2354,7 +2349,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl27)).EndInit();
             this.panelControl27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtCurso.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl28)).EndInit();
             this.panelControl28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtLocalEmissao.Properties)).EndInit();
@@ -2417,6 +2411,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.provinciasMunicipiosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

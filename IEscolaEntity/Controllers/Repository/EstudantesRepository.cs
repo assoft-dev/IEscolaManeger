@@ -1,11 +1,10 @@
 ﻿using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Models;
-using IEscolaEntity.Models.Biblioteca;
 using ServiceStack.OrmLite;
-using System.Threading.Tasks;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace IEscolaEntity.Controllers.Repository
 {
@@ -61,7 +60,7 @@ namespace IEscolaEntity.Controllers.Repository
         {
             var sql = DbConection.From<Estudantes>();
 
-            var result = await DbConection.LoadSelectAsync(sql);
+            var result = await DbConection.LoadSelectAsync<Estudantes>(sql, new string [] { "Turmas" });
 
             var classe = await DbConection.SelectAsync<Classes>();
             var periodo = await DbConection.SelectAsync<Periodos>();
@@ -70,19 +69,27 @@ namespace IEscolaEntity.Controllers.Repository
 
             var provincia = await DbConection.SelectAsync<Provincias>();
             var municipio = await DbConection.SelectAsync<Municipios>();
-         
-            result.ForEach(x =>
+
+            result.ForEach(async x =>
             {
                 x.Turmas.Cursos = curso.Find(y => y.CursosID == x.Turmas.CursosID);
                 x.Turmas.Classes = classe.Find(y => y.ClasseID == x.Turmas.ClassesID);
                 x.Turmas.Periodos = periodo.Find(y => y.PeriodosID == x.Turmas.PeriodosID);
                 x.Turmas.Salas = sala.Find(y => y.SalasID == x.Turmas.SalasID);
 
+                // Preencher as provincias
+                var estudinscritos = await DbConection.LoadSelectAsync<EstudantesInscricoes>(y => y.InscricaoID == x.InscricoesID, new string[] { "ProvinciasMunicipios" });
 
-                x.Inscricoes.ProvinciasMunicipios.Provincias = provincia.Find(y => y.ProvinciasID == x.Inscricoes.ProvinciasMunicipios.ProvinciasID);
-                x.Inscricoes.ProvinciasMunicipios.Municios = municipio.Find(y => y.ProvinciasID == x.Inscricoes.ProvinciasMunicipios.ProvinciasID);
+                if (estudinscritos != null)
+                {
+                    var t = estudinscritos.FirstOrDefault();
+
+                    t.ProvinciasMunicipios.Provincias = provincia.Find(y => y.ProvinciasID == t.ProvinciasMunicipios.ProvinciasID);
+                    t.ProvinciasMunicipios.Municios = municipio.Find(y => y.MunicipiosID == t.ProvinciasMunicipios.MunicipiosID);
+                    x.Inscricoes = t;
+                }
             });
-            return result;
+            return result; 
         }
     }
 }

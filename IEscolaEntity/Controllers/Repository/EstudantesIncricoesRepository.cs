@@ -8,6 +8,8 @@
     using System;
     using System.Linq;
     using System.Collections.Generic;
+    using System.Linq.Expressions;
+    using ServiceStack.OrmLite.Legacy;
 
     public class EstudantesIncricoesRepository: GenericRepository<EstudantesInscricoes>, IEstudantesInscricoes
     {
@@ -73,6 +75,23 @@
             });
 
             return result;
+        }
+        public async Task<EstudantesInscricoes> GetAllinclud(Expression<Func<EstudantesInscricoes, bool>> Filter = null)
+        {
+            var result = await DbConection.LoadSelectAsync<EstudantesInscricoes>(Filter, new string [] { "ProvinciasMunicipios" });
+
+            var provincia = await DbConection.SelectAsync<Provincias>();
+            var municipio = await DbConection.SelectAsync<Municipios>();
+
+            if (result != null)
+            {
+                var t = result.FirstOrDefault();
+
+                t.ProvinciasMunicipios.Provincias = provincia.Find(y => y.ProvinciasID == t.ProvinciasMunicipios.ProvinciasID);
+                t.ProvinciasMunicipios.Municios = municipio.Find(y => y.MunicipiosID == t.ProvinciasMunicipios.MunicipiosID);
+                return t;
+            }
+            return null;
         }
     }
 }

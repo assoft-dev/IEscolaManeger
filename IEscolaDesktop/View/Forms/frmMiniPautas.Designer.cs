@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMiniPautas));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXLS = new DevExpress.XtraEditors.SimpleButton();
@@ -65,6 +65,8 @@
             this.colMFD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOBS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTurmasID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Perfil = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.MenuPrinciapl = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAtualizar = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,8 +75,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReportdatabase = new System.Windows.Forms.ToolStripMenuItem();
-            this.Perfil = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -82,9 +82,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.miniPautasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.MenuPrinciapl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanel1
@@ -156,9 +156,9 @@
             this.txtPesquisar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Properties.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.txtPesquisar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtPesquisar.Properties.NullValuePrompt = "Pesquise Aqui [Estudante, professor]";
             this.txtPesquisar.Size = new System.Drawing.Size(740, 37);
             this.txtPesquisar.TabIndex = 0;
@@ -250,7 +250,7 @@
             this.colEstudantesID.Name = "colEstudantesID";
             this.colEstudantesID.Visible = true;
             this.colEstudantesID.VisibleIndex = 1;
-            this.colEstudantesID.Width = 88;
+            this.colEstudantesID.Width = 122;
             // 
             // colPautas_TrimestresID
             // 
@@ -272,7 +272,7 @@
             this.colNPP.Name = "colNPP";
             this.colNPP.Visible = true;
             this.colNPP.VisibleIndex = 3;
-            this.colNPP.Width = 33;
+            this.colNPP.Width = 37;
             // 
             // colNPT
             // 
@@ -280,7 +280,7 @@
             this.colNPT.Name = "colNPT";
             this.colNPT.Visible = true;
             this.colNPT.VisibleIndex = 4;
-            this.colNPT.Width = 39;
+            this.colNPT.Width = 35;
             // 
             // colMT
             // 
@@ -288,7 +288,7 @@
             this.colMT.Name = "colMT";
             this.colMT.Visible = true;
             this.colMT.VisibleIndex = 5;
-            this.colMT.Width = 31;
+            this.colMT.Width = 33;
             // 
             // colDivid1
             // 
@@ -305,7 +305,7 @@
             this.colMAC1.Name = "colMAC1";
             this.colMAC1.Visible = true;
             this.colMAC1.VisibleIndex = 7;
-            this.colMAC1.Width = 42;
+            this.colMAC1.Width = 43;
             // 
             // colNPT1
             // 
@@ -313,7 +313,7 @@
             this.colNPT1.Name = "colNPT1";
             this.colNPT1.Visible = true;
             this.colNPT1.VisibleIndex = 8;
-            this.colNPT1.Width = 40;
+            this.colNPT1.Width = 37;
             // 
             // colNPP1
             // 
@@ -330,7 +330,7 @@
             this.colDivid2.Name = "colDivid2";
             this.colDivid2.Visible = true;
             this.colDivid2.VisibleIndex = 11;
-            this.colDivid2.Width = 35;
+            this.colDivid2.Width = 22;
             // 
             // colMT1
             // 
@@ -338,7 +338,7 @@
             this.colMT1.Name = "colMT1";
             this.colMT1.Visible = true;
             this.colMT1.VisibleIndex = 10;
-            this.colMT1.Width = 87;
+            this.colMT1.Width = 34;
             // 
             // colMAC2
             // 
@@ -346,7 +346,7 @@
             this.colMAC2.Name = "colMAC2";
             this.colMAC2.Visible = true;
             this.colMAC2.VisibleIndex = 12;
-            this.colMAC2.Width = 46;
+            this.colMAC2.Width = 44;
             // 
             // colNPP2
             // 
@@ -354,7 +354,7 @@
             this.colNPP2.Name = "colNPP2";
             this.colNPP2.Visible = true;
             this.colNPP2.VisibleIndex = 13;
-            this.colNPP2.Width = 94;
+            this.colNPP2.Width = 40;
             // 
             // colMT2
             // 
@@ -362,7 +362,7 @@
             this.colMT2.Name = "colMT2";
             this.colMT2.Visible = true;
             this.colMT2.VisibleIndex = 15;
-            this.colMT2.Width = 94;
+            this.colMT2.Width = 37;
             // 
             // colNPT2
             // 
@@ -370,7 +370,7 @@
             this.colNPT2.Name = "colNPT2";
             this.colNPT2.Visible = true;
             this.colNPT2.VisibleIndex = 14;
-            this.colNPT2.Width = 94;
+            this.colNPT2.Width = 51;
             // 
             // colDivid3
             // 
@@ -379,7 +379,7 @@
             this.colDivid3.Name = "colDivid3";
             this.colDivid3.Visible = true;
             this.colDivid3.VisibleIndex = 16;
-            this.colDivid3.Width = 35;
+            this.colDivid3.Width = 20;
             // 
             // colMFD
             // 
@@ -387,7 +387,7 @@
             this.colMFD.Name = "colMFD";
             this.colMFD.Visible = true;
             this.colMFD.VisibleIndex = 17;
-            this.colMFD.Width = 122;
+            this.colMFD.Width = 41;
             // 
             // colOBS
             // 
@@ -395,7 +395,7 @@
             this.colOBS.Name = "colOBS";
             this.colOBS.Visible = true;
             this.colOBS.VisibleIndex = 18;
-            this.colOBS.Width = 158;
+            this.colOBS.Width = 109;
             // 
             // colTurmasID
             // 
@@ -404,6 +404,22 @@
             this.colTurmasID.Name = "colTurmasID";
             this.colTurmasID.Visible = true;
             this.colTurmasID.VisibleIndex = 1;
+            // 
+            // Perfil
+            // 
+            this.Perfil.Caption = "Perfil";
+            this.Perfil.ColumnEdit = this.repositoryItemPictureEdit1;
+            this.Perfil.FieldName = "Estudantes.Imagens";
+            this.Perfil.Name = "Perfil";
+            this.Perfil.Visible = true;
+            this.Perfil.VisibleIndex = 0;
+            this.Perfil.Width = 44;
+            // 
+            // repositoryItemPictureEdit1
+            // 
+            this.repositoryItemPictureEdit1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -422,40 +438,40 @@
             this.btnRelatorios,
             this.btnReportdatabase});
             this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(252, 168);
+            this.MenuPrinciapl.Size = new System.Drawing.Size(230, 168);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(251, 38);
+            this.btnAtualizar.Size = new System.Drawing.Size(229, 38);
             this.btnAtualizar.Text = "Editar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(248, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
             this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(251, 38);
+            this.btnApagar.Size = new System.Drawing.Size(229, 38);
             this.btnApagar.Text = "Apagar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(248, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(226, 6);
             // 
             // btnRelatorios
             // 
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(251, 38);
+            this.btnRelatorios.Size = new System.Drawing.Size(229, 38);
             this.btnRelatorios.Text = "Relatórios";
             // 
             // btnReportdatabase
@@ -463,24 +479,8 @@
             this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
             this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(251, 38);
+            this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
-            // 
-            // Perfil
-            // 
-            this.Perfil.Caption = "Perfil";
-            this.Perfil.ColumnEdit = this.repositoryItemPictureEdit1;
-            this.Perfil.FieldName = "Estudantes.Imagens";
-            this.Perfil.Name = "Perfil";
-            this.Perfil.Visible = true;
-            this.Perfil.VisibleIndex = 0;
-            this.Perfil.Width = 38;
-            // 
-            // repositoryItemPictureEdit1
-            // 
-            this.repositoryItemPictureEdit1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
-            this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             // 
             // frmMiniPautas
             // 
@@ -497,9 +497,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.miniPautasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.MenuPrinciapl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
