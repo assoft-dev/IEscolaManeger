@@ -10,5 +10,7 @@ namespace IEscolaEntity.Controllers.Interfaces
     public interface IEstudantes : ITransationRepository, IGeneric<Estudantes>
     {
         Task<string> GetQR();
+        Task<List<Estudantes>> GetAllinclud();
+
     }
 }
