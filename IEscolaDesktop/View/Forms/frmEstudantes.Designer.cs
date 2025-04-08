@@ -297,7 +297,7 @@
             this.colFullName.OptionsColumn.ReadOnly = true;
             this.colFullName.Visible = true;
             this.colFullName.VisibleIndex = 1;
-            this.colFullName.Width = 73;
+            this.colFullName.Width = 79;
             // 
             // colBI
             // 
@@ -306,7 +306,7 @@
             this.colBI.Name = "colBI";
             this.colBI.Visible = true;
             this.colBI.VisibleIndex = 2;
-            this.colBI.Width = 60;
+            this.colBI.Width = 65;
             // 
             // colNaturalidade
             // 
@@ -333,7 +333,7 @@
             this.colIdade.OptionsColumn.ReadOnly = true;
             this.colIdade.Visible = true;
             this.colIdade.VisibleIndex = 3;
-            this.colIdade.Width = 53;
+            this.colIdade.Width = 58;
             // 
             // colProvinciaMunicipioID
             // 
@@ -342,7 +342,7 @@
             this.colProvinciaMunicipioID.Name = "colProvinciaMunicipioID";
             this.colProvinciaMunicipioID.Visible = true;
             this.colProvinciaMunicipioID.VisibleIndex = 10;
-            this.colProvinciaMunicipioID.Width = 119;
+            this.colProvinciaMunicipioID.Width = 131;
             // 
             // colGrauParentesco
             // 
@@ -386,7 +386,7 @@
             this.colEstadoCivil.Name = "colEstadoCivil";
             this.colEstadoCivil.Visible = true;
             this.colEstadoCivil.VisibleIndex = 4;
-            this.colEstadoCivil.Width = 66;
+            this.colEstadoCivil.Width = 72;
             // 
             // colResidencia
             // 
@@ -394,7 +394,7 @@
             this.colResidencia.Name = "colResidencia";
             this.colResidencia.Visible = true;
             this.colResidencia.VisibleIndex = 5;
-            this.colResidencia.Width = 62;
+            this.colResidencia.Width = 67;
             // 
             // colEndereco
             // 
@@ -402,7 +402,7 @@
             this.colEndereco.Name = "colEndereco";
             this.colEndereco.Visible = true;
             this.colEndereco.VisibleIndex = 6;
-            this.colEndereco.Width = 60;
+            this.colEndereco.Width = 65;
             // 
             // colContacto
             // 
@@ -410,7 +410,7 @@
             this.colContacto.Name = "colContacto";
             this.colContacto.Visible = true;
             this.colContacto.VisibleIndex = 7;
-            this.colContacto.Width = 57;
+            this.colContacto.Width = 62;
             // 
             // colCelular
             // 
@@ -430,7 +430,7 @@
             this.colEmail.Name = "colEmail";
             this.colEmail.Visible = true;
             this.colEmail.VisibleIndex = 8;
-            this.colEmail.Width = 51;
+            this.colEmail.Width = 56;
             // 
             // colNomeEncarregado
             // 
@@ -547,7 +547,7 @@
             this.colMedia.Name = "colMedia";
             this.colMedia.Visible = true;
             this.colMedia.VisibleIndex = 9;
-            this.colMedia.Width = 34;
+            this.colMedia.Width = 36;
             // 
             // colDataFicha
             // 
@@ -555,7 +555,7 @@
             this.colDataFicha.Name = "colDataFicha";
             this.colDataFicha.Visible = true;
             this.colDataFicha.VisibleIndex = 11;
-            this.colDataFicha.Width = 59;
+            this.colDataFicha.Width = 80;
             // 
             // colFAZES
             // 
@@ -588,7 +588,7 @@
             this.Perfil.Name = "Perfil";
             this.Perfil.Visible = true;
             this.Perfil.VisibleIndex = 0;
-            this.Perfil.Width = 71;
+            this.Perfil.Width = 55;
             // 
             // repositoryItemPictureEdit1
             // 
@@ -613,40 +613,40 @@
             this.btnRelatorios,
             this.btnReportdatabase});
             this.MenuPrinciapl.Name = "contextMenuStrip1";
-            this.MenuPrinciapl.Size = new System.Drawing.Size(252, 168);
+            this.MenuPrinciapl.Size = new System.Drawing.Size(230, 168);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(251, 38);
+            this.btnAtualizar.Size = new System.Drawing.Size(229, 38);
             this.btnAtualizar.Text = "Editar";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(248, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(226, 6);
             // 
             // btnApagar
             // 
             this.btnApagar.Image = ((System.Drawing.Image)(resources.GetObject("btnApagar.Image")));
             this.btnApagar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(251, 38);
+            this.btnApagar.Size = new System.Drawing.Size(229, 38);
             this.btnApagar.Text = "Apagar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(248, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(226, 6);
             // 
             // btnRelatorios
             // 
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(251, 38);
+            this.btnRelatorios.Size = new System.Drawing.Size(229, 38);
             this.btnRelatorios.Text = "Relatórios";
             // 
             // btnReportdatabase
@@ -654,7 +654,7 @@
             this.btnReportdatabase.Image = ((System.Drawing.Image)(resources.GetObject("btnReportdatabase.Image")));
             this.btnReportdatabase.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnReportdatabase.Name = "btnReportdatabase";
-            this.btnReportdatabase.Size = new System.Drawing.Size(251, 38);
+            this.btnReportdatabase.Size = new System.Drawing.Size(229, 38);
             this.btnReportdatabase.Text = "Relatórios (Base de Dados)";
             // 
             // frmEstudantes
