@@ -23,7 +23,6 @@ namespace IEscolaDesktop
             InicializarSettings();
             InicializarThemas();
 
-
             Application.ThreadException += Application_ThreadException;
 
             Application.EnableVisualStyles();

@@ -400,5 +400,10 @@ namespace IEscolaDesktop.View.Forms
         {
 
         }
+
+        private void txtProvinciaMunicipio_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

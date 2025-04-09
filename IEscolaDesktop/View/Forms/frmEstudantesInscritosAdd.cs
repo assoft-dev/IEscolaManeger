@@ -105,7 +105,6 @@ namespace IEscolaDesktop.View.Forms
 
                 txtEscolaOrigem.EditValue = usuarios.AdiconalEscolaOrigem;
                 txtProvinciaOrigem.EditValue = usuarios.AdiconalProvincias;
-                txtEscolaMedia.EditValue = usuarios.AdicionalMedia;
                 txtIsActived.EditValue = usuarios.IsActived;
                 txtMedia.EditValue = usuarios.Media;
                 txtDataFicha.EditValue = usuarios.DataFicha;
@@ -394,7 +393,6 @@ namespace IEscolaDesktop.View.Forms
 
                     AdiconalEscolaOrigem = (string)txtEscolaOrigem.EditValue,
                     AdiconalProvincias = (ProvinciasLocal)txtProvinciaOrigem.EditValue,
-                    AdicionalMedia = (decimal)txtEscolaMedia.EditValue,
                     IsActived = (bool)txtIsActived.Checked,
                     Media = (decimal)txtMedia.EditValue,
                     DataFicha = (DateTime)txtDataFicha.DateTime,
@@ -512,7 +510,6 @@ namespace IEscolaDesktop.View.Forms
 
             txtEscolaOrigem.EditValue = string.Empty;
             txtProvinciaOrigem.EditValue = string.Empty;
-            txtEscolaMedia.EditValue = string.Empty;
             txtIsActived.EditValue = string.Empty;
             txtMedia.EditValue = string.Empty;
 

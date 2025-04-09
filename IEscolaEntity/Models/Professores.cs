@@ -15,7 +15,6 @@ namespace IEscolaEntity.Models
         public int ProfessoresID { get; set; }
         public string NumeroAgente  { get; set; }
         
-        public Escolaridade Escolaridade { get; set; }
         public AbilitacoesLiterarias abilitacoesLiterarias { get; set; }
         public string AreaEscola { get; set; }
         public int AreaDuracao { get; set; }

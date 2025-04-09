@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProfessoresAdd));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.navigationPane1 = new DevExpress.XtraBars.Navigation.NavigationPane();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -123,9 +123,6 @@
             this.txtTipoDocumentos = new DevExpress.XtraEditors.LookUpEdit();
             this.navigationPage3 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tablePanel4 = new DevExpress.Utils.Layout.TablePanel();
-            this.panelControl16 = new DevExpress.XtraEditors.PanelControl();
-            this.txtEscolaridade = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl21 = new DevExpress.XtraEditors.PanelControl();
             this.txtHabilitacoesLiterarias = new DevExpress.XtraEditors.LookUpEdit();
@@ -247,9 +244,6 @@
             this.navigationPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel4)).BeginInit();
             this.tablePanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).BeginInit();
-            this.panelControl16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEscolaridade.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).BeginInit();
             this.panelControl21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtHabilitacoesLiterarias.Properties)).BeginInit();
@@ -509,9 +503,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
             this.tablePanel2.SetColumn(this.labelControl1, 0);
             this.labelControl1.Location = new System.Drawing.Point(14, 195);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -702,9 +694,7 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Appearance.Options.UseForeColor = true;
             this.tablePanel2.SetColumn(this.labelControl9, 1);
             this.labelControl9.Location = new System.Drawing.Point(344, 195);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1621,8 +1611,6 @@
             this.tablePanel4.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F),
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F)});
-            this.tablePanel4.Controls.Add(this.panelControl16);
-            this.tablePanel4.Controls.Add(this.labelControl23);
             this.tablePanel4.Controls.Add(this.labelControl29);
             this.tablePanel4.Controls.Add(this.panelControl21);
             this.tablePanel4.Controls.Add(this.labelControl33);
@@ -1655,50 +1643,6 @@
             this.tablePanel4.Size = new System.Drawing.Size(681, 582);
             this.tablePanel4.TabIndex = 4;
             this.tablePanel4.UseSkinIndents = true;
-            // 
-            // panelControl16
-            // 
-            this.panelControl16.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panelControl16.Appearance.Options.UseBackColor = true;
-            this.panelControl16.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.tablePanel4.SetColumn(this.panelControl16, 0);
-            this.panelControl16.Controls.Add(this.txtEscolaridade);
-            this.panelControl16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl16.Location = new System.Drawing.Point(14, 47);
-            this.panelControl16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelControl16.Name = "panelControl16";
-            this.panelControl16.Padding = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.tablePanel4.SetRow(this.panelControl16, 1);
-            this.panelControl16.Size = new System.Drawing.Size(324, 48);
-            this.panelControl16.TabIndex = 18;
-            // 
-            // txtEscolaridade
-            // 
-            this.txtEscolaridade.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEscolaridade.EditValue = "";
-            this.txtEscolaridade.Location = new System.Drawing.Point(0, 0);
-            this.txtEscolaridade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtEscolaridade.Name = "txtEscolaridade";
-            this.txtEscolaridade.Properties.AutoHeight = false;
-            this.txtEscolaridade.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtEscolaridade.Properties.NullText = "";
-            this.txtEscolaridade.Properties.NullValuePrompt = "Escreva o Titulo por favor";
-            this.txtEscolaridade.Size = new System.Drawing.Size(319, 43);
-            this.txtEscolaridade.TabIndex = 8;
-            // 
-            // labelControl23
-            // 
-            this.labelControl23.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl23.Appearance.Options.UseFont = true;
-            this.tablePanel4.SetColumn(this.labelControl23, 0);
-            this.labelControl23.Location = new System.Drawing.Point(14, 21);
-            this.labelControl23.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl23.Name = "labelControl23";
-            this.tablePanel4.SetRow(this.labelControl23, 0);
-            this.labelControl23.Size = new System.Drawing.Size(65, 13);
-            this.labelControl23.TabIndex = 16;
-            this.labelControl23.Text = "Escolaridade";
             // 
             // labelControl29
             // 
@@ -1976,7 +1920,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -2033,14 +1977,14 @@
             // 
             // windowsUIButtonPanel1
             // 
-            windowsUIButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions1.SvgImage")));
-            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
-            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
+            windowsUIButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions4.SvgImage")));
+            windowsUIButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions5.SvgImage")));
+            windowsUIButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions6.SvgImage")));
             this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2163,9 +2107,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel4)).EndInit();
             this.tablePanel4.ResumeLayout(false);
             this.tablePanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).EndInit();
-            this.panelControl16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtEscolaridade.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl21)).EndInit();
             this.panelControl21.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtHabilitacoesLiterarias.Properties)).EndInit();
@@ -2272,8 +2213,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl15;
         private DevExpress.XtraEditors.LookUpEdit txtTipoDocumentos;
         private DevExpress.Utils.Layout.TablePanel tablePanel4;
-        private DevExpress.XtraEditors.PanelControl panelControl16;
-        private DevExpress.XtraEditors.LabelControl labelControl23;
         private DevExpress.XtraEditors.LabelControl labelControl29;
         private DevExpress.XtraEditors.PanelControl panelControl21;
         private DevExpress.XtraEditors.LabelControl labelControl33;
@@ -2307,7 +2246,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl40;
         private DevExpress.XtraEditors.LabelControl labelControl36;
         private DevExpress.XtraEditors.LabelControl labelControl37;
-        private DevExpress.XtraEditors.LookUpEdit txtEscolaridade;
         private DevExpress.XtraEditors.DateEdit txtData;
         private DevExpress.XtraEditors.SpinEdit txtDuracao;
         private System.Windows.Forms.BindingSource professoresCategoriasBindingSource;

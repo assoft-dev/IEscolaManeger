@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEscolasAdd));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
@@ -268,7 +268,6 @@
             this.txtProvinciaMunicipio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtProvinciaMunicipio.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ProvinciasMunicipiosID", "Código", 137, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descricao", "Descrição", 61, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.txtProvinciaMunicipio.Properties.DataSource = this.provinciasMunicipiosBindingSource;
             this.txtProvinciaMunicipio.Properties.DisplayMember = "Descricao";
@@ -278,6 +277,7 @@
             this.txtProvinciaMunicipio.Properties.ValueMember = "ProvinciasMunicipiosID";
             this.txtProvinciaMunicipio.Size = new System.Drawing.Size(464, 50);
             this.txtProvinciaMunicipio.TabIndex = 8;
+            this.txtProvinciaMunicipio.EditValueChanged += new System.EventHandler(this.txtProvinciaMunicipio_EditValueChanged);
             // 
             // provinciasMunicipiosBindingSource
             // 
@@ -557,7 +557,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -590,7 +590,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(253, 22);
+            this.panel1.Size = new System.Drawing.Size(252, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -614,14 +614,14 @@
             // 
             // windowsUIButtonPanel1
             // 
-            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
-            windowsUIButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions2.Image")));
-            windowsUIButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions3.Image")));
+            windowsUIButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions4.Image")));
+            windowsUIButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions5.Image")));
+            windowsUIButtonImageOptions6.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions6.Image")));
             this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Novo", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(0)), -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(1)), -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Apagar", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, ((short)(2)), -1, false)});
             this.tablePanel1.SetColumn(this.windowsUIButtonPanel1, 0);
             this.windowsUIButtonPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;

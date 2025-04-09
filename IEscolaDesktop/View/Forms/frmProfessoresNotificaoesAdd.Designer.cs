@@ -409,9 +409,9 @@
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
             this.tablePanel2.SetRow(this.labelControl4, 10);
-            this.labelControl4.Size = new System.Drawing.Size(43, 13);
+            this.labelControl4.Size = new System.Drawing.Size(74, 13);
             this.labelControl4.TabIndex = 16;
-            this.labelControl4.Text = "Duração";
+            this.labelControl4.Text = "Duração (Dias)";
             // 
             // labelControl5
             // 
@@ -470,7 +470,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -503,7 +503,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(270, 22);
+            this.panel1.Size = new System.Drawing.Size(269, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo

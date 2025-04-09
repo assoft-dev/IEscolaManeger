@@ -5,6 +5,7 @@ using ServiceStack.OrmLite;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 
@@ -41,6 +42,13 @@ namespace IEscolaEntity.Controllers.Helps
                     DataConnectionConfig.connectionString.DataSource = ".";
                     DataConnectionConfig.connectionString.InitialCatalog = "master";
                     DataConnectionConfig.connectionString.IntegratedSecurity = true;
+
+                    if (DbConection == null)
+                        DbConection = (new OrmLiteConnectionFactory(DataConnectionConfig.connectionString.ConnectionString, 
+                            SqlServerDialect.Provider)).CreateDbConnection();
+
+                    if (DbConection.State == ConnectionState.Closed)
+                        DbConection.Open();
 
                     DbConection.ExecuteSql("if(db_id('IEscola_Gest') IS NULL) CREATE DATABASE [IEscola_Gest]");
                     DbConection.ConnectionString.Replace("master", "IEscola_Gest");
@@ -82,7 +90,8 @@ namespace IEscolaEntity.Controllers.Helps
             }
             finally
             {
-
+                if (DbConection.State == ConnectionState.Open)
+                    DbConection.Close();
             }
             return true;
         }
@@ -202,17 +211,17 @@ namespace IEscolaEntity.Controllers.Helps
             provincia.Add(new Provincias {   Referencias = "MOXICO LESTE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.ML, });
             provincia.Add(new Provincias {   Referencias = "MOXICO OESTE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.MO, });
             provincia.Add(new Provincias {   Referencias = "CUBANGO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.CO, });
-            provincia.Add(new Provincias {   Referencias = "CUANDO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.CD, });
+            provincia.Add(new Provincias {   Referencias = "CUANDO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.COU, });
             provincia.Add(new Provincias {   Referencias = "LUNDA NORTE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.LN, });
             provincia.Add(new Provincias {   Referencias = "LUNDA SUL", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.LS, });
             provincia.Add(new Provincias {   Referencias = "CUANZA NORTE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.CN, });
             provincia.Add(new Provincias {   Referencias = "CUANZA SUL", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.CS, });
             provincia.Add(new Provincias {   Referencias = "BENGO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.BA, });
             provincia.Add(new Provincias {   Referencias = "ICOLE BENGO", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.IC, });
-            provincia.Add(new Provincias {   Referencias = "MALANJE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.MA, });
-            provincia.Add(new Provincias {   Referencias = "UIGE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.UI, });
-            provincia.Add(new Provincias {   Referencias = "ZAIRE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.ZA, });
-            provincia.Add(new Provincias {   Referencias = "NAMIBE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.NA,  });
+            provincia.Add(new Provincias {   Referencias = "MALANJE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.ME, });
+            provincia.Add(new Provincias {   Referencias = "UIGE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.UE, });
+            provincia.Add(new Provincias {   Referencias = "ZAIRE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.ZE, });
+            provincia.Add(new Provincias {   Referencias = "NAMIBE", Detalhes = null, ProvinciasCodigo = ProvinciasCodigo.NE,  });
             await DbConection.SaveAsync(provincia);
             #endregion
         }

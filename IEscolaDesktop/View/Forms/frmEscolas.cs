@@ -101,16 +101,6 @@ namespace IEscolaDesktop.View.Forms
         {
             DataOriginalList = await DataRepository.GetAllinclud();
             entidadeBindingSource.DataSource = DataOriginalList;
-
-            if (DataOriginalList.Count > 0)
-            {
-                btnPDF.Enabled = true;
-                btnXLS.Enabled = true;
-            }
-            else {           
-                btnPDF.Enabled = false;
-                btnXLS.Enabled = false;
-            }
         }
 
         #region Contexto Menu
@@ -159,7 +149,11 @@ namespace IEscolaDesktop.View.Forms
             else
                 XtraMessageBox.Show("Por favor selecione alguma informação na tela!...");
         }
-      
+
         #endregion
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

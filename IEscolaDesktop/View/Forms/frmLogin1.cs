@@ -48,8 +48,32 @@ namespace IEscolaDesktop.View.Forms
             UserRepository = new UsuariosRepository();
             UserRepository.DoGetCount<Usuarios>();
 
-            txtUsuarios.EditValue = "admin";
-            txtSenha.EditValue = "0000";
+            // Leitura Geral
+            var user = GlobalSettingManeger.Read(SettingsKey.Nome, SettingsSession.USERPROFILE);
+            var password = GlobalSettingManeger.Read(SettingsKey.Senha, SettingsSession.USERPROFILE);
+
+            if (string.IsNullOrWhiteSpace(user))
+                txtSavePassword.IsOn = false;
+            else
+            {
+                txtSavePassword.IsOn = true;
+                txtUsuarios.EditValue = user;
+                txtSenha.EditValue = password;
+            }
+        }
+
+        private void TxtSavePassword_Toggled()
+        {
+            if (txtSavePassword.IsOn)
+            {
+                GlobalSettingManeger.Write(SettingsKey.Nome, txtUsuarios.EditValue.ToString(), SettingsSession.USERPROFILE);
+                GlobalSettingManeger.Write(SettingsKey.Senha, txtSenha.EditValue.ToString(), SettingsSession.USERPROFILE);
+            }
+            else
+            {
+                GlobalSettingManeger.Write(SettingsKey.Nome, "", SettingsSession.USERPROFILE);
+                GlobalSettingManeger.Write(SettingsKey.Senha, "", SettingsSession.USERPROFILE);
+            }
         }
 
         private void PictureEdit1_Click(object sender, System.EventArgs e)
@@ -157,7 +181,6 @@ namespace IEscolaDesktop.View.Forms
         }
 
         // Login
-
         private async void WindowsUIButtonPanel1_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
             if (e is null)
@@ -215,6 +238,9 @@ namespace IEscolaDesktop.View.Forms
                             #region Opem Menu
                             // Entrar no menu
                             var frm = new frmMenu(result.Permission);
+
+                            // Save Password
+                            TxtSavePassword_Toggled();
 
                             this.Hide();
                             frm.ShowDialog();

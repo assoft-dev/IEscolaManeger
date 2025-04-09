@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEscolas));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEscolas));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnXLS = new DevExpress.XtraEditors.SimpleButton();
-            this.btnPDF = new DevExpress.XtraEditors.SimpleButton();
             this.txtPesquisar = new DevExpress.XtraEditors.ButtonEdit();
             this.btnNovo = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -95,13 +93,11 @@
             // tableLayoutPanel1
             // 
             this.tablePanel1.SetColumn(this.tableLayoutPanel1, 0);
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.Controls.Add(this.btnXLS, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnPDF, 2, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.txtPesquisar, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnNovo, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 19);
@@ -112,30 +108,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(974, 41);
             this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // btnXLS
-            // 
-            this.btnXLS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXLS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnXLS.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXLS.ImageOptions.SvgImage")));
-            this.btnXLS.Location = new System.Drawing.Point(934, 2);
-            this.btnXLS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnXLS.Name = "btnXLS";
-            this.btnXLS.Size = new System.Drawing.Size(37, 37);
-            this.btnXLS.TabIndex = 3;
-            this.btnXLS.Text = "XLS";
-            // 
-            // btnPDF
-            // 
-            this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPDF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPDF.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPDF.ImageOptions.SvgImage")));
-            this.btnPDF.Location = new System.Drawing.Point(891, 2);
-            this.btnPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPDF.Name = "btnPDF";
-            this.btnPDF.Size = new System.Drawing.Size(37, 37);
-            this.btnPDF.TabIndex = 2;
-            this.btnPDF.Text = "PDF";
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // txtPesquisar
             // 
@@ -148,7 +121,7 @@
             this.txtPesquisar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtPesquisar.Properties.NullValuePrompt = "Pesquise Aqui [Entidade]";
-            this.txtPesquisar.Size = new System.Drawing.Size(839, 37);
+            this.txtPesquisar.Size = new System.Drawing.Size(925, 37);
             this.txtPesquisar.TabIndex = 0;
             // 
             // btnNovo
@@ -156,7 +129,7 @@
             this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNovo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNovo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNovo.ImageOptions.SvgImage")));
-            this.btnNovo.Location = new System.Drawing.Point(848, 2);
+            this.btnNovo.Location = new System.Drawing.Point(934, 2);
             this.btnNovo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(37, 37);
@@ -401,8 +374,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnReportdatabase;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevExpress.XtraEditors.SimpleButton btnNovo;
-        private DevExpress.XtraEditors.SimpleButton btnXLS;
-        private DevExpress.XtraEditors.SimpleButton btnPDF;
         private System.Windows.Forms.BindingSource entidadeBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colEntidadeID;
         private DevExpress.XtraGrid.Columns.GridColumn colDescricao;

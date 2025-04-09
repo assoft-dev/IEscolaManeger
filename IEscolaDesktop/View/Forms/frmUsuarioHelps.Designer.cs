@@ -48,7 +48,7 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 43.59998F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 212.4005F)});
-            this.tablePanel1.Size = new System.Drawing.Size(364, 468);
+            this.tablePanel1.Size = new System.Drawing.Size(345, 450);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
             // 
@@ -63,7 +63,7 @@
             this.txtDescricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescricao.Name = "txtDescricao";
             this.tablePanel1.SetRow(this.txtDescricao, 1);
-            this.txtDescricao.Size = new System.Drawing.Size(336, 399);
+            this.txtDescricao.Size = new System.Drawing.Size(317, 381);
             this.txtDescricao.TabIndex = 1;
             this.txtDescricao.Text = "A ASINFORPREST\n\nÉ uma empresa especialista em desenvolvimento de softwares e outr" +
     "os serviços espericias";
@@ -82,7 +82,7 @@
             this.txtTitulos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTitulos.Name = "txtTitulos";
             this.tablePanel1.SetRow(this.txtTitulos, 0);
-            this.txtTitulos.Size = new System.Drawing.Size(336, 40);
+            this.txtTitulos.Size = new System.Drawing.Size(317, 40);
             this.txtTitulos.TabIndex = 0;
             this.txtTitulos.Text = "Termos e Condições";
             // 
@@ -96,7 +96,7 @@
             this.Controls.Add(this.tablePanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmUsuarioHelps";
-            this.Size = new System.Drawing.Size(364, 468);
+            this.Size = new System.Drawing.Size(345, 450);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.tablePanel1.PerformLayout();

@@ -433,5 +433,15 @@
                 }
             }
         }
+
+        private void accordionControl1_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void btnProfessorFormacao_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

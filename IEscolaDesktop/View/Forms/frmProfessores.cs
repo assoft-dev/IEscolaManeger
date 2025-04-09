@@ -212,5 +212,10 @@ namespace IEscolaDesktop.View.Forms
         }
 
         #endregion
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

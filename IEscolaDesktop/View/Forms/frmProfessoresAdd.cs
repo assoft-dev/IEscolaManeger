@@ -58,8 +58,6 @@ namespace IEscolaDesktop.View.Forms
 
             txtCategoria.EditValueChanged += delegate { ChangeValudations(txtCategoria); };
             txtAreaFormacao.EditValueChanged += delegate { ChangeValudations(txtAreaFormacao); };
-
-            txtEscolaridade.SelectionChanged += delegate { ChangeValudations(txtEscolaridade); };
             txtHabilitacoesLiterarias.TextChanged += delegate { ChangeValudations(txtHabilitacoesLiterarias); };
             txtProvinciasFormacao.TextChanged += delegate { ChangeValudations(txtProvinciasFormacao); };
             txtEscola.TextChanged += delegate { ChangeValudations(txtEscola); };
@@ -114,8 +112,6 @@ namespace IEscolaDesktop.View.Forms
 
                 txtImagemURL.Text = usuarios.ImagemURL;
                 pictureEdit1.Image = usuarios.Imagens;
-
-                txtEscolaridade.EditValue = usuarios.Escolaridade;
                 txtHabilitacoesLiterarias.EditValue = usuarios.abilitacoesLiterarias;
 
                 txtCodigo.EditValue = usuarios.ProfessoresID;
@@ -153,8 +149,6 @@ namespace IEscolaDesktop.View.Forms
 
             //Atribuicao de Parcelas de TextNULL 1-
             txtNacionalidade.Properties.NullText = nacionalidade;
-
-            txtEscolaridade.Properties.NullText = escolaridade;
             txtHabilitacoesLiterarias.Properties.NullText = habilitacoesliterarias;
 
             txtSexo.Properties.NullText = sexo;
@@ -254,7 +248,6 @@ namespace IEscolaDesktop.View.Forms
             txtProvinciasFormacao.Properties.DataSource = Enum.GetValues(typeof(ProvinciasLocal));
             txtSexo.Properties.DataSource = Enum.GetValues(typeof(Sexo));
             txtEstadoCivil.Properties.DataSource = Enum.GetValues(typeof(EstadoCivil));
-            txtEscolaridade.Properties.DataSource = Enum.GetValues(typeof(Escolaridade));
             txtTipoDocumentos.Properties.DataSource = Enum.GetValues(typeof(DocType));
             txtHabilitacoesLiterarias.Properties.DataSource = Enum.GetValues(typeof(AbilitacoesLiterarias));
             txtLocalEmissao.Properties.DataSource = Enum.GetValues(typeof(ProvinciasLocal));
@@ -373,7 +366,6 @@ namespace IEscolaDesktop.View.Forms
                     DocType = (DocType)txtTipoDocumentos.EditValue,
                     Documento = (string)txtDocumento.EditValue,
 
-                    Escolaridade = (Escolaridade) txtEscolaridade.EditValue,
                     abilitacoesLiterarias = (AbilitacoesLiterarias)txtHabilitacoesLiterarias.EditValue,
                     AreaEscola = (string)txtEscola.EditValue,
                     AreaDuracao = Convert.ToInt32(txtDuracao.EditValue, CultureInfo.CurrentCulture),
@@ -547,7 +539,6 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
@@ -575,8 +566,8 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                              !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
-                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                             !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias)
+                             && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -603,8 +594,8 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                                                 !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
-                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias)
+                            && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -632,7 +623,7 @@ namespace IEscolaDesktop.View.Forms
                                                    !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -660,7 +651,7 @@ namespace IEscolaDesktop.View.Forms
                                                      !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -688,7 +679,7 @@ namespace IEscolaDesktop.View.Forms
                                                        !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -716,8 +707,8 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                                                      !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
-                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias)
+                            && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
@@ -745,8 +736,8 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                        !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
-                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias)
+                            && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -773,8 +764,8 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                              !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
                             !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
-                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias)
+                            && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -801,38 +792,8 @@ namespace IEscolaDesktop.View.Forms
                              !string.IsNullOrWhiteSpace(txtenderco.Text) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
-                            !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
-
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
-                        else
-                            windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                    }
-                    else
-                        windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
-                }
-                #endregion
-
-                #region Escolaridade
-                else if (control.Name.Equals(txtEscolaridade.Name))
-                {
-                    if (!string.IsNullOrWhiteSpace(txtEscolaridade.Text))
-                    {
-                        if (!(string.IsNullOrWhiteSpace(txtNacionalidade.Text) || txtNacionalidade.Text == nacionalidade) &&
-                             !(string.IsNullOrWhiteSpace(txtSexo.Text) || txtSexo.Text == sexo) &&
-                             !(string.IsNullOrWhiteSpace(txtEstadoCivil.Text) || txtEstadoCivil.Text == estadocivil) &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciaMunicipio.Text) || txtProvinciaMunicipio.Text == municipioprovincia) &&
-                             !string.IsNullOrWhiteSpace(txtFirstName.Text) &&
-                             !string.IsNullOrWhiteSpace(txtLastName.Text) &&
-                             !string.IsNullOrWhiteSpace(txtBI.Text) &&
-                             !(string.IsNullOrWhiteSpace(txtProvinciasFormacao.Text) || txtProvinciasFormacao.Text == provinciaFormacao) &&
-                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
-                             !string.IsNullOrWhiteSpace(txtenderco.Text) &&
-                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
-                             !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
-                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
-                             !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao)
+                            && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
@@ -860,8 +821,8 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                                                     !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
-                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
+                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias)
+      )
 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
@@ -889,9 +850,8 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao) &&
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
-                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) && !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
-
+                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias))
+                        
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -919,7 +879,6 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
                             !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) &&
                              !(string.IsNullOrWhiteSpace(txtTipoDocumentos.Text) || txtTipoDocumentos.Text == tipodoc))
 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -949,7 +908,6 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                              !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
                              !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                             !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao))
 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -980,7 +938,6 @@ namespace IEscolaDesktop.View.Forms
                              !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                              !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
                              !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                             !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) &&
                              !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao))
 
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
@@ -1007,8 +964,8 @@ namespace IEscolaDesktop.View.Forms
                             !string.IsNullOrWhiteSpace(txtResidencia.Text) &&
                             !(string.IsNullOrWhiteSpace(txtCategoria.Text) || txtCategoria.Text == categoria) &&
                             !(string.IsNullOrWhiteSpace(txtAreaFormacao.Text) || txtAreaFormacao.Text == areaformacao) &&
-                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias) &&
-                            !(string.IsNullOrWhiteSpace(txtEscolaridade.Text) || txtAreaFormacao.Text == areaformacao) &&
+                            !(string.IsNullOrWhiteSpace(txtHabilitacoesLiterarias.Text) || txtHabilitacoesLiterarias.Text == habilitacoesliterarias)
+                            &&
                             !(string.IsNullOrWhiteSpace(txtLocalEmissao.Text) || txtLocalEmissao.Text == localemissao))
 
                         windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;

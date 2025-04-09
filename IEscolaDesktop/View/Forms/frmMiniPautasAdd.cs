@@ -19,9 +19,6 @@ namespace IEscolaDesktop.View.Forms
 
         IEstudantes InscricoesRepository;
 
-        ITransationRepository TransationRepository;
-
-        bool IsValidate = false;
 
         public frmMiniPautasAdd(MiniPautas usuarios = null)
         {
@@ -35,8 +32,6 @@ namespace IEscolaDesktop.View.Forms
             professoresDisciplinasRepository = new ProfessoresDisciplinasRepository();
             TurmasRepository = new TurmasRepository();
             InscricoesRepository = new EstudantesRepository();
-            TransationRepository = new TransationRepository();
-
             //txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
 
             txtTurma.TextChanged += delegate { ChangeValudations(txtTurma); };
@@ -283,7 +278,7 @@ namespace IEscolaDesktop.View.Forms
             //}
         }
 
-        private string turma = "[Selecione a provincia por favor]";
+        private string turma = "[Selecione a Turma por favor]";
         private string disciplina = "[Selecione a Disciplina por favor]";
 
         private void ChangeValudations(Control control)

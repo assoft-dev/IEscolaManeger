@@ -81,7 +81,6 @@ namespace IEscolaDesktop.View.Forms
                             return;
                         }
                     }
-                   
                 }
                 else {
                     Mensagens.Display("Falta de informação na Tabela",

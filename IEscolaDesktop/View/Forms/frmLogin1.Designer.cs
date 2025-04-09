@@ -43,6 +43,8 @@
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.txtSavePassword = new DevExpress.XtraEditors.ToggleSwitch();
             this.btnPasswordReset = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.txtUsuarios = new DevExpress.XtraEditors.ButtonEdit();
@@ -58,6 +60,9 @@
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).BeginInit();
             this.tablePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSavePassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuarios.Properties)).BeginInit();
@@ -95,7 +100,7 @@
             this.tablePanel1.SetColumn(this.tablePanel2, 0);
             this.tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F)});
-            this.tablePanel2.Controls.Add(this.btnPasswordReset);
+            this.tablePanel2.Controls.Add(this.panelControl3);
             this.tablePanel2.Controls.Add(this.panelControl2);
             this.tablePanel2.Controls.Add(this.panelControl1);
             this.tablePanel2.Controls.Add(this.labelControl1);
@@ -116,14 +121,33 @@
             this.tablePanel2.TabIndex = 12;
             this.tablePanel2.UseSkinIndents = true;
             // 
+            // panelControl3
+            // 
+            this.tablePanel2.SetColumn(this.panelControl3, 0);
+            this.panelControl3.Controls.Add(this.txtSavePassword);
+            this.panelControl3.Controls.Add(this.btnPasswordReset);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(13, 241);
+            this.panelControl3.Name = "panelControl3";
+            this.tablePanel2.SetRow(this.panelControl3, 5);
+            this.panelControl3.Size = new System.Drawing.Size(310, 49);
+            this.panelControl3.TabIndex = 14;
+            // 
+            // txtSavePassword
+            // 
+            this.txtSavePassword.Location = new System.Drawing.Point(181, 13);
+            this.txtSavePassword.Name = "txtSavePassword";
+            this.txtSavePassword.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.txtSavePassword.Properties.OffText = "Não Guardar";
+            this.txtSavePassword.Properties.OnText = "Guardada";
+            this.txtSavePassword.Size = new System.Drawing.Size(128, 24);
+            this.txtSavePassword.TabIndex = 9;
+            // 
             // btnPasswordReset
             // 
-            this.tablePanel2.SetColumn(this.btnPasswordReset, 0);
-            this.btnPasswordReset.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPasswordReset.Location = new System.Drawing.Point(13, 241);
+            this.btnPasswordReset.Location = new System.Drawing.Point(14, 18);
             this.btnPasswordReset.Name = "btnPasswordReset";
-            this.tablePanel2.SetRow(this.btnPasswordReset, 5);
-            this.btnPasswordReset.Size = new System.Drawing.Size(310, 49);
+            this.btnPasswordReset.Size = new System.Drawing.Size(112, 13);
             this.btnPasswordReset.TabIndex = 13;
             this.btnPasswordReset.Text = " Esqueci minha Senha";
             // 
@@ -301,6 +325,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel2)).EndInit();
             this.tablePanel2.ResumeLayout(false);
             this.tablePanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSavePassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtUsuarios.Properties)).EndInit();
@@ -329,5 +357,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.HyperlinkLabelControl btnPasswordReset;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.ToggleSwitch txtSavePassword;
     }
 }
