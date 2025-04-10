@@ -1,17 +1,24 @@
 ﻿namespace IEscolaDesktop.View.Forms
 {
     using DevExpress.LookAndFeel;
+    using DevExpress.XtraBars.Alerter;
     using DevExpress.XtraEditors;
     using IEscolaDesktop.View.Helps;
+    using IEscolaEntity.Controllers.Interfaces;
+    using IEscolaEntity.Controllers.Repository;
     using IEscolaEntity.Models;
     using System.Windows.Forms;
 
     public partial class frmMenu : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        public frmMenu(Permissoes permission)
+
+        INotificacoes notificacoes;  
+
+        public frmMenu(Permissoes permission, int usuarios)
         {
             InitializeComponent();
 
+            notificacoes= new NotificacoesRepository();
 
             //Metodos
             this.FormClosing += FrmMenu_FormClosing;
@@ -76,6 +83,16 @@
             ActivarBotoes(permission);
 
             this.Load += FrmMenu_Load;
+
+            //  verificação de notificações
+            var t = string.IsNullOrWhiteSpace(notificacoes.Alert(usuarios);
+            if (!t)
+            {
+                using (var alert = new AlertControl())
+                {
+                    alert.Show(t,this);
+                }
+            }     
         }
 
         private void FrmMenu_Load(object sender, System.EventArgs e)
@@ -96,6 +113,8 @@
                     btnTema.Checked = true;
                 }
             }
+
+           
         }
 
         private void BtnTema_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

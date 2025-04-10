@@ -237,7 +237,7 @@ namespace IEscolaDesktop.View.Forms
 
                             #region Opem Menu
                             // Entrar no menu
-                            var frm = new frmMenu(result.Permission);
+                            var frm = new frmMenu(result.Permission, result.UsuariosID);
 
                             // Save Password
                             TxtSavePassword_Toggled();

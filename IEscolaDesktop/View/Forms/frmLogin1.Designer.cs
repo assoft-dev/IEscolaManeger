@@ -140,7 +140,7 @@
             this.txtSavePassword.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtSavePassword.Properties.OffText = "Não Guardar";
             this.txtSavePassword.Properties.OnText = "Guardada";
-            this.txtSavePassword.Size = new System.Drawing.Size(128, 24);
+            this.txtSavePassword.Size = new System.Drawing.Size(123, 24);
             this.txtSavePassword.TabIndex = 9;
             // 
             // btnPasswordReset

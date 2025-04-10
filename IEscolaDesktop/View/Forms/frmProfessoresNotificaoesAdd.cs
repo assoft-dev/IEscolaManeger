@@ -45,6 +45,7 @@ namespace IEscolaDesktop.View.Forms
                 txtHoras.EditValue = usuarios.Hora;
                 txtCaracter.EditValue = usuarios.Catater;
                 txtDuracao.EditValue = usuarios.Duracao;
+                txtDescricao.EditValue = usuarios.Descricao;
                 txtProfessor.EditValue = usuarios.ProfessoresID;
                 txtCodigo.EditValue = usuarios.NotificacoesID;
 
@@ -143,7 +144,7 @@ namespace IEscolaDesktop.View.Forms
                 var data = new Notificacoes
                 { 
                     NotificacoesID = ID,
-                    Descricao = txtDuracao.Text.Trim(),
+                    Descricao = txtDescricao.Text.Trim(),
                     Duracao = (int) txtDuracao.Value,
                     ProfessoresID = (int) txtProfessor.EditValue,
                     Data = txtData.DateTime,

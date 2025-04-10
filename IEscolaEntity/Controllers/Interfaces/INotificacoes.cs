@@ -4,6 +4,6 @@ namespace IEscolaEntity.Controllers.Interfaces
 {
     public interface INotificacoes: IGeneric<Notificacoes>, ITransationRepository
     {
-
+        string Alert(int i);
     }
 }
