@@ -26,11 +26,10 @@ namespace IEscolaDesktop.View.Forms
             txtCodigo.EditValueChanged += delegate { ChangeValidationCodigo(); };
 
 
-            txtMeses.EditValueChanged += delegate { GetMes((int) txtMeses.EditValue, txtAno.EditValue); ChangeValudations(txtMeses); };
-            //txtInicio.EditValueChanged += delegate { ChangeValudations(txtInicio); };
-            //txtTermina.EditValueChanged += delegate { ChangeValudations(txtTermina); };
+            txtAno.EditValueChanged += TxtAno_EditValueChanged;
+            txtMeses.EditValueChanged += TxtMeses_EditValueChanged;
+                  
             txtExcedente.EditValueChanged += delegate { ChangeValudations(txtExcedente); };
-            txtAno.EditValueChanged += delegate { GetMes((int)txtMeses.EditValue, txtAno.EditValue); ChangeValudations(txtAno); };
             txtValor.EditValueChanged += delegate { ChangeValudations(txtValor); };
             
             windowsUIButtonPanel1.ButtonClick += WindowsUIButtonPanel1_ButtonClick;
@@ -65,9 +64,25 @@ namespace IEscolaDesktop.View.Forms
             txtTermina.Value = DateTime.Now.EndOfMonth().Day;
         }
 
-        private void GetMes(int Mes, object Anos)
+        private void TxtAno_EditValueChanged(object sender, EventArgs e)
         {
-            var data = new DateTime(AnosBuscar.GetAno(Anos), Mes, 1);
+            if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == mes))
+                GetMes((Meses)txtMeses.EditValue, (Anos)txtAno.EditValue);
+
+            ChangeValudations(txtAno);
+        }
+
+        private void TxtMeses_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!(string.IsNullOrWhiteSpace(txtAno.Text) || txtAno.Text == anos))
+                GetMes((Meses)txtMeses.EditValue, (Anos)txtAno.EditValue);
+
+            ChangeValudations(txtMeses);
+        }
+
+        private void GetMes(Meses Mes, Anos Anos)
+        {
+            var data = new DateTime(AnosBuscar.GetAno(Anos), MesesBuscar.Get(Mes), 1);
 
             txtInicio.Value = data.StartOfMonth().Day;
             txtTermina.Value = data.EndOfMonth().Day;
@@ -133,7 +148,7 @@ namespace IEscolaDesktop.View.Forms
             if (!await ValidationDatabase())
             {
 
-                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int) txtCodigo.EditValue;
+                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text)  ? 0 : (int) txtCodigo.EditValue;
 
                 // save Data
                 var data = new PropinasConfig
@@ -241,7 +256,7 @@ namespace IEscolaDesktop.View.Forms
                     if (!string.IsNullOrWhiteSpace(txtMeses.Text))
                     {
                         if (!(string.IsNullOrWhiteSpace(txtValor.Text) || txtValor.Value == 0) &&
-                             (string.IsNullOrWhiteSpace(txtAno.Text) || txtAno.Text == anos))
+                            !(string.IsNullOrWhiteSpace(txtAno.Text) || txtAno.Text == anos))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -256,7 +271,7 @@ namespace IEscolaDesktop.View.Forms
                     if (!string.IsNullOrWhiteSpace(txtValor.Text))
                     {
                         if (!(string.IsNullOrWhiteSpace(txtMeses.Text) || txtMeses.Text == mes) &&
-                            (string.IsNullOrWhiteSpace(txtAno.Text) || txtAno.Text == anos))
+                            !(string.IsNullOrWhiteSpace(txtAno.Text) || txtAno.Text == anos))
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = true;
                         else
                             windowsUIButtonPanel1.Buttons[1].Properties.Enabled = false;
@@ -302,7 +317,7 @@ namespace IEscolaDesktop.View.Forms
             }
             if (keyData == Keys.F2)
             {
-                if (windowsUIButtonPanel1.Enabled == true)
+                if (windowsUIButtonPanel1.Buttons[1].Properties.Enabled )
                     WindowsUIButtonPanel1_ButtonClick(null, null);
                 bool res = base.ProcessCmdKey(ref msg, keyData);
                 return res;

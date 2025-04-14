@@ -255,14 +255,14 @@ namespace IEscolaDesktop.View.Forms
             }
             if (keyData == Keys.F2)
             {
-                if (windowsUIButtonPanel1.Buttons[0].Properties.Enabled == true)
+                if (windowsUIButtonPanel1.Buttons[0].Properties.Enabled )
                     WindowsUIButtonPanel1_ButtonClick(null, null);
                 bool res = base.ProcessCmdKey(ref msg, keyData);
                 return res;
             }
             if (keyData == Keys.Enter)
             {
-                if (windowsUIButtonPanel1.Buttons[0].Properties.Enabled == true)
+                if (windowsUIButtonPanel1.Buttons[0].Properties.Enabled )
                     WindowsUIButtonPanel1_ButtonClick(null, null);
                 bool res = base.ProcessCmdKey(ref msg, keyData);
                 return res;

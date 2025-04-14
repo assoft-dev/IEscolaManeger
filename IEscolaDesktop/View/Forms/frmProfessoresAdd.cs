@@ -331,8 +331,8 @@ namespace IEscolaDesktop.View.Forms
         {
             if (!await ValidationDatabase())
             {
-                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int) txtCodigo.EditValue;
-                var codigo = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? await DataRepository.GetQR() : txtCodigoUnico.Text;
+                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text)  ? 0 : (int) txtCodigo.EditValue;
+                var codigo = string.IsNullOrWhiteSpace(txtCodigo.Text)  ? await DataRepository.GetQR() : txtCodigoUnico.Text;
 
                 //Gerir Imagens
                 var imagens = GuardarImagem();
@@ -513,7 +513,7 @@ namespace IEscolaDesktop.View.Forms
         private string municipioprovincia = "[Selecione a Provincia/Municipio por favor]";
         private string categoria = "[Selecione a categorias por favor]";
         private string areaformacao = "[Selecione a sua Area de Formação por favor]";           
-        private string escolaridade = "[Selecione o nivel de escolaridade por favor]";
+        // private string escolaridade = "[Selecione o nivel de escolaridade por favor]";
         private string habilitacoesliterarias = "[Selecione sua Habilitações lit. por favor]";
         private string provinciaFormacao = "[Selecione a provincia em que se fez a formação por favor]";
 
@@ -1015,7 +1015,7 @@ namespace IEscolaDesktop.View.Forms
             }
             if (keyData == Keys.F2)
             {
-                if (windowsUIButtonPanel1.Enabled == true)
+                if (windowsUIButtonPanel1.Buttons[1].Properties.Enabled )
                     WindowsUIButtonPanel1_ButtonClick(null, null);
                 bool res = base.ProcessCmdKey(ref msg, keyData);
                 return res;

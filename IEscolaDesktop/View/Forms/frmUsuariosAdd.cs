@@ -139,7 +139,7 @@
         {
             if (!await ValidationDatabase())
             {
-                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text) == true ? 0 : (int)txtCodigo.EditValue;
+                var ID = string.IsNullOrWhiteSpace(txtCodigo.Text)  ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
                 Usuarios data = new Usuarios();
@@ -452,7 +452,7 @@
             }
             if (keyData == Keys.F2)
             {
-                if (windowsUIButtonPanel1.Enabled == true)
+                if (windowsUIButtonPanel1.Buttons[1].Properties.Enabled )
                     WindowsUIButtonPanel1_ButtonClick(null, null);
                 bool res = base.ProcessCmdKey(ref msg, keyData);
                 return res;

@@ -360,7 +360,7 @@ namespace IEscolaDesktop.View.Forms
             }
             if (keyData == Keys.F2)
             {
-                if (windowsUIButtonPanel1.Enabled == true)
+                if (windowsUIButtonPanel1.Buttons[1].Properties.Enabled )
                     WindowsUIButtonPanel1_ButtonClick(null, null);
                 bool res = base.ProcessCmdKey(ref msg, keyData);
                 return res;

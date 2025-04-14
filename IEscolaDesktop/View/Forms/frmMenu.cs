@@ -85,7 +85,7 @@
             this.Load += FrmMenu_Load;
 
             //  verificação de notificações
-            var t = string.IsNullOrWhiteSpace(notificacoes.Alert(usuarios);
+            var t = string.IsNullOrWhiteSpace(notificacoes.Alert(usuarios));
             if (!t)
             {
                 using (var alert = new AlertControl())
@@ -113,8 +113,6 @@
                     btnTema.Checked = true;
                 }
             }
-
-           
         }
 
         private void BtnTema_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -451,16 +449,6 @@
                     item.Show();
                 }
             }
-        }
-
-        private void accordionControl1_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void btnProfessorFormacao_Click(object sender, System.EventArgs e)
-        {
-
         }
     }
 }

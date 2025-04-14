@@ -151,7 +151,6 @@
             this.accordionControl1.Size = new System.Drawing.Size(211, 910);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
-            this.accordionControl1.Click += new System.EventHandler(this.accordionControl1_Click);
             // 
             // accordionControlElement2
             // 
@@ -303,7 +302,6 @@
             this.btnProfessorFormacao.Name = "btnProfessorFormacao";
             this.btnProfessorFormacao.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnProfessorFormacao.Text = "Professor / Formação";
-            this.btnProfessorFormacao.Click += new System.EventHandler(this.btnProfessorFormacao_Click);
             // 
             // btnProfessorCategoria
             // 
