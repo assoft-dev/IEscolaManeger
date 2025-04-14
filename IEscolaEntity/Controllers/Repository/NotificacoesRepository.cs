@@ -1,5 +1,6 @@
 ﻿using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Models;
+using ServiceStack;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.Legacy;
 using System;
@@ -17,10 +18,14 @@ namespace IEscolaEntity.Controllers.Repository
             {
                 var datatrabalhada = DateTime.Now.AddDays(validNotifi.Duracao);
 
-                var datas = DbConection.Single<Notificacoes>(x => x.Data.Date > datatrabalhada.Date &&
-                                                                  x.Data.Date < datatrabalhada.Date);
+                var result = DbConection.Select<Notificacoes>(x => x.Data > datatrabalhada.Date &&
+                                                                  x.Data < datatrabalhada.Date).FirstNonDefault();
 
-                return datas.Descricao;
+                if (result != null) { 
+                
+                    return result.Descricao.ToString();
+                }
+                return null;
             }
 
             return null;

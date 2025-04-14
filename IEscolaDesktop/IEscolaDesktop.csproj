@@ -931,6 +931,9 @@
     <EmbeddedResource Include="View\ReportForms\rptTurmas.resx">
       <DependentUpon>rptTurmas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportForms\rptUsuarioLogs.resx">
+      <DependentUpon>rptUsuarioLogs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ReportForms\rptUsuarios.resx">
       <DependentUpon>rptUsuarios.cs</DependentUpon>
     </EmbeddedResource>

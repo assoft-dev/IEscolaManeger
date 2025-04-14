@@ -123,6 +123,7 @@
             // 
             // panelControl3
             // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tablePanel2.SetColumn(this.panelControl3, 0);
             this.panelControl3.Controls.Add(this.txtSavePassword);
             this.panelControl3.Controls.Add(this.btnPasswordReset);
@@ -135,7 +136,7 @@
             // 
             // txtSavePassword
             // 
-            this.txtSavePassword.Location = new System.Drawing.Point(181, 13);
+            this.txtSavePassword.Location = new System.Drawing.Point(182, 13);
             this.txtSavePassword.Name = "txtSavePassword";
             this.txtSavePassword.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtSavePassword.Properties.OffText = "Não Guardar";
@@ -145,7 +146,7 @@
             // 
             // btnPasswordReset
             // 
-            this.btnPasswordReset.Location = new System.Drawing.Point(14, 18);
+            this.btnPasswordReset.Location = new System.Drawing.Point(0, 18);
             this.btnPasswordReset.Name = "btnPasswordReset";
             this.btnPasswordReset.Size = new System.Drawing.Size(112, 13);
             this.btnPasswordReset.TabIndex = 13;
