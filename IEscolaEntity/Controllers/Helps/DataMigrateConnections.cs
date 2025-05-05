@@ -116,7 +116,7 @@ namespace IEscolaEntity.Controllers.Helps
                     Delete = true,
                     Estudantes = true,
                     Periodos = true,
-                    Grupos = true,
+                    Grupo = true,
                     Logs = true,
                     Permissions = true,
                     Turmas = true,
@@ -159,7 +159,7 @@ namespace IEscolaEntity.Controllers.Helps
                 r.Descricao = "Default";
 
                 if (permissoesID == 0)
-                    r.PermissionID = permissions.FirstOrDefault().PermissoeID;
+                    r.PermissionID = permissions.FirstOrDefault().PermissionID;
                 else
                     r.PermissionID = (int)permissoesID;
 

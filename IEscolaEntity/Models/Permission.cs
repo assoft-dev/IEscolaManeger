@@ -6,7 +6,7 @@ namespace IEscolaEntity.Models
     public class Permissoes
     {
         [AutoIncrement]
-        public int PermissoeID { get; set; }
+        public int PermissionID { get; set; }
 
         // Permissions Geral
         public bool List { get; set; }
@@ -17,7 +17,7 @@ namespace IEscolaEntity.Models
 
         public bool Classes { get; set; }
         public bool Estudantes { get; set; }
-        public bool Grupos { get; set; }
+        public bool Grupo { get; set; }
         public bool Logs { get; set; }
         public bool Periodos { get; set; }
         public bool Permissions { get; set; }
@@ -34,6 +34,7 @@ namespace IEscolaEntity.Models
         public bool Categorias { get; set; }
         public bool Autores { get; set; }
         public bool Livros { get; set; }
+
         public bool PedidosConsultas { get; set; }
         public bool PedidosAquisicao { get; set; }
         public bool EstudantesInscricao { get; set; }
@@ -63,6 +64,6 @@ namespace IEscolaEntity.Models
         public bool EscolaConvenio { get; set; }
 
 
-        [Reference] public List<Grupos> grupos { get; set; }
+        [Reference] public List<Grupos> Grupos { get; set; }
     }
 }

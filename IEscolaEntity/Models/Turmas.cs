@@ -6,16 +6,14 @@ namespace IEscolaEntity.Models
 {
     public class Turmas
     {
-
         [AutoIncrement]
         public int TurmaID { get; set; }
 
         [Required]
         public string Descricao { get; set; }
 
-
         [Ignore]
-        public string Detalhes { 
+        public string Detalhes {
             get 
             {
                 var deta =new StringBuilder();

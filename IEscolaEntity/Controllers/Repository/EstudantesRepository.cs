@@ -73,7 +73,7 @@ namespace IEscolaEntity.Controllers.Repository
             result.ForEach(async x =>
             {
                 x.Turmas.Cursos = curso.Find(y => y.CursosID == x.Turmas.CursosID);
-                x.Turmas.Classes = classe.Find(y => y.ClasseID == x.Turmas.ClassesID);
+                x.Turmas.Classes = classe.Find(y => y.ClassesID == x.Turmas.ClassesID);
                 x.Turmas.Periodos = periodo.Find(y => y.PeriodosID == x.Turmas.PeriodosID);
                 x.Turmas.Salas = sala.Find(y => y.SalasID == x.Turmas.SalasID);
 

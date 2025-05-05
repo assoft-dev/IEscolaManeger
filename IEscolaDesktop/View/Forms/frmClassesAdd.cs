@@ -35,7 +35,7 @@ namespace IEscolaDesktop.View.Forms
                 txtTitulo.Text = "[Edição]";
 
                 txtDescricao.EditValue = usuarios.Descricao;
-                txtCodigo.EditValue = usuarios.ClasseID;
+                txtCodigo.EditValue = usuarios.ClassesID;
                 txtDescricao.Focus();
             }
             else {
@@ -79,7 +79,7 @@ namespace IEscolaDesktop.View.Forms
                 if (msg == DialogResult.Yes)
                 {
                     var data = int.Parse(txtCodigo.Text);
-                    var apagar = await DataRepository.Excluir(x => x.ClasseID == data);
+                    var apagar = await DataRepository.Excluir(x => x.ClassesID == data);
 
                     if (apagar)
                     {
@@ -104,11 +104,11 @@ namespace IEscolaDesktop.View.Forms
                 // save Data
                 var data = new Classes
                 {
-                    ClasseID = ID,
+                    ClassesID = ID,
                     Descricao = txtDescricao.Text.Trim(),
                 };
 
-                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.ClasseID == ID) > 0 :
+                IsValidate = ID != 0 ? await DataRepository.Guardar(data, X => X.ClassesID == ID) > 0 :
                                         await DataRepository.Guardar(data, true);
 
                 if (IsValidate)
@@ -131,7 +131,7 @@ namespace IEscolaDesktop.View.Forms
             {
                 if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
                 {
-                    if (dataResult.ClasseID != Convert.ToInt32(txtCodigo.Text))
+                    if (dataResult.ClassesID != Convert.ToInt32(txtCodigo.Text))
                     {
                         Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
                                      MessageBoxButtons.OK,

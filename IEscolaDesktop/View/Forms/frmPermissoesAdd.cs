@@ -42,7 +42,7 @@ namespace IEscolaDesktop.View.Forms
 
                 // Sistema
                 cbUsuarios.Checked = permissoes.Usuarios;
-                cbGrupos.Checked = permissoes.Grupos;
+                cbGrupos.Checked = permissoes.Grupo;
                 cbPermissoes.Checked = permissoes.Permissions;
                 cbLogs.Checked = permissoes.Logs;
 
@@ -138,7 +138,7 @@ namespace IEscolaDesktop.View.Forms
                 if (msg == DialogResult.Yes)
                 {
                     var data = int.Parse(txtCodigo.Text);
-                    var apagar = await permissionRepository.Excluir(x => x.PermissoeID == data);
+                    var apagar = await permissionRepository.Excluir(x => x.PermissionID == data);
 
                     if (apagar)
                     {
@@ -159,7 +159,7 @@ namespace IEscolaDesktop.View.Forms
             // save Data
             var data = new Permissoes
             {
-                PermissoeID = ID,
+                PermissionID = ID,
 
                 //Geral
                 List = (bool)cbList.Checked,
@@ -169,7 +169,7 @@ namespace IEscolaDesktop.View.Forms
 
                 // Sistema
                 Usuarios = (bool)cbUsuarios.Checked,
-                Grupos = (bool)cbGrupos.Checked,
+                Grupo = (bool)cbGrupos.Checked,
                 Permissions = (bool)cbPermissoes.Checked,
                 Logs = (bool)cbLogs.Checked,
 
@@ -216,7 +216,7 @@ namespace IEscolaDesktop.View.Forms
                 EscolaConvenio = txtEscolaConvenio.Checked,
             };
 
-            IsValidate = ID != 0 ? await permissionRepository.Guardar(data, X => X.PermissoeID == ID) > 0 :
+            IsValidate = ID != 0 ? await permissionRepository.Guardar(data, X => X.PermissionID == ID) > 0 :
                                        await permissionRepository.Guardar(data, true);
 
             if (IsValidate)

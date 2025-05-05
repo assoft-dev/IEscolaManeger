@@ -10,7 +10,7 @@ namespace IEscolaEntity.Models
     public class Classes
     {
         [AutoIncrement]
-        public int ClasseID { get; set; }
+        public int ClassesID { get; set; }
 
         [Required]
         public string Descricao { get; set; }

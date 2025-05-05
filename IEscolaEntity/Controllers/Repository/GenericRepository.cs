@@ -30,7 +30,6 @@ namespace IEscolaEntity.Controllers.Repository
         #endregion
 
         #region Apagar os dados
-
         public async Task<bool> Excluir(T filter)
         {
             return await DbConection.DeleteAsync<T>(filter) > 0;

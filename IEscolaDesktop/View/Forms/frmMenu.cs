@@ -388,7 +388,7 @@
         {
             // Usuarios
             btnUser.Enabled = permission.Usuarios;
-            btnGroup.Enabled = permission.Grupos;
+            btnGroup.Enabled = permission.Grupo;
             btnPermis.Enabled = permission.Permissions;
             btnUserLogs.Enabled = permission.Logs;
 

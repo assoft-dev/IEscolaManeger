@@ -23,7 +23,7 @@ namespace IEscolaEntity.Controllers.Repository
             result.ForEach( x =>
             {
                 x.CursoClasseDisciplina.Cursos = curso.Find(y => y.CursosID == x.CursoClasseDisciplina.CursosID);
-                x.CursoClasseDisciplina.Classes = Classe.Find(y => y.ClasseID == x.CursoClasseDisciplina.ClassesID);
+                x.CursoClasseDisciplina.Classes = Classe.Find(y => y.ClassesID == x.CursoClasseDisciplina.ClassesID);
                 x.CursoClasseDisciplina.Disciplinas = disciplina.Find(y => y.DisciplinasID == x.CursoClasseDisciplina.DisciplinasID);
             });
 
