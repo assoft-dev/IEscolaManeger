@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
-using DevExpress.XtraReports.Summary.Native;
 using IEscolaDesktop.View.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;

@@ -123,8 +123,6 @@ namespace IEscolaDesktop.View.Forms
 
         private async void Guardar()
         {
-
-
             if (!await ValidationDatabase())
             {
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text)  ? 0 : (int)txtCodigo.EditValue;
@@ -154,29 +152,35 @@ namespace IEscolaDesktop.View.Forms
             }      
         }
 
+
+
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => (x.FirstName == txtFIrstName.Text &&
-                                                            x.LastName == txtLastName.Text), null);
+            var dataResult = await DataRepository.Get(x => (x.FirstName.ToUpper() == txtFIrstName.Text.ToUpper() &&
+                                                            x.LastName.ToUpper() == txtLastName.Text.ToUpper()), null);
+
 
             if (dataResult != null)
             {
                 if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
                 {
                     if (dataResult.AutoresID != Convert.ToInt32(txtCodigo.Text))
-                    {
-                        Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Error);
-
-                        txtFIrstName.SelectAll();
-                        txtFIrstName.Focus();
-
-                        return true;
-                    } 
+                        return ResultValuesExiste();
                 }
+                else
+                    return ResultValuesExiste();
             }
             return false;
+        }
+
+        private bool ResultValuesExiste()
+        {
+            Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error);
+            txtFIrstName.SelectAll();
+            txtFIrstName.Focus();
+            return true;
         }
 
         private void Limpar()

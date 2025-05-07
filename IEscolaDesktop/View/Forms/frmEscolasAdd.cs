@@ -173,26 +173,29 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => x.Descricao == txtAssinaturaDr.Text, null);
+            var dataResult = await DataRepository.Get(x => x.Descricao.ToUpper() == txtAssinaturaDr.Text.ToUpper().Trim(), null);
 
             if (dataResult != null)
             {
                 if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
                 {
                     if (dataResult.ProvinciaMunicipioID != Convert.ToInt32(txtCodigo.Text))
-                    {
-                        Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Error);
-
-                        txtAssinaturaDr.SelectAll();
-                        txtAssinaturaDr.Focus();
-
-                        return true;
-                    } 
+                        return ResultValuesExiste();
                 }
+                else
+                    return ResultValuesExiste();
             }
             return false;
+        }
+
+        private bool ResultValuesExiste()
+        {
+            Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error);
+            txtAssinaturaDr.SelectAll();
+            txtAssinaturaDr.Focus();
+            return true;
         }
 
         private void Limpar()

@@ -206,7 +206,12 @@ namespace IEscolaDesktop.View.Forms
             else
                 XtraMessageBox.Show("Por favor selecione alguma informação na tela!...");
         }
-      
+
         #endregion
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

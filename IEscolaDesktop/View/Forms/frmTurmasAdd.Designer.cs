@@ -51,10 +51,10 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.txtCodigo = new DevExpress.XtraEditors.TextEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.txtIdade2 = new DevExpress.XtraEditors.SpinEdit();
             this.txtIdade1 = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.txtIdade2 = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
@@ -94,8 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdade1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdade2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdade1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPeriodo.Properties)).BeginInit();
@@ -288,7 +288,7 @@
             this.txtClasse.Properties.DropDownRows = 10;
             this.txtClasse.Properties.NullText = "[Selecione a Classe por favor]";
             this.txtClasse.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
-            this.txtClasse.Properties.ValueMember = "ClasseID";
+            this.txtClasse.Properties.ValueMember = "ClassesID";
             this.txtClasse.Size = new System.Drawing.Size(472, 48);
             this.txtClasse.TabIndex = 8;
             // 
@@ -385,6 +385,25 @@
             this.panelControl4.Size = new System.Drawing.Size(517, 57);
             this.panelControl4.TabIndex = 18;
             // 
+            // txtIdade2
+            // 
+            this.txtIdade2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtIdade2.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtIdade2.Location = new System.Drawing.Point(259, 0);
+            this.txtIdade2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdade2.Name = "txtIdade2";
+            this.txtIdade2.Properties.AutoHeight = false;
+            this.txtIdade2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtIdade2.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtIdade2.Properties.NullValuePrompt = "Codigo Interno";
+            this.txtIdade2.Size = new System.Drawing.Size(254, 53);
+            this.txtIdade2.TabIndex = 8;
+            // 
             // txtIdade1
             // 
             this.txtIdade1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -425,25 +444,6 @@
             this.labelControl6.Size = new System.Drawing.Size(93, 13);
             this.labelControl6.TabIndex = 16;
             this.labelControl6.Text = "Selecione a Classe";
-            // 
-            // txtIdade2
-            // 
-            this.txtIdade2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtIdade2.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtIdade2.Location = new System.Drawing.Point(259, 0);
-            this.txtIdade2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtIdade2.Name = "txtIdade2";
-            this.txtIdade2.Properties.AutoHeight = false;
-            this.txtIdade2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtIdade2.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.txtIdade2.Properties.NullValuePrompt = "Codigo Interno";
-            this.txtIdade2.Size = new System.Drawing.Size(254, 53);
-            this.txtIdade2.TabIndex = 8;
             // 
             // labelControl7
             // 
@@ -622,7 +622,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.19126F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.80874F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
             this.tableLayoutPanel1.Controls.Add(this.btnClose, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 17);
@@ -655,7 +655,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(258, 22);
+            this.panel1.Size = new System.Drawing.Size(257, 22);
             this.panel1.TabIndex = 1;
             // 
             // txtTitulo
@@ -727,8 +727,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdade1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdade2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdade1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtPeriodo.Properties)).EndInit();

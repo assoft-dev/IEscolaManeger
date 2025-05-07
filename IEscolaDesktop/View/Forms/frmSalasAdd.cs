@@ -1,11 +1,9 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
 using IEscolaDesktop.View.Helps;
-using IEscolaEntity.Controllers.Helps;
 using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
-using IEscolaEntity.Models.Helps;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -98,7 +96,6 @@ namespace IEscolaDesktop.View.Forms
         {
             if (!await ValidationDatabase())
             {
-
                 var ID = string.IsNullOrWhiteSpace(txtCodigo.Text)  ? 0 : (int)txtCodigo.EditValue;
 
                 // save Data
@@ -125,26 +122,29 @@ namespace IEscolaDesktop.View.Forms
 
         private async Task<bool> ValidationDatabase()
         {
-            var dataResult = await DataRepository.Get(x => x.Descricao == txtDescricao.Text, null);
+            var dataResult = await DataRepository.Get(x => x.Descricao.ToUpper() == txtDescricao.Text.ToUpper().Trim(), null);
 
             if (dataResult != null)
             {
                 if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
                 {
                     if (dataResult.SalasID != Convert.ToInt32(txtCodigo.Text))
-                    {
-                        Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Error);
-
-                        txtDescricao.SelectAll();
-                        txtDescricao.Focus();
-
-                        return true;
-                    } 
+                        return ResultValuesExiste();
                 }
+                else
+                    return ResultValuesExiste();
             }
             return false;
+        }
+
+        private bool ResultValuesExiste()
+        {
+            Mensagens.Display("Duplicação de Valores", "Já existe uma descrição na nossa base de Dados!",
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error);
+            txtDescricao.SelectAll();
+            txtDescricao.Focus();
+            return true;
         }
 
         private void Limpar()

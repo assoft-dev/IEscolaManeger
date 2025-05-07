@@ -1,6 +1,7 @@
 ﻿using ServiceStack.DataAnnotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using RequiredAttribute = ServiceStack.DataAnnotations.RequiredAttribute;
 
 namespace IEscolaEntity.Models
 {
@@ -9,7 +10,7 @@ namespace IEscolaEntity.Models
         [AutoIncrement]
         public int SalasID { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Required, Display(Name = "Nome da Sala")]
+        [Required, Display(Name = "Nome da Sala"), Unique]
         public string Descricao { get; set; }
 
         [Reference] public List<Turmas> Turmas { get; set; }
