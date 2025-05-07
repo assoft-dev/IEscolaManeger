@@ -7,18 +7,28 @@
     using IEscolaEntity.Controllers.Interfaces;
     using IEscolaEntity.Controllers.Repository;
     using IEscolaEntity.Models;
+    using IEscolaEntity.Models.ViewModels;
+    using System;
     using System.Windows.Forms;
 
     public partial class frmMenu : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
 
-        INotificacoes notificacoes;  
+        INotificacoes notificacoes;
+        Timer Time_;
 
-        public frmMenu(Permissoes permission, int usuarios)
+        public frmMenu(Permissoes permission, UsuariosViewModels usuarios)
         {
             InitializeComponent();
 
-            notificacoes= new NotificacoesRepository();
+            #region Time
+            Time_ = new Timer();
+            Time_.Enabled = true;
+            Time_.Start();
+            Time_.Tick += delegate { btnRelogio.Caption = $"{DateTime.Now:F}"; };
+            #endregion
+
+            notificacoes = new NotificacoesRepository();
 
             //Metodos
             this.FormClosing += FrmMenu_FormClosing;
@@ -85,14 +95,23 @@
             this.Load += FrmMenu_Load;
 
             //  verificação de notificações
-            var t = string.IsNullOrWhiteSpace(notificacoes.Alert(usuarios));
+            var t = string.IsNullOrWhiteSpace(notificacoes.Alert(usuarios.UsuariosID));
+            txtUsuario.Caption = usuarios.FullName;
+            txtUsuario.ItemClick += TxtUsuario_ItemClick;
+
             if (!t)
             {
                 using (var alert = new AlertControl())
                 {
                     alert.Show(t,this);
                 }
-            }     
+            }
+        }
+
+        private void TxtUsuario_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //Chamar o perfil
+
         }
 
         private void FrmMenu_Load(object sender, System.EventArgs e)

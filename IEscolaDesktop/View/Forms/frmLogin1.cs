@@ -5,6 +5,7 @@ using IEscolaEntity.Controllers.Interfaces;
 using IEscolaEntity.Controllers.Repository;
 using IEscolaEntity.Models;
 using IEscolaEntity.Models.Helps;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,6 +23,8 @@ namespace IEscolaDesktop.View.Forms
         public frmLogin1()
         {
             InitializeComponent();
+
+
 
             //btnPasswordReset.Visible = false;
             windowsUIButtonPanel1.Buttons[0].Properties.Enabled = false;
@@ -237,7 +240,7 @@ namespace IEscolaDesktop.View.Forms
 
                             #region Opem Menu
                             // Entrar no menu
-                            var frm = new frmMenu(result.Permission, result.UsuariosID);
+                            var frm = new frmMenu(result.Permission, result);
 
                             // Save Password
                             TxtSavePassword_Toggled();
